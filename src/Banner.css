@@ -1,0 +1,34 @@
+.notification-banner {
+    background-color: #fce45c;
+    padding: .3em 0;
+}
+
+.container {
+    width: 92%;
+    margin: 0 auto;
+}
+
+.row {
+    position: relative;
+}
+
+.notification-banner .notice {
+    margin: .3em 0;
+}
+
+.notification-banner .notice .title {
+    background-color: #fff;
+    text-transform: uppercase;
+    padding: 0 .4em;
+    margin-right: 1em;
+}
+
+strong {
+    font-weight: 700;
+}
+
+@media only screen and (min-width: 1280px) {
+    .container {
+        width: 1240px;
+    }
+}

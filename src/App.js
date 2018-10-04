@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-class App extends Component {
+import './Banner.css';
+
+class Banner extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="notification-banner">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="notice">
+                <strong className="title">NEW HOMEPAGE</strong>
+                Tell us what you think of our new homepage – <a href="http://www.smartsurvey.co.uk/s/1HWN6/">take our
+                survey now</a>.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+export default Banner;
