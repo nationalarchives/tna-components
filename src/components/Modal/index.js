@@ -3,14 +3,47 @@ import React, { Component } from 'react';
 import './Modal.css';
 
 class Model extends Component {
+  state = { isOpen: false };
+
+  closeModal = (e) => {
+    let modal = document.getElementById('tnaModal');
+    e.preventDefault();
+    if ( e.target.classList.contains("close") ) {
+      modal.style.display = 'none';
+    }
+  }
+
+  outsideClick = (e) => {
+    let modal = document.getElementById('tnaModal');
+    if(e.target === modal || e.key === "Escape"){
+      modal.style.display = 'none';
+    }
+  }
+
+  checkLink = () => {
+    let modal = document.getElementById('tnaModal');
+    modal.style.display = 'none';
+  }
+
+  escFunction(event){
+    if(event.keyCode === 27) {
+      let modal = document.getElementById('tnaModal');
+      modal.style.display = 'none';
+    }
+  }
+
+  componentDidMount(){
+    document.addEventListener("keydown", this.escFunction, false);
+  }
+
   render(){
     const addClass = new AddClass();
     addClass.addClass();
     return (
-      <div id="simpleModal" className="modal">
+      <div id="tnaModal" className="modal" onClick={this.outsideClick}>
         <div className="modal-content">
           <div className="modal-header">
-            <span className="closeBtn">&times;</span>
+            <span className="closeBtn close" onClick={this.closeModal}>&times;</span>
             <h2>Modal Header</h2>
           </div>
           <div className="modal-body">
@@ -19,7 +52,10 @@ class Model extends Component {
               nemo commodi ab.</p>
           </div>
           <div className="modal-footer">
-            <h3>Modal Footer</h3>
+            <div className="button-wrapper">
+              <a rel="noopener noreferrer" href="https://www.smartsurvey.co.uk/s/XEM2T/" target="_blank" className="close tna-button" onClick={this.checkLink}>Take survey</a>
+              <button onClick={this.closeModal} className="close">No thanks</button>
+            </div>
           </div>
         </div>
       </div>

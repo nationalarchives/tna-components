@@ -1,4 +1,7 @@
-.modal-body{
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+#modal {
+    font-family: 'Open Sans', sans-serif;
 }
 
 .button{
@@ -11,6 +14,24 @@
     background:#333;
 }
 
+.button-wrapper {
+    padding: 1em;
+    width: 100%
+}
+
+.button-wrapper .tna-button {
+    background: #008484;
+    color: #fff;
+    padding: .5em;
+    min-width: 24px;
+    cursor: pointer;
+    float: right;
+    margin-left: 1em;
+}
+.button-wrapper button {
+    float: right;
+}
+
 .modal{
     display:block;
     position: fixed;
@@ -19,7 +40,7 @@
     top:0;
     height: 100%;
     width:100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: rgba(0,0,0,0.5);
 }
 
@@ -32,6 +53,7 @@
     animation-duration:1s;
     padding: 2em;
     border-radius: .5rem;
+    max-width: 45%;
 }
 
 .modal-header h2, .modal-footer h3{
