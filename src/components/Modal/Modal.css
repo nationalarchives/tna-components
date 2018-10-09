@@ -15,8 +15,7 @@
 }
 
 .button-wrapper {
-    padding: 1em;
-    width: 100%
+    padding-bottom: 1.5em;
 }
 
 .button-wrapper .tna-button {
@@ -27,7 +26,15 @@
     cursor: pointer;
     float: right;
     margin-left: 1em;
+    text-decoration: none;
 }
+
+.button-wrapper .tna-button:hover {
+    background: #FCE45C;
+    color: #000;
+    border: none;
+}
+
 .button-wrapper button {
     float: right;
 }
@@ -71,6 +78,20 @@
     color:#000;
     text-decoration: none;
     cursor:pointer;
+}
+
+.close-button {
+    border: none;
+    color: #2A5DB0;
+    text-decoration: none;
+    background: none;
+    font-size: 16px;
+    padding: .5em;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    text-decoration: underline;
 }
 
 @keyframes modalopen{

@@ -25,8 +25,8 @@ class Model extends Component {
     modal.style.display = 'none';
   }
 
-  escFunction(event){
-    if(event.keyCode === 27) {
+  escFunction(e){
+    if(e.keyCode === 27) {
       let modal = document.getElementById('tnaModal');
       modal.style.display = 'none';
     }
@@ -40,7 +40,17 @@ class Model extends Component {
     const addClass = new AddClass();
     addClass.addClass();
     return (
-      <div id="tnaModal" className="modal" onClick={this.outsideClick}>
+      <div
+        id="tnaModal"
+        className="modal"
+        onClick={this.outsideClick}
+        role="dialog"
+        tabIndex="-1"
+        aria-modal="true"
+        aria-labelledby="dialog-title"
+        aria-describedby="dialog-description"
+        aria-hidden="false"
+      >
         <div className="modal-content">
           <div className="modal-header">
             <span className="closeBtn close" onClick={this.closeModal}>&times;</span>
@@ -54,7 +64,7 @@ class Model extends Component {
           <div className="modal-footer">
             <div className="button-wrapper">
               <a rel="noopener noreferrer" href="https://www.smartsurvey.co.uk/s/XEM2T/" target="_blank" className="close tna-button" onClick={this.checkLink}>Take survey</a>
-              <button onClick={this.closeModal} className="close">No thanks</button>
+              <button onClick={this.closeModal} className="close close-button">No thanks</button>
             </div>
           </div>
         </div>
