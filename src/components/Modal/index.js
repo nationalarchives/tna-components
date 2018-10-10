@@ -43,15 +43,25 @@ class Modal extends Component {
     }
   }
 
+  spanClose = (e) => {
+    let modal = document.getElementById('modal');
+    if ( e.keyCode === 13 ) {
+      modal.style.display = 'none';
+      this.setCookies();
+    }
+  }
+
   componentDidMount(){
     let modal = document.getElementById('modal');
     modal.addEventListener("keydown", this.escKey, false);
+    modal.addEventListener("keydown", this.spanClose, false);
     this.focusElement();
   }
 
   componentWillUnmount(){
     let modal = document.getElementById('modal');
     modal.addEventListener("keydown", this.escKey, false);
+    modal.addEventListener("keydown", this.spanClose, false);
   }
 
   render(){
@@ -68,8 +78,8 @@ class Modal extends Component {
         >
           <div className="modal-content">
             <div className="modal-header">
-              <span tabIndex="3" className="closeBtn close" onClick={this.closeModal}>&times;</span>
-              <h2>Modal Header</h2>
+              <span tabIndex="3" className="closeBtn close" onClick={this.closeModal} aria-label="Close Navigation">&times;</span>
+              <h2 id="dialog-title">Modal Header</h2>
             </div>
             <div className="modal-body">
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur ipsa

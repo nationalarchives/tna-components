@@ -99,6 +99,10 @@ a:focus, button:focus, span.closeBtn:focus {
     outline: #ebab00 solid 3px;
 }
 
+div[aria-hidden=”true”] {
+    display: none;
+}
+
 @keyframes modalopen{
     from{ opacity: 0}
     to {opacity: 1}
