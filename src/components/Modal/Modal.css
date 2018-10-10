@@ -95,6 +95,10 @@
     text-decoration: underline;
 }
 
+a:focus, button:focus, span.closeBtn:focus {
+    outline: #ebab00 solid 3px;
+}
+
 @keyframes modalopen{
     from{ opacity: 0}
     to {opacity: 1}

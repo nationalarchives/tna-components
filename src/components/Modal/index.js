@@ -5,15 +5,17 @@ import './Modal.css';
 class Modal extends Component {
 
   setCookies(){
-    document.cookie = "tnaVisited=yes";
-    let expiry = new Date();
-    expiry.setMonth(expiry.getMonth() + 1); // One Monthf
+    let date = new Date();
+    date.setMonth(date.getMonth() + 1); // One Month
+
+    let expiry = `expires=${date.toUTCString()}`;
+    document.cookie = `tnaVisited=yes;${expiry};path=/`;
   }
 
   closeModal = (e) => {
     let modal = document.getElementById('tnaModal');
     e.preventDefault();
-    if ( e.target.classList.contains("close") || e.keyCode === 27 ) {
+    if ( e.target.classList.contains("close") ) {
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
       this.setCookies();
@@ -26,24 +28,30 @@ class Modal extends Component {
     this.setCookies();
   }
 
-  /*focusElement(){
+  focusElement(){
     let tnaBtn = document.querySelector('.tna-button')
-    if ( document.cookie.indexOf("tnaVisited=yes") === -1 ) {
-      tnaBtn.focus();
-    }
-  }*/
-
-  focusMethod = () => {
-    // let modal = document.getElementById('tnaModal');
-    let tnaBtn = document.querySelector('.tna-button');
     if ( document.cookie.indexOf("tnaVisited=yes") === -1 ) {
       tnaBtn.focus();
     }
   }
 
+  escKey = (e) => {
+    let modal = document.getElementById('modal');
+    if ( e.keyCode === 27 ) {
+      modal.style.display = 'none';
+      this.setCookies();
+    }
+  }
+
   componentDidMount(){
-    document.addEventListener("keydown", this.closeModal, false);
-    this.focusMethod();
+    let modal = document.getElementById('modal');
+    modal.addEventListener("keydown", this.escKey, false);
+    this.focusElement();
+  }
+
+  componentWillUnmount(){
+    let modal = document.getElementById('modal');
+    modal.addEventListener("keydown", this.escKey, false);
   }
 
   render(){
@@ -60,7 +68,7 @@ class Modal extends Component {
         >
           <div className="modal-content">
             <div className="modal-header">
-              <span className="closeBtn close" onClick={this.closeModal}>&times;</span>
+              <span tabIndex="3" className="closeBtn close" onClick={this.closeModal}>&times;</span>
               <h2>Modal Header</h2>
             </div>
             <div className="modal-body">
@@ -71,6 +79,7 @@ class Modal extends Component {
             <div className="modal-footer">
               <div className="button-wrapper">
                 <a
+                  id="surveyBtn"
                   tabIndex="1"
                   rel="noopener noreferrer"
                   href="https://www.smartsurvey.co.uk/s/XEM2T/"
@@ -78,7 +87,7 @@ class Modal extends Component {
                   onClick={this.surveyLink}>
                   Take survey
                 </a>
-                <button onClick={this.closeModal} className="close close-button">No thanks</button>
+                <button tabIndex="2" onClick={this.closeModal} className="close close-button">No thanks</button>
               </div>
             </div>
           </div>
