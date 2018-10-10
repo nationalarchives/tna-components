@@ -14,3 +14,9 @@ ReactDOM.render(<Modal />, document.getElementById('modal'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// Are we in development mode?
+if (module.hot) {
+  // Whenever a new version of App.js is available
+  module.hot.accept();
+}
