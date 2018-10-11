@@ -10,7 +10,7 @@ class Modal extends Component {
 
     let expiry = `expires=${date.toUTCString()}`;
     document.cookie = `tnaVisited=yes;${expiry};path=/`;
-  }
+  };
 
   closeModal = (e) => {
     let modal = document.getElementById('tnaModal');
@@ -20,52 +20,50 @@ class Modal extends Component {
       modal.setAttribute('aria-hidden', 'true');
       this.setCookies();
     }
-  }
+  };
 
   surveyLink = () => {
     let modal = document.getElementById('tnaModal');
     modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
     this.setCookies();
-  }
+  };
 
-  focusElement(){
+  focusElement = () => {
     let tnaBtn = document.querySelector('.tna-button')
     if ( document.cookie.indexOf("tnaVisited=yes") === -1 ) {
       tnaBtn.focus();
     }
-  }
+  };
 
-  escKey = (e) => {
+  escClose = (e, keycode) => {
     let modal = document.getElementById('modal');
-    if ( e.keyCode === 27 ) {
+    if ( e.keyCode === keycode ) {
       modal.style.display = 'none';
+      modal.setAttribute('aria-hidden', 'true');
       this.setCookies();
     }
-  }
-
-  spanClose = (e) => {
-    let modal = document.getElementById('modal');
-    if ( e.keyCode === 13 ) {
-      modal.style.display = 'none';
-      this.setCookies();
-    }
-  }
+  };
 
   componentDidMount(){
     let modal = document.getElementById('modal');
-    modal.addEventListener("keydown", this.escKey, false);
-    modal.addEventListener("keydown", this.spanClose, false);
+    modal.addEventListener("keydown", (e) => {
+      this.escClose(e, 27);
+      this.escClose(e, 13);
+    }, false);
     this.focusElement();
   }
 
   componentWillUnmount(){
     let modal = document.getElementById('modal');
-    modal.addEventListener("keydown", this.escKey, false);
-    modal.addEventListener("keydown", this.spanClose, false);
+    modal.addEventListener("keydown", (e) => {
+      this.escClose(e, 27);
+      this.escClose(e, 13);
+    }, false);
   }
 
   render(){
-    if (document.cookie.indexOf("tnaVisited=yes") === -1) {
+    if (document.cookie.indexOf("tnaVisited=yes") === -1) { // Cookie does not exist
       return (
         <div
           id="tnaModal"
