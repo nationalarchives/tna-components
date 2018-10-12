@@ -1,43 +1,39 @@
 import React, { Component } from 'react';
+//import { modalObjFunc, pushInDataLayer, eventLabel } from './ModalGtm'
 
 import './Modal.css';
 
 class Modal extends Component {
 
-  setCookies(){
-    let date = new Date();
+  setCookies = () => {
+    const date = new Date();
     date.setMonth(date.getMonth() + 1); // One Month
 
-    let expiry = `expires=${date.toUTCString()}`;
+    const expiry = `expires=${date.toUTCString()}`;
     document.cookie = `tnaVisited=yes;${expiry};path=/`;
   };
 
   closeModal = (e) => {
-    let modal = document.getElementById('tnaModal');
+    const modal = document.getElementById('tnaModal');
+    //const gtmObj = modalObjFunc('Pop-Up Survey', 'Pop-Up Survey', eventLabel('surveyBtn'), 'Url');
     e.preventDefault();
     if ( e.target.classList.contains("close") ) {
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
       this.setCookies();
+      //pushInDataLayer(gtmObj);
     }
   };
 
   surveyLink = () => {
-    let modal = document.getElementById('tnaModal');
+    const modal = document.getElementById('tnaModal');
     modal.style.display = 'none';
     modal.setAttribute('aria-hidden', 'true');
     this.setCookies();
   };
 
-  focusElement = () => {
-    let tnaBtn = document.querySelector('.tna-button')
-    if ( document.cookie.indexOf("tnaVisited=yes") === -1 ) {
-      tnaBtn.focus();
-    }
-  };
-
   escClose = (e, keycode) => {
-    let modal = document.getElementById('modal');
+    const modal = document.getElementById('tnaModal');
     if ( e.keyCode === keycode ) {
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
@@ -45,17 +41,33 @@ class Modal extends Component {
     }
   };
 
+  focusModal = () => {
+    const modal = document.getElementById('tnaModal');
+    const focusableElsString = "a[href], button, button.closeBtn";
+    const focusableEls = modal.querySelectorAll(focusableElsString);
+
+    let firstItemTab = focusableEls[1];
+
+    focusableEls[focusableEls.length -1].addEventListener('blur', (event) => {
+      console.log(focusableEls);
+      const pc = document.getElementById('punal');
+      pc.focus();
+    })
+
+    firstItemTab.focus();
+  };
+
   componentDidMount(){
-    let modal = document.getElementById('modal');
+    const modal = document.getElementById('modal');
     modal.addEventListener("keydown", (e) => {
       this.escClose(e, 27);
       this.escClose(e, 13);
     }, false);
-    this.focusElement();
+    this.focusModal();
   }
 
   componentWillUnmount(){
-    let modal = document.getElementById('modal');
+    const modal = document.getElementById('tnaModal');
     modal.addEventListener("keydown", (e) => {
       this.escClose(e, 27);
       this.escClose(e, 13);
@@ -76,7 +88,7 @@ class Modal extends Component {
         >
           <div className="modal-content">
             <div className="modal-header">
-              <span tabIndex="3" className="closeBtn close" onClick={this.closeModal} aria-label="Close Navigation">&times;</span>
+              <button id="punal" className="closeBtn close focus" onClick={this.closeModal} aria-label="Close Dialog">&times;</button>
               <h2 id="dialog-title">Modal Header</h2>
             </div>
             <div className="modal-body">
@@ -88,14 +100,14 @@ class Modal extends Component {
               <div className="button-wrapper">
                 <a
                   id="surveyBtn"
-                  tabIndex="1"
                   rel="noopener noreferrer"
                   href="https://www.smartsurvey.co.uk/s/XEM2T/"
-                  target="_blank" className="close tna-button"
+                  target="_blank"
+                  className="close tna-button focus"
                   onClick={this.surveyLink}>
                   Take survey
                 </a>
-                <button tabIndex="2" onClick={this.closeModal} className="close close-button">No thanks</button>
+                <button onClick={this.closeModal} className="close close-button focus">No thanks</button>
               </div>
             </div>
           </div>
