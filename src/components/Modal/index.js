@@ -41,6 +41,8 @@ class Modal extends Component {
     }
   };
 
+
+
   focusModal = () => {
     if (document.cookie.indexOf("tnaVisited=yes") === -1){
       const modal = document.getElementById('tnaModal');
@@ -49,34 +51,24 @@ class Modal extends Component {
 
       let firstItemTab = focusableEls[0];
       let lastItemTab = focusableEls[focusableEls.length - 1];
-      let middleItemTab = focusableEls[1];
-      console.log(focusableEls);
+
       firstItemTab.focus();
 
-      modal.addEventListener("blur", (e) => {
-        let isTabPressed = (e.key === 'Tab' || e.keyCode === 9);
-        if ( !isTabPressed ) {
-          return;
-        }
-        if ( e.shiftKey ) {
-          if ( document.activeElement === firstItemTab ) {
-            lastItemTab.focus();
-            //console.log(firstItemTab);
-            //middleItemTab.focus();
-
-          }
-        } else { // Tab
-          if ( document.activeElement === lastItemTab ) {
-            firstItemTab.focus();
-            //middleItemTab.focus();
-          }
-          if ( document.activeElement === lastItemTab ) {
-            middleItemTab.focus();
-            //console.log(lastItemTab);
-            //middleItemTab.focus();
+      modal.addEventListener("keydown", (e) => {
+        if (e.keyCode === 9) {
+          if (e.shiftKey) {
+            if (document.activeElement === firstItemTab) {
+              e.preventDefault();
+              lastItemTab.focus();
+            }
+          } else {
+            if (document.activeElement === lastItemTab) {
+              e.preventDefault();
+              firstItemTab.focus();
+            }
           }
         }
-      }, true);
+      });
     }
   };
 
@@ -87,9 +79,6 @@ class Modal extends Component {
       this.escClose(e, 13);
     }, false);
     this.focusModal();
-    //modal.addEventListener("focus", this.focusModal);
-
-
   }
 
   componentWillUnmount(){
@@ -98,7 +87,6 @@ class Modal extends Component {
       this.escClose(e, 27);
       this.escClose(e, 13);
     }, false);
-    // this.focusModal();
   }
 
   render(){
