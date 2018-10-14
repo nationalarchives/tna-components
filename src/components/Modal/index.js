@@ -42,19 +42,42 @@ class Modal extends Component {
   };
 
   focusModal = () => {
-    const modal = document.getElementById('tnaModal');
-    const focusableElsString = "a[href], button, button.closeBtn";
-    const focusableEls = modal.querySelectorAll(focusableElsString);
+    if (document.cookie.indexOf("tnaVisited=yes") === -1){
+      const modal = document.getElementById('tnaModal');
+      const focusableElsString = "a[href], button.closeBtn, button#noThanks";
+      const focusableEls = modal.querySelectorAll(focusableElsString);
 
-    let firstItemTab = focusableEls[1];
-
-    focusableEls[focusableEls.length -1].addEventListener('blur', (event) => {
+      let firstItemTab = focusableEls[0];
+      let lastItemTab = focusableEls[focusableEls.length - 1];
+      let middleItemTab = focusableEls[1];
       console.log(focusableEls);
-      const pc = document.getElementById('punal');
-      pc.focus();
-    })
+      firstItemTab.focus();
 
-    firstItemTab.focus();
+      modal.addEventListener("blur", (e) => {
+        let isTabPressed = (e.key === 'Tab' || e.keyCode === 9);
+        if ( !isTabPressed ) {
+          return;
+        }
+        if ( e.shiftKey ) {
+          if ( document.activeElement === firstItemTab ) {
+            lastItemTab.focus();
+            //console.log(firstItemTab);
+            //middleItemTab.focus();
+
+          }
+        } else { // Tab
+          if ( document.activeElement === lastItemTab ) {
+            firstItemTab.focus();
+            //middleItemTab.focus();
+          }
+          if ( document.activeElement === lastItemTab ) {
+            middleItemTab.focus();
+            //console.log(lastItemTab);
+            //middleItemTab.focus();
+          }
+        }
+      }, true);
+    }
   };
 
   componentDidMount(){
@@ -64,14 +87,18 @@ class Modal extends Component {
       this.escClose(e, 13);
     }, false);
     this.focusModal();
+    //modal.addEventListener("focus", this.focusModal);
+
+
   }
 
   componentWillUnmount(){
-    const modal = document.getElementById('tnaModal');
+    const modal = document.getElementById('modal');
     modal.addEventListener("keydown", (e) => {
       this.escClose(e, 27);
       this.escClose(e, 13);
     }, false);
+    // this.focusModal();
   }
 
   render(){
@@ -88,7 +115,7 @@ class Modal extends Component {
         >
           <div className="modal-content">
             <div className="modal-header">
-              <button id="punal" className="closeBtn close focus" onClick={this.closeModal} aria-label="Close Dialog">&times;</button>
+              <button className="closeBtn close focus" onClick={this.closeModal} aria-label="Close Dialog">&times;</button>
               <h2 id="dialog-title">Modal Header</h2>
             </div>
             <div className="modal-body">
@@ -107,7 +134,7 @@ class Modal extends Component {
                   onClick={this.surveyLink}>
                   Take survey
                 </a>
-                <button onClick={this.closeModal} className="close close-button focus">No thanks</button>
+                <button id="noThanks" onClick={this.closeModal} className="close close-button focus">No thanks</button>
               </div>
             </div>
           </div>
