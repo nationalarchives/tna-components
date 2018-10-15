@@ -5,6 +5,14 @@ import './Modal.css';
 
 class Modal extends Component {
 
+  data = {
+    h2: 'Participate',
+    body: 'We want to improve our digital services for everyone. Help out by answering 4 short questions, and enter a prize draw to win £100.',
+    callToAction: 'Take survey',
+    cancel: 'No thanks',
+    crossIcon: '&times;'
+  };
+
   setCookies = () => {
     const date = new Date();
     date.setMonth(date.getMonth() + 1); // One Month
@@ -41,16 +49,14 @@ class Modal extends Component {
     }
   };
 
-
-
   focusModal = () => {
     if (document.cookie.indexOf("tnaVisited=yes") === -1){
       const modal = document.getElementById('tnaModal');
       const focusableElsString = "a[href], button.closeBtn, button#noThanks";
       const focusableEls = modal.querySelectorAll(focusableElsString);
 
-      let firstItemTab = focusableEls[0];
-      let lastItemTab = focusableEls[focusableEls.length - 1];
+      const firstItemTab = focusableEls[0];
+      const lastItemTab = focusableEls[focusableEls.length - 1];
 
       firstItemTab.focus();
 
@@ -61,11 +67,9 @@ class Modal extends Component {
               e.preventDefault();
               lastItemTab.focus();
             }
-          } else {
-            if (document.activeElement === lastItemTab) {
-              e.preventDefault();
-              firstItemTab.focus();
-            }
+          } else if (document.activeElement === lastItemTab) {
+            e.preventDefault();
+            firstItemTab.focus();
           }
         }
       });
@@ -104,12 +108,10 @@ class Modal extends Component {
           <div className="modal-content">
             <div className="modal-header">
               <button className="closeBtn close focus" onClick={this.closeModal} aria-label="Close Dialog">&times;</button>
-              <h2 id="dialog-title">Modal Header</h2>
+              <h2 id="dialog-title">{this.data.h2}</h2>
             </div>
             <div className="modal-body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur ipsa
-                velit repudiandae aperiam modi quisquam nihil nam asperiores doloremque mollitia dolor deleniti quibusdam
-                nemo commodi ab.</p>
+              <p>{this.data.body}</p>
             </div>
             <div className="modal-footer">
               <div className="button-wrapper">
@@ -120,9 +122,9 @@ class Modal extends Component {
                   target="_blank"
                   className="close tna-button focus"
                   onClick={this.surveyLink}>
-                  Take survey
+                  {this.data.callToAction}
                 </a>
-                <button id="noThanks" onClick={this.closeModal} className="close close-button focus">No thanks</button>
+                <button id="noThanks" onClick={this.closeModal} className="close close-button focus">{this.data.cancel}</button>
               </div>
             </div>
           </div>

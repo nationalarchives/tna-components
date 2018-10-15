@@ -1,7 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,400i,700|Open+Sans:400,700');
 
 #modal {
     font-family: 'Open Sans', sans-serif;
+}
+
+h2{
+    font-family: "Bitter", "Open Sans", arial, serif;
+    display: inline-block;
+    font-size: 2em;
+    font-weight: normal;
 }
 
 .button{
@@ -29,7 +36,7 @@
     text-decoration: none;
 }
 
-.button-wrapper .tna-button:hover {
+.button-wrapper .tna-button:hover{
     background: #FCE45C;
     color: #000;
     border: none;
@@ -38,6 +45,7 @@
 
 .button-wrapper button {
     float: right;
+    color: #2A5DB0;
 }
 
 .modal{
@@ -73,6 +81,8 @@
     font-size:30px;
     color:#999;
     margin: -1.5rem -1rem -1rem auto;
+    background: none;
+    border: none;
 }
 
 .closeBtn:hover,.closeBtn:focus{
@@ -83,7 +93,6 @@
 
 .close-button {
     border: none;
-    color: #2A5DB0;
     text-decoration: none;
     background: none;
     font-size: 16px;
@@ -97,6 +106,12 @@
 
 a:focus, button:focus, span.closeBtn:focus {
     outline: #ebab00 solid 3px;
+}
+
+a.focus:focus {
+    background-color: #FCE45C;
+    color: #111;
+    text-decoration: underline;
 }
 
 div[aria-hidden=”true”] {
