@@ -1,0 +1,117 @@
+h2 {
+    display: inline-block;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+.button {
+    padding:1em 2em;
+    color:#fff;
+    border:0;
+}
+
+.button:hover {
+    background:#333;
+}
+
+.button-wrapper  {
+    padding-bottom: 1.5em;
+}
+
+.button-wrapper .tna-button  {
+    background: #008484;
+    color: #fff;
+    padding: .5em;
+    min-width: 24px;
+    cursor: pointer;
+    float: right;
+    margin-left: 1em;
+    text-decoration: none;
+}
+
+.button-wrapper .tna-button:hover {
+    background: #FCE45C;
+    color: #000;
+    border: none;
+    text-decoration: underline;
+}
+
+.button-wrapper button  {
+    float: right;
+    color: #2A5DB0;
+}
+
+.modal {
+    display:block;
+    position: fixed;
+    z-index:666;
+    left: 0;
+    top:0;
+    height: 100%;
+    width:100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color:#f4f4f4;
+    margin: 20% auto;
+    width:70%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name:modalopen;
+    animation-duration:1s;
+    padding: 2em;
+    border-radius: .5rem;
+    max-width: 45%;
+}
+
+.modal-header h2, .modal-footer h3 {
+    margin:0;
+}
+
+.closeBtn {
+    float: right;
+    font-size:30px;
+    color:#999;
+    margin: -1.5rem -1rem -1rem auto;
+    background: none;
+    border: none;
+}
+
+.closeBtn:hover,.closeBtn:focus {
+    color:#000;
+    text-decoration: none;
+    cursor:pointer;
+}
+
+.close-button  {
+    border: none;
+    text-decoration: none;
+    background: none;
+    font-size: 16px;
+    padding: .5em;
+    cursor: pointer;
+}
+
+.close-button:hover  {
+    text-decoration: underline;
+}
+
+a:focus, button:focus, span.closeBtn:focus  {
+    outline: #ebab00 solid 3px;
+}
+
+a.focus:focus  {
+    background-color: #FCE45C;
+    color: #111;
+    text-decoration: underline;
+}
+
+div[aria-hidden=”true”]  {
+    display: none;
+}
+
+@keyframes modalopen {
+    from { opacity: 0}
+    to  {opacity: 1}
+}
