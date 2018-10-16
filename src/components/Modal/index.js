@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { modalObjFunc, pushInDataLayer, eventLabel } from './ModalGtm'
+import { modalObjFunc, pushInDataLayer, eventLabel } from './ModalGtm'
 
 import './Modal.css';
 
@@ -10,7 +10,8 @@ class Modal extends Component {
     body: 'We want to improve our digital services for everyone. Help out by answering 4 short questions, and enter a prize draw to win £100.',
     callToAction: 'Take survey',
     cancel: 'No thanks',
-    crossIcon: '&times;'
+    close: 'Close survey',
+    takeSurvey: 'Take survey'
   };
 
   setCookies = () => {
@@ -29,7 +30,7 @@ class Modal extends Component {
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
       this.setCookies();
-      //pushInDataLayer(gtmObj);
+      // pushInDataLayer(gtmObj);
     }
   };
 
@@ -101,13 +102,13 @@ class Modal extends Component {
           className="modal"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="dialog-title"
-          aria-describedby="dialog-description"
+          aria-labelledby={this.data.h2}
+          aria-describedby={this.data.body}
           aria-hidden="false"
         >
           <div className="modal-content">
             <div className="modal-header">
-              <button className="closeBtn close focus" onClick={this.closeModal} aria-label="Close Dialog">&times;</button>
+              <button className="closeBtn close focus" onClick={this.closeModal} aria-label={this.data.close}>&times;</button>
               <h2 id="dialog-title">{this.data.h2}</h2>
             </div>
             <div className="modal-body">
@@ -121,10 +122,11 @@ class Modal extends Component {
                   href="https://www.smartsurvey.co.uk/s/XEM2T/"
                   target="_blank"
                   className="close tna-button focus"
+                  aria-label={this.data.takeSurvey}
                   onClick={this.surveyLink}>
                   {this.data.callToAction}
                 </a>
-                <button id="noThanks" onClick={this.closeModal} className="close close-button focus">{this.data.cancel}</button>
+                <button aria-label={this.data.close} id="noThanks" onClick={this.closeModal} className="close close-button focus">{this.data.cancel}</button>
               </div>
             </div>
           </div>
