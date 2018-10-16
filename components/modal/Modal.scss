@@ -131,3 +131,16 @@ div[aria-hidden=”true”] {
     opacity: 1
   }
 }
+
+@media screen and (max-width: 812px) {
+  #dialog-title {
+    font-size: 4em;
+  }
+  .modal-content{
+    max-width: 70%;
+  }
+
+  .closeBtn {
+    margin: -2rem -2rem 1rem auto;
+  }
+}
