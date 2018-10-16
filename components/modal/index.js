@@ -11,7 +11,8 @@ class Modal extends Component {
       h2: 'Participate',
       body: 'We want to improve our digital services for everyone. Help out by answering 4 short questions, and enter a prize draw to win £100.',
       callToAction: 'Take survey',
-      cancel: 'No thanks'
+      cancel: 'No thanks',
+      close: 'Close survey'
     };
     this.setCookies = this.setCookies.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -152,7 +153,7 @@ class Modal extends Component {
           <div className="modal-content">
             <div className="modal-header">
               <button className="closeBtn close focus" onClick={this.closeModal}
-                      aria-label="Close Dialog" data-gtm="Close Button">&times;</button>
+                      aria-label={this.state.close} data-gtm="Close Button">&times;</button>
               <h2 id="dialog-title">{this.state.h2}</h2>
             </div>
             <div className="modal-body">
