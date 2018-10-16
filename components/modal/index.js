@@ -23,19 +23,17 @@ class Modal extends Component {
   }
 
   getUrlLabel (e){
-    if ( e.target.tagName === 'A' || e.target.tagName === 'BUTTON' ) {
-      if (e.target.getAttribute('data-gtm') === `${this.state.callToAction} button`) {
-        return e.target.getAttribute('href');
-      }
-      if (e.key === 'Escape') {
-        return 'ESC Key pressed'
-      }
-      if (e.target.getAttribute('data-gtm') === `${this.state.cancel} button`) {
-        return `${this.state.cancel} button was pressed`;
-      }
-      if (e.target.getAttribute('data-gtm') === 'Close Button') {
-        return 'Closed button(X) was pressed';
-      }
+    if (e.target.getAttribute('data-gtm') === `${this.state.callToAction} button`) {
+      return e.target.getAttribute('href');
+    }
+    if (e.key === 'Escape') {
+      return 'ESC Key pressed'
+    }
+    if (e.target.getAttribute('data-gtm') === `${this.state.cancel} button`) {
+      return `${this.state.cancel} button was pressed`;
+    }
+    if (e.target.getAttribute('data-gtm') === 'Close Button') {
+      return 'Closed button(X) was pressed';
     }
   };
 
@@ -116,12 +114,7 @@ class Modal extends Component {
     modal.addEventListener("keydown", (e) => {
       this.escClose(e, 27); // Escape keycode
       this.escClose(e, 13); // Enter keycode
-      if ( e.key === "Enter" ) {
-        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push(this.gtm(e));
-        }
-      } else if ( e.key === "Escape" ) {
+      if ( e.key === "Escape" ) {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push(this.gtm(e));
       }
