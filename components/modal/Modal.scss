@@ -119,15 +119,24 @@ a, button, span {
   }
 }
 
-div[aria-hidden=”true”] {
-  display: none;
-}
-
 @keyframes modalopen {
   from {
     opacity: 0
   }
   to {
     opacity: 1
+  }
+}
+
+@media screen and (max-width: 812px) {
+  #dialog-title {
+    font-size: 4em;
+  }
+  .modal-content{
+    max-width: 70%;
+  }
+
+  .closeBtn {
+    margin: -2rem -2rem 1rem auto;
   }
 }
