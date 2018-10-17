@@ -35,10 +35,7 @@ class Modal extends Component {
   };
 
   getEventAction (e) {
-    if (e.target.getAttribute('data-gtm') === `${this.state.callToAction} button`) {
-      return 'Taken survey'
-    }
-    return 'Did not take survey';
+    return (e.target.getAttribute('data-gtm') === `${this.state.callToAction} button`) ? 'Taken survey' : 'Did not take survey';
   }
 
   gtm(param) {
