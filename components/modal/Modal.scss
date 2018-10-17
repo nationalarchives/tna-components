@@ -119,10 +119,6 @@ a, button, span {
   }
 }
 
-div[aria-hidden=”true”] {
-  display: none;
-}
-
 @keyframes modalopen {
   from {
     opacity: 0

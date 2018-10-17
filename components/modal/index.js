@@ -136,7 +136,7 @@ class Modal extends Component {
           aria-hidden="false"
         >
           <div className="modal-content">
-            <div className="modal-header">
+            <div className="modal-header" id="dialog-description">
               <button className="closeBtn close focus" onClick={this.closeModal}
                       aria-label={this.state.close} data-gtm="Close Button">&times;</button>
               <h2 id="dialog-title">{this.state.h2}</h2>
