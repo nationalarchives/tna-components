@@ -54,7 +54,7 @@ class Modal extends Component {
     date.setMonth(date.getMonth() + 2); // Two Months
 
     const expiry = `expires=${date.toUTCString()}`;
-    document.cookie = `tnaVisited=yes;${expiry};path=/`;
+    document.cookie = `interacted_with_survey=yes;${expiry};path=/`;
   };
 
   closeModal(e) {
@@ -84,7 +84,7 @@ class Modal extends Component {
   };
 
   focusModal() {
-    if (document.cookie.indexOf("tnaVisited=yes") === -1) {
+    if (document.cookie.indexOf("interacted_with_survey=yes") === -1) {
       const modal = document.getElementById('tnaModal');
       const focusableElsString = "a[href], button.closeBtn, button#noThanks";
       const focusableEls = modal.querySelectorAll(focusableElsString);
@@ -131,7 +131,7 @@ class Modal extends Component {
   }
 
   render() {
-    if (document.cookie.indexOf("tnaVisited=yes") === -1) { // Cookie does not exist
+    if (document.cookie.indexOf("interacted_with_survey=yes") === -1) { // Cookie does not exist
       return (
         <div
           id="tnaModal"
