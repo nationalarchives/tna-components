@@ -130,14 +130,6 @@ class Modal extends Component {
     }, false);
   }
 
-  componentWillUnmount() {
-    const modal = document.getElementById('modal');
-    modal.addEventListener("keydown", (e) => {
-      this.escClose(e, 27);
-      this.escClose(e, 13);
-    }, false);
-  }
-
   render() {
     if (document.cookie.indexOf("tnaVisited=yes") === -1) { // Cookie does not exist
       return (
