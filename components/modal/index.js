@@ -18,24 +18,20 @@ class Modal extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.surveyLink = this.surveyLink.bind(this);
     this.escClose = this.escClose.bind(this);
-    this.getUrlLabel = this.getUrlLabel.bind(this);
+    this.getEventLabel = this.getEventLabel.bind(this);
     this.getEventAction = this.getEventAction.bind(this);
     this.gtm = this.gtm.bind(this);
   }
 
-  getUrlLabel (e){
-    if (e.target.getAttribute('data-gtm') === `${this.state.callToAction} button`) {
-      return e.target.getAttribute('href');
-    }
+  getEventLabel (e){
     if (e.key === 'Escape') {
       return 'ESC Key pressed'
     }
-    if (e.target.getAttribute('data-gtm') === `${this.state.cancel} button`) {
-      return `${this.state.cancel} button was pressed`;
-    }
-    if (e.target.getAttribute('data-gtm') === 'Close Button') {
-      return 'Closed button(X) was pressed';
-    }
+
+    let data_gtm = e.target.getAttribute('data-gtm');
+
+    return (data_gtm) ? `${data_gtm} was pressed` : '';
+
   };
 
   getEventAction (e) {
@@ -46,7 +42,7 @@ class Modal extends Component {
   }
 
   gtm(param) {
-    return modalGtmObj('Pop-Up Survey', 'Pop-Up Survey', this.getEventAction(param), this.getUrlLabel(param));
+    return modalGtmObj('Pop-Up Survey', 'Pop-Up Survey', this.getEventAction(param), this.getEventLabel(param));
   };
 
   setCookies() {
@@ -131,7 +127,7 @@ class Modal extends Component {
   }
 
   render() {
-    if (document.cookie.indexOf("interacted_with_survey=yes") === -1) { // Cookie does not exist
+    //if (document.cookie.indexOf("interacted_with_survey=yes") === -1) { // Cookie does not exist
       return (
         <div
           id="tnaModal"
@@ -174,7 +170,7 @@ class Modal extends Component {
           </div>
         </div>
       );
-    }
+    //}
     return null;
   }
 }
