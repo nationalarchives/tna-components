@@ -104,7 +104,7 @@ class Modal extends Component {
   };
 
   componentDidMount() {
-    const modal = document.getElementById('modal');
+    const modal = document.getElementById('tnaModal');
     modal.addEventListener("keydown", (e) => {
       this.escClose(e, 27); // Escape keycode
       this.escClose(e, 13); // Enter keycode
