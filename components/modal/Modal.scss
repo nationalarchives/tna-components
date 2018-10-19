@@ -150,7 +150,7 @@
     }
   }
 }
-@media screen and (max-width: 812px) {
+/*@media screen and (max-width: 812px) {
   #tnaModalComponent{
     #dialog-title {
       font-size: 2em;
@@ -164,4 +164,22 @@
       margin: -2rem -2rem 1rem auto;
     }
   }
+}*/
+
+@media (min-width: 404px) and (max-width: 767px) {
+
+  #tnaModalComponent{
+    #dialog-title {
+      font-size: 2em;
+    }
+
+    .modal-content{
+      max-width: 70%;
+    }
+
+    .closeBtn {
+      margin: -2rem -2rem 1rem auto;
+    }
+  }
+
 }
