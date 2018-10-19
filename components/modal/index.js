@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import "babel-polyfill";
 import {modalGtmObj} from './ModalGtm'
 import './Modal.scss';
 
