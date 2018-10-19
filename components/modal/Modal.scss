@@ -1,17 +1,14 @@
-#modal {
+#tnaModalComponent {
   font-family: "Open Sans", arial, sans-serif;
-
-  .modal {
-    display: block;
-    position: fixed;
-    z-index: 666;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+  display: block;
+  position: fixed;
+  z-index: 666;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
 
   h2 {
     display: inline-block;
@@ -56,87 +53,109 @@
       }
     }
   }
-
-}
-
-.modal-content {
-  background-color: #f4f4f4;
-  margin: 20% auto;
-  width: 70%;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-  animation-name: modalopen;
-  animation-duration: 1s;
-  padding: 2em;
-  border-radius: .5rem;
-  max-width: 45%;
-}
-
-.modal-header, .modal-footer {
-  h2, h3 {
-    margin: 0;
+  .modal-content {
+    background-color: #f4f4f4;
+    margin: 20% auto;
+    width: 70%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: 1s;
+    padding: 2em;
+    border-radius: .5rem;
+    max-width: 45%;
   }
-}
 
-.closeBtn {
-  float: right;
-  font-size: 30px;
-  color: #999;
-  margin: -1.5rem -1rem -1rem auto;
-  background: none;
-  border: none;
+  .modal-header, .modal-footer {
+    h2, h3 {
+      margin: 0;
+    }
+  }
 
-  &:hover, &:focus {
-    color: #000;
+  .close-modal {
+    opacity: inherit;
+
+    &:focus {
+      background-color: #FCE45C;
+      color: #111;
+      text-decoration: underline;
+    }
+  }
+
+  #noThanks {
+    font-weight: 100;
+    border: none;
     text-decoration: none;
+    background: none;
+    font-size: 16px;
+    padding: .5em;
     cursor: pointer;
   }
-}
-
-.close-button {
-  border: none;
-  text-decoration: none;
-  background: none;
-  font-size: 16px;
-  padding: .5em;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-a, button, span {
-  &:focus {
-    outline: #ebab00 solid 3px;
-  }
-}
-
-#surveyBtn, a.focus {
-  &:focus {
-    background-color: #FCE45C;
-    color: #111;
-    text-decoration: underline;
-  }
-}
-
-@keyframes modalopen {
-  from {
-    opacity: 0
-  }
-  to {
-    opacity: 1
-  }
-}
-
-@media screen and (max-width: 812px) {
-  #dialog-title {
-    font-size: 4em;
-  }
-  .modal-content{
-    max-width: 70%;
+  #surveyBtn {
+    font-weight: 100;
+    padding: .5em;
   }
 
   .closeBtn {
-    margin: -2rem -2rem 1rem auto;
+    float: right;
+    font-size: 30px;
+    color: #999;
+    margin: -1.5rem -1rem -1rem auto;
+    background: none;
+    border: none;
+
+    &:hover, &:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  .close-button {
+    border: none;
+    text-decoration: none;
+    background: none;
+    font-size: 16px;
+    padding: .5em;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  a, button, span {
+    &:focus {
+      outline: #ebab00 solid 3px;
+    }
+  }
+
+  #surveyBtn, a.focus {
+    &:focus {
+      background-color: #FCE45C;
+      color: #111;
+      text-decoration: underline;
+    }
+  }
+
+  @keyframes modalopen {
+    from {
+      opacity: 0
+    }
+    to {
+      opacity: 1
+    }
+  }
+
+  @media screen and (max-width: 812px) {
+    #dialog-title {
+      font-size: 4em;
+    }
+    .modal-content{
+      max-width: 70%;
+    }
+
+    .closeBtn {
+      margin: -2rem -2rem 1rem auto;
+    }
   }
 }

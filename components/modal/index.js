@@ -51,9 +51,9 @@ class Modal extends Component {
   };
 
   closeModal(e) {
-    const modal = document.getElementById('tnaModal');
+    const modal = document.getElementById('tnaModalComponent');
     e.preventDefault();
-    if (e.target.classList.contains("close")) {
+    if (e.target.classList.contains("close-modal")) {
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
       this.setCookies();
@@ -61,14 +61,14 @@ class Modal extends Component {
   };
 
   surveyLink() {
-    const modal = document.getElementById('tnaModal');
+    const modal = document.getElementById('tnaModalComponent');
     modal.style.display = 'none';
     modal.setAttribute('aria-hidden', 'true');
     this.setCookies();
   };
 
   escClose(e, keycode) {
-    const modal = document.getElementById('tnaModal');
+    const modal = document.getElementById('tnaModalComponent');
     if (e.keyCode === keycode) {
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
@@ -78,7 +78,7 @@ class Modal extends Component {
 
   focusModal() {
     if (document.cookie.indexOf("interacted_with_survey=yes") === -1) {
-      const modal = document.getElementById('tnaModal');
+      const modal = document.getElementById('tnaModalComponent');
       const focusableElsString = "a[href], button.closeBtn, button#noThanks";
       const focusableEls = modal.querySelectorAll(focusableElsString);
 
@@ -104,7 +104,7 @@ class Modal extends Component {
   };
 
   componentDidMount() {
-    const modal = document.getElementById('tnaModal');
+    const modal = document.getElementById('tnaModalComponent');
     modal.addEventListener("keydown", (e) => {
       this.escClose(e, 27); // Escape keycode
       this.escClose(e, 13); // Enter keycode
@@ -127,7 +127,7 @@ class Modal extends Component {
     if (document.cookie.indexOf("interacted_with_survey=yes") === -1) { // Cookie does not exist
       return (
         <div
-          id="tnaModal"
+          id="tnaModalComponent"
           className="modal"
           role="dialog"
           aria-modal="true"
@@ -137,7 +137,7 @@ class Modal extends Component {
         >
           <div className="modal-content">
             <div className="modal-header" id="dialog-description">
-              <button className="closeBtn close focus" onClick={this.closeModal}
+              <button className="closeBtn close-modal focus" onClick={this.closeModal}
                       aria-label={this.state.close} data-gtm="Close Button">&times;</button>
               <h2 id="dialog-title">{this.state.h2}</h2>
             </div>
@@ -151,14 +151,14 @@ class Modal extends Component {
                   rel="noopener noreferrer"
                   href="https://www.smartsurvey.co.uk/s/XEM2T/"
                   target="_blank"
-                  className="close tna-button focus"
+                  className="close-modal tna-button focus"
                   data-gtm={`${this.state.callToAction} button`}
                   onClick={this.surveyLink}>
                   {this.state.callToAction}
                 </a>
                 <button id="noThanks"
                         onClick={this.closeModal}
-                        className="close close-button focus"
+                        className="close-modal close-button focus"
                         data-gtm={`${this.state.cancel} button`}>
                   {this.state.cancel}
                 </button>
