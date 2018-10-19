@@ -108,6 +108,10 @@
       text-decoration: none;
       cursor: pointer;
     }
+
+    &:focus {
+      background: none;
+    }
   }
 
   .close-button {
@@ -145,11 +149,13 @@
       opacity: 1
     }
   }
-
-  @media screen and (max-width: 812px) {
+}
+@media screen and (max-width: 812px) {
+  #tnaModalComponent{
     #dialog-title {
-      font-size: 4em;
+      font-size: 2em;
     }
+
     .modal-content{
       max-width: 70%;
     }
