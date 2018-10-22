@@ -86,7 +86,7 @@ class Modal extends Component {
       const firstItemTab = focusableEls[0];
       const lastItemTab = focusableEls[focusableEls.length - 1];
 
-      firstItemTab.focus();
+      //firstItemTab.focus();
 
       modal.addEventListener("keydown", (e) => {
         if (e.keyCode === 9) { // Tab keycode
