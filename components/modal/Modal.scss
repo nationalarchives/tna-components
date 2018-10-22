@@ -64,7 +64,7 @@
     max-width: 45%;
 
     @media screen and (max-width: 823px) {
-      margin: 10% auto;
+      margin: 10% 1em;
       max-width: 90%;
     }
     @media screen and (min-width: 768px) and (max-width: 1024px){
@@ -80,7 +80,7 @@
         top: -2rem;
         right: -2rem;
 
-        @media screen and (max-width: 320px) {
+        @media screen and (max-width: 359px) {
           right: -3rem;
         }
       }
@@ -170,5 +170,11 @@
     to {
       opacity: 1
     }
+  }
+}
+
+@media all and (orientation:landscape) {
+  .modal-content {
+    margin: 5% auto;
   }
 }
