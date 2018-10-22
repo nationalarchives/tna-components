@@ -5,9 +5,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Modal from '../components/modal/index';
 
-if (!document.getElementById("app")) {
-  let div = document.createElement("div");
-  div.id = 'app';
-  document.body.appendChild(div);
+if ( document.cookie.indexOf("interacted_with_survey=yes") === -1 ) {
+  if ( !document.getElementById("app") ) {
+    let div = document.createElement("div");
+    div.id = 'app';
+    document.body.appendChild(div);
+    ReactDOM.render(<Modal/>, document.getElementById('app'));
+  }
 }
-ReactDOM.render(<Modal/>, document.getElementById('app'));
