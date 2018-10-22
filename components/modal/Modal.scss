@@ -64,7 +64,7 @@
     max-width: 45%;
 
     @media screen and (max-width: 823px) {
-      margin: 20% 1em;
+      margin: 10% auto;
       max-width: 90%;
     }
     @media screen and (min-width: 768px) and (max-width: 1024px){
@@ -90,6 +90,7 @@
   .modal-header, .modal-footer {
     h2, h3 {
       margin: 0;
+      color: #000000;
     }
   }
 
