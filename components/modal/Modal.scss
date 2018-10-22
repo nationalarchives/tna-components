@@ -78,7 +78,11 @@
       .closeBtn {
         position: absolute;
         top: -2rem;
-        right: -3rem;
+        right: -2rem;
+
+        @media screen and (max-width: 320px) {
+          right: -3rem;
+        }
       }
     }
   }
