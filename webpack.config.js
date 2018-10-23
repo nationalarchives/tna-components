@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        tna_base: './src/tna_base_components.js',
         discovery: './src/discovery_components.js'
     },
     mode: 'production',
