@@ -125,7 +125,7 @@ class Modal extends Component {
   }
 
   render() {
-    if (document.cookie.indexOf("interacted_with_survey=yes") === -1) { // Cookie does not exist
+    if ( document.cookie.indexOf("interacted_with_survey=yes") === -1 ) { // Cookie does not exist
       return (
         <div
           id="tnaModalComponent"
