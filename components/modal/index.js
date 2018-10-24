@@ -48,7 +48,7 @@ class Modal extends Component {
     date.setMonth(date.getMonth() + 2); // Two Months
 
     const expiry = `expires=${date.toUTCString()}`;
-    document.cookie = `interacted_with_survey=yes;${expiry};path=/`;
+    document.cookie = `interacted_with_survey=yes;${expiry};path=/;domain=nationalarchives.gov.uk`;
   };
 
   closeModal(e) {
