@@ -8,17 +8,19 @@ const express = require('express'),
 
 app.engine('ejs', require('ejs').__express);
 
+// Set static folder
 app.use(express.static(path.join(__dirname, 'dist')));
+// Page response
 app.use(morgan('tiny'));
 
 // Set the views folder
 app.set('views', './views');
 // Set the view engine
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); 
 
 // Routing
 app.get('/help-with-your-research/research-guides', function (req, res) {
-    res.render('feedback-widget', { title: 'Hey', message: 'asdasd' })
+    res.render('feedback-widget', { title: 'Hey', message: 'Hello there!' })
 });
 
 app.listen(port, () => debug(`Example app listening on port ${ chalk.red(port) }!`))
