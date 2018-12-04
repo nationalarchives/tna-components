@@ -12,7 +12,7 @@
     "url": "https://github.com//nationalarchives/tna-components.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "TNA Digital Team",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
