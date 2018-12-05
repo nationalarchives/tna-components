@@ -1,4 +1,5 @@
-https://travis-ci.org/nationalarchives/tna-components.svg?branch=develop
+{<img src="https://travis-ci.org/nationalarchives/tna-components.svg?branch=develop" alt="Build Status" />}[https://travis-ci.org/nationalarchives/tna-components]
+
 # TNA Components
 
 ## Development machine setup
