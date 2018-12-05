@@ -4,8 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "jest --watch",
-    "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch"
+    "test": "jest",
+    "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch",
   },
   "repository": {
     "type": "git",
