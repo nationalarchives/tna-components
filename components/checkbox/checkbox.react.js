@@ -16,6 +16,10 @@ export default class CheckboxWithLabel extends React.Component {
     this.setState({isChecked: !this.state.isChecked});
   }
 
+  sum(a,b){
+    return a + b;
+  }
+  
   render() {
     return (
       <label>

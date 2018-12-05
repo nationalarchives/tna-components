@@ -2,10 +2,10 @@
 
 import React from 'react';
 import {shallow} from 'enzyme';
-import CheckboxWithLabel from '../checkbox/checkbox.react';
-
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
+import CheckboxWithLabel from '../../components/checkbox/checkbox.react';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -18,4 +18,9 @@ test('CheckboxWithLabel changes the text after click', () => {
   checkbox.find('input').simulate('change');
 
   expect(checkbox.text()).toEqual('On');
+});
+
+test('Check sum', () => {
+  const wrap = shallow(<CheckboxWithLabel/>);
+  expect(wrap.instance().sum(2,2)).toBe(4);
 });
