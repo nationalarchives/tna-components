@@ -1,13 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import FeedbackWidget from '../../components/feedback_widget/feedback-widget.react';
-import Link from '../../components/link/Link.react';
-import CheckboxWithLabel from  '../../components/checkbox/checkbox.react';
+import GuidanceFeedback from '../../components/guidance_feedback/guidance-feedback.react';
 
-const rootElement = document.getElementById("feedBackWidget"),
-      secondElement = document.getElementById("link"),
-      thirdElement = document.getElementById('checkBox');
+const rootElement = document.getElementById("guidanceFeedback");
 
-ReactDOM.render(<FeedbackWidget/>, rootElement);
-ReactDOM.render(<Link/>, secondElement);
-ReactDOM.render(<CheckboxWithLabel/>, thirdElement);
+ReactDOM.render(<GuidanceFeedback/>, rootElement);
