@@ -1,4 +1,4 @@
-{<img src="https://travis-ci.org/nationalarchives/tna-components.svg?branch=develop" alt="Build Status" />}[https://travis-ci.org/nationalarchives/tna-components]
+<img src="https://travis-ci.org/nationalarchives/tna-components.svg?branch=develop" alt="Build Status" />
 
 # TNA Components
 
