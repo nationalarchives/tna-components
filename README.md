@@ -1,3 +1,4 @@
+https://travis-ci.org/nationalarchives/tna-components.svg?branch=develop
 # TNA Components
 
 ## Development machine setup
