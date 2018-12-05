@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nationalarchives/tna-components.svg?branch=develop)](https://travis-ci.org/nationalarchives/tna-components)
+[![Build Status](https://travis-ci.org/nationalarchives/tna-components.svg?branch=feature%2Fclean_for_new_approach)](https://travis-ci.org/nationalarchives/tna-components)
 
 # TNA Components
 
