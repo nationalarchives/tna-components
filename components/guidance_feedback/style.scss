@@ -1,0 +1,13 @@
+#guidance-feedback{
+  &.component{
+    &--show {
+        display:block;
+    } 
+    &--hide {
+        display:none;
+    }
+    .btn {
+        
+    }
+  }
+}

@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 
 // Routing
 app.get('/help-with-your-research/research-guides', function (req, res) {
-    res.render('feedback-widget', { title: 'Hey', message: 'Hello there!' })
+    res.render('feedback-widget', { title: 'Guidance Feedback React Component' })
 });
 
 app.listen(port, () => debug(`Example app listening on port ${ chalk.red(port) }!`))
