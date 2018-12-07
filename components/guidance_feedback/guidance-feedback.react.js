@@ -25,7 +25,7 @@ export default class GuidanceFeedback extends Component {
             isVisible: false,
             form:{
                 label:'Any comments on your experience?',
-                firldId:'guidance-feedback--component--field-yes'
+                fieldId:'guidance-feedback--component--field-yes'
             }
         }
     }
@@ -42,7 +42,7 @@ export default class GuidanceFeedback extends Component {
                 isVisible: true,
                 form: {
                     label:'What did you expect to find?',
-                    firldId:'guidance-feedback--component--field-no'
+                    fieldId:'guidance-feedback--component--field-no'
                 }
             });
         } 
@@ -52,7 +52,7 @@ export default class GuidanceFeedback extends Component {
                 isVisible: true,
                 form:{
                     label:'Any comments on your experience?',
-                    firldId:'guidance-feedback--component--field-yes'
+                    fiedId:'guidance-feedback--component--field-yes'
                 }
             });
         }
@@ -72,8 +72,8 @@ export default class GuidanceFeedback extends Component {
                 <Posed pose={ this.state.isVisible ? 'visible' : 'hidden' }>
                     <form>
                         <fieldset>
-                            <label htmlFor={this.state.form.firldId}>{this.state.form.label}</label>
-                            <textarea id={this.state.form.firldId}></textarea>
+                            <label htmlFor={this.state.form.fieldId}>{this.state.form.label}</label>
+                            <textarea id={this.state.form.fieldId}></textarea>
                         </fieldset>
                         <input type="submit" value="Send" />
                         <input type="reset" value="Cancel" />
