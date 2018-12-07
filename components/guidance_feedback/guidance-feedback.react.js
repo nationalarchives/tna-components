@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import posed from 'react-pose';
 import { format } from 'url';
+import { IoIosCheckbox } from 'react-icons/io';
 import './style.scss'
 
 const Posed = posed.div({
@@ -18,10 +19,12 @@ export default class GuidanceFeedback extends Component {
     constructor(props){
         super(props);
         
-        // Bind methods to the component construtor
+        // Bind methods to the class component construtor
         this.buttonClick = this.buttonClick.bind(this);
         
         this.state = {
+            disabled: '',
+            class: 'hide',
             isVisible: false,
             form:{
                 label:'Any comments on your experience?',
@@ -39,16 +42,16 @@ export default class GuidanceFeedback extends Component {
     buttonClick(e){
         if(e.target.name === 'btn--no') {
             this.setState({
+                class: 'show',
                 isVisible: true,
                 form: {
                     label:'What did you expect to find?',
                     fieldId:'guidance-feedback--component--field-no'
                 }
             });
-        } 
-        
-        if(e.target.name === 'btn--yes') {
+        } else  {
             this.setState({
+                class: 'show',
                 isVisible: true,
                 form:{
                     label:'Any comments on your experience?',
@@ -60,17 +63,17 @@ export default class GuidanceFeedback extends Component {
 
     render() {
         return (
-            <div id="guidance-feedback" className="component">
+            <div>
                 <h2>Feedback</h2>
                 <h3>Did you find the guidance you needed?</h3>
-
-                <Posed pose={ this.state.isVisible ? 'hidden' : 'visible' }>
-                    <button type="button" name="btn--yes" className="btn--yes">YES</button>
-                    <button type="button" name="btn--no" className="btn--no">NO</button>
+                
+                <Posed className={this.state.isVisible ? 'hide' : 'show' } pose={ this.state.isVisible ? 'hidden' : 'visible' }>
+                    <button type="button" name="btn--no" className="btn--no">No</button>
+                    <button type="button" name="btn--yes" className="btn--yes">Yes</button>
                 </Posed>
                 
                 <Posed pose={ this.state.isVisible ? 'visible' : 'hidden' }>
-                    <form>
+                    <form className={this.state.class}>
                         <fieldset>
                             <label htmlFor={this.state.form.fieldId}>{this.state.form.label}</label>
                             <textarea id={this.state.form.fieldId}></textarea>

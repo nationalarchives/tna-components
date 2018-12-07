@@ -23,4 +23,4 @@ app.get('/help-with-your-research/research-guides', function (req, res) {
     res.render('feedback-widget', { title: 'Guidance Feedback React Component' })
 });
 
-app.listen(port, () => debug(`Example app listening on port ${ chalk.red(port) }!`))
+app.listen(port, () => debug(`TNA-Components app on ${ chalk.blue('localhost:' + port) }`))

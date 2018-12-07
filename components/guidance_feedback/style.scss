@@ -1,13 +1,61 @@
 #guidance-feedback{
+  background:#fff;
   &.component{
-    &--show {
-        display:block;
-    } 
-    &--hide {
-        display:none;
-    }
+    padding: 1em;
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+      .show {
+          display:block;
+      } 
+      .hide {
+          display:none;
+      }
     .btn {
-        
+      &--yes,
+      &--no {
+        -webkit-appearance: button;
+        cursor: pointer;
+        border: 1px solid #999;
+        font-family: 'Open Sans',sans-serif;
+        font-size: 100%;
+        margin: 0 5px 0 0;
+        outline: 0;
+      }
+    }  
+    h2{
+      font-family: 'Open Sans',sans-serif;
+      font-size: 1em;
+      font-weight: 700;
+      display: inline-block;
+      margin: .3em 0;
+      color: #000;
+    }
+    h3{
+      display: block;
+      margin-bottom: .5em;
+      font-family: 'Open Sans',sans-serif;
+      word-wrap: break-word;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    fieldset{
+      font-family: "Open Sans",arial,sans-serif;
+      input[type="text"],
+      textarea {
+        width: 100%;
+        max-width: 420px;
+        display:block;
+      }
+      label{
+        font-size: 16px;
+        font-weight: 400;
+        max-width: 420px;
+        display:block;
+        margin:0 0 5px 0;
+      }
+      border: 1px solid #ccc;
+      padding: 1em;
+      margin-bottom: 2em;
     }
   }
 }
