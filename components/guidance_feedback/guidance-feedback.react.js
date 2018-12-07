@@ -52,7 +52,7 @@ export default class GuidanceFeedback extends Component {
                 isVisible: true,
                 form:{
                     label:'Any comments on your experience?',
-                    fiedId:'guidance-feedback--component--field-yes'
+                    fieldId:'guidance-feedback--component--field-yes'
                 }
             });
         }
