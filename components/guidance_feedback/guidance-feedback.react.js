@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
-import posed from 'react-pose';
 import { format } from 'url';
 import './style.scss';
 
-// Posed animation React Component Settings
-const Posed = posed.div({
-    hidden: { 
-        opacity: 0 
-    },
-    visible: { 
-        opacity: 1
-    }
-});
 
 export default class GuidanceFeedback extends Component {
     
@@ -24,8 +14,8 @@ export default class GuidanceFeedback extends Component {
         
         this.state = {
             disabled: '',
-            class: 'hide',
-            isVisible: false,
+            isBtnVisible: 'show',
+            isFormVisible:'hide',
             form:{
                 label:'Any comments on your experience?',
                 fieldId:'guidance-feedback--component--field-yes'
@@ -43,8 +33,8 @@ export default class GuidanceFeedback extends Component {
     handleSubmit(event) {
         event.preventDefault();
         this.setState({ 
-            class: 'hide',
-            message: 'Thank you for your feedback.'
+            message: 'Thank you for your feedback.',
+            isFormVisible: 'hide'
         });
 
         return;
@@ -53,8 +43,8 @@ export default class GuidanceFeedback extends Component {
     handleButtonClick(e){
         if(e.target.name === 'btn--no') {
             this.setState({
-                class: 'show',
-                isVisible: true,
+                isBtnVisible: 'hide',
+                isFormVisible:'show',
                 form: {
                     label:'What did you expect to find?',
                     fieldId:'guidance-feedback--component--field-no'
@@ -62,8 +52,8 @@ export default class GuidanceFeedback extends Component {
             });
         } else  {
             this.setState({
-                class: 'show',
-                isVisible: true,
+                isBtnVisible: 'hide',
+                isFormVisible:'show',
                 form:{
                     label:'Any comments on your experience?',
                     fieldId:'guidance-feedback--component--field-yes'
@@ -78,13 +68,12 @@ export default class GuidanceFeedback extends Component {
                 <h2>Feedback</h2>
                 <h3>{ this.state.message}</h3>
                 
-                <Posed  className={this.state.isVisible ? 'hide' : 'show' } pose={ this.state.isVisible ? 'hidden' : 'visible' }>
+                <div className = { this.state.isBtnVisible }>
                     <button type="button" name="btn--no" className="btn--no">No</button>
                     <button type="button" name="btn--yes" className="btn--yes">Yes</button>
-                </Posed>
-                
-                <Posed pose={ this.state.isVisible ? 'visible' : 'hidden' }>
-                    <form className={this.state.class} onSubmit={this.handleSubmit}>
+                </div>
+                <div className = { this.state.isFormVisible }>
+                    <form onSubmit={this.handleSubmit}>
                         <fieldset>
                             <label htmlFor={this.state.form.fieldId}>{this.state.form.label}</label>
                             <textarea id={this.state.form.fieldId}></textarea>
@@ -93,7 +82,7 @@ export default class GuidanceFeedback extends Component {
                             <input type="reset" value="Cancel" className="btn btn--cancel" />
                         </fieldset>
                     </form>
-                </Posed>
+                </div>
             </div>
         );
     }

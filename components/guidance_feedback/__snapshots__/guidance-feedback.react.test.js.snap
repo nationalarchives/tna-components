@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sdsds  1`] = `
+<div>
+  <h2>
+    Feedback
+  </h2>
+  <h3>
+    Did you find the guidance you needed?
+  </h3>
+  <div
+    className="show"
+  >
+    <button
+      className="btn--no"
+      name="btn--no"
+      type="button"
+    >
+      No
+    </button>
+    <button
+      className="btn--yes"
+      name="btn--yes"
+      type="button"
+    >
+      Yes
+    </button>
+  </div>
+  <div
+    className="hide"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <fieldset>
+        <label
+          htmlFor="guidance-feedback--component--field-yes"
+        >
+          Any comments on your experience?
+        </label>
+        <textarea
+          id="guidance-feedback--component--field-yes"
+        />
+        <input
+          className="btn btn--send"
+          type="submit"
+          value="Send"
+        />
+        <input
+          className="btn btn--cancel"
+          type="reset"
+          value="Cancel"
+        />
+      </fieldset>
+    </form>
+  </div>
+</div>
+`;

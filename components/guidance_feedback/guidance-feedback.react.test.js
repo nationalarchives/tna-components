@@ -1,8 +1,15 @@
-// Link.react.test.js
 import React from 'react';
 import GuidanceFeedback from './guidance-feedback.react';
 import renderer from 'react-test-renderer';
 
-test('Link changes the class when hovered', () => {
-  expect(true).toBeTruthy();
+test('sdsds ', () => {
+  const component = renderer.create(
+    <GuidanceFeedback />
+  );
+
+  let tree = component.toJSON();
+
+  expect(tree).toMatchSnapshot();
+
+  
 });
