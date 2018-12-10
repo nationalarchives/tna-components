@@ -3,6 +3,7 @@
   &.component{
     padding: 1em;
     border-top: 1px solid #ddd;
+    font-family: "Open Sans",arial,sans-serif;
     overflow: hidden;
       .show {
           display:block;
@@ -11,19 +12,46 @@
           display:none;
       }
     .btn {
+      border-width: 0;
+      padding: .4em;
+      -webkit-appearance: button;
+      cursor: pointer;
+      font-size: 100%;
+      margin: 0;
+      outline: 0;
+      margin:0 5px 0 0 ;
+      &--send {
+        background-color: #099;
+        color: #fff;
+        &:hover{
+          background: #FCE45C;
+          text-decoration: underline;
+          color: #000;
+        }
+      }
+      &--cancel {
+        background-color: #ddd;
+        color: #000;
+      }
       &--yes,
       &--no {
         -webkit-appearance: button;
         cursor: pointer;
         border: 1px solid #999;
-        font-family: 'Open Sans',sans-serif;
         font-size: 100%;
         margin: 0 5px 0 0;
         outline: 0;
+        &:hover{
+          -webkit-transition: .5s;
+          transition: .5s;
+          background-color: #eee;
+        }
+        &:focus {
+          outline: 2px solid #FCE45C;
+        }
       }
     }  
     h2{
-      font-family: 'Open Sans',sans-serif;
       font-size: 1em;
       font-weight: 700;
       display: inline-block;
@@ -39,12 +67,24 @@
       font-weight: 400;
     }
     fieldset{
-      font-family: "Open Sans",arial,sans-serif;
-      input[type="text"],
+      border: 1px solid #ccc;
+      padding: 1em;
+      input {
+        display: inline-block;
+        &:focus {
+          outline: 2px solid #FCE45C;
+        }
+      }
       textarea {
         width: 100%;
+        padding: 1em;
         max-width: 420px;
         display:block;
+        font-size:1em;  
+        margin:0 0 1em 0;
+        &:focus {
+          outline: 2px solid #FCE45C;
+        }
       }
       label{
         font-size: 16px;
@@ -53,9 +93,6 @@
         display:block;
         margin:0 0 5px 0;
       }
-      border: 1px solid #ccc;
-      padding: 1em;
-      margin-bottom: 2em;
     }
   }
 }
