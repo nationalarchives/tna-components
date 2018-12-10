@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
   "scripts": {
     "test": "jest",
     "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch"

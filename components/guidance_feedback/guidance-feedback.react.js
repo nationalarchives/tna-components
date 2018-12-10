@@ -2,17 +2,6 @@ import React, { Component } from 'react';
 import posed from 'react-pose';
 import { format } from 'url';
 import './style.scss';
-
-// Posed animation React Component Settings
-const Posed = posed.div({
-    hidden: { 
-        opacity: 0 
-    },
-    visible: { 
-        opacity: 1
-    }
-});
-
 export default class GuidanceFeedback extends Component {
     
     constructor(props){
@@ -73,6 +62,15 @@ export default class GuidanceFeedback extends Component {
     }
 
     render() {
+        // Posed animation React Component Settings
+        const Posed = posed.div({
+            hidden: { 
+                opacity: 0 
+            },
+            visible: { 
+                opacity: 1
+            }
+        });
         return (
             <div>
                 <h2>Feedback</h2>
