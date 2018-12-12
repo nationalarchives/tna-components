@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Show relevant form elements when click on button NO or YES 1`] = `
+exports[`Show the relevant form elements when click on button NO or YES 1`] = `
 <form
   className="component"
   onSubmit={[Function]}
@@ -52,7 +52,7 @@ exports[`Show relevant form elements when click on button NO or YES 1`] = `
 </form>
 `;
 
-exports[`Show relevant form elements when click on button NO or YES 2`] = `
+exports[`Show the relevant form elements when click on button NO or YES 2`] = `
 <form
   className="component"
   onSubmit={[Function]}
@@ -104,7 +104,7 @@ exports[`Show relevant form elements when click on button NO or YES 2`] = `
 </form>
 `;
 
-exports[`Show relevant form elements when click on button NO or YES 3`] = `
+exports[`Show the relevant form elements when click on button NO or YES 3`] = `
 <form
   className="component"
   onSubmit={[Function]}
