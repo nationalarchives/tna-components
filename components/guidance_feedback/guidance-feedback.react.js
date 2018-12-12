@@ -9,81 +9,102 @@ export default class GuidanceFeedback extends Component {
         super(props);
         
         // Bind methods to the class component construtor
-        this.handleButtonClick = this.handleButtonClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        
+        this.handleYesClick = this.handleYesClick.bind(this);
+        this.handleNoClick = this.handleNoClick.bind(this);
+
         this.state = {
             disabled: '',
-            isBtnVisible: 'show',
-            isFormVisible:'hide',
+            isVisible: true,
             form:{
-                label:'Any comments on your experience?',
-                fieldId:'guidance-feedback--component--field-yes'
+                label:'',
+                fieldId:''
             },
             message: 'Did you find the guidance you needed?',
         }
     }
 
-    componentDidMount () {
-        document.querySelectorAll('button[type="button"]').forEach((button) => {
-            button.addEventListener('click', this.handleButtonClick, false);
-        });
+    handleNoClick(){
+        this.setState(state => ({
+            isVisible: !state.isVisible,
+            form:{
+                label:'What did you expect to find?',
+                fieldId:'field-no'
+            },
+        }));
     }
-    
+
+    handleYesClick(){
+        this.setState(state => ({
+            isVisible: !state.isVisible,
+            form:{
+                label:'Any comments on your experience?',
+                fieldId:'field-yes'
+            },
+        }));
+    }
+
     handleSubmit(event) {
         event.preventDefault();
-        this.setState({ 
+
+        this.setState(state => ({
+            isVisible: !state.isVisible,
             message: 'Thank you for your feedback.',
-            isFormVisible: 'hide'
-        });
+        }));
 
         return;
     }
 
-    handleButtonClick(e){
-        if(e.target.name === 'btn--no') {
-            this.setState({
-                isBtnVisible: 'hide',
-                isFormVisible:'show',
-                form: {
-                    label:'What did you expect to find?',
-                    fieldId:'guidance-feedback--component--field-no'
-                }
-            });
-        } else  {
-            this.setState({
-                isBtnVisible: 'hide',
-                isFormVisible:'show',
-                form:{
-                    label:'Any comments on your experience?',
-                    fieldId:'guidance-feedback--component--field-yes'
-                }
-            });
-        }
-    }
-
     render() {
+        const visible = this.state.isVisible,
+              fieldLabel = this.state.form.label,
+              fieldId = this.state.form.fieldId;
+            
         return (
-            <div>
+            <form className="component" onSubmit={this.handleSubmit}>
                 <h2>Feedback</h2>
                 <h3>{ this.state.message}</h3>
+                <button 
+                    onClick={this.handleNoClick}
+                    className={ visible ? "btn--no show":"btn--no hide"}
+                    type="button" 
+                    name="btn--no" 
+                >
+                    No
+                </button>
+                <button 
+                    onClick={this.handleYesClick}
+                    className={ visible ? "btn--yes show":"btn--yes hide"}
+                    type="button" 
+                    name="btn--no" 
+                >
+                    Yes
+                </button>
                 
-                <div className = { this.state.isBtnVisible }>
-                    <button type="button" name="btn--no" className="btn--no">No</button>
-                    <button type="button" name="btn--yes" className="btn--yes">Yes</button>
-                </div>
-                <div className = { this.state.isFormVisible }>
-                    <form onSubmit={this.handleSubmit}>
-                        <fieldset>
-                            <label htmlFor={this.state.form.fieldId}>{this.state.form.label}</label>
-                            <textarea id={this.state.form.fieldId}></textarea>
+                <fieldset 
+                    className={visible ? "hide":"show"}
+                >
+                    <label 
+                        htmlFor={fieldId}
+                    >
+                        {fieldLabel}
+                    </label>
+                    <textarea 
+                        id={fieldId}
+                    ></textarea>
 
-                            <input type="submit" value="Send" className="btn btn--send"/>
-                            <input type="reset" value="Cancel" className="btn btn--cancel" />
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
+                    <input 
+                        type="submit" 
+                        value="Send" 
+                        className="btn btn--send"
+                    />
+                    <input 
+                        type="reset" 
+                        value="Cancel" 
+                        className="btn btn--cancel" 
+                    />
+                </fieldset>
+            </form>
         );
     }
 }
