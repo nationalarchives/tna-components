@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { format } from 'url';
+import GuidanceFeedbackGTM from  './GTM/guidance-feedback-gtm.react';
 import './style.scss';
 
 
@@ -13,34 +13,32 @@ export default class GuidanceFeedback extends Component {
         this.handleYesClick = this.handleYesClick.bind(this);
         this.handleNoClick = this.handleNoClick.bind(this);
 
+        // Define state props
         this.state = {
-            disabled: '',
-            isVisible: true,
-            form:{
-                label:'',
-                fieldId:''
-            },
+            btnVisible: true,
+            formVisible: false,
+            label:'',
+            fieldId:'',
             message: 'Did you find the guidance you needed?',
         }
     }
+    
 
     handleNoClick(){
         this.setState(state => ({
-            isVisible: !state.isVisible,
-            form:{
-                label:'What did you expect to find?',
-                fieldId:'field-no'
-            },
+            btnVisible: !state.btnVisible,
+            formVisible: !state.formVisible,
+            label:'What did you expect to find?',
+            fieldId:'field-no'
         }));
     }
 
     handleYesClick(){
         this.setState(state => ({
-            isVisible: !state.isVisible,
-            form:{
-                label:'Any comments on your experience?',
-                fieldId:'field-yes'
-            },
+            btnVisible: !state.btnVisible,
+            formVisible: !state.formVisible,
+            label:'Any comments on your experience?',
+            fieldId:'field-yes'
         }));
     }
 
@@ -48,60 +46,65 @@ export default class GuidanceFeedback extends Component {
         event.preventDefault();
 
         this.setState(state => ({
-            isVisible: !state.isVisible,
+            btnVisible: false,
+            formVisible: false,
+            label:state.label,
+            fieldId:state.fieldId,
             message: 'Thank you for your feedback.',
         }));
 
-        return;
+        // Get form data and send it to GTM/GA
+        GuidanceFeedbackGTM('#guidance-feedback').aka();
+
+        return true;
     }
 
     render() {
-        const visible = this.state.isVisible,
-              fieldLabel = this.state.form.label,
-              fieldId = this.state.form.fieldId;
-            
+        const btnVisible    = this.state.btnVisible,
+              formVisible   = this.state.formVisible,
+              fieldLabel    = this.state.label,
+              fieldId       = this.state.fieldId;
+
         return (
-            <form className="component" onSubmit={this.handleSubmit}>
+            <form action="" id="guidance-feedback" className="component">
                 <h2>Feedback</h2>
-                <h3>{ this.state.message}</h3>
+                <h3 id="aria">{ this.state.message}</h3>
                 <button 
+                    aria-describedby="aria"
                     onClick={this.handleNoClick}
-                    className={ visible ? "btn--no show":"btn--no hide"}
+                    className={ btnVisible ? "btn--no show":"btn--no hide"}
                     type="button" 
                     name="btn--no" 
                 >
                     No
                 </button>
+
                 <button 
+                    aria-describedby="aria"
                     onClick={this.handleYesClick}
-                    className={ visible ? "btn--yes show":"btn--yes hide"}
+                    className={ btnVisible ? "btn--yes show":"btn--yes hide"}
                     type="button" 
-                    name="btn--no" 
+                    name="btn--yes"
                 >
                     Yes
                 </button>
                 
-                <fieldset 
-                    className={visible ? "hide":"show"}
-                >
-                    <label 
-                        htmlFor={fieldId}
-                    >
+                <fieldset className={formVisible ? "show":"hide"}>
+                    <label htmlFor={fieldId}>
                         {fieldLabel}
                     </label>
-                    <textarea 
-                        id={fieldId}
-                    ></textarea>
+                    <textarea id={fieldId} name={fieldId}></textarea>
 
                     <input 
                         type="submit" 
                         value="Send" 
                         className="btn btn--send"
+                        onClick={this.handleSubmit}
                     />
                     <input 
                         type="reset" 
                         value="Cancel" 
-                        className="btn btn--cancel" 
+                        className="btn btn--cancel"
                     />
                 </fieldset>
             </form>

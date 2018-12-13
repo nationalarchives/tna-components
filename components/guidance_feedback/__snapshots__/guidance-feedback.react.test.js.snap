@@ -1,17 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Show the relevant form elements when click on button NO or YES 1`] = `
+exports[`Hide the form and button elements on submit 1`] = `
 <form
+  action=""
   className="component"
-  onSubmit={[Function]}
+  id="guidance-feedback"
 >
   <h2>
     Feedback
   </h2>
-  <h3>
+  <h3
+    id="aria"
+  >
     Did you find the guidance you needed?
   </h3>
   <button
+    aria-describedby="aria"
     className="btn--no show"
     name="btn--no"
     onClick={[Function]}
@@ -20,8 +24,9 @@ exports[`Show the relevant form elements when click on button NO or YES 1`] = `
     No
   </button>
   <button
+    aria-describedby="aria"
     className="btn--yes show"
-    name="btn--no"
+    name="btn--yes"
     onClick={[Function]}
     type="button"
   >
@@ -37,9 +42,129 @@ exports[`Show the relevant form elements when click on button NO or YES 1`] = `
     </label>
     <textarea
       id=""
+      name=""
     />
     <input
       className="btn btn--send"
+      onClick={[Function]}
+      type="submit"
+      value="Send"
+    />
+    <input
+      className="btn btn--cancel"
+      type="reset"
+      value="Cancel"
+    />
+  </fieldset>
+</form>
+`;
+
+exports[`Hide the form and button elements on submit 2`] = `
+<form
+  action=""
+  className="component"
+  id="guidance-feedback"
+>
+  <h2>
+    Feedback
+  </h2>
+  <h3
+    id="aria"
+  >
+    Thank you for your feedback.
+  </h3>
+  <button
+    aria-describedby="aria"
+    className="btn--no hide"
+    name="btn--no"
+    onClick={[Function]}
+    type="button"
+  >
+    No
+  </button>
+  <button
+    aria-describedby="aria"
+    className="btn--yes hide"
+    name="btn--yes"
+    onClick={[Function]}
+    type="button"
+  >
+    Yes
+  </button>
+  <fieldset
+    className="hide"
+  >
+    <label
+      htmlFor=""
+    >
+      
+    </label>
+    <textarea
+      id=""
+      name=""
+    />
+    <input
+      className="btn btn--send"
+      onClick={[Function]}
+      type="submit"
+      value="Send"
+    />
+    <input
+      className="btn btn--cancel"
+      type="reset"
+      value="Cancel"
+    />
+  </fieldset>
+</form>
+`;
+
+exports[`Show the relevant form elements when click on button NO or YES 1`] = `
+<form
+  action=""
+  className="component"
+  id="guidance-feedback"
+>
+  <h2>
+    Feedback
+  </h2>
+  <h3
+    id="aria"
+  >
+    Did you find the guidance you needed?
+  </h3>
+  <button
+    aria-describedby="aria"
+    className="btn--no show"
+    name="btn--no"
+    onClick={[Function]}
+    type="button"
+  >
+    No
+  </button>
+  <button
+    aria-describedby="aria"
+    className="btn--yes show"
+    name="btn--yes"
+    onClick={[Function]}
+    type="button"
+  >
+    Yes
+  </button>
+  <fieldset
+    className="hide"
+  >
+    <label
+      htmlFor=""
+    >
+      
+    </label>
+    <textarea
+      id=""
+      name=""
+    />
+    <input
+      className="btn btn--send"
+      onClick={[Function]}
       type="submit"
       value="Send"
     />
@@ -54,16 +179,20 @@ exports[`Show the relevant form elements when click on button NO or YES 1`] = `
 
 exports[`Show the relevant form elements when click on button NO or YES 2`] = `
 <form
+  action=""
   className="component"
-  onSubmit={[Function]}
+  id="guidance-feedback"
 >
   <h2>
     Feedback
   </h2>
-  <h3>
+  <h3
+    id="aria"
+  >
     Did you find the guidance you needed?
   </h3>
   <button
+    aria-describedby="aria"
     className="btn--no hide"
     name="btn--no"
     onClick={[Function]}
@@ -72,8 +201,9 @@ exports[`Show the relevant form elements when click on button NO or YES 2`] = `
     No
   </button>
   <button
+    aria-describedby="aria"
     className="btn--yes hide"
-    name="btn--no"
+    name="btn--yes"
     onClick={[Function]}
     type="button"
   >
@@ -89,9 +219,11 @@ exports[`Show the relevant form elements when click on button NO or YES 2`] = `
     </label>
     <textarea
       id="field-no"
+      name="field-no"
     />
     <input
       className="btn btn--send"
+      onClick={[Function]}
       type="submit"
       value="Send"
     />
@@ -106,16 +238,20 @@ exports[`Show the relevant form elements when click on button NO or YES 2`] = `
 
 exports[`Show the relevant form elements when click on button NO or YES 3`] = `
 <form
+  action=""
   className="component"
-  onSubmit={[Function]}
+  id="guidance-feedback"
 >
   <h2>
     Feedback
   </h2>
-  <h3>
+  <h3
+    id="aria"
+  >
     Did you find the guidance you needed?
   </h3>
   <button
+    aria-describedby="aria"
     className="btn--no show"
     name="btn--no"
     onClick={[Function]}
@@ -124,8 +260,9 @@ exports[`Show the relevant form elements when click on button NO or YES 3`] = `
     No
   </button>
   <button
+    aria-describedby="aria"
     className="btn--yes show"
-    name="btn--no"
+    name="btn--yes"
     onClick={[Function]}
     type="button"
   >
@@ -141,9 +278,11 @@ exports[`Show the relevant form elements when click on button NO or YES 3`] = `
     </label>
     <textarea
       id="field-yes"
+      name="field-yes"
     />
     <input
       className="btn btn--send"
+      onClick={[Function]}
       type="submit"
       value="Send"
     />
