@@ -53,7 +53,7 @@ export default class GuidanceFeedback extends Component {
             message: 'Thank you for your feedback.',
         }));
 
-        // Get form data and send it to GTM/GA
+        // Get form data and send it to GTM/GAnalytics
         GuidanceFeedbackGTM('#guidance-feedback').aka();
 
         return true;

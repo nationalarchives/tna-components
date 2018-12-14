@@ -1,17 +1,27 @@
 const  GuidanceFeedbackGTM = (formID) => {
-    let arr = [];
-    // Return an object with the logic inside
     return {
-        // Push the
-        getElements() { document.querySelectorAll(formID).forEach(element => { 
-            for(let elem of element.elements) {
-                arr.push(elem);
+        form: document.querySelectorAll(formID)[0],
+        elemArr: [],
+        dataLay: {},
+        getElement() { 
+            for(let el of this.form) {
+                if(el.type === 'textarea') this.elemArr.push(el);
             }
-        })},
-        aka() {
-            this.getElements();
-            //console.log(arr[3].value);
-        }
+        },
+        buildObj(){
+            this.elemArr.filter((el) => {
+                this.dataLay.event = 'Feedback';
+                this.dataLay.eventCategory= 'Research guides feedback';
+                this.dataLay.eventLabel = el.value === '' ? 'No comment made' : el.value ;
+                this.dataLay.eventAction = el.id === 'field-no'? 'No' : 'Yes';
+                return this.dataLay;
+            });
+        },
+        aka(){
+            this.getElement();
+            this.buildObj();
+            console.log(this.dataLay);
+        }   
     }
 }
 
