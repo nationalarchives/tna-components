@@ -22,7 +22,6 @@ export default class GuidanceFeedback extends Component {
             message: 'Did you find the guidance you needed?',
         }
     }
-    
 
     handleNoClick(){
         this.setState(state => ({
@@ -54,7 +53,7 @@ export default class GuidanceFeedback extends Component {
         }));
 
         // Get form data and send it to GTM/GAnalytics
-        GuidanceFeedbackGTM('#guidance-feedback').aka();
+        GuidanceFeedbackGTM('guidance-feedback').push();
 
         return true;
     }

@@ -9,7 +9,7 @@
     }
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage --watchAll",
     "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.4.2",
     "debug": "^4.1.0",

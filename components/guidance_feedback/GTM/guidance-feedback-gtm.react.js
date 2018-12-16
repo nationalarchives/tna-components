@@ -1,11 +1,16 @@
 const  GuidanceFeedbackGTM = (formID) => {
     return {
-        form: document.querySelectorAll(formID)[0],
+        form: document.getElementById(formID),
         elemArr: [],
         dataLay: {},
-        getElement() { 
-            for(let el of this.form) {
-                if(el.type === 'textarea') this.elemArr.push(el);
+        getElement(forM, arr) { 
+            if(forM) {
+                console.log(forM.elements);
+                for (let i = 0; i < forM.elements.length; i++) {
+                    if (forM[i].nodeName === "TEXTAREA" && forM[i].type === "textarea") {
+                        return arr.push(forM[i]);  // update array
+                    }
+                  }
             }
         },
         buildObj(){
@@ -17,10 +22,16 @@ const  GuidanceFeedbackGTM = (formID) => {
                 return this.dataLay;
             });
         },
-        aka(){
-            this.getElement();
+        pushInDataLayer: (obj) => {
+            let wd = window.dataLayer || [];
+            (!!obj || typeof obj === 'object') ? wd.push(obj) : '';
+        
+            return obj;
+        },
+        push(){
+            this.getElement(this.form, this.elemArr);
             this.buildObj();
-            console.log(this.dataLay);
+            this.pushInDataLayer(this.dataLay);
         }   
     }
 }

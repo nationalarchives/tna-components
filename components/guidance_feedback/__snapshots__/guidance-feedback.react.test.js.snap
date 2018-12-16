@@ -59,6 +59,65 @@ exports[`Hide the form and button elements on submit 1`] = `
 </form>
 `;
 
+exports[`Hide the form and button elements on submit 2`] = `
+<form
+  action=""
+  className="component"
+  id="guidance-feedback"
+>
+  <h2>
+    Feedback
+  </h2>
+  <h3
+    id="aria"
+  >
+    Thank you for your feedback.
+  </h3>
+  <button
+    aria-describedby="aria"
+    className="btn--no hide"
+    name="btn--no"
+    onClick={[Function]}
+    type="button"
+  >
+    No
+  </button>
+  <button
+    aria-describedby="aria"
+    className="btn--yes hide"
+    name="btn--yes"
+    onClick={[Function]}
+    type="button"
+  >
+    Yes
+  </button>
+  <fieldset
+    className="hide"
+  >
+    <label
+      htmlFor=""
+    >
+      
+    </label>
+    <textarea
+      id=""
+      name=""
+    />
+    <input
+      className="btn btn--send"
+      onClick={[Function]}
+      type="submit"
+      value="Send"
+    />
+    <input
+      className="btn btn--cancel"
+      type="reset"
+      value="Cancel"
+    />
+  </fieldset>
+</form>
+`;
+
 exports[`Show the relevant form elements when click on button NO or YES 1`] = `
 <form
   action=""
