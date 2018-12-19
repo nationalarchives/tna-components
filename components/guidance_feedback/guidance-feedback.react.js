@@ -1,6 +1,13 @@
+/**
+ * ------------  THE NATIONAL ARCHIVES  -----------------
+ * Guidance Feedback React Component
+ * Developer: Mihai Diaconita
+ **/
+
 import React, { Component } from 'react';
 import Textarea from './child_components/textarea/textarea.react';
 import Button  from './child_components/button/button.react';
+import Input from './child_components/input/input.react';
 import './style.scss';
 
 
@@ -95,40 +102,42 @@ export default class GuidanceFeedback extends Component {
               fieldId       = this.state.fieldId;
 
         return (
-            <form action="" id="guidance-feedback" className="react-component-gf">
+            <form action="" id="guidance_feedback" className="react_component_gf">
                 <h2>Feedback</h2>
                 <h3 id="aria">{ this.state.message}</h3>
                 <Button 
                     onClick={ this.updateStateBtnNo }
-                    className={ btnVisible ? "btn--no show":"btn--no hide"} 
+                    className={ btnVisible ? "btnGF--no show":"btnGF--no hide"} 
                     type="button" 
-                    name="btn--no"
+                    name="btnGF--no"
                 >
                     No
                 </Button>
 
                 <Button 
                     onClick={ this.updateStateBtnYes  }
-                    className={ btnVisible ? "btn--yes show":"btn--yes hide"} 
+                    className={ btnVisible ? "btnGF--yes show":"btnGF--yes hide"} 
                     type="button" 
-                    name="btn--yes"
+                    name="btnGF--yes"
                 >
                     Yes
                 </Button>
                 
                 <fieldset className={formVisible ? "show":"hide"}>
-                    <Textarea id={fieldId} label={fieldLabel} name={fieldId} ref={this.setTextareaRef}/>
+                    <Textarea id={fieldId} label={fieldLabel} name={fieldId} ref={this.setTextareaRef} maxlength="300"/>
 
-                    <input 
-                        type="submit" 
-                        value="Send" 
-                        className="btn btn--send"
-                        onClick={this.handleSubmit}
+                    <Input 
+                        type="submit"
+                        value="Send"
+                        className="btnGF btnGF--send"
+                        onClick = {this.handleSubmit}
                     />
-                    <input 
+
+                    <Input 
                         type="reset" 
                         value="Cancel" 
-                        className="btn btn--cancel"
+                        className="btnGF btnGF--cancel"
+                        onClick = {() => {}}
                     />
                 </fieldset>
             </form>

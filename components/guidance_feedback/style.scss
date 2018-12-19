@@ -1,17 +1,20 @@
-#guidance-feedback{
+#guidance_feedback{
   background:#fff;
-  &.react-component-gf{
+  &.react_component_gf{
     padding: 1em;
     border-top: 1px solid #ddd;
     font-family: "Open Sans",arial,sans-serif;
     overflow: hidden;
+    margin: .5em 0 0 0;
+    border-top: 20px solid #efefef;
+    border-bottom: 20px solid #efefef;
       .show {
           display:inline-block;
       } 
       .hide {
           display:none;
       }
-    .btn {
+    .btnGF {
       border-width: 0;
       padding: .4em;
       -webkit-appearance: button;
@@ -23,6 +26,7 @@
       &--send {
         background-color: #099;
         color: #fff;
+        height:auto;
         &:hover{
           background: #FCE45C;
           text-decoration: underline;
@@ -82,7 +86,7 @@
          -o-animation: fadein 1s; /* Opera < 12.1 */
             animation: fadein 1s;
       textarea {
-        width: 100%;
+        width: 90%;
         padding: 1em;
         max-width: 420px;
         display:block;

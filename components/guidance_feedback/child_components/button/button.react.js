@@ -1,3 +1,9 @@
+/**
+ * ------------  THE NATIONAL ARCHIVES  -----------------
+ * Button React Component
+ * Developer: Mihai Diaconita
+ **/
+
 import React from 'react';
 
 const Button = (props) => {
