@@ -3,7 +3,7 @@
 exports[`Hide the form and button elements on submit 1`] = `
 <form
   action=""
-  className="component"
+  className="react-component-gf"
   id="guidance-feedback"
 >
   <h2>
@@ -35,15 +35,17 @@ exports[`Hide the form and button elements on submit 1`] = `
   <fieldset
     className="hide"
   >
-    <label
-      htmlFor=""
-    >
-      
-    </label>
-    <textarea
-      id=""
-      name=""
-    />
+    <div>
+      <label
+        htmlFor=""
+      >
+        
+      </label>
+      <textarea
+        id=""
+        name=""
+      />
+    </div>
     <input
       className="btn btn--send"
       onClick={[Function]}
@@ -62,7 +64,7 @@ exports[`Hide the form and button elements on submit 1`] = `
 exports[`Hide the form and button elements on submit 2`] = `
 <form
   action=""
-  className="component"
+  className="react-component-gf"
   id="guidance-feedback"
 >
   <h2>
@@ -94,15 +96,17 @@ exports[`Hide the form and button elements on submit 2`] = `
   <fieldset
     className="hide"
   >
-    <label
-      htmlFor=""
-    >
-      
-    </label>
-    <textarea
-      id=""
-      name=""
-    />
+    <div>
+      <label
+        htmlFor=""
+      >
+        
+      </label>
+      <textarea
+        id=""
+        name=""
+      />
+    </div>
     <input
       className="btn btn--send"
       onClick={[Function]}
@@ -121,7 +125,7 @@ exports[`Hide the form and button elements on submit 2`] = `
 exports[`Show the relevant form elements when click on button NO or YES 1`] = `
 <form
   action=""
-  className="component"
+  className="react-component-gf"
   id="guidance-feedback"
 >
   <h2>
@@ -153,15 +157,17 @@ exports[`Show the relevant form elements when click on button NO or YES 1`] = `
   <fieldset
     className="hide"
   >
-    <label
-      htmlFor=""
-    >
-      
-    </label>
-    <textarea
-      id=""
-      name=""
-    />
+    <div>
+      <label
+        htmlFor=""
+      >
+        
+      </label>
+      <textarea
+        id=""
+        name=""
+      />
+    </div>
     <input
       className="btn btn--send"
       onClick={[Function]}
@@ -180,7 +186,7 @@ exports[`Show the relevant form elements when click on button NO or YES 1`] = `
 exports[`Show the relevant form elements when click on button NO or YES 2`] = `
 <form
   action=""
-  className="component"
+  className="react-component-gf"
   id="guidance-feedback"
 >
   <h2>
@@ -212,15 +218,17 @@ exports[`Show the relevant form elements when click on button NO or YES 2`] = `
   <fieldset
     className="show"
   >
-    <label
-      htmlFor="field-no"
-    >
-      What did you expect to find?
-    </label>
-    <textarea
-      id="field-no"
-      name="field-no"
-    />
+    <div>
+      <label
+        htmlFor="field-no"
+      >
+        What did you expect to find?
+      </label>
+      <textarea
+        id="field-no"
+        name="field-no"
+      />
+    </div>
     <input
       className="btn btn--send"
       onClick={[Function]}
@@ -239,7 +247,7 @@ exports[`Show the relevant form elements when click on button NO or YES 2`] = `
 exports[`Show the relevant form elements when click on button NO or YES 3`] = `
 <form
   action=""
-  className="component"
+  className="react-component-gf"
   id="guidance-feedback"
 >
   <h2>
@@ -271,15 +279,17 @@ exports[`Show the relevant form elements when click on button NO or YES 3`] = `
   <fieldset
     className="hide"
   >
-    <label
-      htmlFor="field-yes"
-    >
-      Any comments on your experience?
-    </label>
-    <textarea
-      id="field-yes"
-      name="field-yes"
-    />
+    <div>
+      <label
+        htmlFor="field-yes"
+      >
+        Any comments on your experience?
+      </label>
+      <textarea
+        id="field-yes"
+        name="field-yes"
+      />
+    </div>
     <input
       className="btn btn--send"
       onClick={[Function]}

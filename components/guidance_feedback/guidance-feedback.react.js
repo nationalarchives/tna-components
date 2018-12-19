@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import GuidanceFeedbackGTM from  './GTM/guidance-feedback-gtm.react';
+import Textarea from './child_components/textarea/textarea.react';
+import Button  from './child_components/button/button.react';
 import './style.scss';
 
 
@@ -8,12 +9,22 @@ export default class GuidanceFeedback extends Component {
     constructor(props){
         super(props);
         
+        // Set properties
+        this.textarea = null;
+        this.objGTM = {};
+
         // Bind methods to the class component construtor
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleYesClick = this.handleYesClick.bind(this);
-        this.handleNoClick = this.handleNoClick.bind(this);
+        this.buildGTMObj = this.buildGTMObj.bind(this);
+        this.updateStateBtnNo = this.updateStateBtnNo.bind(this);
+        this.updateStateBtnYes = this.updateStateBtnYes.bind(this);
+        this.pushInDataLayer = this.pushInDataLayer.bind(this);
 
-        // Define state props
+        this.setTextareaRef = element => {
+            this.textarea = element;
+        };
+
+        // Define default state props
         this.state = {
             btnVisible: true,
             formVisible: false,
@@ -21,23 +32,40 @@ export default class GuidanceFeedback extends Component {
             fieldId:'',
             message: 'Did you find the guidance you needed?',
         }
+    }    
+
+    buildGTMObj(obj) {
+        // Focus the text input using the raw DOM API
+        if (this.textarea) {
+            obj.event = 'Feedback';
+            obj.eventCategory= 'Research guides feedback';
+            obj.eventLabel = this.textarea.value === '' ? 'No comment made' : this.textarea.value ;
+            obj.eventAction = this.textarea.id === 'field-no'? 'No' : 'Yes';
+            return obj;
+        }
     }
 
-    handleNoClick(){
-        this.setState(state => ({
-            btnVisible: !state.btnVisible,
-            formVisible: !state.formVisible,
-            label:'What did you expect to find?',
-            fieldId:'field-no'
-        }));
+    pushInDataLayer(obj) {
+        let wd = window.dataLayer || [];
+        (!!obj || typeof obj === 'object') ? wd.push(obj) : '';
+    
+        return obj;
     }
 
-    handleYesClick(){
+    updateStateBtnYes(){
         this.setState(state => ({
             btnVisible: !state.btnVisible,
             formVisible: !state.formVisible,
             label:'Any comments on your experience?',
             fieldId:'field-yes'
+        }));
+    }
+    updateStateBtnNo(){
+        this.setState(state => ({
+            btnVisible: !state.btnVisible,
+            formVisible: !state.formVisible,
+            label:'What did you expect to find?',
+            fieldId:'field-no'
         }));
     }
 
@@ -52,12 +80,14 @@ export default class GuidanceFeedback extends Component {
             message: 'Thank you for your feedback.',
         }));
 
-        // Get form data and send it to GTM/GAnalytics
-        GuidanceFeedbackGTM('guidance-feedback').push();
+        // Build the GTM Object
+        this.buildGTMObj(this.objGTM);
+        // Push the GTM Object in dataLayer
+        this.pushInDataLayer(this.objGTM);
 
         return true;
     }
-
+    
     render() {
         const btnVisible    = this.state.btnVisible,
               formVisible   = this.state.formVisible,
@@ -65,34 +95,29 @@ export default class GuidanceFeedback extends Component {
               fieldId       = this.state.fieldId;
 
         return (
-            <form action="" id="guidance-feedback" className="component">
+            <form action="" id="guidance-feedback" className="react-component-gf">
                 <h2>Feedback</h2>
                 <h3 id="aria">{ this.state.message}</h3>
-                <button 
-                    aria-describedby="aria"
-                    onClick={this.handleNoClick}
-                    className={ btnVisible ? "btn--no show":"btn--no hide"}
+                <Button 
+                    onClick={ this.updateStateBtnNo }
+                    className={ btnVisible ? "btn--no show":"btn--no hide"} 
                     type="button" 
-                    name="btn--no" 
+                    name="btn--no"
                 >
                     No
-                </button>
+                </Button>
 
-                <button 
-                    aria-describedby="aria"
-                    onClick={this.handleYesClick}
-                    className={ btnVisible ? "btn--yes show":"btn--yes hide"}
+                <Button 
+                    onClick={ this.updateStateBtnYes  }
+                    className={ btnVisible ? "btn--yes show":"btn--yes hide"} 
                     type="button" 
                     name="btn--yes"
                 >
                     Yes
-                </button>
+                </Button>
                 
                 <fieldset className={formVisible ? "show":"hide"}>
-                    <label htmlFor={fieldId}>
-                        {fieldLabel}
-                    </label>
-                    <textarea id={fieldId} name={fieldId}></textarea>
+                    <Textarea id={fieldId} label={fieldLabel} name={fieldId} ref={this.setTextareaRef}/>
 
                     <input 
                         type="submit" 
