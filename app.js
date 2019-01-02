@@ -33,4 +33,4 @@ app.use('/', homeRouter);
 app.use('/help-with-your-research/research-guides', feedbackRouter);
 
 // Set the port of the application and log the info
-app.listen(port, () => debug(`TNA-Components app on ${ chalk.blue('localhost:' + port) }`))
+app.listen(port, () => debug(`TNA-Components app on ${ chalk.blue('http://localhost:' + port) }`))
