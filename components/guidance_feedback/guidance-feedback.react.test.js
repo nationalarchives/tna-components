@@ -64,7 +64,7 @@ test('Check for the absence of the Guidance Feedback component', () => {
 });
 
 // Unit testing
-test('Test buildGTMObj & pushInDatLayer methods', () => {
+test('Test buildGTMObj() & pushInDatLayer() methods', () => {
   const component = mount(
     <GuidanceFeedback />
   );

@@ -8,7 +8,9 @@ const express = require('express'),
 */
 feedbackRouter.route('/')
 .get((req,res) => {
-    res.render('feedback-widget', { title: 'Guidance Feedback React Component' });
+    res.render('feedback-widget', { 
+        title: 'Guidance Feedback React Component'
+    });
 });
 
 module.exports = feedbackRouter;

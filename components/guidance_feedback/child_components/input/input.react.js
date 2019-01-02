@@ -1,6 +1,6 @@
 /**
  * ------------  THE NATIONAL ARCHIVES  -----------------
- * Input React Component
+ * Input React Child Component
  * Developer: Mihai Diaconita
  **/
 

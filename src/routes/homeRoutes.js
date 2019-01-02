@@ -8,7 +8,12 @@ const express = require('express'),
 */
 homeRouter.route('/')
 .get((req,res) => {
-    res.render('home', { title: 'The National Archives React Components' });
+    res.render('home', { 
+        title: 'The National Archives React Components',
+        page: {
+            guidanceFeedback: '/help-with-your-research/research-guides'
+        }
+    });
 });
 
 module.exports = homeRouter;

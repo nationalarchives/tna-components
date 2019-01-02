@@ -1,6 +1,6 @@
 /**
  * ------------  THE NATIONAL ARCHIVES  -----------------
- * Button React Component
+ * Button React Child Component
  * Developer: Mihai Diaconita
  **/
 

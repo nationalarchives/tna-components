@@ -1,6 +1,6 @@
 /**
  * ------------  THE NATIONAL ARCHIVES  -----------------
- * Guidance Feedback React Component
+ * Guidance Feedback React Parent Component
  * Developer: Mihai Diaconita
  **/
 

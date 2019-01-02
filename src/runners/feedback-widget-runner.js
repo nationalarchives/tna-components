@@ -5,6 +5,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import GuidanceFeedback from '../../components/guidance_feedback/guidance-feedback.react';
 
+// Define the block scope
 {
     let url = window.location.href;
     const wrapper = document.querySelector('.research-guide .col.starts-at-full.ends-at-one-third.clr.box');
