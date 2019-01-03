@@ -4,9 +4,18 @@
 
 ## Development machine setup
 
-To get this running on your development machine use: 
+* `npm install` or `sudo npm install`
+* Optional: Change the development mode to `development` inside webpack.config.js file and revert back to `production` when ready to deploy
 
-* `npm install`
-* `npx webpack --config webpack.config.js --watch`
-* Run a web server from the project root (i.e. using `php -S localhost:8000)
-* View the results by navigating to the HTML files in `dist`
+## Start the application
+
+* `npm start`
+* View the results by navigating to the http://localhost:3000
+
+## Testing
+
+* `npm test`
+*  Optional: Watch all the tests => `"test": "jest"` to `"test": "jest --watchAll"` inside package.json
+*  Optional: Watch all and check code coverage => `"test": "jest"` to `"test": "jest --watchAll --coverage"` inside package.json
+*  Optional: Check code coverage => `"test": "jest"` to `"test": "jest --coverage"` inside package.json
+*  !! Important: Rember to revert back to `"test": "jest"` before pushing anything to the repository or otherwise will cause a loop into Travis CI and fail the build

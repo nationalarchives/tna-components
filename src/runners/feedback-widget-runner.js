@@ -7,7 +7,7 @@ import GuidanceFeedback from '../../components/guidance_feedback/guidance-feedba
 
 // Define the block scope
 {
-    let url = window.location.href;
+    const url = window.location.href;
     const wrapper = document.querySelector('.research-guide .col.starts-at-full.ends-at-one-third.clr.box');
     const wrapperIndepth = document.querySelector('.research-guide-indepth .col.starts-at-full.ends-at-one-third.clr.box');
     const regex = /(help-with-your-research)\/(research-guides)/g;
