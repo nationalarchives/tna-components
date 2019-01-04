@@ -124,7 +124,7 @@ exports[`Hide the form and button elements on submit 2`] = `
 </form>
 `;
 
-exports[`Show the relevant form elements when click on button NO or YES 1`] = `
+exports[`Revert the widget back to the initial state when click on CANCEL 1`] = `
 <form
   action=""
   className="react_component_gf"
@@ -186,7 +186,131 @@ exports[`Show the relevant form elements when click on button NO or YES 1`] = `
 </form>
 `;
 
-exports[`Show the relevant form elements when click on button NO or YES 2`] = `
+exports[`Revert the widget back to the initial state when click on CANCEL 2`] = `
+<form
+  action=""
+  className="react_component_gf"
+  id="guidance_feedback"
+>
+  <h2>
+    Feedback
+  </h2>
+  <h3
+    id="aria"
+  >
+    Did you find the guidance you needed?
+  </h3>
+  <button
+    aria-describedby="aria"
+    className="btnGF--no show"
+    name="btnGF--no"
+    onClick={[Function]}
+    type="button"
+  >
+    No
+  </button>
+  <button
+    aria-describedby="aria"
+    className="btnGF--yes show"
+    name="btnGF--yes"
+    onClick={[Function]}
+    type="button"
+  >
+    Yes
+  </button>
+  <fieldset
+    className="hide"
+  >
+    <div>
+      <label
+        htmlFor=""
+      >
+        
+      </label>
+      <textarea
+        id=""
+        name=""
+      />
+    </div>
+    <input
+      className="btnGF btnGF--send"
+      onClick={[Function]}
+      type="submit"
+      value="Send"
+    />
+    <input
+      className="btnGF btnGF--cancel"
+      onClick={[Function]}
+      type="reset"
+      value="Cancel"
+    />
+  </fieldset>
+</form>
+`;
+
+exports[`Show the relevant form elements when click on NO or YES button 1`] = `
+<form
+  action=""
+  className="react_component_gf"
+  id="guidance_feedback"
+>
+  <h2>
+    Feedback
+  </h2>
+  <h3
+    id="aria"
+  >
+    Did you find the guidance you needed?
+  </h3>
+  <button
+    aria-describedby="aria"
+    className="btnGF--no show"
+    name="btnGF--no"
+    onClick={[Function]}
+    type="button"
+  >
+    No
+  </button>
+  <button
+    aria-describedby="aria"
+    className="btnGF--yes show"
+    name="btnGF--yes"
+    onClick={[Function]}
+    type="button"
+  >
+    Yes
+  </button>
+  <fieldset
+    className="hide"
+  >
+    <div>
+      <label
+        htmlFor=""
+      >
+        
+      </label>
+      <textarea
+        id=""
+        name=""
+      />
+    </div>
+    <input
+      className="btnGF btnGF--send"
+      onClick={[Function]}
+      type="submit"
+      value="Send"
+    />
+    <input
+      className="btnGF btnGF--cancel"
+      onClick={[Function]}
+      type="reset"
+      value="Cancel"
+    />
+  </fieldset>
+</form>
+`;
+
+exports[`Show the relevant form elements when click on NO or YES button 2`] = `
 <form
   action=""
   className="react_component_gf"
@@ -248,7 +372,7 @@ exports[`Show the relevant form elements when click on button NO or YES 2`] = `
 </form>
 `;
 
-exports[`Show the relevant form elements when click on button NO or YES 3`] = `
+exports[`Show the relevant form elements when click on NO or YES button 3`] = `
 <form
   action=""
   className="react_component_gf"

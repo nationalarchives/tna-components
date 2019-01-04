@@ -11,23 +11,25 @@ test('test', () => {
   expect(true).toBe(true);
 });
 // // Snapshot 1
-test('Show the relevant form elements when click on button NO or YES', () => {
+test('Show the relevant form elements when click on NO or YES button', () => {
   const component = renderer.create(
     <GuidanceFeedback />
   );
 
   let submitEvent = { 
-        preventDefault: () => {} 
+        preventDefault: () => {}
   };
 
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
   
+  // Click on NO button
   tree.children[2].props.onClick(submitEvent);
 
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 
+  // Click on YES button
   tree.children[3].props.onClick(submitEvent);
 
   tree = component.toJSON();
@@ -55,6 +57,23 @@ test('Hide the form and button elements on submit', () => {
 
 });
 
+// Snaphost 3
+test('Revert the widget back to the initial state when click on CANCEL', () => {
+  const component = renderer.create(
+    <GuidanceFeedback />
+  );
+
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+
+  // Click on CANCEL button
+  tree.children[4].children[2].props.onClick();
+
+  tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+
+});
+
 // Unit testing using Enzyme
 test('Check for the absence of the Guidance Feedback component', () => {
   const component = shallow(
@@ -64,7 +83,7 @@ test('Check for the absence of the Guidance Feedback component', () => {
 });
 
 // Unit testing
-test('Test buildGTMObj() & pushInDatLayer() methods', () => {
+test('Test the methods', () => {
   const component = mount(
     <GuidanceFeedback />
   );

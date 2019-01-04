@@ -26,6 +26,7 @@ export default class GuidanceFeedback extends Component {
         this.updateStateBtnNo = this.updateStateBtnNo.bind(this);
         this.updateStateBtnYes = this.updateStateBtnYes.bind(this);
         this.pushInDataLayer = this.pushInDataLayer.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
 
         this.setTextareaRef = element => {
             this.textarea = element;
@@ -39,6 +40,9 @@ export default class GuidanceFeedback extends Component {
             fieldId:'',
             message: 'Did you find the guidance you needed?',
         }
+
+        // Preserve the initial state in a new object so it can be reused
+        this.initialState = this.state
     }    
 
     buildGTMObj(obj) {
@@ -74,6 +78,10 @@ export default class GuidanceFeedback extends Component {
             label:'What did you expect to find?',
             fieldId:'field-no'
         }));
+    }
+
+    handleCancel() {
+        return this.setState(this.initialState);
     }
 
     handleSubmit(event) {
@@ -137,7 +145,7 @@ export default class GuidanceFeedback extends Component {
                         type="reset" 
                         value="Cancel" 
                         className="btnGF btnGF--cancel"
-                        onClick = {() => {}}
+                        onClick = {this.handleCancel}
                     />
                 </fieldset>
             </form>
