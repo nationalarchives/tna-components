@@ -67,7 +67,6 @@ A quick look at the top-level files and directories you'll see in this project.
     ├── app.js
     └── package-lock.json
     ├── package.json
-    └── package.json
     ├── README.md.js
     └── webconfig.config.js
 
