@@ -71,7 +71,7 @@ A quick look at the top-level files and directories you'll see in this project.
     ├── README.md.js
     └── webconfig.config.js
 
-## Credits
+## :hatched_chick: Credits
 **React**
 Website URL https://reactjs.org
 
