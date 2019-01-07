@@ -1,0 +1,20 @@
+language:
+  - node_js
+
+node_js:
+  - "stable"
+
+cache:
+  directories:
+  - node_modules
+
+install:
+  - npm install
+
+script:
+  - npm test
+
+notifications:
+  slack:
+    rooms:
+      - tna-digital:C2GnodnLsxhwwGvr0xAcajzc#code-builds

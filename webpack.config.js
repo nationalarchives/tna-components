@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        discovery: './src/discovery_components.js'
+        index: './src/index.js'
     },
     mode: 'production',
     output: {
