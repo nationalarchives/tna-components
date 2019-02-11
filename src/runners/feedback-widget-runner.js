@@ -4,7 +4,9 @@ import 'core-js/es6/set';
 import React from "react";
 import ReactDOM from "react-dom";
 import GuidanceFeedback from '../../components/guidance_feedback/guidance-feedback.react';
+import RecommendedLinksDiscovery from '../../components/recommended_links_discovery/recommended_links_discovery_react';
 
+// Guidance Feedback
 // Define the block scope
 {
     const url = window.location.href;
@@ -29,3 +31,8 @@ import GuidanceFeedback from '../../components/guidance_feedback/guidance-feedba
     }
 }
 
+// Recommended Links Discovery
+// Define the block scope
+{
+    ReactDOM.render(<RecommendedLinksDiscovery />, document.getElementById("recommended-links-discovery"));
+}

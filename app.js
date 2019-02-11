@@ -12,7 +12,8 @@ const express = require('express'),
       morgan = require('morgan'),
       debug = require('debug')('app'),
       feedbackRouter = require('./src/routes/feedbackRoutes'),
-      homeRouter = require('./src/routes/homeRoutes');
+      homeRouter = require('./src/routes/homeRoutes'),
+      recommendedLinksDiscovery = require('./src/routes/recommendedRoutes');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -31,6 +32,7 @@ app.set('view engine', 'ejs');
 // Routes
 app.use('/', homeRouter);
 app.use('/help-with-your-research/research-guides', feedbackRouter);
+app.use('/r', recommendedLinksDiscovery);
 
 // Set the port of the application and log the info
 app.listen(port, () => debug(`TNA-Components app on ${ chalk.blue('http://localhost:' + port) }`))
