@@ -17,7 +17,7 @@
     "url": "https://github.com//nationalarchives/tna-components.git"
   },
   "keywords": [],
-  "author": "TNA Digital Team",
+  "authors": ["Punal Chotrani", "Mihai Diaconita"],
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
