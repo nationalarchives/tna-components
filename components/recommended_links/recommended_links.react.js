@@ -12,20 +12,21 @@ export default class RecommendedLinks extends Component {
     this.get_links = this.get_links.bind(this);
     this.get_link_keys = this.get_link_keys.bind(this);
     this.unique = this.unique.bind(this);
-    this.remove_url_string_separators = this.remove_url_string_separators.bind(
-      this
-    );
+    this.renderDescription = this.renderDescription.bind(this);
+    this.removeUrlStringSeparators = this.removeUrlStringSeparators.bind(this);
   }
 
   get_links(str) {
     let links_to_show = [],
       unique_link_keys = [];
+
+    if (str === '') str = ' ';
+
     if (!!str) {
-      str = this.remove_url_string_separators(str);
+      str = this.removeUrlStringSeparators(str);
       unique_link_keys = this.get_link_keys(str);
 
       unique_link_keys.forEach(i => links_to_show.push(links[i]));
-
       return links_to_show;
     }
     return false;
@@ -52,8 +53,30 @@ export default class RecommendedLinks extends Component {
     return arr_without_duplicates;
   }
 
-  remove_url_string_separators(str) {
+  removeUrlStringSeparators(str) {
     return str.replace(/\+/g, ' ');
+  }
+
+  // Render description conditionally
+  renderDescription(str) {
+    if (str.objectID === 0) {
+      const [descOne, descTwo, descThree, descFour] = str.description;
+      const [gtmOne, gtmTwo] = str.dataGTM;
+      return (
+        <React.Fragment>
+          {descOne}{' '}
+          <a data-gtm={gtmOne} href={str.url}>
+            {descThree}
+          </a>{' '}
+          {descTwo}{' '}
+          <a data-gtm={gtmTwo} href={str.urlTwo}>
+            {descFour}
+          </a>
+          .
+        </React.Fragment>
+      );
+    }
+    return str.description;
   }
 
   render() {
@@ -62,17 +85,7 @@ export default class RecommendedLinks extends Component {
         {this.state.links.map(item => (
           <li key={this.state.links.objectID} class="recommended-link">
             <h3>{item.text}</h3>
-            <p>
-              {item.description[0]}
-              <a data-gtm="bmd-outlink-search-results" href={item.url}>
-                General Register Office
-              </a>
-              {item.description[1]}
-              <a data-gtm="research-guides-search-results" href={item.urlTwo}>
-                research guide
-              </a>
-              .
-            </p>
+            <p>{this.renderDescription(item)}</p>
           </li>
         ))}
       </ul>
@@ -115,10 +128,13 @@ const links = {
       'http://www.nationalarchives.gov.uk/help-with-your-research/research-guides/birth-marriage-death-england-and-wales/',
     text: 'Looking for a birth, death, or marriage certificate?',
     description: [
-      'We do not hold these documents: contact the ',
-      ' for records created after 1837. For earlier dates consult our '
+      'We do not hold these documents: contact the',
+      'for records created after 1837. For earlier dates consult our ',
+      'General Register Office',
+      'research guide'
     ],
     source: 'External Websites / Research Guides',
+    dataGTM: ['Recommended links:GRO', 'Recommended links:Research Guide'],
     objectID: 0
   }
 };
