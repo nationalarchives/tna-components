@@ -9,7 +9,7 @@
     }
   },
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest",
     "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch -p"
   },
   "repository": {
