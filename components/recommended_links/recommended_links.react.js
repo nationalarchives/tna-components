@@ -6,17 +6,17 @@ export default class RecommendedLinks extends Component {
     super(props);
 
     this.state = {
-      links: this.get_links(window.location.search.replace(/\?_q=/i, ''))
+      links: this.getLinks(window.location.search.replace(/\?_q=/i, ''))
     };
 
-    this.get_links = this.get_links.bind(this);
-    this.get_link_keys = this.get_link_keys.bind(this);
+    this.getLinks = this.getLinks.bind(this);
+    this.getLinkKeys = this.getLinkKeys.bind(this);
     this.unique = this.unique.bind(this);
     this.renderDescription = this.renderDescription.bind(this);
     this.removeUrlStringSeparators = this.removeUrlStringSeparators.bind(this);
   }
 
-  get_links(str) {
+  getLinks(str) {
     let links_to_show = [],
       unique_link_keys = [];
 
@@ -24,7 +24,7 @@ export default class RecommendedLinks extends Component {
 
     if (!!str) {
       str = this.removeUrlStringSeparators(str);
-      unique_link_keys = this.get_link_keys(str);
+      unique_link_keys = this.getLinkKeys(str);
 
       unique_link_keys.forEach(i => links_to_show.push(links[i]));
       return links_to_show;
@@ -32,7 +32,7 @@ export default class RecommendedLinks extends Component {
     return false;
   }
 
-  get_link_keys(str) {
+  getLinkKeys(str) {
     let link_keys = [];
     terms.forEach(i => {
       if (i.term.test(str)) {
@@ -58,25 +58,25 @@ export default class RecommendedLinks extends Component {
   }
 
   // Render description conditionally
-  renderDescription(str) {
-    if (str.objectID === 0) {
-      const [descOne, descTwo, descThree, descFour] = str.description;
-      const [gtmOne, gtmTwo] = str.dataGTM;
+  renderDescription(obj) {
+    if (obj.objectID === 0) {
+      const [descOne, descTwo, descThree, descFour] = obj.description;
+      const [gtmOne, gtmTwo] = obj.dataGTM;
       return (
         <React.Fragment>
           {descOne}{' '}
-          <a data-gtm={gtmOne} href={str.url}>
+          <a data-gtm={gtmOne} href={obj.url}>
             {descThree}
           </a>{' '}
           {descTwo}{' '}
-          <a data-gtm={gtmTwo} href={str.urlTwo}>
+          <a data-gtm={gtmTwo} href={obj.urlTwo}>
             {descFour}
           </a>
           .
         </React.Fragment>
       );
     }
-    return str.description;
+    return obj.description;
   }
 
   render() {
