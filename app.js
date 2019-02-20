@@ -13,8 +13,7 @@ const express = require('express'),
   debug = require('debug')('app'),
   feedbackRouter = require('./src/routes/feedbackRoutes'),
   homeRouter = require('./src/routes/homeRoutes'),
-  recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
-  open = require('open');
+  recommendedLinksDiscovery = require('./src/routes/recommendedRoutes');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);

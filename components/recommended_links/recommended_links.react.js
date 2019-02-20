@@ -20,7 +20,9 @@ export default class RecommendedLinks extends Component {
     let links_to_show = [],
       unique_link_keys = [];
 
-    if (str === '') str = ' ';
+    if (str === '') {
+      str = ' ';
+    }
 
     if (!!str) {
       str = this.removeUrlStringSeparators(str);
