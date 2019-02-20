@@ -1,0 +1,60 @@
+#recommended-links-discovery {
+  font-family: 'Bitter', serif;
+  display: inline-block;
+
+  .searchList {
+    padding-left: 0;
+    li {
+      border-bottom: 1px solid #ddd;
+      position: relative;
+      padding: 1em;
+      box-sizing: border-box;
+      &:first-child {
+        margin-right: 20px;
+      }
+      &.recommended-link {
+        border-left: 2px solid #f93;
+        background: #f9f9f9;
+        margin: 0 0 20px;
+        border-bottom: 1px solid #ddd;
+        h3 {
+          font-family: Bitter, serif;
+          margin-top: 1.5em;
+          font-weight: 500;
+          &::before {
+            content: 'Recommended link';
+            font-family: 'Open Sans', Verdana, sans-serif;
+            font-weight: 400;
+            font-size: 13px;
+            padding: 3px 8px;
+            background-color: #f93;
+            clear: both;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+        p {
+          font-family: 'Open Sans', sans-serif;
+          color: #000;
+          margin: 5px 0 5px 0;
+          a {
+            text-decoration: none;
+            color: #2a5db0;
+            &:visited,
+            &:link {
+              color: #2a5db0;
+            }
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+  #search-control-panel {
+    text-align: left;
+    background: none;
+  }
+}
