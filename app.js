@@ -30,11 +30,12 @@ app.set('view engine', 'ejs');
 
 // Routes
 app.use('/', homeRouter);
+// Guidance Feedback
 app.use('/help-with-your-research/research-guides', feedbackRouter);
-app.use('/results/r', recommendedLinksDiscovery);
-app.use('/results/r/2', recommendedLinksDiscovery);
+// Recommended Links Discovery
+app.use('/results', recommendedLinksDiscovery);
 
 // Set the port of the application and log the info
 app.listen(port, () =>
-  debug(`TNA-Components app on ${chalk.blue('http://localhost:' + port)}`)
+  debug(`TNA-React-Components app on ${chalk.blue('http://localhost:' + port)}`)
 );
