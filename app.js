@@ -31,7 +31,8 @@ app.set('view engine', 'ejs');
 // Routes
 app.use('/', homeRouter);
 app.use('/help-with-your-research/research-guides', feedbackRouter);
-app.use('/r', recommendedLinksDiscovery);
+app.use('/results/r', recommendedLinksDiscovery);
+app.use('/results/r/2', recommendedLinksDiscovery);
 
 // Set the port of the application and log the info
 app.listen(port, () =>
