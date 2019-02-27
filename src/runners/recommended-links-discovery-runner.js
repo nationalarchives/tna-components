@@ -8,7 +8,7 @@ import RecommendedLinks from '../../components/recommended_links/recommended_lin
 {
   const wrapper = document.querySelector('.search-results .generic-tabs'),
     url = window.location.href,
-    regex = /.*\/results\/r\?_q=/i;
+    regex = /.*\/results\/r(?:\/1)?\?_q=/i;
 
   if (url.match(regex) && wrapper) {
     if (!document.getElementById('recommended-links-discovery')) {
