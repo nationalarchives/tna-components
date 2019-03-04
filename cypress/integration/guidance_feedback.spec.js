@@ -55,9 +55,9 @@ describe('Guidance feedback ', () => {
     cy.get('textarea#field-no')
       .should('be.visible')
       .type('Cypress end-to-end testing', { delay: 100 });
-    cy.wait(3000);
+    //cy.wait(3000);
     cy.get('.btnGF--cancel').click();
-    cy.wait(3000);
+    //cy.wait(3000);
     cy.get('#guidance-feedback-react')
       .scrollIntoView()
       .should('be.visible');
@@ -65,7 +65,7 @@ describe('Guidance feedback ', () => {
       .should('be.visible')
       .click()
       .should('be.hidden');
-    cy.wait(3000);
+    //cy.wait(3000);
     cy.get('textarea#field-yes')
       .should('be.visible')
       .type('Cypress end-to-end testing', { delay: 100 });

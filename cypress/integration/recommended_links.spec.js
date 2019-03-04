@@ -17,7 +17,7 @@ describe('Recommended links => /results/r?_q=', () => {
     cy.get('input[name="_q"]').type('Marriage records', { delay: 100 });
     cy.get('.searchbox form').submit();
     cy.get('#recommended-links-discovery .searchList li.recommended-link');
-    cy.wait(2000);
+    //cy.wait(2000);
   });
 
   it('Hide the widget when the search term does not matches', () => {
