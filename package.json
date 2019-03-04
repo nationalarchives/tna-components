@@ -10,7 +10,8 @@
   },
   "scripts": {
     "test": "jest components/**/*",
-    "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch -p"
+    "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch -p",
+    "build": "node app.js"
   },
   "repository": {
     "type": "git",
