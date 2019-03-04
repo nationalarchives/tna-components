@@ -1,10 +1,10 @@
-describe('E ', () => {
+describe('Guidance feedback ', () => {
   beforeEach(() => {
     cy.visit(
       'http://www.nationalarchives.gov.uk/help-with-your-research/research-guides-keywords/'
     );
   });
-  it('Should do something', () => {
+  it('Should check for DOM elements and test the widget', () => {
     cy.get('.research-guide-filter-left');
     cy.get('.utilities');
     cy.get('h2.increase').should('have.text', 'A-Z index');
