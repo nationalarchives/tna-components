@@ -11,7 +11,7 @@
   "scripts": {
     "test": "jest components/**/*",
     "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch -p",
-    "build": "node app.js"
+    "build": "node app.js & npx webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
