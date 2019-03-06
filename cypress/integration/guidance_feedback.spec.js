@@ -1,7 +1,7 @@
 describe('Guidance feedback ', () => {
   beforeEach(() => {
     cy.visit(
-      'http://www.nationalarchives.gov.uk/help-with-your-research/research-guides-keywords/'
+      Cypress.env('live') + '/help-with-your-research/research-guides-keywords/'
     );
   });
   it('Should check for DOM elements and test the widget', () => {

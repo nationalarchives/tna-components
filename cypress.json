@@ -1,4 +1,8 @@
 {
-  "baseUrl": "http://localhost:3000",
-  "projectId": "gr2wtj"
+  "projectId": "gr2wtj",
+  "env": {
+    "dev": "http://localhost:3000",
+    "live": "https://nationalarchives.gov.uk",
+    "liveDiscovery": "https://discovery.nationalarchives.gov.uk"
+  }
 }

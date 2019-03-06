@@ -41,13 +41,17 @@ The National Archives React components
 
   Your site is now running at `http://localhost:3000`
 
-**Testing.**
+##Test
 
+**Jest - Unit/Itegration/Snapshot(s) testing**
 * `npm test`
 *  Optional: Watch all the tests => `"test": "jest"` to `"test": "jest --watchAll"` inside package.json
 *  Optional: Watch all and check code coverage => `"test": "jest"` to `"test": "jest --watchAll --coverage"` inside package.json
 *  Optional: Check code coverage => `"test": "jest"` to `"test": "jest --coverage"` inside package.json
 *  !! Important: Rember to revert back to `"test": "jest"` before pushing anything to the repository or otherwise will cause a loop into Travis CI and fail the build
+
+**Cypress E2E testing**
+* `.node_modules/.bin/cypress open`
 
 ## 🧐 What's inside?
 
@@ -58,6 +62,7 @@ A quick look at the top-level files and directories you'll see in this project.
     ├── .vscode
     ├── components
     ├── coverage
+    ├── cypress
     ├── dist
     ├── node_modules
     ├── src
@@ -88,3 +93,6 @@ Website URL https://travis-ci.org/
 
 **Express JS**
 Website URL https://expressjs.com/
+
+**Cypress.io**
+Website URL https://cypress.io

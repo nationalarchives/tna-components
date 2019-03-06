@@ -1,58 +1,86 @@
-describe('Recommended links => /results/r?_q=', () => {
+describe('Start your search on Discovery home page', () => {
   //
   before(() => {
-    cy.visit('/results/r');
-    cy.get('.search-results .generic-tabs');
+    cy.visit(Cypress.env('liveDiscovery') + '/results/r');
   });
 
-  it('Do not display the widget if the search term is not in our list', () => {
-    cy.get('input[name="_q"]').type('William Shakespeare', { delay: 100 });
-    cy.get('.searchbox form').submit();
-    cy.get(
-      '#recommended-links-discovery .searchList li.recommended-link'
-    ).should('have.length', 0);
-  });
+  it('Check for DOM elements and search for a term which matches our list', () => {
+    cy.get('body.home').should('have.length', 1);
+    cy.get('.search-form-container').should('have.length', 1);
+    cy.get('#search-all-collections')
+      .should('have.length', 1)
+      .type('birth certificate', { delay: 100 });
+    cy.get('.search-form-container form').submit();
 
-  it('Display the widget when the search term matches', () => {
-    cy.get('input[name="_q"]').type('Marriage records', { delay: 100 });
-    cy.get('.searchbox form').submit();
-    cy.get('#recommended-links-discovery .searchList li.recommended-link');
-    //cy.wait(2000);
-  });
-
-  it('Hide the widget when the search term does not matches', () => {
-    cy.get('input[name="_q"]').type('Wills', { delay: 100 });
-    cy.get('.searchbox form').submit();
-    cy.get(
-      '#recommended-links-discovery .searchList li.recommended-link'
-    ).should('have.length', 0);
   });
 });
 
-describe('Recommended links => /results/r/2?_q=', () => {
-  before(() => {
-    cy.visit('/results/r/2');
-    cy.get('.search-results .generic-tabs');
+describe('Discovery search results page', () => {
+  it('Check for URL and DOM elements', () => {
+    cy.url()
+      .should('eq', 'https://discovery.nationalarchives.gov.uk/results/r?_q=birth+certificate');
+    cy.get('#search-results .generic-tabs')
+      .should('have.length', 1);
+    cy.get('#recommended-links-discovery')
+      .should('have.length', 1)
+      .scrollIntoView();
+    cy.get('#recommended-links-discovery h3').should('have.text', 'Looking for a birth, death, or marriage certificate?');
+    cy.get('#recommended-links-discovery .searchList .recommended-link p')
+      .should('have.length', 1);
   });
-  it('Should not display the widget and its DOM elements on inner page(s)', () => {
-    cy.get('input[name="_q"]').type('birth certificates', { delay: 100 });
-    cy.get('.searchbox form').submit();
-    cy.get(
-      '#recommended-links-discovery .searchList li.recommended-link'
-    ).should('have.length', 0);
-  });
-});
 
-describe('Recommended links => /results/c?_q=', () => {
-  before(() => {
-    cy.visit('/results/c');
-    cy.get('.search-results .generic-tabs');
+
+  it('Hide if the user click on Record creator', () => {
+    cy.get('.search-form-container #search-results-search-query')
+      .should('have.length', 1)
+      .clear()
+      .type('birth', { delay: 100 });
+
+    cy.get('.search-form-container #search-keyword input[type="submit"]')
+      .click();
+
+    cy.get('#generic-tabs #nameAuthorities')
+      .should('have.length', 1)
+      .click();
+
+    cy.url()
+      .should('eq', 'https://discovery.nationalarchives.gov.uk/results/c?_q=birth');
+
+    cy.get('#recommended-links-discovery')
+      .should('have.length', 0);
+
+    cy.get('#generic-tabs #records-tab #records')
+      .should('have.length', 1)
+      .click();
+
+    cy.url()
+      .should('eq', 'https://discovery.nationalarchives.gov.uk/results/r?_q=birth');
   });
-  it('Should not display the widget and its DOM elements on Record creator page(s)', () => {
-    cy.get('input[name="_q"]').type('death record', { delay: 100 });
-    cy.get('.searchbox form').submit();
-    cy.get(
-      '#recommended-links-discovery .searchList li.recommended-link'
-    ).should('have.length', 0);
+
+  it('Hide the widget on search results inner pages', () => {
+    cy.get('.pagination li:nth-child(2)')
+      .should('have.length', 1)
+      .click();
+
+    cy.url().should('eq', 'https://discovery.nationalarchives.gov.uk/results/r/2?_q=birth');
+
+    cy.get('#recommended-links-discovery')
+      .should('have.length', 0);
+
+    cy.get('.pagination li:nth-child(1)')
+      .should('have.length', 1)
+      .click();
+  });
+
+  it('Do not show the widget if the search term is not in our list', () => {
+    cy.get('.search-form-container #search-results-search-query')
+      .should('have.length', 1)
+      .clear()
+      .type('William Shakespeare', { delay: 100 });
+
+    cy.get('.search-form-container #search-keyword input[type="submit"]').click();
+
+    cy.url()
+      .should('eq', 'https://discovery.nationalarchives.gov.uk/results/r?_q=William+Shakespeare');
   });
 });
