@@ -51,7 +51,7 @@ The National Archives React components
 *  !! Important: Rember to revert back to `"test": "jest"` before pushing anything to the repository or otherwise will cause a loop into Travis CI and fail the build
 
 **Cypress E2E testing**
-* `.node_modules/.bin/cypress open`
+* `./node_modules/.bin/cypress open`
 
 ## 🧐 What's inside?
 
