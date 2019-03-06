@@ -41,9 +41,9 @@ The National Archives React components
 
   Your site is now running at `http://localhost:3000`
 
-## Test
+## Testing
 
-**Jest - Unit/Itegration/Snapshot(s) testing**
+**Jest - Unit|Itegration|Snapshot(s) testing**
 * `npm test`
 *  Optional: Watch all the tests => `"test": "jest"` to `"test": "jest --watchAll"` inside package.json
 *  Optional: Watch all and check code coverage => `"test": "jest"` to `"test": "jest --watchAll --coverage"` inside package.json
