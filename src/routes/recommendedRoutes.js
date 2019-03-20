@@ -12,4 +12,12 @@ recommendedRouter.route('/r/2').get((req, res) => {
   res.render('recommended-links-discovery', {});
 });
 
+recommendedRouter.route('/r/1').get((req, res) => {
+  res.render('recommended-links-discovery', {});
+});
+
+recommendedRouter.route('/c').get((req, res) => {
+  res.render('recommended-links-discovery', {});
+});
+
 module.exports = recommendedRouter;

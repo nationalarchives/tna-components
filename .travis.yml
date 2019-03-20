@@ -5,14 +5,18 @@ node_js:
   - "stable"
 
 cache:
+  npm: true # this cashes ~/.npm folder on Travis
   directories:
-  - node_modules
+    # we also need to cache folder with Cypress binary
+    - ~/.cache
 
 install:
-  - npm install
+  - npm ci
 
 script:
   - npm test
+  - npm run build
+  - $(npm bin)/cypress run --record --key ecf76371-5b01-40ad-a4bf-3179175cefc8
 
 notifications:
   slack:
