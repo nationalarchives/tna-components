@@ -5,17 +5,18 @@
  **/
 
 const express = require('express'),
-  app = express(),
-  port = 3000,
-  path = require('path'),
-  chalk = require('chalk'),
-  morgan = require('morgan'),
-  debug = require('debug')('app'),
-  feedbackRouter = require('./src/routes/feedbackRoutes'),
-  homeRouter = require('./src/routes/homeRoutes'),
-  recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
-  detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
-  wtegViewRoutes = require('./src/routes/wtegViewRoutes');
+	app = express(),
+	port = 3000,
+	path = require('path'),
+	chalk = require('chalk'),
+	morgan = require('morgan'),
+	debug = require('debug')('app'),
+	feedbackRouter = require('./src/routes/feedbackRoutes'),
+	homeRouter = require('./src/routes/homeRoutes'),
+	recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
+	detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
+	wtegViewRoutes = require('./src/routes/wtegViewRoutes'),
+	heldByDiscovery = require('./src/routes/heldByDiscovery');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -40,8 +41,10 @@ app.use('/results', recommendedLinksDiscovery);
 app.use('/details/r', detailsFeedbackRoutes);
 //WTEG Feedback Widget
 app.use('/what-to-expect-guide', wtegViewRoutes);
+// Held By Discovery
+app.use('/held-by', heldByDiscovery);
 
 // Set the port of the application and log the info
 app.listen(port, () =>
-  debug(`TNA-React-Components app on ${chalk.blue('http://localhost:' + port)}`)
+	debug(`TNA-React-Components app on ${chalk.blue('http://localhost:' + port)}`)
 );

@@ -5,3 +5,4 @@ import './runners/recommended-links-discovery-runner';
 import './runners/details-feedback';
 import './runners/wteg-feedback-runner';
 import './runners/modal-runner';
+import './runners/held-by-discovery-runner';
