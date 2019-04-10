@@ -12,8 +12,10 @@ const Input = props => {
         placeholder={props.placeholder}
         name={props.name}
         type={props.type}
+        title={props.title}
         required={props.required}
         class={props.inputClass}
+        value={props.value}
       />
     </React.Fragment>
   );
