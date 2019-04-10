@@ -7,6 +7,7 @@ const express = require('express'),
  *   and it's controlled by app.js
  */
 homeRouter.route('/').get((req, res) => {
+<<<<<<< HEAD
 	res.render('home', {
 		title: 'The National Archives React Components',
 		page: {
@@ -17,6 +18,16 @@ homeRouter.route('/').get((req, res) => {
 			homePageSearchDiscovery: 'held-by'
 		}
 	});
+=======
+  res.render('home', {
+    title: 'The National Archives React Components',
+    page: {
+      guidanceFeedback: '/help-with-your-research/research-guides',
+      recommendedLinksDiscovery: '/results/r',
+      homePageSearchDiscovery: 'home-page-search-discovery'
+    }
+  });
+>>>>>>> Fix file issues
 });
 
 module.exports = homeRouter;
