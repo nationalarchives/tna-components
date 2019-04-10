@@ -14,7 +14,7 @@ const express = require('express'),
   feedbackRouter = require('./src/routes/feedbackRoutes'),
   homeRouter = require('./src/routes/homeRoutes'),
   recommendedLinksDiscovery = require('./src/routes/recommendedRoutes');
-heldByDiscovery = require('./src/routes/heldByDiscovery');
+homePageSearchDiscovery = require('./src/routes/homePageSearchDiscovery');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -36,7 +36,7 @@ app.use('/help-with-your-research/research-guides', feedbackRouter);
 // Recommended Links Discovery
 app.use('/results', recommendedLinksDiscovery);
 // Held By Discovery
-app.use('/held-by', heldByDiscovery);
+app.use('/home-page-search-discovery', homePageSearchDiscovery);
 
 // Set the port of the application and log the info
 app.listen(port, () =>
