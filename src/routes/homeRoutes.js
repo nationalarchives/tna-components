@@ -7,7 +7,7 @@ const express = require('express'),
  *   and it's controlled by app.js
  */
 homeRouter.route('/').get((req, res) => {
-	res.render('home', {
+    res.render('home', {
 		title: 'The National Archives React Components',
 		page: {
 			guidanceFeedback: '/help-with-your-research/research-guides',
