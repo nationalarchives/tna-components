@@ -16,7 +16,7 @@ const express = require('express'),
 	recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
 	detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
 	wtegViewRoutes = require('./src/routes/wtegViewRoutes'),
-	heldByDiscovery = require('./src/routes/heldByDiscovery');
+	homePageSearchDiscovery = require('./src/routes/homePageSearchDiscovery');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -42,7 +42,7 @@ app.use('/details/r', detailsFeedbackRoutes);
 //WTEG Feedback Widget
 app.use('/what-to-expect-guide', wtegViewRoutes);
 // Held By Discovery
-app.use('/held-by', heldByDiscovery);
+app.use('/home-page-search-discovery', homePageSearchDiscovery);
 
 // Set the port of the application and log the info
 app.listen(port, () =>

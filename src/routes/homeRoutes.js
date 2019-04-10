@@ -14,7 +14,7 @@ homeRouter.route('/').get((req, res) => {
 			recommendedLinksDiscovery: '/results/r',
 			detailsFeedback: '/details/r/0125874efb9c41f78f1cfdbdb1544e08',
 			wtegView: '/what-to-expect-guide',
-			heldByDiscovery: 'held-by'
+			homePageSearchDiscovery: 'held-by'
 		}
 	});
 });
