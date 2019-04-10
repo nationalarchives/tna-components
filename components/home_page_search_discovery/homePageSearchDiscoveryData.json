@@ -1,0 +1,75 @@
+{
+  "mainHead": "Search The National Archives and over 2,500 archives across the UK",
+  "classNameContainer": "search-form-container",
+  "form": {
+    "method": "get",
+    "action": "https://discovery.nationalarchives.gov.uk/results/r",
+    "role": "search",
+    "grid": {
+      "container": "main-search-container",
+      "group": {
+        "fieldGroup": "field-group",
+        "fieldSubGroup": "field-sub-group",
+        "full": "full",
+        "halfToHalf": "half-to-half"
+      }
+    },
+    "fieldShow": {
+      "label": {
+        "text": "Show",
+        "class": "fixed-width",
+        "for": "search-all-collections"
+      },
+      "input": {
+        "name": "_q",
+        "type": "text",
+        "req": "required",
+        "ariaRequired": "true",
+        "id": "search-all-collections",
+        "placeholder": "everything that contains these terms"
+      }
+    },
+    "fieldBetween": {
+      "label": {
+        "text": "between",
+        "class": "fixed-width",
+        "for": "start-date"
+      },
+      "input": {
+        "id": "start-date",
+        "name": "_q",
+        "placeholder": "YYYY",
+        "type": "number",
+        "class": "small"
+      }
+    },
+    "fieldAnd": {
+      "label": {
+        "text": "and",
+        "for": "start-date"
+      },
+      "input": {
+        "id": "end-date",
+        "name": "_q",
+        "placeholder": "YYYY",
+        "type": "number",
+        "class": "small"
+      }
+    },
+    "fieldAcross": {
+      "label": {
+        "text": "across",
+        "for": "held-by"
+      },
+      "select": {
+        "id": "held-by",
+        "class": "medium",
+        "options": [
+          "all records",
+          "The National Archives only",
+          "other archives only"
+        ]
+      }
+    }
+  }
+}

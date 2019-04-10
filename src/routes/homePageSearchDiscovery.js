@@ -5,7 +5,7 @@ const express = require('express'),
  *  controlled by app.js
  */
 heldByRouter.route('/').get((req, res) => {
-  res.render('held-by-discovery', {});
+  res.render('home-page-search-discovery', {});
 });
 
 module.exports = heldByRouter;

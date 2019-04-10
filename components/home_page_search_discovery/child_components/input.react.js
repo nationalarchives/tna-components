@@ -7,11 +7,13 @@ const Input = props => {
         {props.children}
       </label>
       <input
-        aria-required={props.ariaRequired}
-        required={props.ariaRequired}
+        id={props.id}
+        aria-required={props.aria}
+        placeholder={props.placeholder}
         name={props.name}
         type={props.type}
-        id={props.id}
+        required={props.required}
+        class={props.inputClass}
       />
     </React.Fragment>
   );
