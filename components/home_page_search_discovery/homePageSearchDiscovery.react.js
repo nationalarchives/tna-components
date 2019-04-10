@@ -8,7 +8,7 @@ import Data from './homePageSearchDiscoveryData.json';
 
 class HomePageSearchDiscovery extends Component {
   render() {
-    const { mainHead, classNameContainer } = Data,
+    const { mainHead, classNameContainer, form } = Data,
       {
         method,
         action,
@@ -17,8 +17,9 @@ class HomePageSearchDiscovery extends Component {
         fieldShow,
         fieldBetween,
         fieldAnd,
-        fieldAcross
-      } = Data.form;
+        fieldAcross,
+        inputSearch
+      } = form;
     return (
       <Wrapper>
         <Headline mainhead={mainHead} />
@@ -74,6 +75,11 @@ class HomePageSearchDiscovery extends Component {
                 </Select>
               </div>
             </div>
+            <input
+              type={inputSearch.type}
+              title={inputSearch.title}
+              value={inputSearch.value}
+            />
           </Form>
         </div>
       </Wrapper>

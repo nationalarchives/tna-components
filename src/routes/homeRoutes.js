@@ -24,7 +24,7 @@ homeRouter.route('/').get((req, res) => {
     page: {
       guidanceFeedback: '/help-with-your-research/research-guides',
       recommendedLinksDiscovery: '/results/r',
-      homePageSearchDiscovery: 'home-page-search-discovery'
+      homePageSearchDiscovery: '/home-page-search-discovery'
     }
   });
 >>>>>>> Fix file issues
