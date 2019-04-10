@@ -6,7 +6,7 @@ import Input from './child_components/input.react';
 import Select from './child_components/select.react';
 import Data from './homePageSearchDiscoveryData.json';
 
-class HeldBy extends Component {
+class HomePageSearchDiscovery extends Component {
   render() {
     const { mainHead, classNameContainer } = Data,
       {
@@ -81,4 +81,4 @@ class HeldBy extends Component {
   }
 }
 
-export default HeldBy;
+export default HomePageSearchDiscovery;
