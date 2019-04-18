@@ -1,0 +1,18 @@
+button {
+  color: #fff;
+  border-width: 0;
+  padding: 0.4em;
+  height: 30px;
+  background-color: #099;
+  font-size: 16px;
+  -webkit-appearance: button;
+  cursor: pointer;
+  &:hover {
+    color: black;
+    text-decoration: underline;
+    background-color: #fce45c;
+  }
+  &:focus {
+    outline: 2px solid #fce45c;
+  }
+}

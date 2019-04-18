@@ -1,6 +1,7 @@
 {
   "mainHead": "Search The National Archives and over 2,500 archives across the UK",
   "classNameContainer": "search-form-container",
+  "id": "held-by-react-component",
   "form": {
     "method": "get",
     "action": "https://discovery.nationalarchives.gov.uk/results/r",
@@ -27,7 +28,8 @@
         "ariaRequired": "true",
         "id": "search-all-collections",
         "placeholder": "everything that contains these terms"
-      }
+      },
+      "errorMsg": "Warning field show"
     },
     "fieldBetween": {
       "label": {
@@ -37,11 +39,14 @@
       },
       "input": {
         "id": "start-date",
-        "name": "_q",
+        "name": "_sd",
         "placeholder": "YYYY",
         "type": "number",
         "class": "small"
-      }
+      },
+      "errorMsgLength": "Warning field between to long",
+      "errorMsgCurrentYear": "Warning field between current year",
+      "errorMsgDateRange": " Please enter both start date and end date"
     },
     "fieldAnd": {
       "label": {
@@ -50,11 +55,14 @@
       },
       "input": {
         "id": "end-date",
-        "name": "_q",
+        "name": "_ed",
         "placeholder": "YYYY",
         "type": "number",
         "class": "small"
-      }
+      },
+      "errorMsgLength": "Warning field between to long",
+      "errorMsgCurrentYear": "Warning field between current year",
+      "errorMsgDateRange": " Please enter both start date and end date"
     },
     "fieldAcross": {
       "label": {
@@ -64,15 +72,16 @@
       "select": {
         "id": "held-by",
         "class": "medium",
+        "name": "_hb",
         "options": [
-          "all records",
-          "The National Archives only",
-          "other archives only"
+          { "name": "All records", "value": "", "id": 1 },
+          { "name": "The National Archives only", "value": "tna", "id": 2 },
+          { "name": "Other archives only", "value": "oth", "id": 3 }
         ]
       }
     },
     "inputSearch": {
-      "type": "button",
+      "type": "submit",
       "title": "Search",
       "value": "Search"
     }
