@@ -13,8 +13,7 @@ const Select = ({
   return (
     <React.Fragment>
       <label htmlFor={htmlFor}>{children}</label>
-      <select
-        id={id}
+      <select id={id}
         className={className}
         name={name}
         onChange={onChange}

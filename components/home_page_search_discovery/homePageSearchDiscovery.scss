@@ -1,0 +1,197 @@
+section,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#held-by-react-component {
+  .grid-container {
+    display: grid;
+    grid-template-rows: auto 1fr; /* NEW */
+    grid-template-areas: 'Headline Headline Headline Headline' 'MainSearch MainSearch MainSearch MainSearch' 'InputBetween InputAnd InputAcross InputAcross' 'Search . . MoreOptions';
+  }
+
+  .Headline {
+    grid-area: Headline;
+    font-family: 'Bitter', serif;
+    font-weight: 400;
+    color: white;
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  .MainSearch {
+    grid-area: MainSearch;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.13fr 1fr;
+    margin: 0 0 1.5em 0;
+    input[type='text'] {
+      border-color: #fff;
+      max-width: 710px;
+      height: 40px;
+      padding-right: 0.5em;
+      padding-left: 0.5em;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      font-family: 'Open Sans', sans-serif;
+      &:focus {
+        outline: 2px solid #fce45c;
+      }
+      @media (max-width: 835px) {
+        //width: 90%;
+      }
+    }
+    label {
+      font-family: 'Open Sans', sans-serif;
+      color: white;
+      font-size: 16px;
+      display: inline-block;
+      margin-bottom: 0;
+      align-self: center;
+      &:focus {
+        outline: 2px solid #fce45c;
+      }
+    }
+  }
+
+  .InputBetween {
+    grid-area: InputBetween;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.8fr 1fr;
+    //grid-gap: 10px;
+    @extend .MainSearch;
+    input[type='number'] {
+      font-size: 16px;
+      padding: 0.5em;
+      height: 40px;
+      width: 75px;
+      &:focus {
+        outline: 2px solid #fce45c;
+      }
+    }
+  }
+
+  .InputAnd {
+    grid-area: InputAnd;
+    display: grid;
+    @extend .InputBetween;
+    grid-template-columns: 0.6fr 1.4fr;
+    label {
+      font-size: 16px;
+    }
+  }
+
+  .InputAcross {
+    grid-area: InputAcross;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.3fr 1fr;
+    @extend .MainSearch;
+    select {
+      height: 40px;
+      font-size: 16px;
+      &:focus {
+        outline: 2px solid #fce45c;
+      }
+    }
+    label {
+      margin: 0 0 0 10px;
+    }
+  }
+
+  .Search {
+    grid-area: Search;
+  }
+
+  .MoreOptions {
+    grid-area: MoreOptions;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 0.8em;
+    a {
+      color: #fce45c;
+      display: inline-block;
+      text-decoration: none;
+      &:visited,
+      &:hover {
+        text-decoration: underline;
+      }
+      &:focus {
+        outline: 2px solid #fce45c;
+      }
+    }
+  }
+
+  @media all and (-ms-high-contrast: none) {
+    .grid-container {
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      -ms-grid-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    .Headline {
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 1;
+      -ms-grid-col: 1;
+      -ms-grid-col-span: 4;
+    }
+
+    .MainSearch {
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
+      -ms-grid-col: 1;
+      -ms-grid-col-span: 4;
+    }
+
+    .InputBetween {
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 1;
+      -ms-grid-col: 1;
+      -ms-grid-col-span: 1;
+    }
+
+    .InputAnd {
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 1;
+      -ms-grid-col: 2;
+      -ms-grid-col-span: 1;
+    }
+
+    .InputAcross {
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 1;
+      -ms-grid-col: 3;
+      -ms-grid-col-span: 2;
+    }
+
+    .Search {
+      -ms-grid-row: 4;
+      -ms-grid-row-span: 1;
+      -ms-grid-col: 1;
+      -ms-grid-col-span: 1;
+    }
+
+    .MoreOptions {
+      -ms-grid-row: 4;
+      -ms-grid-row-span: 1;
+      -ms-grid-col: 4;
+      -ms-grid-col-span: 1;
+    }
+  }
+}
+
+.field-container {
+  background: rgba(0, 0, 0, 1);
+  width: auto;
+  margin: 0 auto 40px;
+  padding: 20px 20px;
+  max-width: 800px;
+  @media screen and (min-width: 1024px) {
+    background: rgba(0, 0, 0, 0.7);
+    width: 70%;
+    padding: 40px 70px;
+    border-radius: 15px;
+  }
+}
