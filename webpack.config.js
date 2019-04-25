@@ -8,7 +8,6 @@ module.exports = {
     [`discovery-${discovery_version}`]: './src/discovery.js',
     [`website-${website_version}`]: './src/website.js'
   },
-  mode: 'production',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist')

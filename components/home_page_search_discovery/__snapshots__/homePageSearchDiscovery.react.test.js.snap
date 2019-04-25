@@ -2,7 +2,7 @@
 
 exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
 <div
-  id="held-by-react-component"
+  id="discovery-homepage-search-react-component"
 >
   <form
     action="https://discovery.nationalarchives.gov.uk/results/r"
@@ -115,13 +115,14 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         className="MoreOptions"
       >
         <a
-          href="#"
+          href="https://discovery.nationalarchives.gov.uk/advanced-search"
         >
           More options
         </a>
-         or 
+         
+        or 
         <a
-          href="#"
+          href="https://discovery.nationalarchives.gov.uk/browse"
         >
           Browse
         </a>
