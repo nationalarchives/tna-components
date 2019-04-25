@@ -1,18 +1,21 @@
 {
   "mainHead": "Search The National Archives and over 2,500 archives across the UK",
   "classNameContainer": "search-form-container",
-  "id": "held-by-react-component",
+  "id": "discovery-homepage-search-react-component",
   "form": {
     "method": "get",
     "action": "https://discovery.nationalarchives.gov.uk/results/r",
     "role": "search",
     "grid": {
-      "container": "main-search-container",
+      "container": "grid-container",
       "group": {
-        "fieldGroup": "field-group",
-        "fieldSubGroup": "field-sub-group",
-        "full": "full",
-        "halfToHalf": "half-to-half"
+        "headline": "Headline",
+        "mainSearch": "MainSearch",
+        "inputBetween": "InputBetween",
+        "inputAnd": "InputAnd",
+        "inputAcross": "InputAcross",
+        "search": "Search",
+        "moreOptions": "MoreOptions"
       }
     },
     "fieldShow": {
@@ -84,6 +87,16 @@
       "type": "submit",
       "title": "Search",
       "value": "Search"
+    }
+  },
+  "links": {
+    "moreOptions": {
+      "url": "https://discovery.nationalarchives.gov.uk/advanced-search",
+      "text": "More options"
+    },
+    "browse": {
+      "url": "https://discovery.nationalarchives.gov.uk/browse",
+      "text": "Browse"
     }
   }
 }
