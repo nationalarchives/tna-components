@@ -5,6 +5,7 @@ import Form from '../global/form/form.react';
 import Input from '../global/form/input.react';
 import Select from '../global/form/select.react';
 import Button from '../global/button/button.react';
+import Link from '../global/link/link.react';
 import ErrorMessage from './child_components/errorMessage';
 import Data from './homePageSearchDiscoveryData.json';
 import './homePageSearchDiscovery.scss';
@@ -45,8 +46,9 @@ class HomePageSearchDiscovery extends Component {
   onKeyUpInp(e) {
     const currentYear = new Date().getFullYear();
 
+    // Reset the state on valueShow to the main state
     if (this.state.valueShow !== '') {
-      this.setState({ errorShow: '' });
+      this.setState({ errorShow: this.mainState.valueShow });
     }
 
     // Check Year fileds if greater than the curreent year
@@ -72,11 +74,15 @@ class HomePageSearchDiscovery extends Component {
   }
 
   onSubmitSearch(e) {
+    // Check if field Show is empty or has a space inside
+    // Update the state on errorShow with the error Message
     if (this.state.valueShow === ' ' || this.state.valueShow === '') {
       this.setState({ errorShow: this.state.Data.form.fieldShow.errorMsg });
       e.preventDefault();
     }
 
+    // Check the presence of the value on Between and And fields
+    // Update the state on errorBetween/errorAnd with the error Message
     if (
       this.state.valueBetween.length < 4 &&
       this.state.valueBetween.length > 0
@@ -94,6 +100,7 @@ class HomePageSearchDiscovery extends Component {
       e.preventDefault();
     }
 
+    //
     if (
       this.state.valueBetween !== '' &&
       this.state.errorBetween === '' &&
@@ -128,7 +135,7 @@ class HomePageSearchDiscovery extends Component {
         errorBetween,
         errorAnd
       } = this.state,
-      { mainHead, id, form } = this.state.Data,
+      { mainHead, id, form, links } = this.state.Data,
       {
         method,
         action,
@@ -137,13 +144,14 @@ class HomePageSearchDiscovery extends Component {
         fieldBetween,
         fieldAnd,
         fieldAcross,
-        inputSearch
+        inputSearch,
+        grid
       } = form;
     return (
       <Wrapper id={id}>
         <Form method={method} action={action} onSubmit={this.onSubmitSearch}>
-          <div className="grid-container" role={role}>
-            <div className="Headline">
+          <div className={grid.container} role={role}>
+            <div className={grid.group.headline}>
               <Headline mainhead={mainHead} />
               <div
                 role="alert"
@@ -155,7 +163,7 @@ class HomePageSearchDiscovery extends Component {
                 <ErrorMessage {...this.state} />
               </div>
             </div>
-            <div className="MainSearch">
+            <div className={grid.group.mainSearch}>
               <Input
                 labelClass={fieldShow.label.class}
                 for={fieldShow.label.for}
@@ -169,7 +177,7 @@ class HomePageSearchDiscovery extends Component {
                 {fieldShow.label.text}
               </Input>
             </div>
-            <div className="InputBetween">
+            <div className={grid.group.inputBetween}>
               <Input
                 labelClass={fieldBetween.label.class}
                 for={fieldBetween.label.for}
@@ -184,7 +192,7 @@ class HomePageSearchDiscovery extends Component {
                 {fieldBetween.label.text}
               </Input>
             </div>
-            <div className="InputAnd">
+            <div className={grid.group.inputAnd}>
               <Input
                 labelClass={fieldAnd.label.class}
                 for={fieldAnd.label.for}
@@ -199,7 +207,7 @@ class HomePageSearchDiscovery extends Component {
                 {fieldAnd.label.text}
               </Input>
             </div>
-            <div className="InputAcross">
+            <div className={grid.group.inputAcross}>
               <Select
                 id={fieldAcross.select.id}
                 class={fieldAcross.select.class}
@@ -208,7 +216,7 @@ class HomePageSearchDiscovery extends Component {
                 {fieldAcross.label.text}
               </Select>
             </div>
-            <div className="Search">
+            <div className={grid.group.search}>
               <Button
                 type={inputSearch.type}
                 title={inputSearch.title}
@@ -216,8 +224,9 @@ class HomePageSearchDiscovery extends Component {
                 Search
               </Button>
             </div>
-            <div className="MoreOptions">
-              <a href="#">More options</a> or <a href="#">Browse</a>
+            <div className={grid.group.moreOptions}>
+              <Link url={links.moreOptions.url}>{links.moreOptions.text}</Link>{' '}
+              or <Link url={links.browse.url}>{links.browse.text}</Link>
             </div>
           </div>
         </Form>
