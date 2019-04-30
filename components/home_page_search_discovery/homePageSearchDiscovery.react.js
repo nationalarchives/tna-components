@@ -84,8 +84,10 @@ class HomePageSearchDiscovery extends Component {
     // Check the presence of the value on Between and And fields
     // Update the state on errorBetween/errorAnd with the error Message
     if (
+      this.state.valueShow !== '' &&
       this.state.valueBetween.length < 4 &&
-      this.state.valueBetween.length > 0
+      this.state.valueBetween.length > 0 || 
+      this.state.valueBetween.length > 4
     ) {
       this.setState({
         errorBetween: this.state.Data.form.fieldBetween.errorMsgLength
@@ -93,14 +95,19 @@ class HomePageSearchDiscovery extends Component {
       e.preventDefault();
     }
 
-    if (this.state.valueAnd.length < 4 && this.state.valueAnd.length > 0) {
+    if (
+      this.state.valueShow !== '' && 
+      this.state.valueAnd.length < 4 && 
+      this.state.valueAnd.length > 0 ||
+      this.state.valueAnd.length > 4
+      ) {
       this.setState({
         errorAnd: this.state.Data.form.fieldAnd.errorMsgLength
       });
       e.preventDefault();
     }
 
-    //
+    
     if (
       this.state.valueBetween !== '' &&
       this.state.errorBetween === '' &&
