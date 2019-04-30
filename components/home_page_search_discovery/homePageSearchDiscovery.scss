@@ -1,21 +1,8 @@
-section,
-body {
-  margin: 0;
-  padding: 0;
-}
-
 #discovery-homepage-search-react-component {
+  *{box-sizing:border-box}
   .grid-container {
-    display: grid;
-    grid-template-rows: auto 1fr; /* NEW */
-    grid-template-areas: 'Headline Headline Headline Headline' 'MainSearch MainSearch MainSearch MainSearch' 'InputBetween InputAnd InputAcross InputAcross' 'Search . . MoreOptions';
-    @media (max-width: 416px) {
-      grid-template-areas: 'Headline Headline Headline Headline' 'MainSearch MainSearch MainSearch MainSearch' 'InputBetween InputBetween InputAnd InputAnd' 'InputAcross InputAcross InputAcross InputAcross' 'Search . . MoreOptions';
-    }
+    display:block;
   }
-
-  //'InputBetween InputAnd InputAcross InputAcross'
-
   .emphasis-block {
     font-family: 'Open Sans', arial, sans-serif;
     border-left: 4px solid #ebab2c;
@@ -40,7 +27,6 @@ body {
     }
   }
   .Headline {
-    grid-area: Headline;
     font-family: 'Bitter', serif;
     font-weight: 400;
     color: white;
@@ -48,110 +34,86 @@ body {
       font-size: 14px;
     }
   }
-
-  .MainSearch {
-    grid-area: MainSearch;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 0.13fr 1fr;
-    margin: 0 0 1.5em 0;
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
+  //'InputBetween InputAnd InputAcross InputAcross'
+.MainSearch {
+  margin: 0 0 1em 0;
+  .fixed-width {
+    width:70px;
+  }
+  input[type='text'] {
+    border-color: #fff;
+    width: 715px;
+    height: 40px;
+    display:inline-block;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    font-family: 'Open Sans', sans-serif;
+    &:focus {
+      outline: 2px solid #fce45c;
     }
-    input[type='text'] {
-      border-color: #fff;
-      max-width: 710px;
-      height: 40px;
-      padding-right: 0.5em;
-      padding-left: 0.5em;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      font-family: 'Open Sans', sans-serif;
-      &:focus {
-        outline: 2px solid #fce45c;
-      }
-      @media (max-width: 835px) {
-        //width: 90%;
-      }
-    }
-    label {
-      font-family: 'Open Sans', sans-serif;
-      color: white;
-      font-size: 16px;
-      display: inline-block;
-      margin-bottom: 0;
-      align-self: center;
-      &:focus {
-        outline: 2px solid #fce45c;
-      }
+    @media (max-width: 835px) {
+      //width: 90%;
     }
   }
-
-  .InputBetween {
-    grid-area: InputBetween;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 0.8fr 1fr;
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
+  label {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-right: 15px;
+    display:inline-block;
+    font-family: 'Open Sans', sans-serif;
+    &:focus {
+      outline: 2px solid #fce45c;
     }
-    //grid-gap: 10px;
+    }
+  }
+  .InputBetween {
+    width:206px;
+    display:inline-block;
     @extend .MainSearch;
     input[type='number'] {
       font-size: 16px;
       padding: 0.5em;
-      height: 40px;
+      height: auto;
       width: 75px;
       &:focus {
         outline: 2px solid #fce45c;
       }
     }
   }
-
   .InputAnd {
-    grid-area: InputAnd;
-    display: grid;
     @extend .InputBetween;
-    grid-template-columns: 0.6fr 1.4fr;
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
     label {
       font-size: 16px;
     }
   }
-
   .InputAcross {
-    grid-area: InputAcross;
-    grid-template-rows: 1fr;
-    grid-template-columns: 0.3fr 1fr;
     @extend .MainSearch;
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
+    width:388px;
+    display:inline-block;
     select {
       height: 40px;
       font-size: 16px;
+      width:325px;
       &:focus {
         outline: 2px solid #fce45c;
       }
     }
     label {
-      margin: 0 0 0 10px;
+      font-size: 16px;
     }
   }
-
   .Search {
-    grid-area: Search;
+  
   }
-
   .MoreOptions {
-    grid-area: MoreOptions;
     font-family: 'Open Sans', sans-serif;
     text-align: right;
-    align-self: end;
     color: white;
     font-size: 0.8em;
+    
     a {
       color: #fce45c;
       display: inline-block;
@@ -165,66 +127,10 @@ body {
       }
     }
   }
-
-  @media all and (-ms-high-contrast: none) {
-    .grid-container {
-      display: -ms-grid;
-      -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      -ms-grid-rows: 1fr 1fr 1fr 1fr;
-    }
-
-    .Headline {
-      -ms-grid-row: 1;
-      -ms-grid-row-span: 1;
-      -ms-grid-col: 1;
-      -ms-grid-col-span: 4;
-    }
-
-    .MainSearch {
-      -ms-grid-row: 2;
-      -ms-grid-row-span: 1;
-      -ms-grid-col: 1;
-      -ms-grid-col-span: 4;
-    }
-
-    .InputBetween {
-      -ms-grid-row: 3;
-      -ms-grid-row-span: 1;
-      -ms-grid-col: 1;
-      -ms-grid-col-span: 1;
-    }
-
-    .InputAnd {
-      -ms-grid-row: 3;
-      -ms-grid-row-span: 1;
-      -ms-grid-col: 2;
-      -ms-grid-col-span: 1;
-    }
-
-    .InputAcross {
-      -ms-grid-row: 3;
-      -ms-grid-row-span: 1;
-      -ms-grid-col: 3;
-      -ms-grid-col-span: 2;
-    }
-
-    .Search {
-      -ms-grid-row: 4;
-      -ms-grid-row-span: 1;
-      -ms-grid-col: 1;
-      -ms-grid-col-span: 1;
-    }
-
-    .MoreOptions {
-      -ms-grid-row: 4;
-      -ms-grid-row-span: 1;
-      -ms-grid-col: 4;
-      -ms-grid-col-span: 1;
-    }
-  }
 }
 
 .field-container {
+  overflow:hidden;
   background: rgba(0, 0, 0, 1);
   width: auto;
   margin: 0 auto 40px;

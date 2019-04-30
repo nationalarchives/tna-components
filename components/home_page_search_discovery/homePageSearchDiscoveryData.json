@@ -32,7 +32,7 @@
         "id": "search-all-collections",
         "placeholder": "everything that contains these terms"
       },
-      "errorMsg": "Warning field show"
+      "errorMsg": "Field Show data not present"
     },
     "fieldBetween": {
       "label": {
@@ -47,9 +47,9 @@
         "type": "number",
         "class": "small"
       },
-      "errorMsgLength": "Warning field between to long",
-      "errorMsgCurrentYear": "Warning field between current year",
-      "errorMsgDateRange": " Please enter both start date and end date"
+      "errorMsgLength": "Field Between legth issue",
+      "errorMsgCurrentYear": "Field Between Warning current year",
+      "errorMsgDateRange": "Field Between Please enter both start date and end date"
     },
     "fieldAnd": {
       "label": {
@@ -63,9 +63,9 @@
         "type": "number",
         "class": "small"
       },
-      "errorMsgLength": "Warning field between to long",
-      "errorMsgCurrentYear": "Warning field between current year",
-      "errorMsgDateRange": " Please enter both start date and end date"
+      "errorMsgLength": "Field And legth issue",
+      "errorMsgCurrentYear": "Field And Warning current year",
+      "errorMsgDateRange": "Field And Please enter both start date and end date"
     },
     "fieldAcross": {
       "label": {
