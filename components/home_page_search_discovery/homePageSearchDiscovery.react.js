@@ -25,6 +25,7 @@ class HomePageSearchDiscovery extends Component {
     };
 
     this.mainState = this.state;
+    this.hiddenRef = React.createRef();
 
     this.onChangeInput = this.onChangeInput.bind(this);
     this.onSubmitSearch = this.onSubmitSearch.bind(this);
@@ -84,9 +85,9 @@ class HomePageSearchDiscovery extends Component {
     // Check the presence of the value on Between and And fields
     // Update the state on errorBetween/errorAnd with the error Message
     if (
-      this.state.valueShow !== '' &&
-      this.state.valueBetween.length < 4 &&
-      this.state.valueBetween.length > 0 || 
+      (this.state.valueShow !== '' &&
+        this.state.valueBetween.length < 4 &&
+        this.state.valueBetween.length > 0) ||
       this.state.valueBetween.length > 4
     ) {
       this.setState({
@@ -96,18 +97,17 @@ class HomePageSearchDiscovery extends Component {
     }
 
     if (
-      this.state.valueShow !== '' && 
-      this.state.valueAnd.length < 4 && 
-      this.state.valueAnd.length > 0 ||
+      (this.state.valueShow !== '' &&
+        this.state.valueAnd.length < 4 &&
+        this.state.valueAnd.length > 0) ||
       this.state.valueAnd.length > 4
-      ) {
+    ) {
       this.setState({
         errorAnd: this.state.Data.form.fieldAnd.errorMsgLength
       });
       e.preventDefault();
     }
 
-    
     if (
       this.state.valueBetween !== '' &&
       this.state.errorBetween === '' &&
@@ -131,6 +131,9 @@ class HomePageSearchDiscovery extends Component {
 
       e.preventDefault();
     }
+
+    // Set the value to the hidden element
+    this.hiddenRef.current.value = this.state.Data.form.hiddenField.valueHidden;
   }
 
   render() {
@@ -144,6 +147,7 @@ class HomePageSearchDiscovery extends Component {
       } = this.state,
       { mainHead, id, form, links } = this.state.Data,
       {
+        formId,
         method,
         action,
         role,
@@ -152,11 +156,17 @@ class HomePageSearchDiscovery extends Component {
         fieldAnd,
         fieldAcross,
         inputSearch,
-        grid
+        grid,
+        hiddenField
       } = form;
     return (
       <Wrapper id={id}>
-        <Form method={method} action={action} onSubmit={this.onSubmitSearch}>
+        <Form
+          id={formId}
+          name={formId}
+          method={method}
+          action={action}
+          onSubmit={this.onSubmitSearch}>
           <div className={grid.container} role={role}>
             <div className={grid.group.headline}>
               <Headline mainhead={mainHead} />
@@ -172,13 +182,13 @@ class HomePageSearchDiscovery extends Component {
             </div>
             <div className={grid.group.mainSearch}>
               <Input
-                labelClass={fieldShow.label.class}
                 for={fieldShow.label.for}
                 placeholder={fieldShow.input.placeholder}
                 type={fieldShow.input.type}
                 name={fieldShow.input.name}
                 id={fieldShow.input.id}
                 value={valueShow}
+                inputClass={errorShow !== '' ? `form-warning` : null}
                 onChange={this.onChangeInput}
                 onKeyUp={this.onKeyUpInp}>
                 {fieldShow.label.text}
@@ -186,13 +196,12 @@ class HomePageSearchDiscovery extends Component {
             </div>
             <div className={grid.group.inputBetween}>
               <Input
-                labelClass={fieldBetween.label.class}
                 for={fieldBetween.label.for}
                 placeholder={fieldBetween.input.placeholder}
                 type={fieldBetween.input.type}
                 name={fieldBetween.input.name}
                 id={fieldBetween.input.id}
-                inputClass={fieldBetween.input.class}
+                inputClass={errorBetween !== '' ? `form-warning` : null}
                 value={valueBetween}
                 onChange={this.onChangeInput}
                 onKeyUp={this.onKeyUpInp}>
@@ -201,13 +210,12 @@ class HomePageSearchDiscovery extends Component {
             </div>
             <div className={grid.group.inputAnd}>
               <Input
-                labelClass={fieldAnd.label.class}
                 for={fieldAnd.label.for}
                 placeholder={fieldAnd.input.placeholder}
                 type={fieldAnd.input.type}
                 name={fieldAnd.input.name}
                 id={fieldAnd.input.id}
-                inputClass={fieldAnd.input.class}
+                inputClass={errorAnd !== '' ? `form-warning` : null}
                 value={valueAnd}
                 onChange={this.onChangeInput}
                 onKeyUp={this.onKeyUpInp}>
@@ -224,6 +232,12 @@ class HomePageSearchDiscovery extends Component {
               </Select>
             </div>
             <div className={grid.group.search}>
+              <Input
+                type={hiddenField.type}
+                name={hiddenField.name}
+                value
+                ref={this.hiddenRef}
+              />
               <Button
                 type={inputSearch.type}
                 title={inputSearch.title}
