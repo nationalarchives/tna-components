@@ -6,7 +6,9 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
 >
   <form
     action="https://discovery.nationalarchives.gov.uk/results/r"
+    id="discoveryHomePageSearch"
     method="get"
+    name="discoveryHomePageSearch"
     onSubmit={[Function]}
   >
     <div
@@ -27,12 +29,11 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
       <div
         className="MainSearch"
       >
-        <label
-          className="fixed-width"
-        >
+        <label>
           Show
         </label>
         <input
+          className={null}
           id="search-all-collections"
           name="_q"
           onChange={[Function]}
@@ -44,13 +45,11 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
       <div
         className="InputBetween"
       >
-        <label
-          className="fixed-width"
-        >
+        <label>
           between
         </label>
         <input
-          class="small"
+          className={null}
           id="start-date"
           name="_sd"
           onChange={[Function]}
@@ -66,7 +65,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
           and
         </label>
         <input
-          class="small"
+          className={null}
           id="end-date"
           name="_ed"
           onChange={[Function]}
@@ -105,6 +104,10 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
       <div
         className="Search"
       >
+        <input
+          name="_dhs"
+          type="hidden"
+        />
         <button
           type="submit"
         >
