@@ -4,5 +4,5 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
 
 ReactDOM.render(
   <HomePageSearchDiscovery />,
-  document.querySelector('.field-container')
+  document.querySelector('.primary-search-box')
 );

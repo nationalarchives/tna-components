@@ -26,7 +26,7 @@ describe('HomePageSearchDiscovery component', () => {
     );
   });
   it('=> Form elements exists', () => {
-    expect(testInstance.findAllByType(Input).length).toEqual(3);
+    expect(testInstance.findAllByType(Input).length).toEqual(4);
     expect(testInstance.findAllByType(Select).length).toEqual(1);
   });
   it('=> onChangeInput', () => {

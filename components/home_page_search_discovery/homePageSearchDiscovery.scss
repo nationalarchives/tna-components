@@ -1,7 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #discovery-homepage-search-react-component {
-  *{box-sizing:border-box}
+  overflow: hidden;
+  background: rgba(0, 0, 0, 1);
+  width: 100%;
+  margin: 0 auto 40px;
+  box-sizing: border-box;
+  padding: 20px 40px;
+  max-width: 900px;
+  @media screen and (min-width: 1024px) {
+    background: rgba(0, 0, 0, 0.7);
+    width: 80%;
+    padding: 40px 70px;
+    border-radius: 15px;
+  }
+  * {
+    box-sizing: border-box;
+  }
   .grid-container {
-    display:block;
+    display: block;
   }
   .emphasis-block {
     font-family: 'Open Sans', arial, sans-serif;
@@ -30,90 +50,181 @@
     font-family: 'Bitter', serif;
     font-weight: 400;
     color: white;
+    h1 {
+      font-size: 1.3em;
+      margin-bottom: 1.5em;
+    }
     @media (max-width: 768px) {
       font-size: 14px;
     }
   }
   //'InputBetween InputAnd InputAcross InputAcross'
-.MainSearch {
-  margin: 0 0 1em 0;
-  .fixed-width {
-    width:70px;
-  }
-  input[type='text'] {
-    border-color: #fff;
-    width: 715px;
-    height: 40px;
-    display:inline-block;
-    padding-right: 0.5em;
-    padding-left: 0.5em;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    font-family: 'Open Sans', sans-serif;
-    &:focus {
-      outline: 2px solid #fce45c;
-    }
-    @media (max-width: 835px) {
-      //width: 90%;
-    }
-  }
-  label {
-    color: white;
-    font-size: 16px;
-    margin-bottom: 0;
-    margin-right: 15px;
-    display:inline-block;
-    font-family: 'Open Sans', sans-serif;
-    &:focus {
-      outline: 2px solid #fce45c;
-    }
-    }
-  }
-  .InputBetween {
-    width:206px;
-    display:inline-block;
-    @extend .MainSearch;
-    input[type='number'] {
+  .MainSearch {
+    input {
+      height: 40px;
+      padding-right: 0.5em;
+      padding-left: 0.5em;
       font-size: 16px;
-      padding: 0.5em;
-      height: auto;
-      width: 75px;
+      font-family: 'Open Sans', sans-serif;
+      border: 2px solid #ccc;
       &:focus {
         outline: 2px solid #fce45c;
       }
+      @media (min-width: 300px) {
+        width: 100%;
+        display: block;
+        margin: 0 0 1.5em 0;
+      }
+      @media (min-width: 488px) {
+        display: inline-block;
+        width: 88%;
+      }
+      @media (max-width: 640px) {
+        display: block;
+        width: 100%;
+      }
+    }
+    label {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: inline-block;
+      font-family: 'Open Sans', sans-serif;
+      &:focus {
+        outline: 2px solid #fce45c;
+      }
+      @media (min-width: 488px) {
+        display: inline-block;
+        width: 12%;
+      }
+      @media (max-width: 640px) {
+        display: block;
+      }
+    }
+  }
+  .InputBetween {
+    display: inline-block;
+    input {
+      font-size: 16px;
+      padding: 0.5em;
+      height: auto;
+      display: inline-block;
+      border: 2px solid #ccc;
+      &:focus {
+        outline: 2px solid #fce45c;
+      }
+      @media (min-width: 768px) {
+        width: 52%;
+      }
+      @media (max-width: 767px) {
+        width: 50%;
+      }
+
+      @media (max-width: 640px) {
+        display: block;
+        width: 56%;
+      }
+    }
+    label {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: inline-block;
+      font-family: 'Open Sans', sans-serif;
+      &:focus {
+        outline: 2px solid #fce45c;
+      }
+      @media (min-width: 480px) {
+        display: inline-block;
+        width: 48%;
+      }
+      @media (max-width: 640px) {
+        display: block;
+      }
+    }
+    @media (min-width: 300px) {
+      width: 30%;
+      display: inline-block;
+      margin-bottom: 1.5em;
+    }
+    @media (min-width: 480px) {
+      width: 25%;
+      display: inline-block;
     }
   }
   .InputAnd {
     @extend .InputBetween;
     label {
-      font-size: 16px;
+      text-align: center;
+      @media (max-width: 640px) {
+        text-align: left;
+      }
+    }
+    @media (min-width: 480px) {
+      width: 25%;
+      display: inline-block;
+      margin-bottom: 1.5em;
     }
   }
   .InputAcross {
-    @extend .MainSearch;
-    width:388px;
-    display:inline-block;
     select {
       height: 40px;
       font-size: 16px;
-      width:325px;
       &:focus {
         outline: 2px solid #fce45c;
       }
+      @media (min-width: 300px) {
+        width: 100%;
+        display: block;
+      }
+      @media (min-width: 480px) {
+        display: inline-block;
+        width: 73%;
+      }
+      @media (max-width: 640px) {
+        display: block;
+        width: 100%;
+        margin-bottom: 1.5em;
+      }
     }
     label {
+      color: white;
       font-size: 16px;
+      margin-bottom: 10px;
+      display: inline-block;
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+      &:focus {
+        outline: 2px solid #fce45c;
+      }
+      @media (min-width: 300px) {
+        display: block;
+      }
+      @media (min-width: 480px) {
+        display: inline-block;
+        width: 27%;
+      }
+      @media (max-width: 640px) {
+        text-align: left;
+        display: block;
+      }
+    }
+    @media (min-width: 480px) {
+      width: 50%;
+      display: inline-block;
     }
   }
   .Search {
-  
+    @media (min-width: 300px) {
+      width: 50%;
+      display: inline-block;
+    }
   }
   .MoreOptions {
     font-family: 'Open Sans', sans-serif;
     text-align: right;
     color: white;
     font-size: 0.8em;
-    
     a {
       color: #fce45c;
       display: inline-block;
@@ -126,20 +237,12 @@
         outline: 2px solid #fce45c;
       }
     }
+    @media (min-width: 300px) {
+      width: 50%;
+      display: inline-block;
+    }
   }
-}
-
-.field-container {
-  overflow:hidden;
-  background: rgba(0, 0, 0, 1);
-  width: auto;
-  margin: 0 auto 40px;
-  padding: 20px 20px;
-  max-width: 800px;
-  @media screen and (min-width: 1024px) {
-    background: rgba(0, 0, 0, 0.7);
-    width: 70%;
-    padding: 40px 70px;
-    border-radius: 15px;
+  .form-warning {
+    border: 2px solid #ebab2c !important;
   }
 }

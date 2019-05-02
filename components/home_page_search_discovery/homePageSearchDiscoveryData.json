@@ -3,6 +3,7 @@
   "classNameContainer": "search-form-container",
   "id": "discovery-homepage-search-react-component",
   "form": {
+    "formId": "discoveryHomePageSearch",
     "method": "get",
     "action": "https://discovery.nationalarchives.gov.uk/results/r",
     "role": "search",
@@ -87,6 +88,11 @@
       "type": "submit",
       "title": "Search",
       "value": "Search"
+    },
+    "hiddenField": {
+      "valueHidden": "y",
+      "name": "_dhs",
+      "type": "hidden"
     }
   },
   "links": {
