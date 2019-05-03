@@ -2,7 +2,7 @@ language:
   - node_js
 
 node_js:
-  - "stable"
+  - "10" # This is the LTS version of Node at time of writing: https://docs.npmjs.com/try-the-latest-stable-version-of-node
 
 cache:
   npm: true # this cashes ~/.npm folder on Travis
