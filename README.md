@@ -11,10 +11,21 @@
   
 </p>
 
-# TNA-Components
-The National Archives React components
+# The National Archives React components
 
-## 🚀 Quick start
+## Purpose
+
+On 12 September 2018, front end developers at The National Archives met to discuss ways we might be able to work more effectively across the broad range of applications we support. Primary concerns were: 
+
+* Ensuring consistency of changes across multiple teams, applications and platforms
+* Establishing a 'single source of truth' for functionality, design, shared content and implementation across services
+* Avoiding duplication of effort when implementing a change
+
+This repository is the home for those components.
+
+For more information about this see the (development guide)[https://github.com/nationalarchives/front-end-development-guide/blob/master/development-guide.md]
+
+## 🚀 Quick start for existing components
 
 **Download the repository.**
 
@@ -41,7 +52,7 @@ The National Archives React components
 
   Your site is now running at `http://localhost:3000`
 
-## Testing
+### Testing
 
 **Jest - Unit|Itegration|Snapshot(s) testing**
 * `npm test`
@@ -53,7 +64,7 @@ The National Archives React components
 **Cypress E2E testing**
 * `./node_modules/.bin/cypress open`
 
-## 🧐 What's inside?
+### 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in this project.
 
@@ -75,24 +86,6 @@ A quick look at the top-level files and directories you'll see in this project.
     ├── README.md.js
     └── webconfig.config.js
 
-## :hatched_chick: Credits
-**React**
-Website URL https://reactjs.org
+## Core technologies
 
-**Jest** 
-Website URL https://jestjs.io
-
-**Babel**
-Website URL https://babeljs.io
-
-**Webpack**
-Website URL https://webpack.js.org
-
-**Travis CI**
-Website URL https://travis-ci.org/
-
-**Express JS**
-Website URL https://expressjs.com/
-
-**Cypress.io**
-Website URL https://cypress.io
+This repository uses a number of technologies, including: [React](https://reactjs.org), [Jest](https://jestjs.io), [Babel](https://babeljs.io), [Webpack](https://webpack.js.org),[Travis CI](https://travis-ci.org/), [Express JS](https://expressjs.com/), and [Cypress.io](https://cypress.io)
