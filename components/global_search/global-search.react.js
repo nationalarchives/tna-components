@@ -7,11 +7,12 @@ class GlobalSearch extends Component {
     constructor(props) {
         super(props);
 
-        this.toggle_options = this.toggle_options.bind(this);
         this.handle_search_selection = this.handle_search_selection.bind(this);
+        this.toggle_search_options = this.toggle_search_options.bind(this);
 
         this.state = {
 
+            show_search_options: true,
 
             active_search: {}, // This is assigned to the first option below
 
@@ -19,8 +20,6 @@ class GlobalSearch extends Component {
                 label: 'Show search options',
                 id: 'show_options',
             },
-
-            search_selector_visible: false,
 
             component_label: 'Search our website or catalogue',
             search_query_legend: 'Enter search term',
@@ -46,13 +45,8 @@ class GlobalSearch extends Component {
 
     }
 
-    toggle_options(e) {
-        this.setState({search_selector_visible: e.target.checked})
-        console.log(e.target);
+    handle_search_selection(e) {
 
-    };
-
-    handle_search_selection(e){
         if (e.target.type === 'radio') {
             let selection = this.state.search_options.options.find((i) => {
                 return (e.target.id === i.id);
@@ -61,24 +55,35 @@ class GlobalSearch extends Component {
         }
     }
 
+    toggle_search_options() {
+        this.setState({show_search_options: !this.state.show_search_options})
+    }
+
+
     render() {
+
         return (
             <form aria-labelledby="global_search_label" role="search" className="global-search-js"
                   action={this.state.active_search.url}>
+
                 <fieldset id="search-options">
                     <legend>{this.state.search_selector.label}</legend>
                     <input type="checkbox" id={this.state.search_selector.id}
-                           aria-label={this.state.search_selector.label} className="sr-only"
-                           onChange={this.toggle_options}/>
+                           aria-label={this.state.search_selector.label} className="sr-only" onChange={this.toggle_search_options}
+                           ref={this.checkbox_ref}/>
                     <label htmlFor={this.state.search_selector.id} className="show-search-options">
                         <span className="sr-only"> {this.state.search_selector.label}</span>
                     </label>
                 </fieldset>
-                <fieldset id="select-search-type" aria-hidden={!this.state.search_selector_visible} onChange={this.handle_search_selection}>
-                    <legend>{this.state.search_options.select_type}</legend>
-                    <SearchOption group_name={this.state.search_options.group_name}
-                                  options={this.state.search_options.options}/>
-                </fieldset>
+                {(this.state.show_search_options === true) ?
+                    <fieldset id="select-search-type" onChange={this.handle_search_selection}>
+                        <legend>{this.state.search_options.select_type}</legend>
+                        <SearchOption group_name={this.state.search_options.group_name}
+                                      options={this.state.search_options.options}/>
+                    </fieldset> : null
+                }
+
+
                 <fieldset id="search-query">
                     <legend>{this.state.search_query_legend}</legend>
                     <input type="search" autoComplete="off" role="search" name="_q"
