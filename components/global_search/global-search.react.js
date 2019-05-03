@@ -9,6 +9,8 @@ class GlobalSearch extends Component {
 
         this.handle_search_selection = this.handle_search_selection.bind(this);
         this.toggle_search_options = this.toggle_search_options.bind(this);
+        this.search_bar_focused = this.search_bar_focused.bind(this);
+        this.checkbox_ref = React.createRef();
 
         this.state = {
 
@@ -46,7 +48,6 @@ class GlobalSearch extends Component {
     }
 
     handle_search_selection(e) {
-
         if (e.target.type === 'radio') {
             let selection = this.state.search_options.options.find((i) => {
                 return (e.target.id === i.id);
@@ -57,6 +58,11 @@ class GlobalSearch extends Component {
 
     toggle_search_options() {
         this.setState({show_search_options: !this.state.show_search_options})
+    }
+
+    search_bar_focused(){
+        this.checkbox_ref.current.checked = false;
+        this.setState({show_search_options: false});
     }
 
 
@@ -89,7 +95,8 @@ class GlobalSearch extends Component {
                     <input type="search" autoComplete="off" role="search" name="_q"
                            aria-label={this.state.active_search.label}
                            placeholder={this.state.active_search.label}
-                           className='focusable-outline'/>
+                           className='focusable-outline'
+                           onFocus={this.search_bar_focused} />
                     <input type="submit" className='search-submit focusable-outline'/>
                 </fieldset>
             </form>
