@@ -2,7 +2,7 @@ language:
   - node_js
 
 node_js:
-  - "stable"
+  - "10.15.3" // At the time of writing this is the LTS version of node see https://docs.npmjs.com/try-the-latest-stable-version-of-node
 
 cache:
   npm: true # this cashes ~/.npm folder on Travis
@@ -11,7 +11,8 @@ cache:
     - ~/.cache
 
 install:
-  - npm ci
+  - npm install -g npm@latest
+  - npm install
 
 script:
   - npm test
