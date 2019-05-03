@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestRenderer from 'react-test-renderer';
-import AccessibleGlobalSearch from './AccessibleGlobalSearch';
+import GlobalSearch from "./global-search.react";
 
-const test_renderer = TestRenderer.create(<AccessibleGlobalSearch/>);
+const test_renderer = TestRenderer.create(<GlobalSearch/>);
 const test_instance = test_renderer.root;
 const instance = test_renderer.getInstance();
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<AccessibleGlobalSearch/>, div);
+    ReactDOM.render(<GlobalSearch/>, div);
     ReactDOM.unmountComponentAtNode(div);
 });
 
