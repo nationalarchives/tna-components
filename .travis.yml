@@ -2,7 +2,7 @@ language:
   - node_js
 
 node_js:
-  - "10.15.3" // At the time of writing this is the LTS version of node see https://docs.npmjs.com/try-the-latest-stable-version-of-node
+  - "10.15.3" # This is the LTS version of Node at time of writing:
 
 cache:
   npm: true # this cashes ~/.npm folder on Travis
