@@ -8,6 +8,7 @@ class GlobalSearch extends Component {
         super(props);
 
         this.toggle_options = this.toggle_options.bind(this);
+        this.handle_search_selection = this.handle_search_selection.bind(this);
 
         this.state = {
 
@@ -51,6 +52,15 @@ class GlobalSearch extends Component {
 
     };
 
+    handle_search_selection(e){
+        if (e.target.type === 'radio') {
+            let selection = this.state.search_options.options.find((i) => {
+                return (e.target.id === i.id);
+            });
+            this.setState({active_search: selection});
+        }
+    }
+
     render() {
         return (
             <form aria-labelledby="global_search_label" role="search" className="global-search-js"
@@ -64,7 +74,7 @@ class GlobalSearch extends Component {
                         <span className="sr-only"> {this.state.search_selector.label}</span>
                     </label>
                 </fieldset>
-                <fieldset id="select-search-type" aria-hidden={!this.state.search_selector_visible}>
+                <fieldset id="select-search-type" aria-hidden={!this.state.search_selector_visible} onChange={this.handle_search_selection}>
                     <legend>{this.state.search_options.select_type}</legend>
                     <SearchOption group_name={this.state.search_options.group_name}
                                   options={this.state.search_options.options}/>
