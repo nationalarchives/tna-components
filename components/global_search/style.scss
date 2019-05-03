@@ -1,0 +1,162 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+label {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: darkslateblue;
+}
+
+#global-search-react-component {
+  display: block;
+  position: relative;
+}
+
+
+fieldset[aria-hidden=true] {
+  display: none;
+}
+
+form {
+  font-size: 1.6rem;
+}
+
+fieldset {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+fieldset legend {
+  display: none;
+}
+
+.show-search-options {
+  width: 4rem;
+  height: 4rem;
+  color: #fff;
+  font-size: .5rem;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  background: #555 url(src/arrow_down.svg) no-repeat center;
+}
+
+input[type=checkbox]:checked + label {
+  background-image: url(src/arrow_up.svg);
+}
+
+input[type=checkbox]:focus + label {
+  outline: #ebab00 solid 3px;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (min-width: 323px) {
+  #select-search-type {
+    position: absolute;
+    width: 26.6rem;
+    top: 4rem;
+    left: 0;
+  }
+
+  input[type="search"] {
+    width: 22.6rem;
+  }
+}
+
+@media screen and (max-width: 322px) {
+  #select-search-type {
+    position: revert;
+    width: 100%;
+  }
+
+  input[type="search"] {
+    width: 100vw;
+  }
+}
+
+
+#select-search-type {
+  background-color: #333;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+input[type="search"] {
+  -webkit-appearance: none; /* https://stackoverflow.com/questions/7134202/input-type-search-dont-accept-height */
+  height: 4rem;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  text-indent: 1rem;
+  font-size: 1.6rem;
+  display: inline-block;
+
+}
+
+#select-search-type button {
+  font-size: 1.6rem;
+  width: 100%;
+}
+
+.search-submit {
+  text-align: center;
+  width: 4rem;
+  height: 4rem;
+  color: transparent;
+  cursor: pointer;
+  border: 0px;
+  background: #008484 url(src/search_icon.svg) no-repeat center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.search-submit:hover, .search-submit:focus {
+  background: #fce45c url(src/search_icon_dark.svg) no-repeat center;
+}
+
+input[type=radio]:hover + label, input[type=radio]:checked + label {
+  background: #fce45c;
+  color: #000;
+  cursor: pointer;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0
+}
+
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto
+}
+
+button {
+  cursor: pointer;
+}
+
+.focusable-outline:focus {
+  outline: #ebab00 solid 3px;
+  position: relative;
+}
