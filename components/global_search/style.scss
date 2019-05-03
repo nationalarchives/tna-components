@@ -126,10 +126,23 @@ input[type="search"] {
   background: #fce45c url(src/search_icon_dark.svg) no-repeat center;
 }
 
+input[type=radio] + label {
+  padding: 0.5em 0.9em;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 input[type=radio]:hover + label, input[type=radio]:checked + label {
+  padding: 0.5em 0.9em;
   background: #fce45c;
   color: #000;
   cursor: pointer;
+}
+
+input[type=radio]:focus + label {
+  outline: #ebab00 solid 3px;
+  position: relative;
 }
 
 .sr-only {
