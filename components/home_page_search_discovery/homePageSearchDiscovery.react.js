@@ -126,7 +126,7 @@ class HomePageSearchDiscovery extends Component {
       this.state.valueBetween === ''
     ) {
       this.setState({
-        errorAnd: this.state.Data.form.fieldBetween.errorMsgDateRange
+        errorBetween: this.state.Data.form.fieldBetween.errorMsgDateRange
       });
 
       e.preventDefault();
