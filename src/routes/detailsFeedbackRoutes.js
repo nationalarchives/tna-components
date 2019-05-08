@@ -1,15 +1,15 @@
-// Guidance Feedback Routes
 const express = require("express"),
-	feedbackRouter = express.Router();
+	detailsFeedbackRouter = express.Router();
 
 /* This route will only run when the url
- *   is set to details-page
- *   and it's controlled by app.js
+ *  controlled by app.js
  */
-feedbackRouter.route("/").get((req, res) => {
-	res.render("details-feedback", {
-		title: "Details Feedback React Component"
-	});
+detailsFeedbackRouter.route("/").get((req, res) => {
+	res.render("details-feedback", {});
 });
 
-module.exports = feedbackRouter;
+detailsFeedbackRouter.route("/details").get((req, res) => {
+	res.render("recommended-links-discovery", {});
+});
+
+module.exports = detailsFeedbackRouter;
