@@ -23,6 +23,24 @@ body {
   .grid-container {
     display: block;
   }
+  button {
+    color: #fff;
+    border-width: 0;
+    padding: 0.4em;
+    height: 30px;
+    background-color: #099;
+    font-size: 16px;
+    -webkit-appearance: button;
+    cursor: pointer;
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+      background-color: #fce45c;
+    }
+    &:focus {
+      outline: 2px solid #fce45c;
+    }
+  }
   .emphasis-block {
     font-family: 'Open Sans', arial, sans-serif;
     border-left: 4px solid #ebab2c;
