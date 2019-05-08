@@ -33,7 +33,7 @@
         "id": "search-all-collections",
         "placeholder": "everything that contains these terms"
       },
-      "errorMsg": "Field Show data not present"
+      "errorMsg": "Please enter keyword or catalogue reference"
     },
     "fieldBetween": {
       "label": {
@@ -48,9 +48,9 @@
         "type": "number",
         "class": "small"
       },
-      "errorMsgLength": "Field Between legth issue",
-      "errorMsgCurrentYear": "Field Between Warning current year",
-      "errorMsgDateRange": "Field Between Please enter both start date and end date"
+      "errorMsgLength": "Plese enter 4 digits",
+      "errorMsgCurrentYear": "Please enter a valid year",
+      "errorMsgDateRange": "Please enter both start date and end date"
     },
     "fieldAnd": {
       "label": {
@@ -64,9 +64,9 @@
         "type": "number",
         "class": "small"
       },
-      "errorMsgLength": "Field And legth issue",
-      "errorMsgCurrentYear": "Field And Warning current year",
-      "errorMsgDateRange": "Field And Please enter both start date and end date"
+      "errorMsgLength": "Plese enter 4 digits",
+      "errorMsgCurrentYear": "Please enter a valid year",
+      "errorMsgDateRange": "Please enter both start date and end date"
     },
     "fieldAcross": {
       "label": {
