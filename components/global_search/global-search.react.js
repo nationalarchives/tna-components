@@ -73,7 +73,7 @@ class GlobalSearch extends Component {
                   action={this.state.active_search.url}>
 
                 <fieldset id="search-options">
-                    <legend>{this.state.search_selector.label}</legend>
+                    <legend className="sr-only">{this.state.search_selector.label}</legend>
                     <input type="checkbox" id={this.state.search_selector.id}
                            aria-label={this.state.search_selector.label} className="sr-only" onChange={this.toggle_search_options}
                            ref={this.checkbox_ref}/>
@@ -83,7 +83,7 @@ class GlobalSearch extends Component {
                 </fieldset>
                 {(this.state.show_search_options === true) ?
                     <fieldset id="select-search-type" onChange={this.handle_search_selection}>
-                        <legend>{this.state.search_options.select_type}</legend>
+                        <legend className="sr-only">{this.state.search_options.select_type}</legend>
                         <SearchOption group_name={this.state.search_options.group_name}
                                       options={this.state.search_options.options}/>
                     </fieldset> : null
@@ -91,7 +91,7 @@ class GlobalSearch extends Component {
 
 
                 <fieldset id="search-query">
-                    <legend>{this.state.search_query_legend}</legend>
+                    <legend className="sr-only">{this.state.search_query_legend}</legend>
                     <input type="search" autoComplete="off" role="search" name="_q"
                            aria-label={this.state.active_search.label}
                            placeholder={this.state.active_search.label}
