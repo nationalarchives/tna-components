@@ -14,7 +14,7 @@ const express = require("express"),
 	feedbackRouter = require("./src/routes/feedbackRoutes"),
 	homeRouter = require("./src/routes/homeRoutes"),
 	recommendedLinksDiscovery = require("./src/routes/recommendedRoutes"),
-	detailsFeedbackWidgetRoutes = require("./src/routes/detailsFeedbackRoutes");
+	detailsFeedbackRoutes = require("./src/routes/detailsFeedbackRoutes");
 
 // Set a templating engine for the app views
 app.engine("ejs", require("ejs").__express);
@@ -36,7 +36,7 @@ app.use("/help-with-your-research/research-guides", feedbackRouter);
 // Recommended Links Discovery
 app.use("/results", recommendedLinksDiscovery);
 // Details Feedback Widget
-app.use("/details-feedback", detailsFeedbackWidgetRoutes);
+app.use("/details/r", detailsFeedbackRoutes);
 
 // Set the port of the application and log the info
 app.listen(port, () =>
