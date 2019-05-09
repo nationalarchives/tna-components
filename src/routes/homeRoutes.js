@@ -12,7 +12,7 @@ homeRouter.route("/").get((req, res) => {
 		page: {
 			guidanceFeedback: "/help-with-your-research/research-guides",
 			recommendedLinksDiscovery: "/results/r",
-			detailsFeedback: "/details-feedback"
+			detailsFeedback: "/details/r"
 		}
 	});
 });
