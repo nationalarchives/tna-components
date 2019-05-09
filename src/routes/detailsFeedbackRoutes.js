@@ -8,8 +8,8 @@ detailsFeedbackRouter.route("/").get((req, res) => {
 	res.render("details-feedback", {});
 });
 
-detailsFeedbackRouter.route("/details").get((req, res) => {
-	res.render("recommended-links-discovery", {});
+detailsFeedbackRouter.route("/*").get((req, res) => {
+	res.render("details-feedback", {});
 });
 
 module.exports = detailsFeedbackRouter;
