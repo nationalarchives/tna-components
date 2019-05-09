@@ -4,7 +4,6 @@ import DetailsFeedbackWidget from "../../components/details_feedback/details_fee
 
 {
 	const detailsPage = document.querySelector(".details-page");
-	console.log(window.location);
 	const path = window.location.pathname;
 	const regex = /details\/r\/\d+[A-Za-z]+|[A-Za-z]+\d+/;
 
