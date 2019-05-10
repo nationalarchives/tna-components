@@ -5,7 +5,7 @@ import DetailsFeedbackWidget from "../../components/details_feedback/details_fee
 {
 	const detailsPage = document.querySelector(".details-page");
 	const path = window.location.pathname;
-	const regex = /details\/r\/\d+[A-Za-z]+|[A-Za-z]+\d+/;
+	const regex = /\/details\/r\/(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/;
 
 	if (detailsPage && path.match(regex)) {
 		if (detailsPage.contains(document.getElementById("page_wrap"))) {
