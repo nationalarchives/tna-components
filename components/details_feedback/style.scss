@@ -1,5 +1,10 @@
 #details-feedback-wrapper {
-	h3 {
+	@media (min-width: 768px) {
+		
+	}.details-breather {
+		padding: 1em;
+	}
+	button {
 		color: blueviolet;
 	}
 }
