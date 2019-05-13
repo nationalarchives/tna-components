@@ -14,7 +14,8 @@ import DetailsFeedbackWidget from '../../components/details_feedback/details_fee
         let asideDom = `
 					<aside class="row">
 						<div class="details-breather details-row margin-bottom holding-box border-top">
-							<div id="details-feedback-wrapper"></div>
+              <div id="details-feedback-wrapper"></div>
+              
 						</div>
 					</aside>`;
 
