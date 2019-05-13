@@ -2,10 +2,11 @@ import React, { Component } from "react";
 
 class FeedbackButton extends Component {
 	render() {
+		const { type, name, title } = this.props;
 		return (
 			<React.Fragment>
-				<button type={this.props.type} name={this.props.name}>
-					{this.props.title}
+				<button type={type} name={name}>
+					{title}
 				</button>
 			</React.Fragment>
 		);
