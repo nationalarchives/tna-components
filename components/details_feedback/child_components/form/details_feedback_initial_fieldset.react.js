@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import FeedbackButton from "../button/details_feedback_widget_button.react";
 
 class InitialFieldset extends Component {
+	
+
 	render() {
 		const noBorder = {
 			border: "none"
