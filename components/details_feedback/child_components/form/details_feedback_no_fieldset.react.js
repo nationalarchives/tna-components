@@ -10,10 +10,9 @@ class NoFieldset extends Component {
   }
 
   render() {
-    const { displayFieldSet } = this.state;
     return (
       <React.Fragment>
-        {displayFieldSet && (
+        {this.state.displayFieldSet && (
           <fieldset className="noBorder" id="no-fieldset">
             <legend>We'd like to hear from you</legend>
             <label for="explore-comments">
