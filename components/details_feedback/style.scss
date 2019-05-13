@@ -1,7 +1,19 @@
 #details-feedback-wrapper {
-	@media (min-width: 768px) {
-		
-	}.details-breather {
-		padding: 1em;
-	}
+  @media (min-width: 768px) {
+  }
+  .details-breather {
+    padding: 1em;
+  }
+
+  .h2Style {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    display: inline-block;
+    margin: 0.3em 0;
+    color: #000;
+  }
+  .noBorder {
+    border: none;
+  }
 }
