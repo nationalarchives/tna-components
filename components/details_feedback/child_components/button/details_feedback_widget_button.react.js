@@ -1,15 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 
-const FeedbackButton = props => {
-	const { title, type, name } = props;
-	return (
-		<React.Fragment>
-			<button type={type} name={name}>
-				{title}
-			</button>
-		</React.Fragment>
-	);
-};
+class FeedbackButton extends Component {
+	render() {
+		return (
+			<React.Fragment>
+				<button type={this.props.type} name={this.props.name}>
+					{this.props.title}
+				</button>
+			</React.Fragment>
+		);
+	}
+}
 
 FeedbackButton.defaultProps = {
 	title: "Enter button title"
