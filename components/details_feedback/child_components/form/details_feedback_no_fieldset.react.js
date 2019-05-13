@@ -5,7 +5,7 @@ class NoFieldset extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      displayFieldSet: false
+      displayFieldSet: true
     };
   }
 
@@ -14,7 +14,7 @@ class NoFieldset extends Component {
     return (
       <React.Fragment>
         {displayFieldSet && (
-          <fieldset id="no-fieldset">
+          <fieldset className="noBorder" id="no-fieldset">
             <legend>We'd like to hear from you</legend>
             <label for="explore-comments">
               Your feedback helps us improve our services. Please share any
