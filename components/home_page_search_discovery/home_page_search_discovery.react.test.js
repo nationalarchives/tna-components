@@ -1,7 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import HomePageSearchDiscovery from './homePageSearchDiscovery.react';
-import Headline from '../global/headline/headline.react';
+import HomePageSearchDiscovery from './home_page_search_discovery.react';
 import Form from '../global/form/form.react';
 import Input from '../global/form/input.react';
 import Select from '../global/form/select.react';
@@ -14,11 +13,6 @@ beforeAll(() => {
 });
 
 describe('HomePageSearchDiscovery component', () => {
-  it('=> Prop H1 got the right content', () => {
-    expect(testInstance.findByType(Headline).props.mainhead).toBe(
-      'Search The National Archives and over 2,500 archives across the UK'
-    );
-  });
   it('=> Form Props are the correct ones', () => {
     expect(testInstance.findByType(Form).props.method).toBe('get');
     expect(testInstance.findByType(Form).props.action).toBe(
