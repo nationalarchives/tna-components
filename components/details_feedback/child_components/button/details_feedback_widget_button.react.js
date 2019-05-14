@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class FeedbackButton extends Component {
   render() {
-    const { type, name, title } = this.props;
+    const { title, className } = this.props;
     return (
       <React.Fragment>
-        <button type={type} name={name}>
+        <button className={className} value={title}>
           {title}
         </button>
       </React.Fragment>
@@ -14,7 +14,8 @@ class FeedbackButton extends Component {
 }
 
 FeedbackButton.defaultProps = {
-  title: 'Enter button title'
+  title: 'Enter button title',
+  className: null
 };
 
 export default FeedbackButton;

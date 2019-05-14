@@ -7,8 +7,8 @@ class InitialFieldset extends Component {
       <React.Fragment>
         <fieldset id="InitalFieldset">
           <legend>Could this page be improved?</legend>
-          <FeedbackButton type="button" name="no" title="No" />
-          <FeedbackButton type="button" name="yes" title="Yes" />
+
+          <FeedbackButton className="hey" name="yes" value="Yes" title="No" />
         </fieldset>
       </React.Fragment>
     );

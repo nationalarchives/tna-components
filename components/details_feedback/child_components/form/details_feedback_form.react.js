@@ -13,7 +13,6 @@ class DetailsFeedbackForm extends Component {
       <React.Fragment>
         <form action="" id="discovery-feedback-form">
           <Fieldset />
-          <NoFieldset {...this.state} />
         </form>
       </React.Fragment>
     );
