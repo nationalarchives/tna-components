@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import FieldsetWrapper from './fieldset/details_feedback_fieldset.react';
 import FeedbackButton from './button/details_feedback_widget_button.react';
+import FieldsetLegend from './legend/details_feedback_legend.react';
 
 class DetailsFeedbackForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      noFieldsetDisplay: false,
+      noFieldsetDisplay: true,
       yesFieldsetDisplay: false
     };
   }
@@ -14,14 +15,14 @@ class DetailsFeedbackForm extends Component {
     return (
       <form action="">
         <FieldsetWrapper>
-          <legend>Could this page be improved</legend>
+          <FieldsetLegend legendText="Could this page be improved" />
           <FeedbackButton buttonText="No" />
           <FeedbackButton buttonText="Yes" />
         </FieldsetWrapper>
 
         {this.state.noFieldsetDisplay && (
           <FieldsetWrapper ariaExpanded={this.state.noFieldsetDisplay}>
-            <legend>We'd like to hear from you</legend>
+            <FieldsetLegend legendText="We'd like to hear from you" />
             <div class="checkbox">
               <label for="explore-comments">
                 Your feedback helps us improve our services. Please share any
@@ -34,7 +35,7 @@ class DetailsFeedbackForm extends Component {
         )}
         {this.state.yesFieldsetDisplay && (
           <FieldsetWrapper ariaExpanded={this.state.noFieldsetDisplay}>
-            <legend>Yes fieldset</legend>
+            <FieldsetLegend legendText="Please let us know why you are dissatisfied" />
           </FieldsetWrapper>
         )}
       </form>
