@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FieldsetWrapper from './fieldset/details_feedback_fieldset.react';
-import FeedbackButton from './button/details_feedback_widget_button.react';
+import FieldsetButton from './button/details_feedback_widget_button.react';
 import FieldsetLegend from './legend/details_feedback_legend.react';
 
 class DetailsFeedbackForm extends Component {
@@ -16,8 +16,8 @@ class DetailsFeedbackForm extends Component {
       <form action="">
         <FieldsetWrapper>
           <FieldsetLegend legendText="Could this page be improved" />
-          <FeedbackButton buttonText="No" />
-          <FeedbackButton buttonText="Yes" />
+          <FieldsetButton buttonText="No" />
+          <FieldsetButton buttonText="Yes" />
         </FieldsetWrapper>
 
         {this.state.noFieldsetDisplay && (

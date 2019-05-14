@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class FeedbackButton extends Component {
+class FieldsetButton extends Component {
   render() {
     return (
       <React.Fragment>
@@ -10,4 +10,4 @@ class FeedbackButton extends Component {
   }
 }
 
-export default FeedbackButton;
+export default FieldsetButton;
