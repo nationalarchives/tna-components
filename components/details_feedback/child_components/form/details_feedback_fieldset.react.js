@@ -5,7 +5,7 @@ class InitialFieldset extends Component {
   render() {
     return (
       <React.Fragment>
-        <fieldset className="noBorder" id="InitalFieldset">
+        <fieldset id="InitalFieldset">
           <legend>Could this page be improved?</legend>
           <FeedbackButton type="button" name="no" title="No" />
           <FeedbackButton type="button" name="yes" title="Yes" />

@@ -1,19 +1,23 @@
-import React, { Component } from "react";
-import InitialFieldset from "../form/details_feedback_initial_fieldset.react";
-import NoFieldset from "../form/details_feedback_no_fieldset.react";
+import React, { Component } from 'react';
+import Fieldset from '../form/details_feedback_fieldset.react';
 
 class DetailsFeedbackForm extends Component {
-	
-	render() {
-		return (
-			<React.Fragment>
-				<form action="" id="discovery-feedback-form">
-					<InitialFieldset />
-					<NoFieldset />
-				</form>
-			</React.Fragment>
-		);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayFieldSet: false
+    };
+  }
+  render() {
+    return (
+      <React.Fragment>
+        <form action="" id="discovery-feedback-form">
+          <Fieldset />
+          <NoFieldset {...this.state} />
+        </form>
+      </React.Fragment>
+    );
+  }
 }
 
 export default DetailsFeedbackForm;
