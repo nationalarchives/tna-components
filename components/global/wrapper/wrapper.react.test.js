@@ -16,7 +16,7 @@ beforeAll(() => {
 });
 
 describe('Wrapper component', () => {
-  it('=> Prop ID = held-by-react-component', () => {
+  it('=> Prop ID', () => {
     expect(testInstance.type(Wrapper).props.id).toBe(undefined);
   });
 });
