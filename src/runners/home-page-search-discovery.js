@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HomePageSearchDiscovery from '../../components/home_page_search_discovery/homePageSearchDiscovery.react';
+import HomePageSearchDiscovery from '../../components/home_page_search_discovery/home_page_search_discovery.react';
 
 {
   const wrapper = document.querySelector('.home #page_wrap .search-banner'),
