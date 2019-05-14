@@ -10,37 +10,60 @@ import Data from './home_page_search_discovery_data.json';
 import './home_page_search_discovery.scss';
 
 class HomePageSearchDiscovery extends Component {
-  // Set properties
-  objGTM = {};
+  constructor(props) {
+    super(props);
 
-  // Set the initial State
-  state = {
-    Data,
-    valueShow: '',
-    valueBetween: '',
-    valueAnd: '',
-    valueAcross: 'all',
-    errorShow: '',
-    errorBetween: '',
-    errorAnd: '',
-    success: null
-  };
+    // Set properties
+    this.objGTM = {};
 
-  // Preserve the initial state in a new object
-  // so it can be reused
-  mainState = this.state;
+    // Set the initial State
+    this.state = {
+      Data,
+      valueShow: '',
+      valueBetween: '',
+      valueAnd: '',
+      errorShow: '',
+      errorBetween: '',
+      errorAnd: '',
+      success: false
+    };
 
-  // Create a unique DOM reference
-  // for hidden <input name="_dhs" value="y" />
-  hiddenRef = React.createRef();
+    // Preserve the initial state in a new object so it can be reused
+    this.mainState = this.state;
 
-  /**
-   * ==================== IMPORTANT ========================
-   * All Class Methods auto bind using arrow function method
-   */
+    // Create a unique DOM reference for the hidden input
+    this.hiddenRef = React.createRef();
+
+    // Bind methods to construtor
+    this.onChangeInput = this.onChangeInput.bind(this);
+    this.onSubmitSearch = this.onSubmitSearch.bind(this);
+    this.onKeyUpInp = this.onKeyUpInp.bind(this);
+    this.updateErrorMsgOnFieldShow = this.updateErrorMsgOnFieldShow.bind(this);
+    this.checkIfValidYearOnFieldAnd = this.checkIfValidYearOnFieldAnd.bind(
+      this
+    );
+    this.checkIfValidYearOnFieldBetween = this.checkIfValidYearOnFieldBetween.bind(
+      this
+    );
+    this.updateErrorMsgOnFieldShowIfEmpty = this.updateErrorMsgOnFieldShowIfEmpty.bind(
+      this
+    );
+    this.updateErrorMsgOnFiledBetween = this.updateErrorMsgOnFiledBetween.bind(
+      this
+    );
+    this.updateErrorMsgOnFiledAnd = this.updateErrorMsgOnFiledAnd.bind(this);
+    this.updateErrorMsgOnFieldAndIfFieldBetweenIsEmpty = this.updateErrorMsgOnFieldAndIfFieldBetweenIsEmpty.bind(
+      this
+    );
+    this.updateErrorMsgOnFieldAndIfFieldAndIsEmpty = this.updateErrorMsgOnFieldAndIfFieldAndIsEmpty.bind(
+      this
+    );
+    this.onFormSuccess = this.onFormSuccess.bind(this);
+    this.buildGTMObj = this.buildGTMObj.bind(this);
+  }
 
   // Check input value on change
-  onChangeInput = e => {
+  onChangeInput(e) {
     if (e.target.id === 'search-all-collections') {
       this.setState({ valueShow: e.target.value });
     }
@@ -50,268 +73,176 @@ class HomePageSearchDiscovery extends Component {
     if (e.target.id === 'end-date') {
       this.setState({ valueAnd: e.target.value });
     }
-  };
+  }
 
-  // Check if it's a valid Year
-  checkIfValidYear = (field, objKey, errMsgOne, errMsgTwo, year) => {
-    field > year
-      ? this.setState({ [objKey]: errMsgOne }, this.stateIsOnFire)
-      : this.setState({ [objKey]: errMsgTwo }, this.stateIsOnFire);
-  };
+  // Check if it's a valid Year on Field And
+  checkIfValidYearOnFieldAnd(year) {
+    if (this.state.valueAnd > year) {
+      this.setState({
+        errorAnd: this.state.Data.form.fieldAnd.errorMsgCurrentYear
+      });
+    } else {
+      this.setState({
+        errorAnd: this.mainState.errorAnd
+      });
+    }
+  }
 
-  // Set the state to the initial state and hide the message
-  hideErrorMsg = (field, objKey, errMsg) => {
-    field !== '' ? this.setState({ [objKey]: errMsg }) : null;
-  };
+  // Check if it's a valid Year on Field Between
+  checkIfValidYearOnFieldBetween(year) {
+    if (this.state.valueBetween > year) {
+      this.setState({
+        errorBetween: this.state.Data.form.fieldBetween.errorMsgCurrentYear
+      });
+    } else {
+      this.setState({
+        errorBetween: this.mainState.errorBetween
+      });
+    }
+  }
+
+  // Update errorShow message to the initial state message
+  updateErrorMsgOnFieldShow() {
+    if (this.state.valueShow !== '') {
+      this.setState({ errorShow: this.mainState.valueShow });
+    }
+  }
 
   // Check if field Show is empty or has a space inside
   // Update the state on errorShow with the error Message
-  showErrorMsgIfEmptyOrWhiteSpace = e => {
-    return (field, objKey, errMsg) => {
-      if (field === ' ' || field === '') {
-        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
-        e.preventDefault();
-      }
-    };
-  };
+  updateErrorMsgOnFieldShowIfEmpty(e) {
+    if (this.state.valueShow === ' ' || this.state.valueShow === '') {
+      this.setState({ errorShow: this.state.Data.form.fieldShow.errorMsg });
+      e.preventDefault();
+    }
+  }
 
-  showErrorMsgLength = e => {
-    return (fieldOne, fieldTwo, objKey, errMsg) => {
-      if (
-        (fieldOne !== '' && fieldTwo.length < 4 && fieldTwo.length > 0) ||
-        fieldTwo.length > 4
-      ) {
-        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
-        e.preventDefault();
-      }
-    };
-  };
+  updateErrorMsgOnFiledBetween(e) {
+    if (
+      (this.state.valueShow !== '' &&
+        this.state.valueBetween.length < 4 &&
+        this.state.valueBetween.length > 0) ||
+      this.state.valueBetween.length > 4
+    ) {
+      this.setState({
+        errorBetween: this.state.Data.form.fieldBetween.errorMsgLength
+      });
+      e.preventDefault();
+    }
+  }
 
-  enterBothDates = e => {
-    return (field, errField, fieldTwo, objKey, errMsg) => {
-      if (field !== '' && errField === '' && fieldTwo === '') {
-        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
-        e.preventDefault();
-      }
-    };
-  };
+  updateErrorMsgOnFiledAnd(e) {
+    if (
+      (this.state.valueShow !== '' &&
+        this.state.valueAnd.length < 4 &&
+        this.state.valueAnd.length > 0) ||
+      this.state.valueAnd.length > 4
+    ) {
+      this.setState({
+        errorAnd: this.state.Data.form.fieldAnd.errorMsgLength
+      });
+      e.preventDefault();
+    }
+  }
 
-  notANumber = e => {
-    return (val, objKey, errMsg) => {
-      if (isNaN(val)) {
-        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
-        e.preventDefault();
-      }
-    };
-  };
+  updateErrorMsgOnFieldAndIfFieldBetweenIsEmpty(e) {
+    if (
+      this.state.valueBetween !== '' &&
+      this.state.errorBetween === '' &&
+      this.state.valueAnd === ''
+    ) {
+      this.setState({
+        errorAnd: this.state.Data.form.fieldAnd.errorMsgDateRange
+      });
 
-  buildGTMObj = obj => {
-    const {
-        valueShow,
-        valueBetween,
-        valueAnd,
-        errorShow,
-        errorBetween,
-        errorAnd,
-        success
-      } = this.state,
-      { fieldShow, fieldBetween, fieldAnd } = this.state.Data.form,
-      { gtm } = this.state.Data;
+      e.preventDefault();
+    }
+  }
 
+  updateErrorMsgOnFieldAndIfFieldAndIsEmpty(e) {
+    if (
+      this.state.valueAnd !== '' &&
+      this.state.errorAnd === '' &&
+      this.state.valueBetween === ''
+    ) {
+      this.setState({
+        errorBetween: this.state.Data.form.fieldBetween.errorMsgDateRange
+      });
+
+      e.preventDefault();
+    }
+  }
+
+  buildGTMObj(obj) {
+    const { success } = this.state;
     if (success === true) {
-      obj.event = gtm.success.event;
-      obj.eventAction = gtm.success.eventAction;
-      obj.eventCategory = gtm.success.eventCategory;
-      obj.eventLabel = `${gtm.success.eventLabel} ${
-        valueShow !== '' ? fieldShow.input.id : ''
-      }${valueBetween !== '' ? ' > ' + fieldBetween.input.id : ''}${
-        valueAnd !== '' ? ' > ' + fieldAnd.input.id : ''
-      }${' > ' + this.optionStateFire()}`;
+      obj.event = 'Discovery search';
+      obj.eventAction = 'Discovery homepage search';
+      obj.eventCategory = 'Successful search';
+      obj.eventLabel = 'Fields used:';
     } else {
-      obj.event = gtm.fail.event;
-      obj.eventAction = gtm.fail.eventAction;
-      obj.eventCategory = gtm.fail.eventCategory;
-      obj.eventLabel = `${
-        errorShow !== '' ? fieldShow.input.id + ': ' + errorShow + ' > ' : ''
-      }${
-        errorBetween !== ''
-          ? fieldBetween.input.id + ': ' + errorBetween + ' > '
-          : ''
-      }${errorAnd !== '' ? fieldAnd.input.id + ': ' + errorAnd : ''}`;
+      obj.event = 'Discovery search';
+      obj.eventAction = 'Discovery homepage search';
+      obj.eventCategory = 'Search errors';
+      obj.eventLabel = 'Fields used:';
     }
     return obj;
-  };
+  }
 
-  pushInDataLayer = obj => {
+  pushInDataLayer(obj) {
     let wd = window.dataLayer || [];
     !!obj || typeof obj === 'object' ? wd.push(obj) : '';
 
     return obj;
-  };
+  }
 
-  onKeyUpInp = () => {
-    /**
-     * Set properties / destructuring
-     */
-    const currentYear = new Date().getFullYear(),
-      { valueShow, valueBetween, valueAnd } = this.state,
-      { fieldBetween, fieldAnd } = this.state.Data.form,
-      { errorBetween, errorAnd } = this.mainState;
-
-    /**
-     * Error messages
-     * Hide the error message once value is being typed
-     */
-    this.hideErrorMsg(valueShow, 'errorShow', this.mainState.valueShow);
-
-    // Field Between
-    // Error Message: Please enter a valid year
-    this.checkIfValidYear(
-      valueBetween,
-      'errorBetween',
-      fieldBetween.errorMsgCurrentYear,
-      errorBetween,
-      currentYear
-    );
-
-    // Field And
-    // Error Message: Please enter a valid year
-    this.checkIfValidYear(
-      valueAnd,
-      'errorAnd',
-      fieldAnd.errorMsgCurrentYear,
-      errorAnd,
-      currentYear
-    );
-  };
-
-  stateIsOnFire = () => {
-    const { errorBetween, errorAnd, errorShow } = this.state;
-
-    errorBetween !== '' || errorAnd !== '' || errorShow !== ''
-      ? this.setState({ success: false })
-      : this.setState({ success: true });
-  };
-
-  optionStateFire = () => {
-    let option = '';
-
-    if (this.state.valueAcross === 'all') {
-      option = this.state.Data.form.fieldAcross.select.options[0].name;
-    }
-    if (this.state.valueAcross === 'tna') {
-      option = this.state.Data.form.fieldAcross.select.options[1].name;
-    }
-    if (this.state.valueAcross === 'oth') {
-      option = this.state.Data.form.fieldAcross.select.options[2].name;
-    }
-
-    return option;
-  };
-
-  preventFormSubmission = e => {
-    return (err, errTwo, errThree) =>
-      err !== '' || errTwo !== '' || errThree ? e.preventDefault() : null;
-  };
-
-  selectOption = e => {
-    this.setState({ valueAcross: e.target.value });
-  };
-
-  onSubmitSearch = e => {
-    /**
-     * Set properties / destructuring
-     */
+  onFormSuccess() {
     const {
-        valueShow,
-        valueAnd,
-        valueBetween,
-        errorBetween,
-        errorAnd,
-        errorShow
-      } = this.state,
-      { fieldShow, fieldBetween, fieldAnd } = this.state.Data.form;
-
-    /**
-     * Error messages
-     */
-    const errMsgIfEmptyFieldShow = this.showErrorMsgIfEmptyOrWhiteSpace(e),
-      errMsgLengthFieldBetween = this.showErrorMsgLength(e),
-      errMsgLengthFieldAnd = this.showErrorMsgLength(e),
-      enterBothDatesFieldAnd = this.enterBothDates(e),
-      enterBothDatesFieldBetween = this.enterBothDates(e),
-      notANumberB = this.notANumber(e),
-      notANumberA = this.notANumber(e),
-      stopForm = this.preventFormSubmission(e);
-
-    /**
-     * Field Show =============================================================
-     *  */
-    // Please enter keyword or catalogue reference
-    errMsgIfEmptyFieldShow(valueShow, 'errorShow', fieldShow.errorMsg);
-
-    /**
-     * Field Between ==========================================================
-     * */
-
-    // Error Message: Plese enter 4 digits
-    errMsgLengthFieldBetween(
       valueShow,
-      valueBetween,
-      'errorBetween',
-      fieldBetween.errorMsgLength
-    );
-
-    // Error Message: Please enter both start date and end date
-    enterBothDatesFieldBetween(
-      valueAnd,
-      errorAnd,
-      valueBetween,
-      'errorBetween',
-      fieldBetween.errorMsgDateRange
-    );
-
-    // Error Message: You have entered an invalid date format
-    notANumberB(valueBetween, 'errorBetween', fieldBetween.errorMsgInvalid);
-
-    /**
-     * Field And ============================================================
-     * */
-
-    // Error Message: Plese enter 4 digits
-    errMsgLengthFieldAnd(
-      valueShow,
-      valueAnd,
-      'errorAnd',
-      fieldAnd.errorMsgLength
-    );
-
-    // Error Message: Please enter both start date and end date
-    enterBothDatesFieldAnd(
-      valueBetween,
+      errorShow,
       errorBetween,
-      valueAnd,
-      'errorAnd',
-      fieldAnd.errorMsgDateRange
-    );
+      errorAnd,
+      success
+    } = this.state;
+    if (
+      valueShow !== '' &&
+      valueShow !== ' ' &&
+      errorShow === '' &&
+      errorBetween === '' &&
+      errorAnd === ''
+    ) {
+      this.setState({ success: !success });
+      console.log(success);
+    } else {
+      this.setState({ success: false });
+    }
+  }
 
-    // Error Message: You have entered an invalid date format
-    notANumberA(valueAnd, 'errorAnd', fieldAnd.errorMsgInvalid);
+  onKeyUpInp() {
+    const currentYear = new Date().getFullYear();
 
-    /**
-     * On Form Update
-     */
-    stopForm(errorShow, errorBetween, errorAnd);
+    this.updateErrorMsgOnFieldShow();
+    this.checkIfValidYearOnFieldBetween(currentYear);
+    this.checkIfValidYearOnFieldAnd(currentYear);
+  }
+
+  onSubmitSearch(e) {
+    // If field Show is left empty update error message
+    this.updateErrorMsgOnFieldShowIfEmpty(e);
+
+    // Check the presence of value inside the field Between/And
+    // Update the state on errorBetween/errorAnd with the error Message
+    this.updateErrorMsgOnFiledBetween(e);
+    this.updateErrorMsgOnFieldAndIfFieldBetweenIsEmpty(e);
+    this.updateErrorMsgOnFieldAndIfFieldAndIsEmpty(e);
 
     // Set the value to the hidden element
     this.hiddenRef.current.value = this.state.Data.form.hiddenField.valueHidden;
 
-    setTimeout(() => this.pushInDataLayer(this.objGTM), 100);
-  };
-
-  // Use of React lifecycle method
-  componentDidUpdate(prevProps, prevState) {
+    this.onFormSuccess();
+    // GTM
     this.buildGTMObj(this.objGTM);
+    this.pushInDataLayer(this.objGTM);
   }
 
   render() {
@@ -348,7 +279,15 @@ class HomePageSearchDiscovery extends Component {
           <div className={grid.container} role={role}>
             <div className={grid.group.headline}>
               <h1>{mainHead}</h1>
-              <ErrorMessage {...this.state} />
+              <div
+                role="alert"
+                class={
+                  errorShow !== '' || errorBetween !== '' || errorAnd !== ''
+                    ? `emphasis-block`
+                    : null
+                }>
+                <ErrorMessage {...this.state} />
+              </div>
             </div>
             <div className={grid.group.mainSearch}>
               <Input
@@ -397,9 +336,7 @@ class HomePageSearchDiscovery extends Component {
                 id={fieldAcross.select.id}
                 class={fieldAcross.select.class}
                 option={fieldAcross.select.options}
-                name={fieldAcross.select.name}
-                onChange={this.selectOption}
-                value={this.state.valueAcross}>
+                name={fieldAcross.select.name}>
                 {fieldAcross.label.text}
               </Select>
             </div>
