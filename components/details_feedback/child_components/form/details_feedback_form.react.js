@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import FieldsetWrapper from './fieldset/details_feedback_fieldset.react';
-import FieldsetButton from './button/details_feedback_widget_button.react';
-import FieldsetLegend from './legend/details_feedback_legend.react';
-import FieldsetCheckbox from './checkbox/details_feedback_widget_checkbox.react';
-import FieldsetComment from './comment/details_feedback_comment.react';
+import FieldsetWrapper from '../fieldset/details_feedback_fieldset.react';
+import FieldsetButton from '../button/details_feedback_widget_button.react';
+import FieldsetLegend from '../legend/details_feedback_legend.react';
+import FieldsetCheckbox from '../checkbox/details_feedback_widget_checkbox.react';
+import FieldsetComment from '../comment/details_feedback_comment.react';
 
 class DetailsFeedbackForm extends Component {
   constructor(props) {
