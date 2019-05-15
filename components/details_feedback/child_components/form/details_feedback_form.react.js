@@ -8,17 +8,31 @@ import FieldsetComment from './comment/details_feedback_comment.react';
 class DetailsFeedbackForm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      noFieldsetDisplay: true,
-      yesFieldsetDisplay: true
+      noFieldsetDisplay: false,
+      yesFieldsetDisplay: false
     };
+
+    this.showNoFieldset = this.showNoFieldset.bind(this);
   }
+
+  showNoFieldset() {
+    this.setState({
+      noFieldsetDisplay: !this.state.noFieldsetDisplay
+    });
+  }
+
+  showNoFieldset() {
+    this.setState({ noFieldsetDisplay: true });
+  }
+
   render() {
     return (
       <form action="">
         <FieldsetWrapper>
           <FieldsetLegend legendText="Could this page be improved" />
-          <FieldsetButton buttonText="No" />
+          <FieldsetButton buttonText="No" clickEvent={this.showNoFieldset} />
           <FieldsetButton buttonText="Yes" />
         </FieldsetWrapper>
 
@@ -66,7 +80,6 @@ class DetailsFeedbackForm extends Component {
             <FieldsetComment
               id="comment-for-dissatisfaction"
               commentText="Your feedback helps us improve our services. Please share any comments below."
-              commentWarning="Please do not include personal contact details."
             />
           </FieldsetWrapper>
         )}

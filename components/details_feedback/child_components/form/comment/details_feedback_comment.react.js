@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class FieldsetComment extends Component {
-  render() {
-    const { id, commentText, commentWarning } = this.props;
-    return (
-      <div className="comment">
-        <label for={id}>{commentText}</label>
-        <input type="text" id={id} />
-        {commentWarning && (
-          <p dangerouslySetInnerHTML={{ __html: commentWarning }} />
-        )}
-      </div>
-    );
-  }
-}
+const FieldsetComment = props => {
+  const { id, commentText, commentWarning } = props;
+  return (
+    <div className="comment">
+      <label for={id}>{commentText}</label>
+      <input type="text" id={id} />
+
+      {commentWarning ? <p>{commentWarning}</p> : null}
+    </div>
+  );
+};
 
 export default FieldsetComment;
