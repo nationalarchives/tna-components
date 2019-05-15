@@ -43,14 +43,10 @@ class DetailsFeedbackForm extends Component {
         {this.state.noFieldsetDisplay && (
           <FieldsetWrapper ariaExpanded={this.state.noFieldsetDisplay}>
             <FieldsetLegend legendText="We'd like to hear from you" />
-            <div class="checkbox">
-              <label for="explore-comments">
-                Your feedback helps us improve our services. Please share any
-                comments below.
-              </label>
-              <input type="text" id="no-comments" />
-              <p>Please do not include personal contact details.</p>
-            </div>
+            <FieldsetComment
+              id="comment-for-satisfaction"
+              commentText="Your feedback helps us improve our services. Please share any comments below."
+            />
           </FieldsetWrapper>
         )}
         {this.state.yesFieldsetDisplay && (

@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 
-class FieldsetButton extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <button type="button" onClick={this.props.onClick}>
-          {this.props.buttonText}
-        </button>
-      </React.Fragment>
-    );
-  }
-}
+const FieldsetButton = props => {
+  const { buttonText, onClick } = props;
+  return (
+    <React.Fragment>
+      <button type="button" onClick={onClick}>
+        {buttonText}
+      </button>
+    </React.Fragment>
+  );
+};
 
 export default FieldsetButton;
