@@ -4,7 +4,9 @@ class FieldsetButton extends Component {
   render() {
     return (
       <React.Fragment>
-        <button type="button">{this.props.buttonText}</button>
+        <button type="button" onClick={this.props.clickEvent}>
+          {this.props.buttonText}
+        </button>
       </React.Fragment>
     );
   }
