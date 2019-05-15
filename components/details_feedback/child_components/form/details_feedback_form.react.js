@@ -10,31 +10,35 @@ class DetailsFeedbackForm extends Component {
     super(props);
 
     this.state = {
+      initialQuestion: true,
       noFieldsetDisplay: false,
       yesFieldsetDisplay: false
     };
 
     this.showNoFieldset = this.showNoFieldset.bind(this);
+    this.showYesFieldset = this.showYesFieldset.bind(this);
   }
 
   showNoFieldset() {
-    this.setState({
-      noFieldsetDisplay: !this.state.noFieldsetDisplay
-    });
-  }
-
-  showNoFieldset() {
+    this.setState({ initialQuestion: false });
     this.setState({ noFieldsetDisplay: true });
+  }
+
+  showYesFieldset() {
+    this.setState({ initialQuestion: false });
+    this.setState({ yesFieldsetDisplay: true });
   }
 
   render() {
     return (
-      <form action="">
-        <FieldsetWrapper>
-          <FieldsetLegend legendText="Could this page be improved" />
-          <FieldsetButton buttonText="No" clickEvent={this.showNoFieldset} />
-          <FieldsetButton buttonText="Yes" />
-        </FieldsetWrapper>
+      <form>
+        {this.state.initialQuestion && (
+          <FieldsetWrapper ariaExpanded={this.state.initialQuestion}>
+            <FieldsetLegend legendText="Could this page be improved" />
+            <FieldsetButton buttonText="No" onClick={this.showNoFieldset} />
+            <FieldsetButton buttonText="Yes" onClick={this.showYesFieldset} />
+          </FieldsetWrapper>
+        )}
 
         {this.state.noFieldsetDisplay && (
           <FieldsetWrapper ariaExpanded={this.state.noFieldsetDisplay}>
