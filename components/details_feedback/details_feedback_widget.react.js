@@ -7,10 +7,10 @@ import './style.scss';
 class DetailsFeedbackWidget extends Component {
   render() {
     return (
-      <div className="details-feedback-widget">
+      <React.Fragment>
         <h2>Feedback</h2>
         <DetailsFeedbackForm />
-      </div>
+      </React.Fragment>
     );
   }
 }

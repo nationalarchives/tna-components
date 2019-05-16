@@ -1,19 +1,148 @@
-#details-feedback-wrapper {
-  @media (min-width: 768px) {
-  }
-  .details-breather {
-    padding: 1em;
-  }
+#feedback-widget-row {
+  @import url('https://fonts.googleapis.com/css?family=Bitter|Open+Sans');
 
-  h2 {
+  position: relative;
+  display: block;
+
+  > div {
     font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin-bottom: 1.5em;
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+
+    @media (min-width: 768px) {
+      padding: 1em;
+    }
+
+    > div {
+      padding: 0.3em;
+      overflow: hidden;
+    }
+  }
+}
+
+#details-feedback-wrapper {
+  h2 {
     font-size: 1em;
     font-weight: 700;
     display: inline-block;
     margin: 0.3em 0;
     color: #000;
   }
-  fieldset {
-    border: none;
+  > div {
+    margin-top: 1em;
+
+    form {
+      display: block;
+
+      fieldset {
+        border: 1px solid #ccc;
+        width: auto;
+        margin-bottom: 0;
+        margin-left: 0;
+        position: relative;
+        padding-bottom: 0.8em;
+
+        legend {
+          display: block;
+          border: 1px solid #ccc;
+          padding: 0.4em;
+        }
+        button {
+          font-family: inherit;
+          font-size: 100%;
+          margin: 0;
+          outline: 0;
+          -webkit-appearance: button;
+          cursor: pointer;
+        }
+        .checkbox {
+          position: relative;
+          display: block;
+          margin-top: 10px;
+          max-width: 95%;
+          margin: 0 auto;
+
+          [type='checkbox'] {
+            position: absolute;
+            margin-left: 0;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 10px -7px 0;
+            width: auto;
+            font-size: 100%;
+          }
+          label {
+            display: inline-block;
+            min-height: 20px;
+            width: 100%;
+            margin-right: 0;
+            margin-left: 1em;
+            padding: 5px 3px;
+          }
+        }
+        .comment {
+          position: relative;
+          display: block;
+          margin-top: 10px;
+          max-width: 94.5%;
+          margin: 0.5em auto;
+          padding-left: 2em;
+
+          label {
+            display: inline-block;
+            min-height: 20px;
+            width: 100%;
+            margin-right: 0;
+          }
+
+          [type='text'] {
+            margin-top: 0.2em;
+
+            margin-bottom: 0.2em;
+            width: 100%;
+            min-height: 5em;
+            border: 1px solid #ccc;
+            padding: 5px 3px;
+            line-height: normal;
+            font-size: 100%;
+          }
+          p {
+            color: #6f777d;
+            margin: 0;
+          }
+        }
+      }
+
+      fieldset.initail-question {
+        padding-left: 0;
+        margin-left: 0;
+        border: none;
+
+        button {
+          border: 1px solid #999;
+
+          &:hover {
+            -o-transition: 0.5s;
+            -ms-transition: 0.5s;
+            -moz-transition: 0.5s;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            background-color: #eee;
+          }
+          &:first-of-type {
+            margin-right: 0.5em;
+          }
+        }
+        legend {
+          border: none;
+          padding: 0;
+          margin-bottom: 0.5em;
+        }
+      }
+    }
   }
 }

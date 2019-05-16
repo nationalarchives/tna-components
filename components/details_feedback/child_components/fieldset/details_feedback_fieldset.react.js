@@ -1,7 +1,10 @@
 import React from 'react';
 
-const FieldsetWrapper = ({ ariaExpanded, children }) => (
-  <fieldset aria-expanded={ariaExpanded}>{children}</fieldset>
+const Fieldset = ({ children, legendText, className }) => (
+  <fieldset className={className}>
+    <legend>{legendText}</legend>
+    {children}
+  </fieldset>
 );
 
-export default FieldsetWrapper;
+export default Fieldset;

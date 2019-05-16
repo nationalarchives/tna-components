@@ -12,10 +12,9 @@ import DetailsFeedbackWidget from '../../components/details_feedback/details_fee
       const pageWrap = document.getElementById('page_wrap');
       if (!document.getElementById('details-feedback-wrapper')) {
         let asideDom = `
-					<aside class="row">
-						<div class="details-breather details-row margin-bottom holding-box border-top">
+					<aside id="feedback-widget-row">
+						<div>
               <div id="details-feedback-wrapper"></div>
-              
 						</div>
 					</aside>`;
 
