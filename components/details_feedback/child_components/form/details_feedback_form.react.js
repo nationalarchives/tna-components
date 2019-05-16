@@ -42,10 +42,13 @@ class DetailsFeedbackForm extends Component {
           )}
 
           {this.state.noFieldsetDisplay && (
-            <Fieldset legendText="We'd like to hear from you">
+            <Fieldset
+              legendText="We'd like to hear from you"
+              className="noMarginLeft">
               <FieldsetComment
                 id="comment-for-satisfaction"
                 commentText="Your feedback helps us improve our services. Please share any comments below."
+                commentWarning="Please do not include personal contact details."
               />
             </Fieldset>
           )}
