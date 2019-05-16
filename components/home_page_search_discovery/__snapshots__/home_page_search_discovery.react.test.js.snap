@@ -5,7 +5,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
   id="discovery-homepage-search-react-component"
 >
   <form
-    action="https://discovery.nationalarchives.gov.uk/results/r"
+    action="/results/r"
     id="discoveryHomePageSearch"
     method="get"
     name="discoveryHomePageSearch"

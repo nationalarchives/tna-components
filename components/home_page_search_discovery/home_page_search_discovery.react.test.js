@@ -15,9 +15,7 @@ beforeAll(() => {
 describe('HomePageSearchDiscovery component', () => {
   it('=> Form Props are the correct ones', () => {
     expect(testInstance.findByType(Form).props.method).toBe('get');
-    expect(testInstance.findByType(Form).props.action).toBe(
-      'https://discovery.nationalarchives.gov.uk/results/r'
-    );
+    expect(testInstance.findByType(Form).props.action).toBe('/results/r');
   });
   it('=> Form elements exists', () => {
     expect(testInstance.findAllByType(Input).length).toEqual(4);
