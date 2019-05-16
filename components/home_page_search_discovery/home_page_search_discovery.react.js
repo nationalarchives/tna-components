@@ -320,15 +320,7 @@ class HomePageSearchDiscovery extends Component {
           <div className={grid.container} role={role}>
             <div className={grid.group.headline}>
               <h1>{mainHead}</h1>
-              <div
-                role="alert"
-                class={
-                  errorShow !== '' || errorBetween !== '' || errorAnd !== ''
-                    ? `emphasis-block`
-                    : null
-                }>
-                <ErrorMessage {...this.state} />
-              </div>
+              <ErrorMessage {...this.state} />
             </div>
             <div className={grid.group.mainSearch}>
               <Input
