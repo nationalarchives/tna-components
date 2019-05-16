@@ -108,6 +108,17 @@ class HomePageSearchDiscovery extends Component {
     };
   };
 
+  notANumber = e => {
+    return (val, objKey, errMsg) => {
+      if (isNaN(val)) {
+        this.setState({ [objKey]: errMsg });
+        e.preventDefault();
+      } else {
+        return false;
+      }
+    };
+  };
+
   buildGTMObj = obj => {
     if (this.state.success === true) {
       obj.event = 'Discovery search';
@@ -209,11 +220,21 @@ class HomePageSearchDiscovery extends Component {
       errMsgLengthFieldBetween = this.showErrorMsgLength(e),
       errMsgLengthFieldAnd = this.showErrorMsgLength(e),
       enterBothDatesFieldAnd = this.enterBothDates(e),
-      enterBothDatesFieldBetween = this.enterBothDates(e);
+      enterBothDatesFieldBetween = this.enterBothDates(e),
+      notANumberB = this.notANumber(e),
+      notANumberA = this.notANumber(e);
 
-    errMsgIfEmptyFieldShow(valueShow, 'errorShow', fieldShow.errorMsg); // Please enter keyword or catalogue reference
+    /**
+     * Field Show =============================================================
+     *  */
+    // Please enter keyword or catalogue reference
+    errMsgIfEmptyFieldShow(valueShow, 'errorShow', fieldShow.errorMsg);
 
-    // Plese enter 4 digits
+    /**
+     * Field Between ==========================================================
+     * */
+
+    // Error Message: Plese enter 4 digits
     errMsgLengthFieldBetween(
       valueShow,
       valueBetween,
@@ -221,7 +242,23 @@ class HomePageSearchDiscovery extends Component {
       fieldBetween.errorMsgLength
     );
 
-    // Plese enter 4 digits
+    // Error Message: Please enter both start date and end date
+    enterBothDatesFieldBetween(
+      valueAnd,
+      errorAnd,
+      valueBetween,
+      'errorBetween',
+      fieldBetween.errorMsgDateRange
+    );
+
+    // Error Message: You have entered an invalid date format
+    notANumberB(valueBetween, 'errorBetween', fieldBetween.errorMsgInvalid);
+
+    /**
+     * Field And ============================================================
+     * */
+
+    // Error Message: Plese enter 4 digits
     errMsgLengthFieldAnd(
       valueShow,
       valueAnd,
@@ -229,8 +266,7 @@ class HomePageSearchDiscovery extends Component {
       fieldAnd.errorMsgLength
     );
 
-    // Field And
-    // Please enter both start date and end date
+    // Error Message: Please enter both start date and end date
     enterBothDatesFieldAnd(
       valueBetween,
       errorBetween,
@@ -239,15 +275,8 @@ class HomePageSearchDiscovery extends Component {
       fieldAnd.errorMsgDateRange
     );
 
-    // Field Between
-    // Please enter both start date and end date
-    enterBothDatesFieldBetween(
-      valueAnd,
-      errorAnd,
-      valueBetween,
-      'errorBetween',
-      fieldBetween.errorMsgDateRange
-    );
+    // Error Message: You have entered an invalid date format
+    notANumberA(valueAnd, 'errorAnd', fieldAnd.errorMsgInvalid);
 
     /**
      * Form submission successful
