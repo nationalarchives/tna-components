@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Fieldset from '../fieldset/details_feedback_fieldset.react';
-import FieldsetButton from '../button/details_feedback_widget_button.react';
+import Button from '../button/details_feedback_widget_button.react';
 import FieldsetCheckbox from '../checkbox/details_feedback_widget_checkbox.react';
 import FieldsetComment from '../comment/details_feedback_comment.react';
 
@@ -34,10 +34,10 @@ class DetailsFeedbackForm extends Component {
         <form>
           {this.state.initialQuestion && (
             <Fieldset
-              legendText="Could this page be improved"
+              legendText="Could this page be improved?"
               className="initail-question">
-              <FieldsetButton buttonText="No" onClick={this.showNoFieldset} />
-              <FieldsetButton buttonText="Yes" onClick={this.showYesFieldset} />
+              <Button buttonText="No" onClick={this.showNoFieldset} />
+              <Button buttonText="Yes" onClick={this.showYesFieldset} />
             </Fieldset>
           )}
 
