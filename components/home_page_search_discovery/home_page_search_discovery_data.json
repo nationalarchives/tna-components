@@ -5,7 +5,7 @@
   "form": {
     "formId": "discoveryHomePageSearch",
     "method": "get",
-    "action": "https://discovery.nationalarchives.gov.uk/results/r",
+    "action": "/results/r",
     "role": "search",
     "grid": {
       "container": "grid-container",
@@ -50,7 +50,8 @@
       },
       "errorMsgLength": "Plese enter 4 digits",
       "errorMsgCurrentYear": "Please enter a valid year",
-      "errorMsgDateRange": "Please enter both start date and end date"
+      "errorMsgDateRange": "Please enter both start date and end date",
+      "errorMsgInvalid": "You have entered an invalid date format"
     },
     "fieldAnd": {
       "label": {
@@ -66,7 +67,8 @@
       },
       "errorMsgLength": "Plese enter 4 digits",
       "errorMsgCurrentYear": "Please enter a valid year",
-      "errorMsgDateRange": "Please enter both start date and end date"
+      "errorMsgDateRange": "Please enter both start date and end date",
+      "errorMsgInvalid": "You have entered an invalid date format"
     },
     "fieldAcross": {
       "label": {
