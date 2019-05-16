@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FieldsetButton = props => {
+const Button = props => {
   const { buttonText, onClick } = props;
   return (
     <React.Fragment>
@@ -11,4 +11,4 @@ const FieldsetButton = props => {
   );
 };
 
-export default FieldsetButton;
+export default Button;
