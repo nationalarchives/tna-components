@@ -21,10 +21,6 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         <h1>
           Search The National Archives and over 2,500 archives across the UK
         </h1>
-        <div
-          class={null}
-          role="alert"
-        />
       </div>
       <div
         className="MainSearch"
