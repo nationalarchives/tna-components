@@ -1,5 +1,5 @@
 #feedback-widget-row {
-  @import url('https://fonts.googleapis.com/css?family=Bitter|Open+Sans');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
   position: relative;
   display: block;
@@ -61,6 +61,27 @@
           outline: 0;
           -webkit-appearance: button;
           cursor: pointer;
+
+          &:first-of-type {
+            margin-right: 0.2em;
+          }
+        }
+        [type='reset'],
+        [type='submit'] {
+          margin-top: 1em;
+          border-width: 0;
+          padding: 0.4em;
+          -webkit-appearance: button;
+          cursor: pointer;
+        }
+
+        [type='submit'] {
+          background-color: #099;
+          color: #fff;
+        }
+        [type='reset'] {
+          background-color: #ddd;
+          color: #000;
         }
         .checkbox {
           position: relative;
@@ -137,9 +158,6 @@
             -webkit-transition: 0.5s;
             transition: 0.5s;
             background-color: #eee;
-          }
-          &:first-of-type {
-            margin-right: 0.2em;
           }
         }
         legend {

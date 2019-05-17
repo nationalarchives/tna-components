@@ -15,7 +15,10 @@ class DetailsFeedbackForm extends Component {
     };
 
     this.showNoFieldset = this.showNoFieldset.bind(this);
+    this.closeNoFieldset = this.closeNoFieldset.bind(this);
+
     this.showYesFieldset = this.showYesFieldset.bind(this);
+    this.closeYesFieldset = this.closeYesFieldset.bind(this);
   }
 
   showNoFieldset() {
@@ -23,9 +26,21 @@ class DetailsFeedbackForm extends Component {
     this.setState({ noFieldsetDisplay: true });
   }
 
+  closeNoFieldset(e) {
+    e.prventDefault;
+    this.setState({ initialQuestion: true });
+    this.setState({ noFieldsetDisplay: false });
+  }
+
   showYesFieldset() {
     this.setState({ initialQuestion: false });
     this.setState({ yesFieldsetDisplay: true });
+  }
+
+  closeYesFieldset(e) {
+    e.prventDefault;
+    this.setState({ initialQuestion: true });
+    this.setState({ yesFieldsetDisplay: false });
   }
 
   render() {
@@ -53,10 +68,16 @@ class DetailsFeedbackForm extends Component {
             <Fieldset
               legendText="We'd like to hear from you"
               className="noMarginLeft">
-              <FieldsetComment
+              <Comment
                 id="comment-for-satisfaction"
                 commentText="Your feedback helps us improve our services. Please share any comments below."
                 commentWarning="Please do not include personal contact details."
+              />
+              <Button buttonText="Send" type="submit" />
+              <Button
+                buttonText="Cancel"
+                type="reset"
+                onClick={this.closeNoFieldset}
               />
             </Fieldset>
           )}
@@ -93,7 +114,11 @@ class DetailsFeedbackForm extends Component {
                 commentWarning="Please do not include personal contact details."
               />
               <Button buttonText="Send" type="submit" />
-              <Button buttonText="Cancel" type="cancel" />
+              <Button
+                buttonText="Cancel"
+                type="reset"
+                onClick={this.closeYesFieldset}
+              />
             </Fieldset>
           )}
         </form>
