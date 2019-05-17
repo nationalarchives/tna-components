@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FieldsetComment = props => {
+const Comment = props => {
   const { id, commentText, commentWarning } = props;
   return (
     <div className="comment">
@@ -12,4 +12,4 @@ const FieldsetComment = props => {
   );
 };
 
-export default FieldsetComment;
+export default Comment;
