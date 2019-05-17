@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FieldsetCheckbox = props => {
+const Checkbox = props => {
   const { id, labelText } = props;
   return (
     <div className="checkbox">
@@ -10,4 +10,4 @@ const FieldsetCheckbox = props => {
   );
 };
 
-export default FieldsetCheckbox;
+export default Checkbox;

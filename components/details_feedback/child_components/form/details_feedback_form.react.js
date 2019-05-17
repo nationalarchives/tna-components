@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Fieldset from '../fieldset/details_feedback_fieldset.react';
 import Button from '../button/details_feedback_widget_button.react';
-import FieldsetCheckbox from '../checkbox/details_feedback_widget_checkbox.react';
-import FieldsetComment from '../comment/details_feedback_comment.react';
+import Checkbox from '../checkbox/details_feedback_widget_checkbox.react';
+import Comment from '../comment/details_feedback_comment.react';
 
 class DetailsFeedbackForm extends Component {
   constructor(props) {
@@ -36,8 +36,16 @@ class DetailsFeedbackForm extends Component {
             <Fieldset
               legendText="Could this page be improved?"
               className="initail-question">
-              <Button buttonText="No" onClick={this.showNoFieldset} />
-              <Button buttonText="Yes" onClick={this.showYesFieldset} />
+              <Button
+                buttonText="No"
+                onClick={this.showNoFieldset}
+                type="button"
+              />
+              <Button
+                buttonText="Yes"
+                onClick={this.showYesFieldset}
+                type="button"
+              />
             </Fieldset>
           )}
 
@@ -54,36 +62,38 @@ class DetailsFeedbackForm extends Component {
           )}
           {this.state.yesFieldsetDisplay && (
             <Fieldset legendText="Please let us know why you are dissatisfied">
-              <FieldsetCheckbox
+              <Checkbox
                 id="did-not-understand"
                 labelText="I did not understand the information on the page"
               />
-              <FieldsetCheckbox
+              <Checkbox
                 id="too-much-information"
                 labelText="There was too much information on the page"
               />
-              <FieldsetCheckbox
+              <Checkbox
                 id="expected-the-record"
                 labelText="I expected to see the record itself, not just a description"
               />
-              <FieldsetCheckbox
+              <Checkbox
                 id="access-the-record"
                 labelText="I did not understand how to access the record"
               />
-              <FieldsetCheckbox
+              <Checkbox
                 id="did-not-know-was-tna"
                 labelText="I did not realise I was looking at The National Archives' UK website"
               />
-              <FieldsetCheckbox
+              <Checkbox
                 id="not-enough-information"
                 labelText="There was not enough information"
               />
-              <FieldsetCheckbox id="other" labelText="Other" />
-              <FieldsetComment
+              <Checkbox id="other" labelText="Other" />
+              <Comment
                 id="comment-for-dissatisfaction"
                 commentText="Your feedback helps us improve our services. Please share any comments below."
                 commentWarning="Please do not include personal contact details."
               />
+              <Button buttonText="Send" type="submit" />
+              <Button buttonText="Cancel" type="cancel" />
             </Fieldset>
           )}
         </form>
