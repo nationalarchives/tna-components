@@ -10,4 +10,9 @@ const Checkbox = props => {
   );
 };
 
+Checkbox.defaultProps = {
+  id: null,
+  labelText: null
+};
+
 export default Checkbox;

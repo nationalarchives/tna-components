@@ -7,4 +7,9 @@ const Fieldset = ({ children, legendText, className }) => (
   </fieldset>
 );
 
+Fieldset.defaultProps = {
+  legendText: null,
+  className: null
+};
+
 export default Fieldset;

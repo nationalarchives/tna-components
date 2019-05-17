@@ -12,4 +12,10 @@ const Comment = props => {
   );
 };
 
+Comment.defaultProps = {
+  id: null,
+  commentText: null,
+  commentWarning: false
+};
+
 export default Comment;
