@@ -3,56 +3,50 @@ import Fieldset from '../fieldset/details_feedback_fieldset.react';
 import Button from '../button/details_feedback_widget_button.react';
 import Checkbox from '../checkbox/details_feedback_widget_checkbox.react';
 import Comment from '../comment/details_feedback_comment.react';
+//import data from '../../data';
 
 class DetailsFeedbackForm extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    initialQuestion: true,
+    noFieldsetDisplay: false,
+    yesFieldsetDisplay: false
+  };
 
-    this.state = {
-      initialQuestion: true,
-      noFieldsetDisplay: false,
-      yesFieldsetDisplay: false
-    };
-
-    this.showNoFieldset = this.showNoFieldset.bind(this);
-    this.closeNoFieldset = this.closeNoFieldset.bind(this);
-
-    this.showYesFieldset = this.showYesFieldset.bind(this);
-    this.closeYesFieldset = this.closeYesFieldset.bind(this);
-  }
-
-  cancelObj() {
+  cancelObj = () => {
     return {
       event: 'DiscoveryFeedback',
       eventCategory: 'DiscoveryFeedback',
       eventAction: 'Cancel',
       eventLabel: 'Cancel feedback'
     };
-  }
+  };
 
-  showNoFieldset() {
+  showNoFieldset = () => {
     this.setState({ initialQuestion: false });
     this.setState({ noFieldsetDisplay: true });
-  }
+  };
 
-  closeNoFieldset(e) {
+  closeNoFieldset = e => {
     e.prventDefault;
-    this.setState({ initialQuestion: true });
-    this.setState({ noFieldsetDisplay: false });
-    console.log(this.cancelObj());
-  }
+    this.setState(state => ({
+      initialQuestion: !state.initialQuestion,
+      noFieldsetDisplay: !state.noFieldsetDisplay
+    }));
 
-  showYesFieldset() {
+    console.log(this.cancelObj());
+  };
+
+  showYesFieldset = () => {
     this.setState({ initialQuestion: false });
     this.setState({ yesFieldsetDisplay: true });
-  }
+  };
 
-  closeYesFieldset(e) {
+  closeYesFieldset = e => {
     e.prventDefault;
     this.setState({ initialQuestion: true });
     this.setState({ yesFieldsetDisplay: false });
     console.log(this.cancelObj());
-  }
+  };
 
   render() {
     return (
