@@ -21,6 +21,15 @@ class DetailsFeedbackForm extends Component {
     this.closeYesFieldset = this.closeYesFieldset.bind(this);
   }
 
+  cancelObj() {
+    return {
+      event: 'DiscoveryFeedback',
+      eventCategory: 'DiscoveryFeedback',
+      eventAction: 'Cancel',
+      eventLabel: 'Cancel feedback'
+    };
+  }
+
   showNoFieldset() {
     this.setState({ initialQuestion: false });
     this.setState({ noFieldsetDisplay: true });
@@ -30,6 +39,7 @@ class DetailsFeedbackForm extends Component {
     e.prventDefault;
     this.setState({ initialQuestion: true });
     this.setState({ noFieldsetDisplay: false });
+    console.log(this.cancelObj());
   }
 
   showYesFieldset() {
@@ -41,6 +51,7 @@ class DetailsFeedbackForm extends Component {
     e.prventDefault;
     this.setState({ initialQuestion: true });
     this.setState({ yesFieldsetDisplay: false });
+    console.log(this.cancelObj());
   }
 
   render() {
@@ -67,7 +78,7 @@ class DetailsFeedbackForm extends Component {
           {this.state.noFieldsetDisplay && (
             <Fieldset
               legendText="We'd like to hear from you"
-              className="noMarginLeft">
+              className="noMarginLeft fadeIn">
               <Comment
                 id="comment-for-satisfaction"
                 commentText="Your feedback helps us improve our services. Please share any comments below."
@@ -82,7 +93,9 @@ class DetailsFeedbackForm extends Component {
             </Fieldset>
           )}
           {this.state.yesFieldsetDisplay && (
-            <Fieldset legendText="Please let us know why you are dissatisfied">
+            <Fieldset
+              legendText="Please let us know why you are dissatisfied"
+              className="fadeIn">
               <Checkbox
                 id="did-not-understand"
                 labelText="I did not understand the information on the page"
