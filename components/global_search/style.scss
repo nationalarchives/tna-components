@@ -87,7 +87,7 @@
 
   @media screen and (max-width: 767px) {
 
-    #select-search-type{
+    #select-search-type {
       width: 100%;
 
       div {
@@ -95,7 +95,7 @@
         padding-right: 2rem;
       }
 
-      input[type="radio"]{
+      input[type="radio"] {
         margin: .75rem;
       }
 
@@ -104,7 +104,7 @@
     #search-query {
       width: 100%;
 
-      input[type="search"]{
+      input[type="search"] {
         width: 100%;
       }
 
@@ -141,7 +141,6 @@
     }
 
   }
-
 
   .sr-only {
     position: absolute;

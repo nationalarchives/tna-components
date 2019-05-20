@@ -64,17 +64,17 @@ class GlobalSearch extends Component {
         this.setState({show_search_options: !this.state.show_search_options})
     }
 
-    search_bar_focused(){
+    search_bar_focused() {
         this.checkbox_ref.current.checked = false;
         this.setState({show_search_options: false});
     }
 
-    can_display(){
+    can_display() {
 
-        if(this.props.desktop && this.state.width >= 768 ) {
+        if (this.props.desktop && this.state.width >= 768) {
             return true;
         }
-        else if(!this.props.desktop && this.state.width < 768) {
+        else if (!this.props.desktop && this.state.width < 768) {
             return true;
         }
         else {
@@ -83,7 +83,7 @@ class GlobalSearch extends Component {
 
     }
 
-    get_select_search_type(){
+    get_select_search_type() {
         return (
             <fieldset id="select-search-type" onChange={this.handle_search_selection}>
                 <legend className="sr-only">{this.state.search_options.select_type}</legend>
@@ -96,7 +96,7 @@ class GlobalSearch extends Component {
 
 
     render() {
-        if(this.can_display()){
+        if (this.can_display()) {
             return (
                 <form aria-labelledby="global_search_label" role="search" className="global-search-js"
                       action={this.state.active_search.url}>
@@ -106,7 +106,8 @@ class GlobalSearch extends Component {
                         <fieldset id="search-options">
                             <legend className="sr-only">{this.state.search_selector.label}</legend>
                             <input type="checkbox" id={this.state.search_selector.id}
-                                   aria-label={this.state.search_selector.label} className="sr-only" onChange={this.toggle_search_options}
+                                   aria-label={this.state.search_selector.label} className="sr-only"
+                                   onChange={this.toggle_search_options}
                                    ref={this.checkbox_ref}/>
                             <label htmlFor={this.state.search_selector.id} className="show-search-options">
                                 <span className="sr-only"> {this.state.search_selector.label}</span>
@@ -124,7 +125,7 @@ class GlobalSearch extends Component {
                                aria-label={this.state.active_search.label}
                                placeholder={this.state.active_search.label}
                                className='focusable-outline'
-                               onFocus={this.search_bar_focused} />
+                               onFocus={this.search_bar_focused}/>
                         <input type="submit" className='search-submit focusable-outline'/>
                     </fieldset>
 
