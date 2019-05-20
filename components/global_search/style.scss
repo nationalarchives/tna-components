@@ -9,6 +9,10 @@
   position: relative;
   font-family: 'Open Sans', sans-serif;
 
+  form {
+    width: 100%;
+  }
+
   label {
     padding: 0;
     margin: 0;
@@ -48,16 +52,23 @@
 
   @media screen and (min-width: 768px) {
     float: right;
+
     #select-search-type {
       position: absolute;
-      width: 26.6rem;
+      width: 45%;
+      max-width: 225px;
       top: 4rem;
       background-color: #333;
     }
 
-    input[type="search"] {
-      width: 22.6rem;
+    #search-query {
+      width: 80%;
     }
+
+   input[type="search"]{
+     width: 60%;
+     max-width: 225px;
+   }
 
     input[type=radio] {
 
@@ -167,4 +178,16 @@
     position: relative;
   }
 
+}
+
+#global-search-desktop-component {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+#global-search-mobile-component {
+  @media screen and (min-width: 767px) {
+    display: none;
+  }
 }

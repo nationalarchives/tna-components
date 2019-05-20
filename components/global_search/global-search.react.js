@@ -12,6 +12,8 @@ class GlobalSearch extends Component {
         this.search_bar_focused = this.search_bar_focused.bind(this);
         this.can_display = this.can_display.bind(this);
         this.get_select_search_type = this.get_select_search_type.bind(this);
+        this.resize_listener = this.resize_listener.bind(this);
+        this.set_inner_width = this.set_inner_width.bind(this);
 
         this.checkbox_ref = React.createRef();
 
@@ -44,7 +46,8 @@ class GlobalSearch extends Component {
                     }
                 ]
             },
-            width: window.innerWidth
+            width: window.innerWidth,
+            timeout: false
         };
 
         this.state.active_search = this.state.search_options.options[0];
@@ -92,6 +95,22 @@ class GlobalSearch extends Component {
                               desktop={this.props.desktop}/>
             </fieldset>
         )
+    }
+
+    set_inner_width() {
+        console.log('Setting width to: ', window.innerWidth);
+        this.setState({width: window.innerWidth})
+    }
+
+    resize_listener(){
+        // clear the timeout
+        clearTimeout(this.state.timeout);
+        // start timing for event "completion"
+        this.setState({timeout: setTimeout(this.set_inner_width, 250)});
+    }
+
+    componentDidMount(){
+        window.addEventListener('resize', this.resize_listener);
     }
 
 
