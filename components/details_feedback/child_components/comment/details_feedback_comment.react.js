@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Comment = props => {
-  const { id, commentText, commentWarning } = props;
+  const { id, commentLabel, commentWarning } = props;
   return (
     <div className="comment">
-      <label for={id}>{commentText}</label>
+      <label for={id}>{commentLabel}</label>
       <input type="text" id={id} />
 
       {commentWarning ? <p>{commentWarning}</p> : null}
@@ -14,7 +14,7 @@ const Comment = props => {
 
 Comment.defaultProps = {
   id: null,
-  commentText: null,
+  commentLabel: null,
   commentWarning: false
 };
 

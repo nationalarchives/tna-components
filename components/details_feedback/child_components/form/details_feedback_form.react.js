@@ -6,66 +6,74 @@ import Comment from '../comment/details_feedback_comment.react';
 import { Data } from '../../data';
 
 class DetailsFeedbackForm extends Component {
-  state = Data;
+  state = {
+    Data,
+    initialQuestion: true,
+    noFieldsetDisplay: false,
+    yesFieldsetDisplay: false
+  };
+  formRef = React.createRef();
 
-  cancelObj = () => {
-    return {
-      event: 'DiscoveryFeedback',
-      eventCategory: 'DiscoveryFeedback',
-      eventAction: 'Cancel',
-      eventLabel: 'Cancel feedback'
-    };
+  toggleFieldset = (objKey, objKeyTwo, boolOne, boolTwo) => {
+    this.setState({ [objKey]: boolOne });
+    this.setState({ [objKeyTwo]: boolTwo });
   };
 
-  showNoFieldset = () => {
-    this.setState({ initialQuestion: false });
-    this.setState({ noFieldsetDisplay: true });
-  };
+  formSubmit = e => {
+    e.preventDefault();
+    //console.log('submited');
+    //console.log(this.formRef.current.focusTextInput());
+    const {
+      comment_for_satisfaction,
+      comment_for_dissatisfaction
+    } = this.formRef;
 
-  closeNoFieldset = e => {
-    e.prventDefault;
-    this.setState(state => ({
-      initialQuestion: !state.initialQuestion,
-      noFieldsetDisplay: !state.noFieldsetDisplay
-    }));
-
-    console.log(this.cancelObj());
-  };
-
-  showYesFieldset = () => {
-    this.setState({ initialQuestion: false });
-    this.setState({ yesFieldsetDisplay: true });
-  };
-
-  closeYesFieldset = e => {
-    e.prventDefault;
-    this.setState({ initialQuestion: true });
-    this.setState({ yesFieldsetDisplay: false });
-    console.log(this.cancelObj());
+    if (comment_for_dissatisfaction !== undefined) {
+      console.log(comment_for_dissatisfaction.value);
+    }
+    if (comment_for_satisfaction !== undefined) {
+      console.log(comment_for_satisfaction.value);
+    }
   };
 
   render() {
     const {
       initialQuestion,
       noFieldsetDisplay,
-      yesFieldsetDisplay,
-      checkboxtData
+      yesFieldsetDisplay
     } = this.state;
+
+    const { yesFieldsetData, noFieldsetData } = this.state.Data;
+
     return (
       <div>
-        <form>
+        <form onSubmit={this.formSubmit} ref={form => (this.formRef = form)}>
           {initialQuestion && (
             <Fieldset
               legendText="Could this page be improved?"
               className="initail-question">
               <Button
                 buttonText="No"
-                onClick={this.showNoFieldset}
+                onClick={() =>
+                  this.toggleFieldset(
+                    'initialQuestion',
+                    'noFieldsetDisplay',
+                    false,
+                    true
+                  )
+                }
                 type="button"
               />
               <Button
                 buttonText="Yes"
-                onClick={this.showYesFieldset}
+                onClick={() =>
+                  this.toggleFieldset(
+                    'initialQuestion',
+                    'yesFieldsetDisplay',
+                    false,
+                    true
+                  )
+                }
                 type="button"
               />
             </Fieldset>
@@ -73,26 +81,31 @@ class DetailsFeedbackForm extends Component {
 
           {noFieldsetDisplay && (
             <Fieldset
-              legendText="We'd like to hear from you"
+              legendText={noFieldsetData.legend}
               className="noMarginLeft fadeIn">
               <Comment
-                id="comment-for-satisfaction"
-                commentText="Your feedback helps us improve our services. Please share any comments below."
-                commentWarning="Please do not include personal contact details."
+                id={noFieldsetData.commentData.id}
+                commentLabel={noFieldsetData.commentData.commentLabel}
+                commentWarning={noFieldsetData.commentData.commentWarning}
               />
               <Button buttonText="Send" type="submit" />
               <Button
                 buttonText="Cancel"
                 type="reset"
-                onClick={this.closeNoFieldset}
+                onClick={() => {
+                  this.toggleFieldset(
+                    'initialQuestion',
+                    'noFieldsetDisplay',
+                    true,
+                    false
+                  );
+                }}
               />
             </Fieldset>
           )}
           {yesFieldsetDisplay && (
-            <Fieldset
-              legendText="Please let us know why you are dissatisfied"
-              className="fadeIn">
-              {checkboxtData.map((eachItem, index) => (
+            <Fieldset legendText={yesFieldsetData.legend} className="fadeIn">
+              {yesFieldsetData.checkboxtData.map((eachItem, index) => (
                 <Checkbox
                   key={index}
                   id={eachItem.id}
@@ -101,15 +114,22 @@ class DetailsFeedbackForm extends Component {
               ))}
 
               <Comment
-                id="comment-for-dissatisfaction"
-                commentText="Your feedback helps us improve our services. Please share any comments below."
-                commentWarning="Please do not include personal contact details."
+                id={yesFieldsetData.commentData.id}
+                commentLabel={yesFieldsetData.commentData.commentLabel}
+                commentWarning={yesFieldsetData.commentData.commentWarning}
               />
               <Button buttonText="Send" type="submit" />
               <Button
                 buttonText="Cancel"
                 type="reset"
-                onClick={this.closeYesFieldset}
+                onClick={() =>
+                  this.toggleFieldset(
+                    'initialQuestion',
+                    'yesFieldsetDisplay',
+                    true,
+                    false
+                  )
+                }
               />
             </Fieldset>
           )}
