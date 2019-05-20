@@ -5,7 +5,7 @@ class SearchOption extends Component {
     render_search_options(arr) {
         return arr.map((item, index) =>
              <div key={index}>
-                <input name={this.props.group_name} type="radio" id={item.id} defaultChecked={(index === 0) ? true : false} className='sr-only'/>
+                <input name={this.props.group_name} type="radio" id={item.id} defaultChecked={(index === 0) ? true : false} className={(this.props.desktop ? 'sr-only' : null)}/>
                 <label htmlFor={item.id}>{item.label}</label>
             </div>
         )

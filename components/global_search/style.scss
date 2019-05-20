@@ -1,4 +1,4 @@
-#global-search-react-component {
+#global-search-desktop-component, #global-search-mobile-component {
 
   $outline-colour: #ebab00;
   $button-bg: #008484;
@@ -52,35 +52,63 @@
       position: absolute;
       width: 26.6rem;
       top: 4rem;
+      background-color: #333;
     }
 
     input[type="search"] {
       width: 22.6rem;
     }
 
+    input[type=radio] {
+
+      + label {
+        padding: 0.5em 0.9em;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 100%;
+        color: #fff;
+      }
+
+      &:hover + label, &:checked + label {
+        padding: 0.5em 0.9em;
+        background: $button-focus-hover-bg;
+        color: $button-focus-hover-text;
+        cursor: pointer;
+      }
+
+      &:focus + label {
+        outline: $outline-colour solid 3px;
+        position: relative;
+      }
+
+    }
+
   }
 
   @media screen and (max-width: 767px) {
 
-    #search-options {
+    #select-search-type{
       width: 100%;
+
+      div {
+        display: inline-block;
+        padding-right: 2rem;
+      }
+
+      input[type="radio"]{
+        margin: .75rem;
+      }
+
     }
 
-    #select-search-type {
-      position: revert;
+    #search-query {
       width: 100%;
+
+      input[type="search"]{
+        width: 100%;
+      }
+
     }
-
-    input[type="search"] {
-      width: 100vw;
-    }
-
-  }
-
-  #select-search-type {
-
-    background-color: #333;
-    z-index: 9999;
 
   }
 
@@ -114,29 +142,6 @@
 
   }
 
-  input[type=radio] {
-
-    + label {
-      padding: 0.5em 0.9em;
-      display: inline-block;
-      box-sizing: border-box;
-      width: 100%;
-      color: #fff;
-    }
-
-    &:hover + label, &:checked + label {
-      padding: 0.5em 0.9em;
-      background: $button-focus-hover-bg;
-      color: $button-focus-hover-text;
-      cursor: pointer;
-    }
-
-    &:focus + label {
-      outline: $outline-colour solid 3px;
-      position: relative;
-    }
-
-  }
 
   .sr-only {
     position: absolute;

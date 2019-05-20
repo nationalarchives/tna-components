@@ -10,6 +10,9 @@ class GlobalSearch extends Component {
         this.handle_search_selection = this.handle_search_selection.bind(this);
         this.toggle_search_options = this.toggle_search_options.bind(this);
         this.search_bar_focused = this.search_bar_focused.bind(this);
+        this.can_display = this.can_display.bind(this);
+        this.get_select_search_type = this.get_select_search_type.bind(this);
+
         this.checkbox_ref = React.createRef();
 
         this.state = {
@@ -41,6 +44,7 @@ class GlobalSearch extends Component {
                     }
                 ]
             },
+            width: window.innerWidth
         };
 
         this.state.active_search = this.state.search_options.options[0];
@@ -65,42 +69,73 @@ class GlobalSearch extends Component {
         this.setState({show_search_options: false});
     }
 
+    can_display(){
+
+        if(this.props.desktop && this.state.width >= 768 ) {
+            return true;
+        }
+        else if(!this.props.desktop && this.state.width < 768) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+    get_select_search_type(){
+        return (
+            <fieldset id="select-search-type" onChange={this.handle_search_selection}>
+                <legend className="sr-only">{this.state.search_options.select_type}</legend>
+                <SearchOption group_name={this.state.search_options.group_name}
+                              options={this.state.search_options.options}
+                              desktop={this.props.desktop}/>
+            </fieldset>
+        )
+    }
+
 
     render() {
-
-        return (
-            <form aria-labelledby="global_search_label" role="search" className="global-search-js"
-                  action={this.state.active_search.url}>
-
-                <fieldset id="search-options">
-                    <legend className="sr-only">{this.state.search_selector.label}</legend>
-                    <input type="checkbox" id={this.state.search_selector.id}
-                           aria-label={this.state.search_selector.label} className="sr-only" onChange={this.toggle_search_options}
-                           ref={this.checkbox_ref}/>
-                    <label htmlFor={this.state.search_selector.id} className="show-search-options">
-                        <span className="sr-only"> {this.state.search_selector.label}</span>
-                    </label>
-                </fieldset>
-                {(this.state.show_search_options === true) ?
-                    <fieldset id="select-search-type" onChange={this.handle_search_selection}>
-                        <legend className="sr-only">{this.state.search_options.select_type}</legend>
-                        <SearchOption group_name={this.state.search_options.group_name}
-                                      options={this.state.search_options.options}/>
-                    </fieldset> : null
-                }
+        if(this.can_display()){
+            return (
+                <form aria-labelledby="global_search_label" role="search" className="global-search-js"
+                      action={this.state.active_search.url}>
 
 
-                <fieldset id="search-query">
-                    <legend className="sr-only">{this.state.search_query_legend}</legend>
-                    <input type="search" autoComplete="off" role="search" name="_q"
-                           aria-label={this.state.active_search.label}
-                           placeholder={this.state.active_search.label}
-                           className='focusable-outline'
-                           onFocus={this.search_bar_focused} />
-                    <input type="submit" className='search-submit focusable-outline'/>
-                </fieldset>
-            </form>
-        );
+                    {(this.props.desktop) ?
+                        <fieldset id="search-options">
+                            <legend className="sr-only">{this.state.search_selector.label}</legend>
+                            <input type="checkbox" id={this.state.search_selector.id}
+                                   aria-label={this.state.search_selector.label} className="sr-only" onChange={this.toggle_search_options}
+                                   ref={this.checkbox_ref}/>
+                            <label htmlFor={this.state.search_selector.id} className="show-search-options">
+                                <span className="sr-only"> {this.state.search_selector.label}</span>
+                            </label>
+                        </fieldset> : null}
+
+
+                    {(this.state.show_search_options === true && this.props.desktop) ?
+                        this.get_select_search_type() : null
+                    }
+
+                    <fieldset id="search-query">
+                        <legend className="sr-only">{this.state.search_query_legend}</legend>
+                        <input type="search" autoComplete="off" role="search" name="_q"
+                               aria-label={this.state.active_search.label}
+                               placeholder={this.state.active_search.label}
+                               className='focusable-outline'
+                               onFocus={this.search_bar_focused} />
+                        <input type="submit" className='search-submit focusable-outline'/>
+                    </fieldset>
+
+                    {(this.state.show_search_options === true && !this.props.desktop) ?
+                        this.get_select_search_type() : null
+                    }
+                </form>
+            );
+        }
+        return null;
+
     }
 }
 
