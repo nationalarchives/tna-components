@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import TestRenderer from 'react-test-renderer';
 import GlobalSearch from "./global-search.react";
 
-const test_renderer = TestRenderer.create(<GlobalSearch/>);
+const test_renderer = TestRenderer.create(<GlobalSearch desktop={true}/>);
 const test_instance = test_renderer.root;
 const instance = test_renderer.getInstance();
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<GlobalSearch/>, div);
+    ReactDOM.render(<GlobalSearch desktop={true}/>, div);
     ReactDOM.unmountComponentAtNode(div);
 });
 
