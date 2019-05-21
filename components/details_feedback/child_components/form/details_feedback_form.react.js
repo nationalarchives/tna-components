@@ -74,6 +74,7 @@ class DetailsFeedbackForm extends Component {
     this.setState({ message: true });
     this.setState({ form: false });
     this.setState({ noFieldsetDisplay: false });
+    this.setState({ yesFieldsetDisplay: false });
   };
 
   render() {
