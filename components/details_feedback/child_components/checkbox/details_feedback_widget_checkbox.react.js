@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Checkbox = props => {
-  const { id, labelText } = props;
+  const { id, labelText, onClick } = props;
   return (
     <div className="checkbox">
-      <input type="checkbox" id={id} value={id} />
+      <input type="checkbox" id={id} value={id} onClick={onClick} />
       <label for={id}>{labelText}</label>
     </div>
   );
