@@ -11,7 +11,10 @@ class DetailsFeedbackForm extends Component {
     initialQuestion: true,
     noFieldsetDisplay: false,
     yesFieldsetDisplay: false,
-    gtmCheckboxes: []
+    gtmCheckboxes: [],
+
+    nothingToImproveObjWithComments:
+      Data.noFieldsetData.gtmData.nothingToImproveWithComments
   };
   formRef = React.createRef();
 
@@ -42,20 +45,29 @@ class DetailsFeedbackForm extends Component {
     this.setState({ [objKeyTwo]: boolTwo });
   };
 
+  handleCommentBox = () => {
+    const { comment_for_satisfaction } = this.formRef;
+    if (comment_for_satisfaction !== undefined) {
+      if (comment_for_satisfaction.value.length === 0) {
+        this.setState({
+          nothingToImproveObjWithComments: {
+            ...this.state.nothingToImproveObjWithComments,
+            eventLabel: null
+          }
+        });
+      } else {
+        this.setState({
+          nothingToImproveObjWithComments: {
+            ...this.state.nothingToImproveObjWithComments,
+            eventLabel: comment_for_satisfaction.value
+          }
+        });
+      }
+    }
+  };
+
   formSubmit = e => {
     e.preventDefault();
-
-    const {
-      comment_for_satisfaction,
-      comment_for_dissatisfaction
-    } = this.formRef;
-
-    if (comment_for_dissatisfaction !== undefined) {
-      console.log(comment_for_dissatisfaction.value);
-    }
-    if (comment_for_satisfaction !== undefined) {
-      console.log(comment_for_satisfaction.value);
-    }
   };
 
   render() {
@@ -66,6 +78,8 @@ class DetailsFeedbackForm extends Component {
     } = this.state;
 
     const { yesFieldsetData, noFieldsetData } = this.state.Data;
+
+    //console.log(this.getNoFieldsetData());
 
     return (
       <div>
@@ -109,6 +123,7 @@ class DetailsFeedbackForm extends Component {
                 id={noFieldsetData.commentData.id}
                 commentLabel={noFieldsetData.commentData.commentLabel}
                 commentWarning={noFieldsetData.commentData.commentWarning}
+                onChange={this.handleCommentBox}
               />
               <Button buttonText="Send" type="submit" />
               <Button
