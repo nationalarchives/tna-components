@@ -118,6 +118,7 @@ There are essentially two steps to adding a component:
 
 1. Preparing the server to serve the HTML into which the component will be mounted.
 2. Creating the component
+3. Bumping the version number in `webpack.config.js` (using SEMVER)
 3. Preparing a runner that will mount the component when specific conditions are met. 
 
 Here are the individual steps:
