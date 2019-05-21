@@ -10,9 +10,32 @@ class DetailsFeedbackForm extends Component {
     Data,
     initialQuestion: true,
     noFieldsetDisplay: false,
-    yesFieldsetDisplay: false
+    yesFieldsetDisplay: false,
+    gtmCheckboxes: []
   };
   formRef = React.createRef();
+
+  updateGTMCheckboxes = e => {
+    if (e.target.checked === true) {
+      let items = new Set([...this.state.gtmCheckboxes, e.target.id]);
+
+      this.setState({
+        gtmCheckboxes: [...items]
+      });
+    } else {
+      if (this.state.gtmCheckboxes.indexOf(e.target.id) !== -1) {
+        let items = this.state.gtmCheckboxes.filter(item => {
+          if (item !== e.target.id) {
+            return item;
+          }
+        });
+
+        this.setState({
+          gtmCheckboxes: items
+        });
+      }
+    }
+  };
 
   toggleFieldset = (objKey, objKeyTwo, boolOne, boolTwo) => {
     this.setState({ [objKey]: boolOne });
@@ -21,8 +44,7 @@ class DetailsFeedbackForm extends Component {
 
   formSubmit = e => {
     e.preventDefault();
-    //console.log('submited');
-    //console.log(this.formRef.current.focusTextInput());
+
     const {
       comment_for_satisfaction,
       comment_for_dissatisfaction
@@ -110,6 +132,8 @@ class DetailsFeedbackForm extends Component {
                   key={index}
                   id={eachItem.id}
                   labelText={eachItem.labelText}
+                  checked={eachItem.checked}
+                  onClick={e => this.updateGTMCheckboxes(e)}
                 />
               ))}
 
