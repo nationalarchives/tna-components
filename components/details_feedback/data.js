@@ -14,17 +14,12 @@ export const Data = {
         eventAction: 'Cancel',
         eventLabel: 'Cancel feedback'
       },
-      nothingToImproveWithNoComments: {
+
+      nothingToImprove: {
         event: 'DiscoveryFeedback',
         eventCategory: 'DiscoveryFeedback',
         eventAction: 'Send Feedback: Nothing to improve',
         eventLabel: 'No comments made'
-      },
-      nothingToImproveWithComments: {
-        event: 'DiscoveryFeedback',
-        eventCategory: 'DiscoveryFeedback',
-        eventAction: 'Send Feedback: Nothing to improve',
-        eventLabel: null
       }
     }
   },
