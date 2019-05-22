@@ -16,7 +16,8 @@ class DetailsFeedbackForm extends Component {
     message: false,
     displayForm: true,
 
-    nothingToImprove: Data.noFieldsetData.gtmData.nothingToImprove
+    nothingToImprove: Data.noFieldsetData.gtmData.nothingToImprove,
+    nothingToImproveCancel: Data.noFieldsetData.gtmData.cancel
   };
   formRef = React.createRef();
 
@@ -56,19 +57,19 @@ class DetailsFeedbackForm extends Component {
         this.setState({
           nothingToImprove: {
             ...nothingToImprove,
-            eventLabel: comment_for_satisfaction.value
+            eventLabel: `Comments: ${comment_for_satisfaction.value}`
           }
         });
       }
     }
   };
 
-  pushInDataLayer(obj) {
+  pushInDataLayer = obj => {
     let wd = window.dataLayer || [];
     !!obj || typeof obj === 'object' ? wd.push(obj) : '';
 
     return obj;
-  }
+  };
 
   formSubmit = e => {
     const { nothingToImprove } = this.state;
@@ -87,7 +88,8 @@ class DetailsFeedbackForm extends Component {
       noFieldsetDisplay,
       yesFieldsetDisplay,
       displayForm,
-      message
+      message,
+      nothingToImproveCancel
     } = this.state;
 
     const { yesFieldsetData, noFieldsetData, messageText } = this.state.Data;
@@ -142,6 +144,7 @@ class DetailsFeedbackForm extends Component {
                   buttonText="Cancel"
                   type="reset"
                   onClick={() => {
+                    this.pushInDataLayer(nothingToImproveCancel);
                     this.toggleFieldset(
                       'initialQuestion',
                       'noFieldsetDisplay',
@@ -173,14 +176,14 @@ class DetailsFeedbackForm extends Component {
                 <Button
                   buttonText="Cancel"
                   type="reset"
-                  onClick={() =>
+                  onClick={() => {
                     this.toggleFieldset(
                       'initialQuestion',
                       'yesFieldsetDisplay',
                       true,
                       false
-                    )
-                  }
+                    );
+                  }}
                 />
               </Fieldset>
             )}
