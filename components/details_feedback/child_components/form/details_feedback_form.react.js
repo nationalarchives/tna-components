@@ -19,7 +19,15 @@ class DetailsFeedbackForm extends Component {
     nothingToImprove: Data.noFieldsetData.gtmData.nothingToImprove,
     nothingToImproveEventLabel:
       Data.noFieldsetData.gtmData.nothingToImprove.eventLabel,
-    nothingToImproveCancel: Data.noFieldsetData.gtmData.cancel
+    nothingToImproveCancel: Data.noFieldsetData.gtmData.cancel,
+
+    somethingToImprove: Data.yesFieldsetData.gtmData.gtmBody,
+    somethingToImproveEventLabel:
+      Data.yesFieldsetData.gtmData.gtmBody.eventLabel,
+    somethingToImproveCancel: Data.yesFieldsetData.gtmData.cancel,
+
+    noCheckboxesChecked: 'Nothing is checked',
+    noCommentsMade: 'No comments made'
   };
   formRef = React.createRef();
 
@@ -73,6 +81,46 @@ class DetailsFeedbackForm extends Component {
     }
   };
 
+  handleYesCommentBox = () => {
+    const { comment_for_dissatisfaction } = this.formRef;
+    const { somethingToImprove, somethingToImproveEventLabel } = this.state;
+    if (comment_for_dissatisfaction !== undefined) {
+      if (comment_for_dissatisfaction.value.length !== 0) {
+        this.setState({
+          somethingToImprove: {
+            ...somethingToImprove,
+            eventLabel: `Comments: ${comment_for_dissatisfaction.value}`
+          }
+        });
+      } else {
+        this.setState({
+          somethingToImprove: {
+            ...somethingToImprove,
+            eventLabel: somethingToImproveEventLabel
+          }
+        });
+      }
+    }
+  };
+
+  gtmYesData = () => {
+    const { comment_for_dissatisfaction } = this.formRef;
+    const { gtmCheckboxes } = this.state;
+    if (
+      comment_for_dissatisfaction.value.length !== 0 &&
+      gtmCheckboxes.length !== 0
+    ) {
+      this.setState({
+        somethingToImprove: {
+          ...somethingToImprove,
+          eventLabel: `${gtmCheckboxes.join(', ')} | Comments: ${
+            comment_for_dissatisfaction.value
+          }`
+        }
+      });
+    }
+  };
+
   pushInDataLayer = obj => {
     let wd = window.dataLayer || [];
     !!obj || typeof obj === 'object' ? wd.push(obj) : '';
@@ -81,14 +129,23 @@ class DetailsFeedbackForm extends Component {
   };
 
   formSubmit = e => {
-    const { nothingToImprove } = this.state;
+    const { nothingToImprove, somethingToImprove } = this.state;
+    const {
+      comment_for_satisfaction,
+      comment_for_dissatisfaction
+    } = this.formRef;
 
     e.preventDefault();
     this.setState({ message: true });
     this.setState({ form: false });
     this.setState({ noFieldsetDisplay: false });
     this.setState({ yesFieldsetDisplay: false });
-    this.pushInDataLayer(nothingToImprove);
+    if (comment_for_satisfaction !== undefined) {
+      this.pushInDataLayer(nothingToImprove);
+    }
+    if (comment_for_dissatisfaction !== undefined) {
+      this.pushInDataLayer(somethingToImprove);
+    }
   };
 
   render() {
@@ -179,12 +236,14 @@ class DetailsFeedbackForm extends Component {
                   id={yesFieldsetData.commentData.id}
                   commentLabel={yesFieldsetData.commentData.commentLabel}
                   commentWarning={yesFieldsetData.commentData.commentWarning}
+                  onChange={this.handleYesCommentBox}
                 />
                 <Button buttonText="Send" type="submit" />
                 <Button
                   buttonText="Cancel"
                   type="reset"
                   onClick={() => {
+                    this.pushInDataLayer(nothingToImproveCancel);
                     this.toggleFieldset(
                       'initialQuestion',
                       'yesFieldsetDisplay',
