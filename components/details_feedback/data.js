@@ -31,7 +31,7 @@ export const Data = {
         'Your feedback helps us improve our services. Please share any comments below.',
       commentWarning: 'Please do not include personal contact details.'
     },
-    checkboxtData: [
+    checkboxData: [
       {
         id: 'did-not-understand',
         labelText: 'I did not understand the information on the page'
