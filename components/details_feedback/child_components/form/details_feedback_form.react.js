@@ -17,6 +17,8 @@ class DetailsFeedbackForm extends Component {
     displayForm: true,
 
     nothingToImprove: Data.noFieldsetData.gtmData.nothingToImprove,
+    nothingToImproveEventLabel:
+      Data.noFieldsetData.gtmData.nothingToImprove.eventLabel,
     nothingToImproveCancel: Data.noFieldsetData.gtmData.cancel
   };
   formRef = React.createRef();
@@ -51,13 +53,20 @@ class DetailsFeedbackForm extends Component {
 
   handleNoCommentBox = () => {
     const { comment_for_satisfaction } = this.formRef;
-    const { nothingToImprove } = this.state;
+    const { nothingToImprove, nothingToImproveEventLabel } = this.state;
     if (comment_for_satisfaction !== undefined) {
       if (comment_for_satisfaction.value.length !== 0) {
         this.setState({
           nothingToImprove: {
             ...nothingToImprove,
             eventLabel: `Comments: ${comment_for_satisfaction.value}`
+          }
+        });
+      } else {
+        this.setState({
+          nothingToImprove: {
+            ...nothingToImprove,
+            eventLabel: nothingToImproveEventLabel
           }
         });
       }
@@ -101,7 +110,7 @@ class DetailsFeedbackForm extends Component {
             {initialQuestion && (
               <Fieldset
                 legendText="Could this page be improved?"
-                className="initail-question">
+                className="initial-question">
                 <Button
                   buttonText="No"
                   onClick={() =>
@@ -157,12 +166,11 @@ class DetailsFeedbackForm extends Component {
             )}
             {yesFieldsetDisplay && (
               <Fieldset legendText={yesFieldsetData.legend} className="fadeIn">
-                {yesFieldsetData.checkboxtData.map((eachItem, index) => (
+                {yesFieldsetData.checkboxData.map((eachItem, index) => (
                   <Checkbox
                     key={index}
                     id={eachItem.id}
                     labelText={eachItem.labelText}
-                    checked={eachItem.checked}
                     onClick={e => this.updateGTMCheckboxes(e)}
                   />
                 ))}
