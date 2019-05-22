@@ -19,10 +19,11 @@ it('has the correct props', () => {
 
 it('renders a form with the correct className and action', () => {
     const rendered_component = test_renderer.toJSON();
-    expect(rendered_component.type).toBe('form');
-    expect(rendered_component.props.className).toBe('global-search-js');
-    expect(rendered_component.props.role).toBe('search');
-    expect(rendered_component.props.action).toBe('http://www.nationalarchives.gov.uk/search/results');
+    const rendered_component_child = rendered_component.children[0];
+    expect(rendered_component_child.type).toBe('form');
+    expect(rendered_component_child.props.className).toBe('global-search-js');
+    expect(rendered_component_child.props.role).toBe('search');
+    expect(rendered_component_child.props.action).toBe('http://www.nationalarchives.gov.uk/search/results');
 });
 
 it(`contains a 'select-search-type' fieldset and legend with the correct text`, () => {
