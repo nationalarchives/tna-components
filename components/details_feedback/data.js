@@ -68,6 +68,12 @@ export const Data = {
         eventCategory: 'DiscoveryFeedback',
         eventAction: 'Cancel',
         eventLabel: 'Cancel feedback'
+      },
+      gtmBody: {
+        event: 'DiscoveryFeedback',
+        eventCategory: 'DiscoveryFeedback',
+        eventAction: 'Send Feedback: Something to improve',
+        eventLabel: ''
       }
     }
   },
