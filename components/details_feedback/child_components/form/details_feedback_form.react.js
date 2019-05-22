@@ -22,15 +22,16 @@ class DetailsFeedbackForm extends Component {
   formRef = React.createRef();
 
   updateGTMCheckboxes = e => {
+    const { gtmCheckboxes } = this.state;
     if (e.target.checked === true) {
-      let items = new Set([...this.state.gtmCheckboxes, e.target.id]);
+      let items = new Set([...gtmCheckboxes, e.target.id]);
 
       this.setState({
         gtmCheckboxes: [...items]
       });
     } else {
-      if (this.state.gtmCheckboxes.indexOf(e.target.id) !== -1) {
-        let items = this.state.gtmCheckboxes.filter(item => {
+      if (gtmCheckboxes.indexOf(e.target.id) !== -1) {
+        let items = gtmCheckboxes.filter(item => {
           if (item !== e.target.id) {
             return item;
           }
@@ -50,18 +51,19 @@ class DetailsFeedbackForm extends Component {
 
   handleCommentBox = () => {
     const { comment_for_satisfaction } = this.formRef;
+    const { nothingToImproveObjWithComments } = this.state;
     if (comment_for_satisfaction !== undefined) {
       if (comment_for_satisfaction.value.length === 0) {
         this.setState({
           nothingToImproveObjWithComments: {
-            ...this.state.nothingToImproveObjWithComments,
+            ...nothingToImproveObjWithComments,
             eventLabel: null
           }
         });
       } else {
         this.setState({
           nothingToImproveObjWithComments: {
-            ...this.state.nothingToImproveObjWithComments,
+            ...nothingToImproveObjWithComments,
             eventLabel: comment_for_satisfaction.value
           }
         });
@@ -86,9 +88,7 @@ class DetailsFeedbackForm extends Component {
       message
     } = this.state;
 
-    const { yesFieldsetData, noFieldsetData } = this.state.Data;
-
-    //console.log(this.getNoFieldsetData());
+    const { yesFieldsetData, noFieldsetData, messageText } = this.state.Data;
 
     return (
       <div>
@@ -184,7 +184,9 @@ class DetailsFeedbackForm extends Component {
             )}
           </form>
         )}
-        {message && <Message message="Thank you for your feedback" />}
+        {message && (
+          <Message className="fadeIn" message={messageText.thankyou} />
+        )}
       </div>
     );
   }

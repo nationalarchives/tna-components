@@ -75,5 +75,8 @@ export const Data = {
         eventLabel: 'Cancel feedback'
       }
     }
+  },
+  messageText: {
+    thankyou: 'Thank you for your feedback'
   }
 };
