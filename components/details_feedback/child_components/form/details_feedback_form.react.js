@@ -16,8 +16,7 @@ class DetailsFeedbackForm extends Component {
     message: false,
     displayForm: true,
 
-    nothingToImproveObjWithComments:
-      Data.noFieldsetData.gtmData.nothingToImproveWithComments
+    nothingToImprove: Data.noFieldsetData.gtmData.nothingToImprove
   };
   formRef = React.createRef();
 
@@ -49,21 +48,14 @@ class DetailsFeedbackForm extends Component {
     this.setState({ [objKeyTwo]: boolTwo });
   };
 
-  handleCommentBox = () => {
+  handleNoCommentBox = () => {
     const { comment_for_satisfaction } = this.formRef;
-    const { nothingToImproveObjWithComments } = this.state;
+    const { nothingToImprove } = this.state;
     if (comment_for_satisfaction !== undefined) {
-      if (comment_for_satisfaction.value.length === 0) {
+      if (comment_for_satisfaction.value.length !== 0) {
         this.setState({
-          nothingToImproveObjWithComments: {
-            ...nothingToImproveObjWithComments,
-            eventLabel: null
-          }
-        });
-      } else {
-        this.setState({
-          nothingToImproveObjWithComments: {
-            ...nothingToImproveObjWithComments,
+          nothingToImprove: {
+            ...nothingToImprove,
             eventLabel: comment_for_satisfaction.value
           }
         });
@@ -71,12 +63,22 @@ class DetailsFeedbackForm extends Component {
     }
   };
 
+  pushInDataLayer(obj) {
+    let wd = window.dataLayer || [];
+    !!obj || typeof obj === 'object' ? wd.push(obj) : '';
+
+    return obj;
+  }
+
   formSubmit = e => {
+    const { nothingToImprove } = this.state;
+
     e.preventDefault();
     this.setState({ message: true });
     this.setState({ form: false });
     this.setState({ noFieldsetDisplay: false });
     this.setState({ yesFieldsetDisplay: false });
+    this.pushInDataLayer(nothingToImprove);
   };
 
   render() {
@@ -133,7 +135,7 @@ class DetailsFeedbackForm extends Component {
                   id={noFieldsetData.commentData.id}
                   commentLabel={noFieldsetData.commentData.commentLabel}
                   commentWarning={noFieldsetData.commentData.commentWarning}
-                  onChange={this.handleCommentBox}
+                  onChange={this.handleNoCommentBox}
                 />
                 <Button buttonText="Send" type="submit" />
                 <Button
