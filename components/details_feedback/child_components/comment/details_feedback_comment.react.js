@@ -1,4 +1,5 @@
 import React from 'react';
+import Message from '../message/details_feedback_message.react';
 import PropTypes from 'prop-types';
 
 const Comment = props => {
@@ -8,7 +9,7 @@ const Comment = props => {
       <label for={id}>{commentLabel}</label>
       <input onChange={onChange} type="text" id={id} />
 
-      {commentWarning ? <p>{commentWarning}</p> : null}
+      {commentWarning ? <Message message={commentWarning} /> : null}
     </div>
   );
 };
@@ -16,13 +17,12 @@ const Comment = props => {
 Comment.defaultProps = {
   id: null,
   commentLabel: null,
-  commentWarning: false
+  onChange: null
 };
 
 Comment.propTypes = {
   id: PropTypes.string,
   commentLabel: PropTypes.string.isRequired,
-  commentWarning: PropTypes.string,
   onChange: PropTypes.func
 };
 

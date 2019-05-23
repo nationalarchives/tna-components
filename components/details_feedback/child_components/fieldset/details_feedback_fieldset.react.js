@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Fieldset = ({ children, legendText, className }) => (
-  <fieldset className={className}>
+const Fieldset = ({ children, legendText, className, id }) => (
+  <fieldset className={className} id={id}>
     <legend>{legendText}</legend>
     {children}
   </fieldset>
@@ -10,12 +10,14 @@ const Fieldset = ({ children, legendText, className }) => (
 
 Fieldset.defaultProps = {
   legendText: null,
-  className: null
+  className: null,
+  id: null
 };
 
 Fieldset.propTypes = {
   legendText: PropTypes.string.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  id: PropTypes.string
 };
 
 export default Fieldset;

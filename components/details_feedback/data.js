@@ -73,7 +73,7 @@ export const Data = {
         event: 'DiscoveryFeedback',
         eventCategory: 'DiscoveryFeedback',
         eventAction: 'Send Feedback: Something to improve',
-        eventLabel: ''
+        eventLabel: 'No comment made'
       }
     }
   },
