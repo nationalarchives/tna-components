@@ -21,13 +21,7 @@ class DetailsFeedbackForm extends Component {
       Data.noFieldsetData.gtmData.nothingToImprove.eventLabel,
     nothingToImproveCancel: Data.noFieldsetData.gtmData.cancel,
 
-    somethingToImprove: Data.yesFieldsetData.gtmData.gtmBody,
-    somethingToImproveEventLabel:
-      Data.yesFieldsetData.gtmData.gtmBody.eventLabel,
-    somethingToImproveCancel: Data.yesFieldsetData.gtmData.cancel,
-
-    noCheckboxesChecked: 'Nothing is checked',
-    noCommentsMade: 'No comments made'
+    somethingToImproveComment: Data.yesFieldsetData.gtmData.gtmBody.eventLabel
   };
   formRef = React.createRef();
 
@@ -82,43 +76,36 @@ class DetailsFeedbackForm extends Component {
   };
 
   handleYesCommentBox = () => {
-    const { comment_for_dissatisfaction } = this.formRef;
-    const { somethingToImprove, somethingToImproveEventLabel } = this.state;
-    if (comment_for_dissatisfaction !== undefined) {
-      if (comment_for_dissatisfaction.value.length !== 0) {
+    const { yes_fieldset, comment_for_dissatisfaction } = this.formRef;
+    const { Data } = this.state;
+    if (yes_fieldset !== undefined) {
+      if (comment_for_dissatisfaction.value.length > 0) {
         this.setState({
-          somethingToImprove: {
-            ...somethingToImprove,
-            eventLabel: `Comments: ${comment_for_dissatisfaction.value}`
-          }
+          somethingToImproveComment: comment_for_dissatisfaction.value
         });
       } else {
         this.setState({
-          somethingToImprove: {
-            ...somethingToImprove,
-            eventLabel: somethingToImproveEventLabel
-          }
+          somethingToImproveComment:
+            Data.yesFieldsetData.gtmData.gtmBody.eventLabel
         });
       }
     }
   };
 
-  gtmYesData = () => {
-    const { comment_for_dissatisfaction } = this.formRef;
-    const { gtmCheckboxes } = this.state;
-    if (
-      comment_for_dissatisfaction.value.length !== 0 &&
-      gtmCheckboxes.length !== 0
-    ) {
-      this.setState({
-        somethingToImprove: {
-          ...somethingToImprove,
-          eventLabel: `${gtmCheckboxes.join(', ')} | Comments: ${
-            comment_for_dissatisfaction.value
-          }`
-        }
-      });
-    }
+  somethingToImprove = () => {
+    const { somethingToImproveComment, gtmCheckboxes } = this.state;
+
+    let checkboxes =
+      gtmCheckboxes.length > 0
+        ? gtmCheckboxes.join(', ')
+        : 'Nothing is checked';
+
+    return {
+      event: 'DiscoveryFeedback',
+      eventCategory: 'DiscoveryFeedback',
+      eventAction: 'Send Feedback: Something to improve',
+      eventLabel: `Checked options: ${checkboxes} | Comments: ${somethingToImproveComment}`
+    };
   };
 
   pushInDataLayer = obj => {
@@ -129,11 +116,9 @@ class DetailsFeedbackForm extends Component {
   };
 
   formSubmit = e => {
-    const { nothingToImprove, somethingToImprove } = this.state;
-    const {
-      comment_for_satisfaction,
-      comment_for_dissatisfaction
-    } = this.formRef;
+    const { somethingToImprove } = this;
+    const { nothingToImprove } = this.state;
+    const { comment_for_satisfaction, yes_fieldset } = this.formRef;
 
     e.preventDefault();
     this.setState({ message: true });
@@ -143,8 +128,8 @@ class DetailsFeedbackForm extends Component {
     if (comment_for_satisfaction !== undefined) {
       this.pushInDataLayer(nothingToImprove);
     }
-    if (comment_for_dissatisfaction !== undefined) {
-      this.pushInDataLayer(somethingToImprove);
+    if (yes_fieldset !== undefined) {
+      this.pushInDataLayer(somethingToImprove());
     }
   };
 
@@ -222,7 +207,10 @@ class DetailsFeedbackForm extends Component {
               </Fieldset>
             )}
             {yesFieldsetDisplay && (
-              <Fieldset legendText={yesFieldsetData.legend} className="fadeIn">
+              <Fieldset
+                legendText={yesFieldsetData.legend}
+                className="fadeIn"
+                id="yes_fieldset">
                 {yesFieldsetData.checkboxData.map((eachItem, index) => (
                   <Checkbox
                     key={index}
@@ -243,7 +231,6 @@ class DetailsFeedbackForm extends Component {
                   buttonText="Cancel"
                   type="reset"
                   onClick={() => {
-                    this.pushInDataLayer(nothingToImproveCancel);
                     this.toggleFieldset(
                       'initialQuestion',
                       'yesFieldsetDisplay',
