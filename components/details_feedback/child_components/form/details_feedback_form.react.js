@@ -21,7 +21,14 @@ class DetailsFeedbackForm extends Component {
       Data.noFieldsetData.gtmData.nothingToImprove.eventLabel,
     nothingToImproveCancel: Data.noFieldsetData.gtmData.cancel,
 
-    somethingToImproveComment: Data.yesFieldsetData.gtmData.gtmBody.eventLabel
+    somethingToImproveComment: Data.yesFieldsetData.gtmData.gtmBody.eventLabel,
+    somethingToImproveCancel: Data.yesFieldsetData.gtmData.cancel,
+
+    gtmProperties: {
+      gtmEvent: Data.yesFieldsetData.gtmData.gtmBody.event,
+      gtmEventCategory: Data.yesFieldsetData.gtmData.gtmBody.eventCategory,
+      gtmEventAction: Data.yesFieldsetData.gtmData.gtmBody.eventAction
+    }
   };
   formRef = React.createRef();
 
@@ -94,6 +101,11 @@ class DetailsFeedbackForm extends Component {
 
   somethingToImprove = () => {
     const { somethingToImproveComment, gtmCheckboxes } = this.state;
+    const {
+      gtmEvent,
+      gtmEventAction,
+      gtmEventCategory
+    } = this.state.gtmProperties;
 
     let checkboxes =
       gtmCheckboxes.length > 0
@@ -101,9 +113,9 @@ class DetailsFeedbackForm extends Component {
         : 'Nothing is checked';
 
     return {
-      event: 'DiscoveryFeedback',
-      eventCategory: 'DiscoveryFeedback',
-      eventAction: 'Send Feedback: Something to improve',
+      event: gtmEvent,
+      eventCategory: gtmEventCategory,
+      eventAction: gtmEventAction,
       eventLabel: `Checked options: ${checkboxes} | Comments: ${somethingToImproveComment}`
     };
   };
@@ -140,7 +152,8 @@ class DetailsFeedbackForm extends Component {
       yesFieldsetDisplay,
       displayForm,
       message,
-      nothingToImproveCancel
+      nothingToImproveCancel,
+      somethingToImproveCancel
     } = this.state;
 
     const { yesFieldsetData, noFieldsetData, messageText } = this.state.Data;
@@ -231,6 +244,7 @@ class DetailsFeedbackForm extends Component {
                   buttonText="Cancel"
                   type="reset"
                   onClick={() => {
+                    this.pushInDataLayer(somethingToImproveCancel);
                     this.toggleFieldset(
                       'initialQuestion',
                       'yesFieldsetDisplay',
