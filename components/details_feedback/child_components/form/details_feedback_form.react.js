@@ -195,6 +195,7 @@ class DetailsFeedbackForm extends Component {
 
             {noFieldsetDisplay && (
               <Fieldset
+                id="no_fieldset"
                 legendText={noFieldsetData.legend}
                 className="noMarginLeft fadeIn">
                 <Comment
