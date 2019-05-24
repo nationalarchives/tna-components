@@ -245,4 +245,11 @@
       outline: 2px solid #fce45c;
     }
   }
+  #yes_fieldset {
+    div.checkbox {
+      input[type='checkbox']:focus + label {
+        outline: 2px solid #fce45c;
+      }
+    }
+  }
 }

@@ -230,6 +230,7 @@ class DetailsFeedbackForm extends Component {
                     id={eachItem.id}
                     labelText={eachItem.labelText}
                     onClick={e => this.updateGTMCheckboxes(e)}
+                    autoFocus={index === 0 ? 'autofocus' : null}
                   />
                 ))}
 
