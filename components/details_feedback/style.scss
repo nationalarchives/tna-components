@@ -1,13 +1,24 @@
+// Variables
+$tna_font: 'Open Sans', sans-serif;
+$tna_light_border: 1px solid #ddd;
+$tna_white: #fff;
+$tna_grey: #ddd;
+$tna_mid_grey: #eee;
+$tna_teal: #099;
+$tna_black: #000;
+$tna_border_color: #ccc;
+$tna_outline: #fce45c;
+
 #feedback-widget-row {
   @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
   position: relative;
   display: block;
-  border-top: 1px solid #ddd;
-  background-color: #fff;
+  border-top: $tna_light_border;
+  background-color: $tna_white;
 
   > div {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $tna_font;
     font-size: 16px;
     margin-bottom: 1.5em;
     overflow: hidden;
@@ -26,12 +37,12 @@
 
 #details-feedback-wrapper {
   h2 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: $tna_font;
     font-size: 1em;
     font-weight: 700;
     display: inline-block;
     margin: 0.3em 0;
-    color: #000;
+    color: $tna_black;
   }
   > div {
     margin-top: 1em;
@@ -44,7 +55,7 @@
         top: 0; /* start out at position 0 */
 
         padding-left: 1em;
-        border: 1px solid #ccc;
+        border: 1px solid $tna_border_color;
         width: auto;
         margin-bottom: 0;
         margin-left: 0;
@@ -54,7 +65,7 @@
 
         legend {
           display: block;
-          border: 1px solid #ccc;
+          border: 1px solid $tna_border_color;
           padding: 0.4em;
         }
         button {
@@ -79,12 +90,12 @@
         }
 
         [type='submit'] {
-          background-color: #099;
-          color: #fff;
+          background-color: $tna_teal;
+          color: $tna_white;
         }
         [type='reset'] {
-          background-color: #ddd;
-          color: #000;
+          background-color: $tna_grey;
+          color: $tna_black;
         }
         .checkbox {
           position: relative;
@@ -133,7 +144,7 @@
             margin-bottom: 0.2em;
             width: 100%;
             min-height: 5em;
-            border: 1px solid #ccc;
+            border: 1px solid $tna_border_color;
             padding: 5px 3px;
             line-height: normal;
             font-size: 100%;
@@ -152,7 +163,7 @@
 
         button {
           border: 1px solid #999;
-          background: #fff;
+          background: $tna_white;
 
           &:hover {
             -o-transition: 0.5s;
@@ -160,10 +171,10 @@
             -moz-transition: 0.5s;
             -webkit-transition: 0.5s;
             transition: 0.5s;
-            background-color: #eee;
+            background-color: $tna_mid_grey;
           }
           &:focus {
-            background-color: #eee;
+            background-color: $tna_mid_grey;
             border: 1px solid #999;
           }
         }
@@ -242,13 +253,13 @@
   button,
   input {
     &:focus {
-      outline: 2px solid #fce45c;
+      outline: 2px solid $tna_outline;
     }
   }
   #yes_fieldset {
     div.checkbox {
       input[type='checkbox']:focus + label {
-        outline: 2px solid #fce45c;
+        outline: 2px solid $tna_outline;
       }
     }
   }
