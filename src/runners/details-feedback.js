@@ -5,29 +5,31 @@ import DetailsFeedbackWidget from '../../components/details_feedback/details_fee
 {
   const detailsPage = document.querySelector('.details-page'),
     path = window.location.pathname,
+    url = window.location.href,
     regex = /\/details\/r\/(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/,
-    regexTest = /https:\/\/test.discovery.nationalarchives.gov.uk/i,
-    regexLive = /https:\/\/discovery.nationalarchives.gov.uk/i,
-    regexDevLive = /http:\/\/dev.discovery.nationalarchives.gov.uk/i,
-    regexDevDiscovery = /http:\/\/localhost:81/i;
+    regexDev = /http:\/\/localhost:3000\/details\/r/i,
+    regexTest = /https:\/\/test.discovery.nationalarchives.gov.uk\/details\/r/i,
+    regexLive = /https:\/\/discovery.nationalarchives.gov.uk\/details\/r/i,
+    regexDevLive = /http:\/\/dev.discovery.nationalarchives.gov.uk\/details\/r/i,
+    regexDevDiscovery = /http:\/\/localhost:81\/details\/r/i;
 
-  if (detailsPage && path.match(regex)) {
-    if (detailsPage.contains(document.getElementById('page_wrap'))) {
-      const pageWrap = document.getElementById('page_wrap');
-      if (
-        path.regexDevDiscovery ||
-        path.match(regexTest) ||
-        path.match(regexLive) ||
-        path.match(regexDevLive) ||
-        path.match(regexDevDiscovery)
-      ) {
+  if (
+    url.match(regexDev) ||
+    url.match(regexTest) ||
+    url.match(regexDevDiscovery) ||
+    url.match(regexDevLive) ||
+    url.match(regexLive)
+  ) {
+    if (detailsPage && path.match(regex)) {
+      if (detailsPage.contains(document.getElementById('page_wrap'))) {
         if (!document.getElementById('details-feedback-wrapper')) {
-          const asideDom = `
-            <aside id="feedback-widget-row">
-              <div>
-                <div id="details-feedback-wrapper"></div>
-              </div>
-            </aside>`;
+          const pageWrap = document.getElementById('page_wrap'),
+            asideDom = `
+              <aside id="feedback-widget-row">
+                <div>
+                  <div id="details-feedback-wrapper"></div>
+                </div>
+              </aside>`;
 
           pageWrap.insertAdjacentHTML('beforeend', asideDom);
 
