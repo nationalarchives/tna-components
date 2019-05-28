@@ -13,19 +13,65 @@
 
 # The National Archives React components
 
-## Purpose
+Jump to: 
 
-On 12 September 2018, front end developers at The National Archives met to discuss ways we might be able to work more effectively across the broad range of applications we support. Primary concerns were: 
+* [development machine configuration](#development-machine-configuration)
+* [steps to create a new component](#steps-to-create-a-new-component)
+* [testing](#testing)
 
-* Ensuring consistency of changes across multiple teams, applications and platforms
-* Establishing a 'single source of truth' for functionality, design, shared content and implementation across services
-* Avoiding duplication of effort when implementing a change
+## Background
 
-This repository is the home for those components.
+In September 2018, front end developers at The National Archives met to identify a mechanism to address two significant factors impacting developer morale: 
 
-For more information about this see the (development guide)[https://github.com/nationalarchives/front-end-development-guide/blob/master/development-guide.md]
+* The duplication of work and interface 'drift' as several developers implement and maintain UI elements across our digital services
+* The considerable effort required to implement those changes that need to cascade across all digital services. 
 
-## 🚀 Quick start for existing components
+The agreed approach was to create a 'single source of truth' for UI components which could then be imported as isolated units of functionality into target services as required. This repository is the implementation of that approach.
+
+For more information about this see the:
+ 
+* relevant section of the [front-end development guide](https://github.com/nationalarchives/front-end-development-guide/blob/master/development-guide.md)
+* associated [pull request](https://github.com/nationalarchives/front-end-development-guide/pull/21)
+
+## This is progressive enhancement
+
+Since these are JavaScript components it is vitally important developers recognise this _builds upon but does not replace_ our progressive enhancement approach. **The basic functionality required to achieve user goals must always be provided by the HTML of target applications**.
+
+## An example
+
+We'll use The National Archives' 'global search' as an example to demonstrate this because it is present across many digital services. Since it's original implementation (in around 2014) it has been further developed and we have found that, since each implementation resides within the target application, some of the work has not found its way to all those places where it is implemented. Here is how we'd address this using a shared component. 
+
+### The basic HTML
+
+Each target environment has HTML introduced that will allow the user to achieve their goal. In this example, that is two links: one to the Discovery homepage and one to our website search homepage. 
+
+```html
+<div id="global-search">
+    <nav>
+        <ul>
+            <li><a href="http://www.nationalarchives.gov.uk/search/">Search our website</a></li>
+            <li><a href="http://discovery.nationalarchives.gov.uk">Search Discovery, our catalogue</a></li>
+        </ul>
+    </nav>
+</div>
+```
+
+Since the destinations for these provide the user with the full range of search functionality we can improve the user experience through progressive enhancement.
+
+### Component that can be used across environments
+
+We then develop a JavaScript component that enables the search to be submitted from the source page. This is added to the `tna-components` library.
+
+### A runner for each environment
+
+So as to ensure target applications include only those components they need, we configure an [entry point for each target environment](https://webpack.js.org/concepts/entry-points/#object-syntax) in Webpack. These entry points: 
+
+* include only those components necessary for the target application
+* include a 'runner' with logic to determine where and when the component is mounted. 
+
+In this way we are able to develop and maintain components centrally while allowing each target environments to have control the deployment of scripts to staging environments.
+
+## Development machine configuration
 
 **Download the repository.**
 
@@ -72,6 +118,7 @@ There are essentially two steps to adding a component:
 
 1. Preparing the server to serve the HTML into which the component will be mounted.
 2. Creating the component
+3. Bumping the version number in `webpack.config.js` (using SEMVER)
 3. Preparing a runner that will mount the component when specific conditions are met. 
 
 Here are the individual steps:
@@ -83,28 +130,6 @@ Here are the individual steps:
 * Update `/src/views/home.ejs` to include a link to the newly created view.
 * Create a directory for the component within `/components/` and place your component, tests and styles within.
 * Create a runner for the component within `/src/runners`. Note: the runner's purpose is to determine _if_ and _where_ a component is to be mounted. 
-
-### 🧐 What's inside?
-
-A quick look at the top-level files and directories you'll see in this project.
-
-    .
-    ├── _mocks_
-    ├── .vscode
-    ├── components
-    ├── coverage
-    ├── cypress
-    ├── dist
-    ├── node_modules
-    ├── src
-    ├── .babelrc
-    ├── .gitignore.js
-    ├── .travis.yml
-    ├── app.js
-    └── package-lock.json
-    ├── package.json
-    ├── README.md.js
-    └── webconfig.config.js
 
 ### Core technologies
 

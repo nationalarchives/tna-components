@@ -1,8 +1,11 @@
 const path = require('path');
 
+const version = `1.0.0`;
+
 module.exports = {
   entry: {
-    index: './src/index.js'
+    [`discovery-${version}`]: './src/discovery.js',
+    [`website-${version}`]: './src/website.js'
   },
   mode: 'production',
   output: {
