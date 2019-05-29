@@ -10,37 +10,34 @@ import Data from './home_page_search_discovery_data.json';
 import './home_page_search_discovery.scss';
 
 class HomePageSearchDiscovery extends Component {
-  constructor(props) {
-    super(props);
+  // Set properties
+  objGTM = {};
 
-    // Set properties
-    this.objGTM = {};
+  // Set the initial State
+  state = {
+    Data,
+    valueShow: '',
+    valueBetween: '',
+    valueAnd: '',
+    valueAcross: 'all',
+    errorShow: '',
+    errorBetween: '',
+    errorAnd: '',
+    success: null
+  };
 
-    // Set the initial State
-    this.state = {
-      Data,
-      valueShow: '',
-      valueBetween: '',
-      valueAnd: '',
-      errorShow: '',
-      errorBetween: '',
-      errorAnd: '',
-      success: false
-    };
+  // Preserve the initial state in a new object
+  // so it can be reused
+  mainState = this.state;
 
-    // Preserve the initial state in a new object
-    // so it can be reused
-    this.mainState = this.state;
+  // Create a unique DOM reference
+  // for hidden <input name="_dhs" value="y" />
+  hiddenRef = React.createRef();
 
-    // Create a unique DOM reference
-    // for hidden <input name="_dhs" value="y" />
-    this.hiddenRef = React.createRef();
-
-    /**
-     * ==================== IMPORTANT ========================
-     * All Class Methods auto bind using arrow function method
-     */
-  }
+  /**
+   * ==================== IMPORTANT ========================
+   * All Class Methods auto bind using arrow function method
+   */
 
   // Check input value on change
   onChangeInput = e => {
@@ -55,15 +52,11 @@ class HomePageSearchDiscovery extends Component {
     }
   };
 
-  // Check if it's a valid Year on Field => And
+  // Check if it's a valid Year
   checkIfValidYear = (field, objKey, errMsgOne, errMsgTwo, year) => {
     field > year
-      ? this.setState({
-          [objKey]: errMsgOne
-        })
-      : this.setState({
-          [objKey]: errMsgTwo
-        });
+      ? this.setState({ [objKey]: errMsgOne }, this.stateIsOnFire)
+      : this.setState({ [objKey]: errMsgTwo }, this.stateIsOnFire);
   };
 
   // Set the state to the initial state and hide the message
@@ -76,7 +69,7 @@ class HomePageSearchDiscovery extends Component {
   showErrorMsgIfEmptyOrWhiteSpace = e => {
     return (field, objKey, errMsg) => {
       if (field === ' ' || field === '') {
-        this.setState({ [objKey]: errMsg });
+        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
         e.preventDefault();
       }
     };
@@ -88,9 +81,7 @@ class HomePageSearchDiscovery extends Component {
         (fieldOne !== '' && fieldTwo.length < 4 && fieldTwo.length > 0) ||
         fieldTwo.length > 4
       ) {
-        this.setState({
-          [objKey]: errMsg
-        });
+        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
         e.preventDefault();
       }
     };
@@ -99,10 +90,7 @@ class HomePageSearchDiscovery extends Component {
   enterBothDates = e => {
     return (field, errField, fieldTwo, objKey, errMsg) => {
       if (field !== '' && errField === '' && fieldTwo === '') {
-        this.setState({
-          [objKey]: errMsg
-        });
-
+        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
         e.preventDefault();
       }
     };
@@ -111,25 +99,45 @@ class HomePageSearchDiscovery extends Component {
   notANumber = e => {
     return (val, objKey, errMsg) => {
       if (isNaN(val)) {
-        this.setState({ [objKey]: errMsg });
+        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
         e.preventDefault();
-      } else {
-        return false;
       }
     };
   };
 
   buildGTMObj = obj => {
-    if (this.state.success === true) {
-      obj.event = 'Discovery search';
-      obj.eventAction = 'Discovery homepage search';
-      obj.eventCategory = 'Successful search';
-      obj.eventLabel = 'Fields used:';
+    const {
+        valueShow,
+        valueBetween,
+        valueAnd,
+        errorShow,
+        errorBetween,
+        errorAnd,
+        success
+      } = this.state,
+      { fieldShow, fieldBetween, fieldAnd } = this.state.Data.form,
+      { gtm } = this.state.Data;
+
+    if (success === true) {
+      obj.event = gtm.success.event;
+      obj.eventAction = gtm.success.eventAction;
+      obj.eventCategory = gtm.success.eventCategory;
+      obj.eventLabel = `${gtm.success.eventLabel} ${
+        valueShow !== '' ? fieldShow.input.id : ''
+      }${valueBetween !== '' ? ' > ' + fieldBetween.input.id : ''}${
+        valueAnd !== '' ? ' > ' + fieldAnd.input.id : ''
+      }${' > ' + this.optionStateFire()}`;
     } else {
-      obj.event = 'Discovery search';
-      obj.eventAction = 'Discovery homepage search';
-      obj.eventCategory = 'Search errors';
-      obj.eventLabel = 'Fields used:';
+      obj.event = gtm.fail.event;
+      obj.eventAction = gtm.fail.eventAction;
+      obj.eventCategory = gtm.fail.eventCategory;
+      obj.eventLabel = `${
+        errorShow !== '' ? fieldShow.input.id + ': ' + errorShow + ' > ' : ''
+      }${
+        errorBetween !== ''
+          ? fieldBetween.input.id + ': ' + errorBetween + ' > '
+          : ''
+      }${errorAnd !== '' ? fieldAnd.input.id + ': ' + errorAnd : ''}`;
     }
     return obj;
   };
@@ -139,29 +147,6 @@ class HomePageSearchDiscovery extends Component {
     !!obj || typeof obj === 'object' ? wd.push(obj) : '';
 
     return obj;
-  };
-
-  onFormSuccess = () => {
-    const {
-      valueShow,
-      errorShow,
-      errorBetween,
-      errorAnd,
-      success
-    } = this.state;
-    if (
-      valueShow !== '' &&
-      valueShow !== ' ' &&
-      errorShow === '' &&
-      errorBetween === '' &&
-      errorAnd === ''
-    ) {
-      this.setState({ success: !success });
-      // Set the value to the hidden element
-      this.hiddenRef.current.value = this.state.Data.form.hiddenField.valueHidden;
-    } else {
-      this.setState({ success: false });
-    }
   };
 
   onKeyUpInp = () => {
@@ -200,6 +185,39 @@ class HomePageSearchDiscovery extends Component {
     );
   };
 
+  stateIsOnFire = () => {
+    const { errorBetween, errorAnd, errorShow } = this.state;
+
+    errorBetween !== '' || errorAnd !== '' || errorShow !== ''
+      ? this.setState({ success: false })
+      : this.setState({ success: true });
+  };
+
+  optionStateFire = () => {
+    let option = '';
+
+    if (this.state.valueAcross === 'all') {
+      option = this.state.Data.form.fieldAcross.select.options[0].name;
+    }
+    if (this.state.valueAcross === 'tna') {
+      option = this.state.Data.form.fieldAcross.select.options[1].name;
+    }
+    if (this.state.valueAcross === 'oth') {
+      option = this.state.Data.form.fieldAcross.select.options[2].name;
+    }
+
+    return option;
+  };
+
+  preventFormSubmission = e => {
+    return (err, errTwo, errThree) =>
+      err !== '' || errTwo !== '' || errThree ? e.preventDefault() : null;
+  };
+
+  selectOption = e => {
+    this.setState({ valueAcross: e.target.value });
+  };
+
   onSubmitSearch = e => {
     /**
      * Set properties / destructuring
@@ -209,7 +227,8 @@ class HomePageSearchDiscovery extends Component {
         valueAnd,
         valueBetween,
         errorBetween,
-        errorAnd
+        errorAnd,
+        errorShow
       } = this.state,
       { fieldShow, fieldBetween, fieldAnd } = this.state.Data.form;
 
@@ -222,7 +241,8 @@ class HomePageSearchDiscovery extends Component {
       enterBothDatesFieldAnd = this.enterBothDates(e),
       enterBothDatesFieldBetween = this.enterBothDates(e),
       notANumberB = this.notANumber(e),
-      notANumberA = this.notANumber(e);
+      notANumberA = this.notANumber(e),
+      stopForm = this.preventFormSubmission(e);
 
     /**
      * Field Show =============================================================
@@ -279,12 +299,20 @@ class HomePageSearchDiscovery extends Component {
     notANumberA(valueAnd, 'errorAnd', fieldAnd.errorMsgInvalid);
 
     /**
-     * Form submission successful
+     * On Form Update
      */
-    this.onFormSuccess();
-    this.buildGTMObj(this.objGTM);
-    this.pushInDataLayer(this.objGTM);
+    stopForm(errorShow, errorBetween, errorAnd);
+
+    // Set the value to the hidden element
+    this.hiddenRef.current.value = this.state.Data.form.hiddenField.valueHidden;
+
+    setTimeout(() => this.pushInDataLayer(this.objGTM), 100);
   };
+
+  // Use of React lifecycle method
+  componentDidUpdate(prevProps, prevState) {
+    this.buildGTMObj(this.objGTM);
+  }
 
   render() {
     const {
@@ -369,7 +397,9 @@ class HomePageSearchDiscovery extends Component {
                 id={fieldAcross.select.id}
                 class={fieldAcross.select.class}
                 option={fieldAcross.select.options}
-                name={fieldAcross.select.name}>
+                name={fieldAcross.select.name}
+                onChange={this.selectOption}
+                value={this.state.valueAcross}>
                 {fieldAcross.label.text}
               </Select>
             </div>
