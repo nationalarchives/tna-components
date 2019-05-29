@@ -48,10 +48,11 @@
         "type": "number",
         "class": "small"
       },
-      "errorMsgLength": "Plese enter 4 digits",
-      "errorMsgCurrentYear": "Please enter a valid year",
+      "errorMsgLength": "Please enter a valid year, e.g. 1921",
+      "errorMsgCurrentYear": "Please enter a valid year, e.g. 1922",
       "errorMsgDateRange": "Please enter both start date and end date",
-      "errorMsgInvalid": "You have entered an invalid date format"
+      "errorMsgInvalid": "Please enter a valid year, e.g. 1923",
+      "errorMsgEarlier": "Between date must be earlier than And date"
     },
     "fieldAnd": {
       "label": {
@@ -65,10 +66,10 @@
         "type": "number",
         "class": "small"
       },
-      "errorMsgLength": "Plese enter 4 digits",
-      "errorMsgCurrentYear": "Please enter a valid year",
+      "errorMsgLength": "Please enter a valid year, e.g. 1921",
+      "errorMsgCurrentYear": "Please enter a valid year, e.g. 1922",
       "errorMsgDateRange": "Please enter both start date and end date",
-      "errorMsgInvalid": "You have entered an invalid date format"
+      "errorMsgInvalid": "Please enter a valid year, e.g. 1923"
     },
     "fieldAcross": {
       "label": {
@@ -80,7 +81,7 @@
         "class": "medium",
         "name": "_hb",
         "options": [
-          { "name": "All records", "value": "", "id": 1 },
+          { "name": "All records", "value": "all", "id": 1 },
           { "name": "The National Archives only", "value": "tna", "id": 2 },
           { "name": "Other archives only", "value": "oth", "id": 3 }
         ]
@@ -105,6 +106,20 @@
     "browse": {
       "url": "https://discovery.nationalarchives.gov.uk/browse",
       "text": "Browse"
+    }
+  },
+  "gtm": {
+    "success": {
+      "event": "Discovery search",
+      "eventAction": "Discovery homepage search",
+      "eventCategory": "Successful search",
+      "eventLabel": "Fields used :"
+    },
+    "fail": {
+      "event": "Discovery search",
+      "eventAction": "Discovery homepage search",
+      "eventCategory": "Search errors",
+      "eventLabel": ""
     }
   }
 }
