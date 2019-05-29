@@ -1,58 +1,58 @@
 {
-	"name": "tna-components",
-	"version": "1.0.0",
-	"description": "",
-	"private": true,
-	"jest": {
-		"moduleNameMapper": {
-			"\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
-		}
-	},
-	"scripts": {
-		"test": "jest components/**/*",
-		"start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch -p",
-		"build": "node app.js & npx webpack --config webpack.config.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com//nationalarchives/tna-components.git"
-	},
-	"keywords": [],
-	"authors": [
-		"Punal Chotrani",
-		"Mihai Diaconita"
-	],
-	"license": "ISC",
-	"devDependencies": {
-		"@babel/core": "^7.4.4",
-		"@babel/plugin-proposal-class-properties": "^7.4.4",
-		"@babel/preset-env": "^7.4.4",
-		"@babel/preset-react": "^7.0.0",
-		"acorn": "^6.1.1",
-		"babel-loader": "^8.0.5",
-		"css-loader": "^1.0.1",
-		"cypress": "^3.4.1",
-		"enzyme": "^3.9.0",
-		"enzyme-adapter-react-16": "^1.12.1",
-		"node-sass": "^4.12.0",
-		"sass-loader": "^7.1.0",
-		"style-loader": "^0.23.1",
-		"webpack": "^4.30.0",
-		"webpack-cli": "^3.3.1"
-	},
-	"dependencies": {
-		"@babel/polyfill": "^7.4.4",
-		"@babel/preset-react": "^7.0.0",
-		"babel-core": "^7.0.0-bridge.0",
-		"babel-jest": "^24.7.1",
-		"debug": "^4.1.1",
-		"ejs": "^2.6.1",
-		"express": "^4.16.4",
-		"jest": "^24.7.1",
-		"morgan": "^1.9.1",
-		"nodemon": "^1.19.0",
-		"react": "^16.8.6",
-		"react-dom": "^16.8.6",
-		"react-test-renderer": "^16.8.6"
-	}
+  "name": "tna-components",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  },
+  "scripts": {
+    "test": "jest components/**/*",
+    "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch -p",
+    "build": "node app.js & npx webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com//nationalarchives/tna-components.git"
+  },
+  "keywords": [],
+  "authors": [
+    "Punal Chotrani",
+    "Mihai Diaconita"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "acorn": "^6.1.1",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^1.0.1",
+    "cypress": "^3.4.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.7.1",
+    "debug": "^4.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "jest": "^24.7.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-test-renderer": "^16.8.6"
+  }
 }
