@@ -79,9 +79,11 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         <select
           id="held-by"
           name="_hb"
+          onChange={[Function]}
+          value="all"
         >
           <option
-            value=""
+            value="all"
           >
             All records
           </option>
