@@ -103,5 +103,25 @@ describe('Check the yes state', () => {
       .find('button')
       .contains('Send')
       .click();
+
+    cy.get('form').should('not.exist');
+    cy.get('#details-feedback-wrapper')
+      .find('p')
+      .contains('Thank you for your feedback');
+    cy.get('form').should('not.exist');
+
+    cy.visit(
+      'http://localhost:3000/details/r/0125874efb9c41f78f1cfdbdb1544e08'
+    );
+    cy.get('form')
+      .find('button')
+      .contains('Yes')
+      .click();
+
+    cy.get('form #yes_fieldset')
+      .find('button')
+      .contains('Cancel')
+      .click();
+    cy.get('form').should('exist');
   });
 });
