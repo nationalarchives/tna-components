@@ -13,9 +13,7 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
 
   if (
     url.match(regexDev) ||
-    (url.match(regexLive) ||
-      url.match(regexDevDiscovery) ||
-      (url.match(regexDevLive) && wrapper))
+    (url.match(regexDevDiscovery) || (url.match(regexDevLive) && wrapper))
   ) {
     if (!document.querySelector('.primary-search-box')) {
       let section = document.createElement('section');
