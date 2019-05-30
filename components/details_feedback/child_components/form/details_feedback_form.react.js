@@ -129,7 +129,7 @@ class DetailsFeedbackForm extends Component {
 
   formSubmit = e => {
     const { somethingToImprove } = this;
-    const { nothingToImprove } = this.state;
+    const { nothingToImprove, displayForm } = this.state;
     const { comment_for_satisfaction, yes_fieldset } = this.formRef;
 
     e.preventDefault();
@@ -137,6 +137,7 @@ class DetailsFeedbackForm extends Component {
     this.setState({ form: false });
     this.setState({ noFieldsetDisplay: false });
     this.setState({ yesFieldsetDisplay: false });
+    this.setState({ displayForm: false });
     if (comment_for_satisfaction !== undefined) {
       this.pushInDataLayer(nothingToImprove);
     }
