@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there are multiple items 1`] = `
+<button
+  onClick={[Function]}
+  type="submit"
+>
+  Hello Button
+</button>
+`;
+
+exports[`renders the button correctly 1`] = `
+<button
+  onClick={null}
+  type="button"
+>
+  Hello Button
+</button>
+`;
