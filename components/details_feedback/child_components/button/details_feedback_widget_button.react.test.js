@@ -33,6 +33,5 @@ describe("Check DOM element and it's attributes", () => {
   testRendererToJson = testRenderer.toJSON();
   it('Should have an <button> tag', () => {
     expect(testRendererToJson.type).toBe('button');
-    expect(testRendererToJson.type === 'div').toBeFalsy;
   });
 });
