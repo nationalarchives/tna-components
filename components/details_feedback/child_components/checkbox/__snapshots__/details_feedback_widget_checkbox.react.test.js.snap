@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the checkbox component correctly 1`] = `
+<div
+  className="checkbox"
+>
+  <input
+    id="this-is-the-id"
+    type="checkbox"
+    value="this-is-the-id"
+  />
+  <label
+    for="this-is-the-id"
+  >
+    Hello world
+  </label>
+</div>
+`;
+
+exports[`renders the checkbox component with optional props 1`] = `
+<div
+  className="checkbox"
+>
+  <input
+    autoFocus="autofocus"
+    id="this-is-the-id"
+    onClick={[Function]}
+    type="checkbox"
+    value="this-is-the-id"
+  />
+  <label
+    for="this-is-the-id"
+  >
+    Hello world
+  </label>
+</div>
+`;

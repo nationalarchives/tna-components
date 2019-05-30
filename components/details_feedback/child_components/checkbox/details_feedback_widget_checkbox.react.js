@@ -18,13 +18,9 @@ class Checkbox extends React.Component {
     );
   }
   static propTypes = {
-    id: PropTypes.string,
+    id: PropTypes.string.isRequired,
     labelText: PropTypes.string.isRequired,
     onClick: PropTypes.func
-  };
-  static defaultProps = {
-    id: null,
-    labelText: null
   };
 }
 
