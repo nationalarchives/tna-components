@@ -68,7 +68,6 @@ describe("Check DOM element and it's attributes", () => {
     ).toBeTruthy();
   });
   it('Should check the props for label', () => {
-    console.log(testRendererToJson.children[1]);
     expect(
       testRendererToJson.children[1].props.hasOwnProperty('for')
     ).toBeTruthy();
