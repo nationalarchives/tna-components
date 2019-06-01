@@ -45,5 +45,10 @@ describe("Check DOM element and it's attributes", () => {
   testRendererToJson = testRenderer.toJSON();
   it('Should have an <div> tag', () => {
     expect(testRendererToJson.type).toBe('div');
+    console.log(testRendererToJson.children[0].props);
+  });
+  it('Should have children tag', () => {
+    expect(testRendererToJson.children[0].type).toBe('input');
+    expect(testRendererToJson.children[1].type).toBe('label');
   });
 });
