@@ -24,4 +24,8 @@ class Checkbox extends React.Component {
   };
 }
 
+Checkbox.defaultProps = {
+  onClick: null
+};
+
 export default Checkbox;

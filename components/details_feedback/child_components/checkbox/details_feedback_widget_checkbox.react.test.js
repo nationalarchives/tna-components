@@ -35,7 +35,6 @@ it('renders the checkbox component with optional props', () => {
 });
 
 // Unit test
-
 describe("Check DOM element and it's attributes", () => {
   const items = ['Hello World', 'hello-world'];
   testRenderer = TestRenderer.create(
@@ -45,10 +44,33 @@ describe("Check DOM element and it's attributes", () => {
   testRendererToJson = testRenderer.toJSON();
   it('Should have an <div> tag', () => {
     expect(testRendererToJson.type).toBe('div');
-    console.log(testRendererToJson.children[0].props);
   });
   it('Should have children tag', () => {
+    expect(testRendererToJson.children.length).toEqual(2);
     expect(testRendererToJson.children[0].type).toBe('input');
     expect(testRendererToJson.children[1].type).toBe('label');
+  });
+  it('Should check the props for input', () => {
+    expect(
+      testRendererToJson.children[0].props.hasOwnProperty('type')
+    ).toBeTruthy();
+    expect(
+      testRendererToJson.children[0].props.hasOwnProperty('id')
+    ).toBeTruthy();
+    expect(
+      testRendererToJson.children[0].props.hasOwnProperty('value')
+    ).toBeTruthy();
+    expect(
+      testRendererToJson.children[0].props.hasOwnProperty('onClick')
+    ).toBeTruthy();
+    expect(
+      testRendererToJson.children[0].props.hasOwnProperty('autoFocus')
+    ).toBeTruthy();
+  });
+  it('Should check the props for label', () => {
+    console.log(testRendererToJson.children[1]);
+    expect(
+      testRendererToJson.children[1].props.hasOwnProperty('for')
+    ).toBeTruthy();
   });
 });

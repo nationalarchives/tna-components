@@ -6,6 +6,7 @@ exports[`renders the checkbox component correctly 1`] = `
 >
   <input
     id="this-is-the-id"
+    onClick={null}
     type="checkbox"
     value="this-is-the-id"
   />
