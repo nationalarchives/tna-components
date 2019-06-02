@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the checkbox component correctly 1`] = `
+<div
+  className="comment"
+>
+  <label
+    for={null}
+  >
+    Comment Label
+  </label>
+  <input
+    autoFocus={null}
+    id={null}
+    onChange={null}
+    type="text"
+  />
+</div>
+`;
+
+exports[`renders the checkbox component with optional props 1`] = `
+<div
+  className="comment"
+>
+  <label
+    for="this-is-the-id"
+  >
+    Hello world
+  </label>
+  <input
+    autoFocus={null}
+    id="this-is-the-id"
+    onChange={[Function]}
+    type="text"
+  />
+  <p
+    className={null}
+  >
+    Comment warning
+  </p>
+</div>
+`;

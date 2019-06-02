@@ -71,5 +71,6 @@ describe("Check DOM element and it's attributes", () => {
     expect(
       testRendererToJson.children[1].props.hasOwnProperty('for')
     ).toBeTruthy();
+    expect(testRendererToJson.children[1].children.length).toBe(1);
   });
 });
