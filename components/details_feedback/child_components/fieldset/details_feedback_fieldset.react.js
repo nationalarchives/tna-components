@@ -16,6 +16,7 @@ Fieldset.defaultProps = {
 
 Fieldset.propTypes = {
   legendText: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   id: PropTypes.string
 };
