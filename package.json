@@ -11,8 +11,7 @@
   "scripts": {
     "test": "jest components/**/*",
     "start": "DEBUG=app nodemon app.js & npx webpack --config webpack.config.js --watch -p",
-    "build": "node app.js & npx webpack --config webpack.config.js",
-    "cypress:open": "cypress open"
+    "build": "node app.js & npx webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +28,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "acorn": "^6.1.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^1.0.1",
     "cypress": "^3.2.0",
@@ -43,7 +43,6 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.7.1",
     "debug": "^4.1.1",
