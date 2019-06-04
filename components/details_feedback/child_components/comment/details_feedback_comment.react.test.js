@@ -41,7 +41,6 @@ describe("Check DOM element and it's attributes", () => {
   testRendererToJson = testRenderer.toJSON();
   it('Should have an <div> tag', () => {
     expect(testRendererToJson.type).toBe('div');
-    //console.log(testRendererToJson);
   });
   it('Should have a class', () => {
     expect(testRendererToJson.props.className).toBe('comment');
@@ -52,7 +51,6 @@ describe("Check DOM element and it's attributes", () => {
     expect(testRendererToJson.children[1].type).toBe('input');
   });
   it('Should have a label tag with props', () => {
-    //console.log(testRendererToJson.children[0].props.hasOwnProperty('for'));
     expect(
       testRendererToJson.children[0].props.hasOwnProperty('for')
     ).toBeTruthy();
