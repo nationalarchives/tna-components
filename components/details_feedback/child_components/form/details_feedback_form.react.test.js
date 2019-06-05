@@ -2,7 +2,6 @@ import React from 'react';
 import DetailsFeedbackForm from './details_feedback_form.react';
 import { create } from 'react-test-renderer';
 import renderer from 'react-test-renderer';
-// import Button from '../button/details_feedback_widget_button.react';
 
 // Snapshot 1
 it('renders correctly', () => {
