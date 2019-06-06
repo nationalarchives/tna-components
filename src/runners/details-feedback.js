@@ -23,7 +23,7 @@ import DetailsFeedbackWidget from '../../components/details_feedback/details_fee
   ) {
     if (detailsPage && path.match(regex)) {
       if (detailsPage.contains(document.getElementById('page_wrap'))) {
-        if (!document.getElementById('details-feedback-wrapper')) {
+        if (!document.getElementById(detailsWrapperId)) {
           const pageWrap = document.getElementById('page_wrap'),
             asideDom = `
               <aside id="feedback-widget-row">
