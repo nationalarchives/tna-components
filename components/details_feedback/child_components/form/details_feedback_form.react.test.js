@@ -1,11 +1,10 @@
 import React from 'react';
 import DetailsFeedbackForm from './details_feedback_form.react';
-import { create } from 'react-test-renderer';
-import renderer from 'react-test-renderer';
+import TestRenderer, { create } from 'react-test-renderer';
 
 // Snapshot 1
 it('renders correctly', () => {
-  const tree = renderer.create(<DetailsFeedbackForm />).toJSON();
+  const tree = TestRenderer.create(<DetailsFeedbackForm />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

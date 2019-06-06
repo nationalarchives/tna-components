@@ -1,6 +1,5 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import renderer from 'react-test-renderer';
 import Comment from './details_feedback_comment.react';
 
 let testRenderer, testRendererToJson;
@@ -8,7 +7,9 @@ let testRenderer, testRendererToJson;
 // Snapshot test 1
 it('renders the checkbox component correctly', () => {
   const items = ['Comment Label'];
-  const tree = renderer.create(<Comment commentLabel={items[0]} />).toJSON();
+  const tree = TestRenderer.create(
+    <Comment commentLabel={items[0]} />
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
@@ -20,16 +21,14 @@ it('renders the checkbox component with optional props', () => {
     () => console.log('Function test'),
     'Comment warning'
   ];
-  const tree = renderer
-    .create(
-      <Comment
-        id={items[1]}
-        commentLabel={items[0]}
-        onChange={items[2]}
-        commentWarning={items[3]}
-      />
-    )
-    .toJSON();
+  const tree = TestRenderer.create(
+    <Comment
+      id={items[1]}
+      commentLabel={items[0]}
+      onChange={items[2]}
+      commentWarning={items[3]}
+    />
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

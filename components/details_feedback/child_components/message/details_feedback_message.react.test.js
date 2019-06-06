@@ -1,23 +1,22 @@
 import React from 'react';
 import Message from './details_feedback_message.react';
 import TestRenderer from 'react-test-renderer';
-import renderer from 'react-test-renderer';
 
 let testRenderer, testRendererToJson;
 
 // Snapshot 1
 it('renders correctly', () => {
   const items = ['Hello message component'];
-  const tree = renderer.create(<Message message={items[0]} />).toJSON();
+  const tree = TestRenderer.create(<Message message={items[0]} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 // Snapshot 2
 it('renders the Message component with optional props', () => {
   const items = ['Hello message component', 'message-class'];
-  const tree = renderer
-    .create(<Message message={items[0]} className={items[1]} />)
-    .toJSON();
+  const tree = TestRenderer.create(
+    <Message message={items[0]} className={items[1]} />
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

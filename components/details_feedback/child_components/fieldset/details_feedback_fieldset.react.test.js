@@ -1,6 +1,5 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import renderer from 'react-test-renderer';
 import Fieldset from './details_feedback_fieldset.react';
 
 let testRenderer, testRendererToJson;
@@ -11,13 +10,11 @@ it('renders the checkbox component correctly', () => {
     'Legend heading',
     'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   ];
-  const tree = renderer
-    .create(
-      <Fieldset legendText={items[0]}>
-        <p>{items[1]}</p>
-      </Fieldset>
-    )
-    .toJSON();
+  const tree = TestRenderer.create(
+    <Fieldset legendText={items[0]}>
+      <p>{items[1]}</p>
+    </Fieldset>
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
