@@ -6,6 +6,7 @@ import DetailsFeedbackWidget from '../../components/details_feedback/details_fee
   const detailsPage = document.querySelector('.details-page'),
     path = window.location.pathname,
     url = window.location.href,
+    detailsWrapperId = 'details-feedback-wrapper',
     regex = /\/details\/r\/(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/,
     regexDev = /http:\/\/localhost:3000\/details\/r/i,
     regexTest = /https:\/\/test.discovery.nationalarchives.gov.uk\/details\/r/i,
@@ -27,7 +28,7 @@ import DetailsFeedbackWidget from '../../components/details_feedback/details_fee
             asideDom = `
               <aside id="feedback-widget-row">
                 <div>
-                  <div id="details-feedback-wrapper"></div>
+                  <div id=${detailsWrapperId}></div>
                 </div>
               </aside>`;
 
@@ -35,7 +36,7 @@ import DetailsFeedbackWidget from '../../components/details_feedback/details_fee
 
           ReactDOM.render(
             <DetailsFeedbackWidget />,
-            document.getElementById('details-feedback-wrapper')
+            document.getElementById(detailsWrapperId)
           );
         }
       }
