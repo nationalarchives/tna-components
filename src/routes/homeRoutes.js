@@ -11,7 +11,8 @@ homeRouter.route('/').get((req, res) => {
     title: 'The National Archives React Components',
     page: {
       guidanceFeedback: '/help-with-your-research/research-guides',
-      recommendedLinksDiscovery: '/results/r'
+      recommendedLinksDiscovery: '/results/r',
+      detailsFeedback: '/details/r/0125874efb9c41f78f1cfdbdb1544e08'
     }
   });
 });
