@@ -5,6 +5,7 @@ exports[`renders the checkbox component correctly 1`] = `
   className="checkbox"
 >
   <input
+    autoFocus={null}
     id="this-is-the-id"
     onClick={null}
     type="checkbox"
