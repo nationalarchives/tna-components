@@ -27,11 +27,9 @@ describe('Guidance feedback ', () => {
       'have.text',
       'How to look for records of...'
     );
-    cy.get('.resource-results ul li:first-child').click();
-    cy.url().should(
-      'eq',
-      'http://www.nationalarchives.gov.uk/help-with-your-research/research-guides/state-papers-domestic-1547-1649/'
-    );
+    cy.get('.resource-results ul li:first-child a')
+      .first()
+      .click();
     cy.get('#guidance-feedback-react')
       .scrollIntoView()
       .should('be.visible');

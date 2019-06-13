@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <h2>
+    Feedback
+  </h2>,
+  <div>
+    <form
+      onSubmit={[Function]}
+    >
+      <fieldset
+        className="initial-question"
+        id={null}
+      >
+        <legend>
+          Could this page be improved?
+        </legend>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          No
+        </button>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          Yes
+        </button>
+      </fieldset>
+    </form>
+  </div>,
+]
+`;
