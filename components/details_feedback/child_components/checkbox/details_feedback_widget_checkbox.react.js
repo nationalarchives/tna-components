@@ -20,12 +20,14 @@ class Checkbox extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     labelText: PropTypes.string.isRequired,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    autoFocus: PropTypes.string
   };
 }
 
 Checkbox.defaultProps = {
-  onClick: null
+  onClick: null,
+  autoFocus: null
 };
 
 export default Checkbox;

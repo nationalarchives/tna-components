@@ -24,7 +24,8 @@ Comment.defaultProps = {
 Comment.propTypes = {
   id: PropTypes.string,
   commentLabel: PropTypes.string.isRequired,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  commentWarning: PropTypes.string
 };
 
 export default Comment;
