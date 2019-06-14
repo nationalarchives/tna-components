@@ -140,7 +140,7 @@ $tna_outline: #fce45c;
             margin-right: 0;
           }
 
-          [type='text'] {
+          [type='text'], textarea {
             margin-top: 0.2em;
 
             margin-bottom: 0.2em;
@@ -253,7 +253,7 @@ $tna_outline: #fce45c;
   }
 
   button,
-  input {
+  input, textarea {
     &:focus {
       outline: 2px solid $tna_outline;
     }

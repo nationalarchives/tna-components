@@ -47,7 +47,7 @@ describe("Check DOM element and it's attributes", () => {
   it('Should have children', () => {
     expect(testRendererToJson.children.length).toBe(2);
     expect(testRendererToJson.children[0].type).toBe('label');
-    expect(testRendererToJson.children[1].type).toBe('input');
+    expect(testRendererToJson.children[1].type).toBe('textarea');
   });
   it('Should have a label tag with props', () => {
     expect(
@@ -59,7 +59,13 @@ describe("Check DOM element and it's attributes", () => {
       testRendererToJson.children[1].props.hasOwnProperty('onChange')
     ).toBeTruthy();
     expect(
-      testRendererToJson.children[1].props.hasOwnProperty('type')
+      testRendererToJson.children[1].props.hasOwnProperty('name')
+    ).toBeTruthy();
+    expect(
+      testRendererToJson.children[1].props.hasOwnProperty('rows')
+    ).toBeTruthy();
+    expect(
+      testRendererToJson.children[1].props.hasOwnProperty('cols')
     ).toBeTruthy();
     expect(
       testRendererToJson.children[1].props.hasOwnProperty('id')

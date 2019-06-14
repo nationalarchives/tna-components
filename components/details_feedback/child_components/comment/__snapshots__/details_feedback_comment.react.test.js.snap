@@ -9,11 +9,13 @@ exports[`renders the checkbox component correctly 1`] = `
   >
     Comment Label
   </label>
-  <input
+  <textarea
     autoFocus={null}
+    cols="33"
     id={null}
+    name={null}
     onChange={null}
-    type="text"
+    rows="5"
   />
 </div>
 `;
@@ -27,11 +29,13 @@ exports[`renders the checkbox component with optional props 1`] = `
   >
     Hello world
   </label>
-  <input
+  <textarea
     autoFocus={null}
+    cols="33"
     id="this-is-the-id"
+    name="this-is-the-id"
     onChange={[Function]}
-    type="text"
+    rows="5"
   />
   <p
     className={null}
