@@ -68,7 +68,7 @@ class DetailsFeedbackForm extends Component {
         this.setState({
           nothingToImprove: {
             ...nothingToImprove,
-            eventLabel: `Comments: ${comment_for_satisfaction.value}`
+            eventLabel: `Comments: ${comment_for_satisfaction.value.replace(/(\r\n|\n|\r)/gm,' ')}`
           }
         });
       } else {
@@ -116,7 +116,7 @@ class DetailsFeedbackForm extends Component {
       event: gtmEvent,
       eventCategory: gtmEventCategory,
       eventAction: gtmEventAction,
-      eventLabel: `Checked options: ${checkboxes} | Comments: ${somethingToImproveComment}`
+      eventLabel: `Checked options: ${checkboxes} | Comments: ${somethingToImproveComment.replace(/(\r\n|\n|\r)/gm,' ')}`
     };
   };
 

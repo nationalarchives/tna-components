@@ -7,7 +7,7 @@ const Comment = props => {
   return (
     <div className="comment">
       <label for={id}>{commentLabel}</label>
-      <input onChange={onChange} type="text" id={id} autoFocus={autoFocus} />
+      <textarea onChange={onChange} id={id} name={id} autoFocus={autoFocus} rows="5" cols="33" />
 
       {commentWarning ? <Message message={commentWarning} /> : null}
     </div>
