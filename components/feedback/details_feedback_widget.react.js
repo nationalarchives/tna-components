@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import DetailsFeedbackForm from './child_components/form/details_feedback_form.react';
+import DetailsFeedbackForm from './child_components/form/details_feedback_form/details_feedback_form.react';
 
 import './style.scss';
 

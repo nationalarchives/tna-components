@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Fieldset from '../fieldset/details_feedback_fieldset.react';
-import Button from '../button/details_feedback_widget_button.react';
-import Checkbox from '../checkbox/details_feedback_widget_checkbox.react';
-import Comment from '../comment/details_feedback_comment.react';
-import Message from '../message/details_feedback_message.react';
-import { Data } from '../../data';
+import Fieldset from '../../fieldset/details_feedback_fieldset.react';
+import Button from '../../button/details_feedback_widget_button.react';
+import Checkbox from '../../checkbox/details_feedback_widget_checkbox.react';
+import Comment from '../../comment/details_feedback_comment.react';
+import Message from '../../message/details_feedback_message.react';
+import { Data } from '../../../data';
 
 class DetailsFeedbackForm extends Component {
   state = {
