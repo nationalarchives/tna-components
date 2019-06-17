@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WTEGFeedbackWidget from '../../components/wteg_feedback/wteg_feedback_widget.react';
+import WTEGFeedbackWidget from '../../components/feedback/wteg_feedback_widget.react';
 
 {
 	const detailsPage = document.querySelector('.details-page'),

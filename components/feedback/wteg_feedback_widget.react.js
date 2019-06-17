@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './style.scss';
+import '../wteg_feedback/style.scss';
 
 class WTEGFeedbackWidget extends Component {
 	render() {
