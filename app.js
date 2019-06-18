@@ -1,7 +1,7 @@
 /**
  * ------------  THE NATIONAL ARCHIVES  -----------------
  * Express application for the React Components
- * Developer: Mihai Diaconita
+ * Developers: Mihai Diaconita, Punal Chotrani
  **/
 
 const express = require('express'),
@@ -13,8 +13,9 @@ const express = require('express'),
   debug = require('debug')('app'),
   feedbackRouter = require('./src/routes/feedbackRoutes'),
   homeRouter = require('./src/routes/homeRoutes'),
-  recommendedLinksDiscovery = require('./src/routes/recommendedRoutes');
-homePageSearchDiscovery = require('./src/routes/homePageSearchDiscovery');
+  recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
+  detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
+  homePageSearchDiscovery = require('./src/routes/homePageSearchDiscovery');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -35,7 +36,9 @@ app.use('/', homeRouter);
 app.use('/help-with-your-research/research-guides', feedbackRouter);
 // Recommended Links Discovery
 app.use('/results', recommendedLinksDiscovery);
-// Held By Discovery
+// Details Feedback Widget
+app.use('/details/r', detailsFeedbackRoutes);
+// Home page search Discovery
 app.use('/home-page-search-discovery', homePageSearchDiscovery);
 
 // Set the port of the application and log the info
