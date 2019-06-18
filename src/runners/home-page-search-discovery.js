@@ -10,7 +10,6 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
     regexLive = /https:\/\/discovery.nationalarchives.gov.uk/i,
     regexDevLive = /http:\/\/dev.discovery.nationalarchives.gov.uk/i,
     regexDevDiscovery = /http:\/\/localhost:81/i;
-
   if (
     url.match(regexDev) ||
     (url.match(regexDevDiscovery) || (url.match(regexDevLive) && wrapper))
