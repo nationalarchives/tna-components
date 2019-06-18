@@ -8,9 +8,13 @@ import Message from "../../message/details_feedback_message.react";
 class WTEGFeedbackForm extends Component{
 	constructor(props){
 		super(props);
+
+		this.buildGtmObj = this.buildGtmObj.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.pushInDataLayer = this.pushInDataLayer.bind(this);
 		this.toggleFieldset = this.toggleFieldset.bind(this);
+
 		this.state = {
 			comments: '',
 			Data,
@@ -19,6 +23,15 @@ class WTEGFeedbackForm extends Component{
 			guideHelpful: false,
 			initialQuestion: true,
 			message: false
+		}
+	}
+
+	buildGtmObj(guideHelpful, comments) {
+		return {
+			event: 'DiscoveryWTEGFeedback',
+			eventCategory: 'Discovery What To Expect feedback',
+			eventAction: `Did you find this helpful: ${guideHelpful}`,
+			eventLabel: `Comments: ${comments}`
 		}
 	}
 
@@ -32,16 +45,27 @@ class WTEGFeedbackForm extends Component{
 
 	handleSubmit(e) {
 		let comments = this.state.comments;
-		if(!comments.length > 0){
+		let guideHelpful = this.state.guideHelpful ? 'Yes' : 'No';
+
+		if(comments.length < 1){
 			comments = 'No comments made.';
 		}
 
 		this.setState({ message: true });
 		this.setState({ displayCommentBox: false });
 		this.setState({ displayForm: false });
+
 		//Push to Data Layer
+		this.pushInDataLayer(this.buildGtmObj(guideHelpful, comments));
 		e.preventDefault();
 	}
+
+	pushInDataLayer = obj => {
+		let wd = window.dataLayer || [];
+		!!obj || typeof obj === 'object' ? wd.push(obj) : '';
+
+		return obj;
+	};
 
 	toggleFieldset = (objKeyOne, boolOne, objKeyTwo, boolTwo, objKeyThree, boolThree) => {
 		this.setState({ [objKeyOne]: boolOne });
