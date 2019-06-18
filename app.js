@@ -1,7 +1,7 @@
 /**
  * ------------  THE NATIONAL ARCHIVES  -----------------
  * Express application for the React Components
- * Developer: Mihai Diaconita
+ * Developers: Mihai Diaconita, Punal Chotrani
  **/
 
 const express = require('express'),
@@ -41,7 +41,7 @@ app.use('/results', recommendedLinksDiscovery);
 app.use('/details/r', detailsFeedbackRoutes);
 //WTEG Feedback Widget
 app.use('/what-to-expect-guide', wtegViewRoutes);
-// Held By Discovery
+// Home page search Discovery
 app.use('/home-page-search-discovery', homePageSearchDiscovery);
 
 // Set the port of the application and log the info
