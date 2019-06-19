@@ -87,6 +87,16 @@ class HomePageSearchDiscovery extends Component {
     };
   };
 
+  showErrorMsgYearEarlier = e => {
+    return (yearBefore, yearAfter, objKey, errMsg) => {
+      if (yearBefore > yearAfter) {
+        e.preventDefault();
+        this.setState({ [objKey]: errMsg });
+        e.preventDefault();
+      }
+    };
+  };
+
   enterBothDates = e => {
     return (field, errField, fieldTwo, objKey, errMsg) => {
       if (field !== '' && errField === '' && fieldTwo === '') {
@@ -242,7 +252,8 @@ class HomePageSearchDiscovery extends Component {
       enterBothDatesFieldBetween = this.enterBothDates(e),
       notANumberB = this.notANumber(e),
       notANumberA = this.notANumber(e),
-      stopForm = this.preventFormSubmission(e);
+      stopForm = this.preventFormSubmission(e),
+      showErrorMsgYearEarlier = this.showErrorMsgYearEarlier(e);
 
     /**
      * Field Show =============================================================
@@ -268,11 +279,19 @@ class HomePageSearchDiscovery extends Component {
       errorAnd,
       valueBetween,
       'errorBetween',
-      fieldBetween.errorMsgDateRange
+      fieldBetween.errorMsgDateRanges
     );
 
     // Error Message: You have entered an invalid date format
-    notANumberB(valueBetween, 'errorBetween', fieldBetween.errorMsgInvalid);
+    notANumberB(valueBetween, 'errorBetween', fieldBetween.errorMsgEarlier);
+
+    // Error Message: Between date must be earlier than And date
+    showErrorMsgYearEarlier(
+      valueBetween,
+      valueAnd,
+      'errorBetween',
+      fieldBetween.errorMsgEarlier
+    );
 
     /**
      * Field And ============================================================
