@@ -279,7 +279,7 @@ class HomePageSearchDiscovery extends Component {
       errorAnd,
       valueBetween,
       'errorBetween',
-      fieldBetween.errorMsgDateRanges
+      fieldBetween.errorMsgDateRange
     );
 
     // Error Message: You have entered an invalid date format
