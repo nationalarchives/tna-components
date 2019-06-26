@@ -3,7 +3,7 @@ describe('Checks for the initial elements', () => {
 		cy.visit(
 			'http://localhost:3000/what-to-expect-guide'
 		);
-		cy.get('#what-to-expect');
+		cy.get('#what-to-expect-form');
 		cy.get('h2').should('contain', 'Feedback');
 		cy.get('fieldset').should('have.class', 'initial-question');
 		cy.get('fieldset').find('legend').should('contain', 'Did you find this helpful?');
@@ -126,7 +126,7 @@ describe('Test the feedback form end-to-end', function(){
 			.click();
 
 		cy.get('form').should('not.exist');
-		cy.get('#what-to-expect')
+		cy.get('#what-to-expect-form')
 			.find('p')
 			.contains('Thank you for your feedback');
 		cy.get('form').should('not.exist');
