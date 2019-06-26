@@ -6,7 +6,7 @@ import WTEGFeedbackWidget from '../../components/feedback/wteg_feedback_widget.r
 	const detailsPage = document.querySelector('.details-page'),
 		path = window.location.pathname,
 		url = window.location.href,
-		wtegWrapperId = 'what-to-expect',
+		wtegWrapperId = 'what-to-expect-form',
 		regex = /\/details\/r\/(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/,
 		regexDev = /http:\/\/localhost:3000\/details\/r/i,
 		regexTest = /https:\/\/test.discovery.nationalarchives.gov.uk\/details\/r/i,
@@ -37,7 +37,7 @@ import WTEGFeedbackWidget from '../../components/feedback/wteg_feedback_widget.r
 					pageWrap.insertAdjacentHTML('beforeend', asideDom);
 
 					ReactDOM.render(
-						<WTEGFeedbackWidget />,
+						<WTEGFeedbackWidget id="what-to-expect-form" />,
 						document.getElementById(wtegWrapperId)
 					);
 				}
