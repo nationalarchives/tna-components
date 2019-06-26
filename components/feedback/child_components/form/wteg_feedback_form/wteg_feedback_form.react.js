@@ -6,44 +6,34 @@ import { Data } from '../../../data';
 import Message from "../../message/details_feedback_message.react";
 
 class WTEGFeedbackForm extends Component{
-	constructor(props){
-		super(props);
+	state = {
+		comments: '',
+		Data,
+		displayCommentBox: false,
+		displayForm: true,
+		guideHelpful: false,
+		initialQuestion: true,
+		message: false
+	};
 
-		this.buildGtmObj = this.buildGtmObj.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.pushInDataLayer = this.pushInDataLayer.bind(this);
-		this.toggleFieldset = this.toggleFieldset.bind(this);
-
-		this.state = {
-			comments: '',
-			Data,
-			displayCommentBox: false,
-			displayForm: true,
-			guideHelpful: false,
-			initialQuestion: true,
-			message: false
-		}
-	}
-
-	buildGtmObj(guideHelpful, comments) {
+	buildGtmObj = (guideHelpful, comments) => {
 		return {
 			event: 'DiscoveryWTEGFeedback',
 			eventCategory: 'Discovery What To Expect feedback',
 			eventAction: `Did you find this helpful: ${guideHelpful}`,
 			eventLabel: `Comments: ${comments}`
 		}
-	}
+	};
 
-	handleChange(e) {
+	handleChange = e => {
 		let name = e.target.name;
 		let value = e.target.value;
 		this.setState({
 			[name]: value
 		});
-	}
+	};
 
-	handleSubmit(e) {
+	handleSubmit = e => {
 		let comments = this.state.comments;
 		let guideHelpful = this.state.guideHelpful ? 'Yes' : 'No';
 
@@ -58,7 +48,7 @@ class WTEGFeedbackForm extends Component{
 		//Push to Data Layer
 		this.pushInDataLayer(this.buildGtmObj(guideHelpful, comments));
 		e.preventDefault();
-	}
+	};
 
 	pushInDataLayer = obj => {
 		let wd = window.dataLayer || [];
