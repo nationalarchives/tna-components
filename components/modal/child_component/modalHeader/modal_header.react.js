@@ -20,7 +20,6 @@ const ModalHeader = props => {
 
 ModalHeader.defaultProps = {
   onClick: null,
-  //onKeyDown: null,
   autoFocus: null
 };
 

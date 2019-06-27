@@ -1,7 +1,4 @@
 const Data = {
-  style: {
-    width: '10%'
-  },
   gtm: {
     closeWindow: {
       event: 'Popup',
