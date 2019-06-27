@@ -123,10 +123,7 @@ class WTEGModal extends Component {
 
     return (
       <>
-        <div
-          onClick={toggleShowModal}
-          onKeyPress={enterKeyPress}
-          style={style.thumbnailWrapper}>
+        <div onClick={toggleShowModal} onKeyPress={enterKeyPress}>
           <img
             style={style.img}
             src={src}

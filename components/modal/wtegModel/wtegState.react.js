@@ -7,12 +7,6 @@ const Data = {
       display: 'block',
       textAlign: 'center',
       paddingBottom: '.4em'
-    },
-    thumbnailWrapper: {
-      maxWidth: '35%',
-      float: 'right',
-      position: 'relative',
-      border: '1px solid #ddd'
     }
   },
   gtm: {
