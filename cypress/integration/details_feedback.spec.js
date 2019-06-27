@@ -44,7 +44,7 @@ describe('Check the no state', () => {
 
     cy.get('.comment').children('p');
     cy.get('.comment').children('label');
-    cy.get('.comment').children('input');
+    cy.get('.comment').children('textarea');
 
     cy.get('fieldset')
       .find('button')
@@ -75,11 +75,11 @@ describe('Check the yes state', () => {
 
     cy.get('input[type=checkbox]:first-of-type').focused();
     cy.get('input[type=checkbox]').should('have.length', 7);
-    cy.get('input[type=text]').should('have.length', 1);
+    cy.get('textarea').should('have.length', 1);
 
     cy.get('.comment').children('p');
     cy.get('.comment').children('label');
-    cy.get('.comment').children('input');
+    cy.get('.comment').children('textarea');
 
     cy.get('.comment')
       .children('label')

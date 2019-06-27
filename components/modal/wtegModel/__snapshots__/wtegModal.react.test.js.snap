@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<img
+  alt="altImageDes"
+  className="someClass"
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  src="someSource"
+  style={
+    Object {
+      "width": "10%",
+    }
+  }
+  tabIndex="0"
+/>
+`;
