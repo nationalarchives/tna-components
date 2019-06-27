@@ -1,13 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<img
-  alt="altImageDes"
-  className="someClass"
+<div
   onClick={[Function]}
   onKeyPress={[Function]}
-  role="button"
-  src="someSource"
-  tabIndex="0"
-/>
+>
+  <img
+    alt="altImageDes"
+    className="someClass"
+    role="button"
+    src="someSource"
+    style={
+      Object {
+        "maxWidth": "100%",
+      }
+    }
+    tabIndex="0"
+  />
+  <span
+    style={
+      Object {
+        "display": "block",
+        "paddingBottom": ".4em",
+        "textAlign": "center",
+      }
+    }
+  >
+    Click to expand
+  </span>
+</div>
 `;
