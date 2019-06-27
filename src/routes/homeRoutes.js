@@ -12,7 +12,8 @@ homeRouter.route('/').get((req, res) => {
     page: {
       guidanceFeedback: '/help-with-your-research/research-guides',
       recommendedLinksDiscovery: '/results/r',
-      detailsFeedback: '/details/r/0125874efb9c41f78f1cfdbdb1544e08'
+      detailsFeedback: '/details/r/0125874efb9c41f78f1cfdbdb1544e08',
+      wtegFeedback: '/what-to-expect-guide'
     }
   });
 });

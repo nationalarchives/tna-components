@@ -13,8 +13,10 @@ const express = require('express'),
   debug = require('debug')('app'),
   feedbackRouter = require('./src/routes/feedbackRoutes'),
   homeRouter = require('./src/routes/homeRoutes'),
-  recommendedLinksDiscovery = require('./src/routes/recommendedRoutes');
-  detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes');
+  recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
+  detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
+  wtegFeedbackRoutes = require('./src/routes/wtegFeedbackRoutes');
+
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -37,6 +39,8 @@ app.use('/help-with-your-research/research-guides', feedbackRouter);
 app.use('/results', recommendedLinksDiscovery);
 // Details Feedback Widget
 app.use('/details/r', detailsFeedbackRoutes);
+//WTEG Feedback Widget
+app.use('/what-to-expect-guide', wtegFeedbackRoutes);
 
 // Set the port of the application and log the info
 app.listen(port, () =>

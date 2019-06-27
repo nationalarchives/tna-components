@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DetailsFeedbackWidget from '../../components/details_feedback/details_feedback_widget.react';
+import DetailsFeedbackWidget from '../../components/feedback/details_feedback_widget.react';
 
 {
   const detailsPage = document.querySelector('.details-page'),
