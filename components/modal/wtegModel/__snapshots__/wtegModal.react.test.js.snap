@@ -8,11 +8,6 @@ exports[`renders correctly 1`] = `
   onKeyPress={[Function]}
   role="button"
   src="someSource"
-  style={
-    Object {
-      "width": "10%",
-    }
-  }
   tabIndex="0"
 />
 `;

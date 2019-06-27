@@ -8,15 +8,18 @@ import WTEGModal from '../../components/modal/wtegModel/wtegModal.react';
   if (!isMobile) {
     if (detailsPage.contains(document.getElementById('wteg-image-wrapper'))) {
       if (document.getElementById('wteg-image-wrapper')) {
-        const wtegWrapper = document.getElementById('wteg-image-wrapper'),
-          wtegImg = 'img.what-to-expect-image',
-          imgSrc = document.getElementById('sample').src,
-          imgClass = document.querySelector(wtegImg).getAttribute('class'),
-          imgAlt = document.querySelector(wtegImg).getAttribute('alt');
-        ReactDOM.render(
-          <WTEGModal src={imgSrc} alt={imgAlt} className={imgClass} />,
-          wtegWrapper
-        );
+        const wtegWrapper = document.getElementById('wteg-image-wrapper');
+        if (wtegWrapper.querySelector('img.what-to-expect-image')) {
+          const wtegImg = wtegWrapper.querySelector('img.what-to-expect-image');
+          const imgSrc = wtegImg.src;
+          const imgClass = wtegImg.getAttribute('class');
+          const imgAlt = wtegImg.getAttribute('alt');
+
+          ReactDOM.render(
+            <WTEGModal src={imgSrc} alt={imgAlt} className={imgClass} />,
+            wtegWrapper
+          );
+        }
       }
     }
   }
