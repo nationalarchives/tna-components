@@ -123,17 +123,21 @@ class WTEGModal extends Component {
 
     return (
       <>
-        <img
+        <div
           onClick={toggleShowModal}
-          style={style}
-          src={src}
-          alt={alt}
-          className={className}
-          role="button"
-          tabIndex="0"
-          ref={thumbnailRef}
           onKeyPress={enterKeyPress}
-        />
+          style={style.thumbnailWrapper}>
+          <img
+            style={style.img}
+            src={src}
+            alt={alt}
+            className={className}
+            role="button"
+            tabIndex="0"
+            ref={thumbnailRef}
+          />
+          <span style={style.span}>Click to expand</span>
+        </div>
 
         {showModal && (
           <ModalWrapper

@@ -1,4 +1,20 @@
 const Data = {
+  style: {
+    img: {
+      maxWidth: '100%'
+    },
+    span: {
+      display: 'block',
+      textAlign: 'center',
+      paddingBottom: '.4em'
+    },
+    thumbnailWrapper: {
+      maxWidth: '35%',
+      float: 'right',
+      position: 'relative',
+      border: '1px solid #ddd'
+    }
+  },
   gtm: {
     closeWindow: {
       event: 'Popup',
