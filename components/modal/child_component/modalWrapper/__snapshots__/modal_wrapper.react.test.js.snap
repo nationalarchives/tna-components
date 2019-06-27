@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the checkbox component correctly 1`] = `
+<div
+  aria-modal={true}
+  id="someId"
+  role="button"
+>
+  <div
+    className="someClass"
+    onClick={[Function]}
+  >
+    <h1>
+      Hello World
+    </h1>
+  </div>
+</div>
+`;
