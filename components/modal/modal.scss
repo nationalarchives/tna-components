@@ -60,6 +60,7 @@ $tna_outline: #ebab00;
     }
   }
   .fadeIn {
+    z-index: 9999;
     -webkit-animation: fadein 0.5s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 0.5s; /* Firefox < 16 */
     -ms-animation: fadein 0.5s; /* Internet Explorer */
@@ -122,4 +123,8 @@ $tna_outline: #ebab00;
       outline: 3px solid $tna_outline;
     }
   }
+}
+
+.modal_open {
+  overflow: hidden;
 }

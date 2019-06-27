@@ -1,14 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-const ModalContent = props => {
-  const {children, modalContentClass, modalBodyClass} = props;
-  return (
-    <div className={modalContentClass}>
-      <div className={modalBodyClass}>{children}</div>
-    </div>
-  );
-};
+class ModalContent extends Component {
+  componentDidMount() {
+    document.body.classList.add('modal_open');
+  }
+  componentWillUnmount() {
+    document.body.classList.remove('modal_open');
+  }
+  render() {
+    const {children, modalContentClass, modalBodyClass} = this.props;
+    return (
+      <div className={modalContentClass}>
+        <div className={modalBodyClass}>{children}</div>
+      </div>
+    );
+  }
+}
 
 ModalContent.defaultProps = {
   modalContentClass: 'modal-content',
