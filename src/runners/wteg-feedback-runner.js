@@ -6,7 +6,6 @@ if (document.querySelector('.details-page')) {
   const detailsPage = document.querySelector('.details-page');
   if (detailsPage.contains(document.getElementById('what-to-expect'))) {
     const wteID = document.getElementById('what-to-expect');
-    console.log(wteID);
 
     if (!document.getElementById('what-to-expect-form')) {
       const wtegFormID = 'what-to-expect-form';
