@@ -8,7 +8,7 @@ class WTEGFeedbackWidget extends Component {
 		return (
 			<React.Fragment>
 				<h2>Feedback</h2>
-				<WTEGFeedbackForm id="what-to-expect-form" />
+				<WTEGFeedbackForm />
 			</React.Fragment>
 		);
 	}
