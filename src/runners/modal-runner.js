@@ -4,7 +4,7 @@ import WTEGModal from '../../components/modal/wtegModel/wtegModal.react';
 {
   if (window.innerWidth >= 768) {
     const url = window.location.href,
-      devEnv = 'http://localhost:3000/modal',
+      devEnv = 'http://localhost:3000/what-to-expect-guide',
       regexTest = /https:\/\/test.discovery.nationalarchives.gov.uk\/details\/r/i,
       regexLive = /https:\/\/discovery.nationalarchives.gov.uk\/details\/r/i,
       regexDevLive = /http:\/\/dev.discovery.nationalarchives.gov.uk\/details\/r/i,

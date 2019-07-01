@@ -15,8 +15,7 @@ const express = require('express'),
   homeRouter = require('./src/routes/homeRoutes'),
   recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
   detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
-  wtegFeedbackRoutes = require('./src/routes/wtegFeedbackRoutes'),
-  modalRoutes = require('./src/routes/modalRoutes');
+  wtegViewRoutes = require('./src/routes/wtegViewRoutes');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -40,9 +39,7 @@ app.use('/results', recommendedLinksDiscovery);
 // Details Feedback Widget
 app.use('/details/r', detailsFeedbackRoutes);
 //WTEG Feedback Widget
-app.use('/what-to-expect-guide', wtegFeedbackRoutes);
-// Modal
-app.use('/modal', modalRoutes);
+app.use('/what-to-expect-guide', wtegViewRoutes);
 
 // Set the port of the application and log the info
 app.listen(port, () =>
