@@ -4,16 +4,16 @@ import WTEGFeedbackWidget from '../../components/feedback/wteg_feedback_widget.r
 
 {
   const url = window.location.href,
-    devEnv = 'http://localhost:3000/what-to-expect-guide',
+    devLocal = 'http://localhost:3000/what-to-expect-guide',
     regexTest = /https:\/\/test.discovery.nationalarchives.gov.uk\/details\/r/i,
     regexLive = /https:\/\/discovery.nationalarchives.gov.uk\/details\/r/i,
-    regexDevLive = /http:\/\/dev.discovery.nationalarchives.gov.uk\/details\/r/i,
+    regexDev = /http:\/\/dev.discovery.nationalarchives.gov.uk\/details\/r/i,
     regexDevDiscovery = /http:\/\/localhost:81\/details\/r/i;
   if (
-    url.match(devEnv) ||
+    url.match(devLocal) ||
     url.match(regexTest) ||
     url.match(regexDevDiscovery) ||
-    url.match(regexDevLive) ||
+    url.match(regexDev) ||
     url.match(regexLive)
   ) {
     if (document.querySelector('.details-page')) {
