@@ -6,7 +6,12 @@ import TestRenderer, {create} from 'react-test-renderer';
 it('renders correctly', () => {
   const items = ['someSource', 'altImageDes', 'someClass'];
   const tree = TestRenderer.create(
-    <WTEGModal src={items[0]} alt={items[1]} className={items[2]} />
+    <WTEGModal
+      src={items[0]}
+      alt={items[1]}
+      className={items[2]}
+      imgDsc={items[1]}
+    />
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -15,7 +20,12 @@ it('renders correctly', () => {
 describe('Test state for showModal', () => {
   const items = ['someSource', 'altImageDes', 'someClass'];
   const component = create(
-    <WTEGModal src={items[0]} alt={items[1]} className={items[2]} />
+    <WTEGModal
+      src={items[0]}
+      alt={items[1]}
+      className={items[2]}
+      imgDsc={items[1]}
+    />
   );
   const instance = component.getInstance();
   const {showModal} = instance.state;
@@ -27,11 +37,16 @@ describe('Test state for showModal', () => {
 describe('Test state for closeWindow object', () => {
   const items = ['someSource', 'altImageDes', 'someClass'];
   const component = create(
-    <WTEGModal src={items[0]} alt={items[1]} className={items[2]} />
+    <WTEGModal
+      src={items[0]}
+      alt={items[1]}
+      className={items[2]}
+      imgDsc={items[1]}
+    />
   );
   const instance = component.getInstance();
   const {Data} = instance.state;
-  //console.log(Data.gtm.closeWindow);
+
   it('checking close window object', () => {
     expect(Data.gtm.closeWindow.event).toBe('Popup');
     expect(Data.gtm.closeWindow.eventCategory).toBe(
@@ -44,7 +59,12 @@ describe('Test state for closeWindow object', () => {
 describe('Test state for closeWindow object', () => {
   const items = ['someSource', 'altImageDes', 'someClass'];
   const component = create(
-    <WTEGModal src={items[0]} alt={items[1]} className={items[2]} />
+    <WTEGModal
+      src={items[0]}
+      alt={items[1]}
+      className={items[2]}
+      imgDsc={items[1]}
+    />
   );
   const instance = component.getInstance();
   const {Data} = instance.state;
@@ -61,7 +81,12 @@ describe('Test state for closeWindow object', () => {
 describe('Test state for escKey object', () => {
   const items = ['someSource', 'altImageDes', 'someClass'];
   const component = create(
-    <WTEGModal src={items[0]} alt={items[1]} className={items[2]} />
+    <WTEGModal
+      src={items[0]}
+      alt={items[1]}
+      className={items[2]}
+      imgDsc={items[1]}
+    />
   );
   const instance = component.getInstance();
   const {Data} = instance.state;
@@ -78,7 +103,12 @@ describe('Test state for escKey object', () => {
 describe('Test state for clicks away object', () => {
   const items = ['someSource', 'altImageDes', 'someClass'];
   const component = create(
-    <WTEGModal src={items[0]} alt={items[1]} className={items[2]} />
+    <WTEGModal
+      src={items[0]}
+      alt={items[1]}
+      className={items[2]}
+      imgDsc={items[1]}
+    />
   );
   const instance = component.getInstance();
   const {Data} = instance.state;

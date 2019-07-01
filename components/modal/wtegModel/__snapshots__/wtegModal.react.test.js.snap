@@ -26,7 +26,7 @@ exports[`renders correctly 1`] = `
       }
     }
   >
-    Click to expand
+    altImageDes
   </span>
 </div>
 `;

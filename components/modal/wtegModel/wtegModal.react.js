@@ -119,7 +119,7 @@ class WTEGModal extends Component {
     const {closeWindow} = this.state.Data.gtm;
     const {showModal} = this.state;
     const {style} = this.state.Data;
-    const {src, alt, className} = this.props;
+    const {src, alt, className, imgDsc} = this.props;
 
     return (
       <>
@@ -133,7 +133,7 @@ class WTEGModal extends Component {
             tabIndex="0"
             ref={thumbnailRef}
           />
-          <span style={style.span}>Click to expand</span>
+          <span style={style.span}>{imgDsc}</span>
         </div>
 
         {showModal && (
