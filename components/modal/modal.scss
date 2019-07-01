@@ -128,3 +128,11 @@ $tna_outline: #ebab00;
 .modal_open {
   overflow: hidden;
 }
+
+#wteg-image-wrapper {
+  > div {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
