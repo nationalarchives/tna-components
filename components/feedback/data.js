@@ -4,7 +4,7 @@ export const Data = {
     commentData: {
       id: 'comment_for_satisfaction',
       commentLabel:
-        'Your feedback helps us improve our services. Please share any comments below.',
+        'Your feedback helps us improve our services. Please share any comments below (optional).',
       commentWarning: 'Please do not include personal contact details.'
     },
     gtmData: {
