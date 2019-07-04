@@ -7,7 +7,7 @@ import DetailsFeedbackWidget from '../../components/feedback/details_feedback_wi
     path = window.location.pathname,
     url = window.location.href,
     detailsWrapperId = 'details-feedback-wrapper',
-    regex = /\/details\/r\/(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/,
+    regex = /\/details\/r.*\/([\w\-])+/,
     regexDev = /http:\/\/localhost:3000\/details\/r/i,
     regexTest = /https:\/\/test.discovery.nationalarchives.gov.uk\/details\/r/i,
     regexLive = /https:\/\/discovery.nationalarchives.gov.uk\/details\/r/i,
