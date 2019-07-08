@@ -10,7 +10,7 @@ exports[`renders correctly 1`] = `
       id={null}
     >
       <legend>
-        Did you find this helpful?
+        Did you find this guide helpful?
       </legend>
       <button
         onClick={[Function]}

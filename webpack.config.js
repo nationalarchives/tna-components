@@ -1,6 +1,6 @@
 const path = require('path');
 
-const discovery_version = `1.1.3`;
+const discovery_version = `1.1.4`;
 const website_version = `1.0.0`;
 
 module.exports = {
