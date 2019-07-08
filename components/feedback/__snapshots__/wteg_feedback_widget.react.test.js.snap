@@ -1,35 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-Array [
-  <h2>
-    Feedback
-  </h2>,
-  <div>
-    <form
-      onSubmit={[Function]}
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <fieldset
+      className="initial-question"
+      id={null}
     >
-      <fieldset
-        className="initial-question"
-        id={null}
+      <legend>
+        Did you find this guide helpful?
+      </legend>
+      <button
+        onClick={[Function]}
+        type="button"
       >
-        <legend>
-          Did you find this helpful?
-        </legend>
-        <button
-          onClick={[Function]}
-          type="button"
-        >
-          Yes
-        </button>
-        <button
-          onClick={[Function]}
-          type="button"
-        >
-          No
-        </button>
-      </fieldset>
-    </form>
-  </div>,
-]
+        Yes
+      </button>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        No
+      </button>
+    </fieldset>
+  </form>
+</div>
 `;
