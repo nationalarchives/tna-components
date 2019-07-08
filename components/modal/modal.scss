@@ -7,7 +7,7 @@ $tna_mid_grey: #eee;
 $tna_teal: #099;
 $tna_black: #000;
 $tna_border_color: #ccc;
-$tna_outline: #ebab00;
+$tna_outline: #fce45c;
 
 #tnaModalComponent {
   .modal {
@@ -131,8 +131,22 @@ $tna_outline: #ebab00;
 
 #wteg-image-wrapper {
   > div {
+    position: relative;
+    display: inline;
+
+    > span {
+      position: absolute;
+      padding: 0.4em;
+      bottom: 0.2em;
+      background: #222;
+      color: #fff;
+      opacity: 0.7;
+    }
     &:hover {
-      cursor: pointer;
+      span {
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
   }
 }
