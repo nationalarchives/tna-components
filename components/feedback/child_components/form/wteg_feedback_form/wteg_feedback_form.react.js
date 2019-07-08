@@ -20,7 +20,7 @@ class WTEGFeedbackForm extends Component{
 		return {
 			event: 'DiscoveryWTEGFeedback',
 			eventCategory: 'Discovery What To Expect feedback',
-			eventAction: `Did you find this helpful: ${guideHelpful}`,
+			eventAction: `Did you find this guide helpful: ${guideHelpful}`,
 			eventLabel: `Comments: ${comments}`
 		}
 	};
@@ -80,7 +80,7 @@ class WTEGFeedbackForm extends Component{
 					<form onSubmit={this.handleSubmit}>
 						{initialQuestion && (
 							<Fieldset
-								legendText="Did you find this helpful?"
+								legendText="Did you find this guide helpful?"
 								className="initial-question">
 								<Button
 									buttonText="Yes"
