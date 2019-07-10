@@ -7,15 +7,12 @@ let imgStyle = {
 };
 
 const ModalImage = props => {
-  const {src, alt, style, className, tabIndex} = props;
+  const {src, alt, style, className, tabIndex, figureCaption} = props;
   return (
-    <img
-      style={style}
-      alt={alt}
-      src={src}
-      className={className}
-      tabIndex={tabIndex}
-    />
+    <figure className={className} tabIndex={tabIndex}>
+      {figureCaption ? <figcaption>{figureCaption}</figcaption> : null}
+      <img style={style} alt={alt} src={src} />
+    </figure>
   );
 };
 

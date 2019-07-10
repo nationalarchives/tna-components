@@ -25,7 +25,8 @@ const Data = {
       eventCategory: 'What to expect guide popup image',
       eventAction: 'Clicked outside window'
     }
-  }
+  },
+  figureCaption: 'Example record only'
 };
 
 export default Data;

@@ -7,12 +7,11 @@ $tna_mid_grey: #eee;
 $tna_teal: #099;
 $tna_black: #000;
 $tna_border_color: #ccc;
-$tna_outline: #ebab00;
+$tna_outline: #fce45c;
 
 #tnaModalComponent {
   .modal {
     z-index: 1;
-    padding-top: 10px;
     position: fixed;
     left: 0;
     top: 0;
@@ -21,6 +20,7 @@ $tna_outline: #ebab00;
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
   }
   .modal-content {
     -webkit-animation-name: zoom;
@@ -28,10 +28,27 @@ $tna_outline: #ebab00;
     animation-name: zoom;
     animation-duration: 0.6s;
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 25%;
     transform: translate(-50%, -50%);
-    margin: 0.5em auto;
+    bottom: 25%;
+
+    figure {
+      margin-top: 2em;
+      text-align: center;
+      cursor: default;
+
+      figcaption {
+        background: $tna_black;
+        opacity: 0.7;
+        color: $tna_white;
+        padding: 1em;
+        font-size: 1.5em;
+      }
+      img {
+        vertical-align: middle;
+      }
+    }
   }
   .close {
     text-decoration: none;
@@ -41,8 +58,10 @@ $tna_outline: #ebab00;
     background: none;
     border: none;
     position: fixed;
-    right: 0;
+    right: 10px;
     margin: 0 1em;
+    z-index: 1;
+    top: 20px;
 
     &:focus {
       background-color: $tna_black;
@@ -131,8 +150,22 @@ $tna_outline: #ebab00;
 
 #wteg-image-wrapper {
   > div {
+    position: relative;
+    margin-bottom: 1em;
+
+    > span {
+      position: absolute;
+      padding: 0.4em;
+      bottom: 0.2em;
+      background: #222;
+      color: #fff;
+      opacity: 0.7;
+    }
     &:hover {
-      cursor: pointer;
+      span {
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
   }
 }
