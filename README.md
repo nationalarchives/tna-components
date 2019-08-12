@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://www.nationalarchives.gov.uk">
-    <img style="display:inline-block;" alt="The National Archives"  src="https://discovery.nationalarchives.gov.uk/Content/Images/tna-square-white-logo.png" width="90" bgcolor="#000" />
+    <img style="display:inline-block;" alt="The National Archives"  src="src/img/tna-sq-logo.jpg" width="90" />
   </a>
   <img style="display:inline-block" alt="React"
   src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1000px-React-icon.svg.png"
