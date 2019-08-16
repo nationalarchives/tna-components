@@ -19,14 +19,14 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         className="Headline"
       >
         <h1>
-          Search The National Archives and over 2,500 archives across the UK
+          Explore The National Archives and more than 2,500 other archives
         </h1>
       </div>
       <div
         className="MainSearch"
       >
         <label>
-          Show
+          Search for
         </label>
         <input
           className={null}
@@ -34,7 +34,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
           name="_q"
           onChange={[Function]}
           onKeyUp={[Function]}
-          placeholder="everything that contains these terms"
+          placeholder="Enter keyword(s)"
           type="text"
         />
       </div>
@@ -42,7 +42,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         className="InputBetween"
       >
         <label>
-          between
+          Between
         </label>
         <input
           className={null}
@@ -50,8 +50,8 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
           name="_sd"
           onChange={[Function]}
           onKeyUp={[Function]}
-          placeholder="YYYY"
-          type="number"
+          placeholder="Start year"
+          type="text"
         />
       </div>
       <div
@@ -66,15 +66,15 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
           name="_ed"
           onChange={[Function]}
           onKeyUp={[Function]}
-          placeholder="YYYY"
-          type="number"
+          placeholder="End year"
+          type="text"
         />
       </div>
       <div
         className="InputAcross"
       >
         <label>
-          across
+          Held by
         </label>
         <select
           id="held-by"
@@ -85,7 +85,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
           <option
             value="all"
           >
-            All records
+            All archives
           </option>
           <option
             value="tna"
@@ -100,6 +100,22 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         </select>
       </div>
       <div
+        className="MoreOptions"
+      >
+        <a
+          href="https://discovery.nationalarchives.gov.uk/advanced-search"
+        >
+          Advance search
+        </a>
+         
+        or 
+        <a
+          href="https://discovery.nationalarchives.gov.uk/browse"
+        >
+          Browse
+        </a>
+      </div>
+      <div
         className="Search"
       >
         <input
@@ -111,22 +127,6 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         >
           Search
         </button>
-      </div>
-      <div
-        className="MoreOptions"
-      >
-        <a
-          href="https://discovery.nationalarchives.gov.uk/advanced-search"
-        >
-          More options
-        </a>
-         
-        or 
-        <a
-          href="https://discovery.nationalarchives.gov.uk/browse"
-        >
-          Browse
-        </a>
       </div>
     </div>
   </form>
