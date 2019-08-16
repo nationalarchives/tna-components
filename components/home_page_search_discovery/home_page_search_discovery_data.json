@@ -1,5 +1,5 @@
 {
-  "mainHead": "Search The National Archives and over 2,500 archives across the UK",
+  "mainHead": "Explore The National Archives and more than 2,500 other archives",
   "classNameContainer": "search-form-container",
   "id": "discovery-homepage-search-react-component",
   "form": {
@@ -21,7 +21,7 @@
     },
     "fieldShow": {
       "label": {
-        "text": "Show",
+        "text": "Search for",
         "class": "fixed-width",
         "for": "search-all-collections"
       },
@@ -31,25 +31,24 @@
         "req": "required",
         "ariaRequired": "true",
         "id": "search-all-collections",
-        "placeholder": "everything that contains these terms"
+        "placeholder": "Enter keyword(s)"
       },
       "errorMsg": "Please enter keyword or catalogue reference"
     },
     "fieldBetween": {
       "label": {
-        "text": "between",
+        "text": "Between",
         "class": "fixed-width",
         "for": "start-date"
       },
       "input": {
         "id": "start-date",
         "name": "_sd",
-        "placeholder": "YYYY",
-        "type": "number",
+        "placeholder": "Start year",
+        "type": "text",
         "class": "small"
       },
       "errorMsgLength": "Please enter a valid year, e.g. 1921",
-      "errorMsgCurrentYear": "Please enter a valid year, e.g. 1922",
       "errorMsgDateRange": "Please enter both start date and end date",
       "errorMsgInvalid": "Please enter a valid year, e.g. 1923",
       "errorMsgEarlier": "Between date must be earlier than And date"
@@ -62,18 +61,16 @@
       "input": {
         "id": "end-date",
         "name": "_ed",
-        "placeholder": "YYYY",
-        "type": "number",
+        "placeholder": "End year",
+        "type": "text",
         "class": "small"
       },
       "errorMsgLength": "Please enter a valid year, e.g. 1921",
-      "errorMsgCurrentYear": "Please enter a valid year, e.g. 1922",
-      "errorMsgDateRange": "Please enter both start date and end date",
       "errorMsgInvalid": "Please enter a valid year, e.g. 1923"
     },
     "fieldAcross": {
       "label": {
-        "text": "across",
+        "text": "Held by",
         "for": "held-by"
       },
       "select": {
@@ -81,7 +78,7 @@
         "class": "medium",
         "name": "_hb",
         "options": [
-          { "name": "All records", "value": "all", "id": 1 },
+          { "name": "All archives", "value": "all", "id": 1 },
           { "name": "The National Archives only", "value": "tna", "id": 2 },
           { "name": "Other archives only", "value": "oth", "id": 3 }
         ]
@@ -101,7 +98,7 @@
   "links": {
     "moreOptions": {
       "url": "https://discovery.nationalarchives.gov.uk/advanced-search",
-      "text": "More options"
+      "text": "Advance search"
     },
     "browse": {
       "url": "https://discovery.nationalarchives.gov.uk/browse",

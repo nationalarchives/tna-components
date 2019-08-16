@@ -23,7 +23,8 @@ class HomePageSearchDiscovery extends Component {
     errorShow: '',
     errorBetween: '',
     errorAnd: '',
-    success: null
+    success: null,
+    regEx: /^((0[1-9]|[[1-2][0-9]|3[0-1])\/(0[1-9]|1[012])\/)?[12][0-9]{3}$/
   };
 
   // Preserve the initial state in a new object
@@ -52,16 +53,9 @@ class HomePageSearchDiscovery extends Component {
     }
   };
 
-  // Check if it's a valid Year
-  checkIfValidYear = (field, objKey, errMsgOne, errMsgTwo, year) => {
-    field > year
-      ? this.setState({ [objKey]: errMsgOne }, this.stateIsOnFire)
-      : this.setState({ [objKey]: errMsgTwo }, this.stateIsOnFire);
-  };
-
   // Set the state to the initial state and hide the message
   hideErrorMsg = (field, objKey, errMsg) => {
-    field !== '' ? this.setState({ [objKey]: errMsg }) : null;
+    field !== '' ? this.setState({ [objKey]: errMsg }) : '';
   };
 
   // Check if field Show is empty or has a space inside
@@ -75,42 +69,12 @@ class HomePageSearchDiscovery extends Component {
     };
   };
 
-  showErrorMsgLength = e => {
-    return (fieldOne, fieldTwo, objKey, errMsg) => {
-      if (
-        (fieldOne !== '' && fieldTwo.length < 4 && fieldTwo.length > 0) ||
-        fieldTwo.length > 4
-      ) {
-        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
-        e.preventDefault();
-      }
-    };
-  };
-
-  showErrorMsgYearEarlier = e => {
-    return (yearBefore, yearAfter, objKey, errMsg) => {
-      if (yearBefore > yearAfter) {
-        e.preventDefault();
-        this.setState({ [objKey]: errMsg });
-        e.preventDefault();
-      }
-    };
-  };
-
-  enterBothDates = e => {
-    return (field, errField, fieldTwo, objKey, errMsg) => {
-      if (field !== '' && errField === '' && fieldTwo === '') {
-        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
-        e.preventDefault();
-      }
-    };
-  };
-
-  notANumber = e => {
+  dateValid = e => {
+    const { regEx } = this.mainState;
     return (val, objKey, errMsg) => {
-      if (isNaN(val)) {
-        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
+      if (val !== '' && regEx.test(val) === false) {
         e.preventDefault();
+        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
       }
     };
   };
@@ -159,42 +123,6 @@ class HomePageSearchDiscovery extends Component {
     return obj;
   };
 
-  onKeyUpInp = () => {
-    /**
-     * Set properties / destructuring
-     */
-    const currentYear = new Date().getFullYear(),
-      { valueShow, valueBetween, valueAnd } = this.state,
-      { fieldBetween, fieldAnd } = this.state.Data.form,
-      { errorBetween, errorAnd } = this.mainState;
-
-    /**
-     * Error messages
-     * Hide the error message once value is being typed
-     */
-    this.hideErrorMsg(valueShow, 'errorShow', this.mainState.valueShow);
-
-    // Field Between
-    // Error Message: Please enter a valid year
-    this.checkIfValidYear(
-      valueBetween,
-      'errorBetween',
-      fieldBetween.errorMsgCurrentYear,
-      errorBetween,
-      currentYear
-    );
-
-    // Field And
-    // Error Message: Please enter a valid year
-    this.checkIfValidYear(
-      valueAnd,
-      'errorAnd',
-      fieldAnd.errorMsgCurrentYear,
-      errorAnd,
-      currentYear
-    );
-  };
-
   stateIsOnFire = () => {
     const { errorBetween, errorAnd, errorShow } = this.state;
 
@@ -204,16 +132,20 @@ class HomePageSearchDiscovery extends Component {
   };
 
   optionStateFire = () => {
-    let option = '';
+    let option;
+    const { valueAcross } = this.state;
+    const { form } = this.state.Data;
 
-    if (this.state.valueAcross === 'all') {
-      option = this.state.Data.form.fieldAcross.select.options[0].name;
-    }
-    if (this.state.valueAcross === 'tna') {
-      option = this.state.Data.form.fieldAcross.select.options[1].name;
-    }
-    if (this.state.valueAcross === 'oth') {
-      option = this.state.Data.form.fieldAcross.select.options[2].name;
+    switch (valueAcross) {
+      case 'all':
+        option = form.fieldAcross.select.options[0].name;
+        break;
+      case 'tna':
+        option = form.fieldAcross.select.options[1].name;
+        break;
+      case 'oth':
+        option = form.fieldAcross.select.options[2].name;
+        break;
     }
 
     return option;
@@ -226,6 +158,35 @@ class HomePageSearchDiscovery extends Component {
 
   selectOption = e => {
     this.setState({ valueAcross: e.target.value });
+  };
+
+  showErrorMsgEarlierThan = e => {
+    return (valOne, valTwo, objKey, errMsg) => {
+      const { regEx } = this.mainState;
+      if (regEx.test(valOne) && regEx.test(valTwo) && valOne > valTwo) {
+        e.preventDefault();
+        this.setState({ [objKey]: errMsg }, this.stateIsOnFire);
+      }
+    };
+  };
+
+  onKeyUpInp = () => {
+    /**
+     * Set properties / destructuring
+     */
+    const { valueShow, valueBetween, valueAnd } = this.state;
+
+    /**
+     * Error messages
+     * Hide the error message while type
+     */
+    this.hideErrorMsg(valueShow, 'errorShow', this.mainState.valueShow);
+    this.hideErrorMsg(
+      valueBetween,
+      'errorBetween',
+      this.mainState.valueBetween
+    );
+    this.hideErrorMsg(valueAnd, 'errorAnd', this.mainState.valueAnd);
   };
 
   onSubmitSearch = e => {
@@ -246,81 +207,36 @@ class HomePageSearchDiscovery extends Component {
      * Error messages
      */
     const errMsgIfEmptyFieldShow = this.showErrorMsgIfEmptyOrWhiteSpace(e),
-      errMsgLengthFieldBetween = this.showErrorMsgLength(e),
-      errMsgLengthFieldAnd = this.showErrorMsgLength(e),
-      enterBothDatesFieldAnd = this.enterBothDates(e),
-      enterBothDatesFieldBetween = this.enterBothDates(e),
-      notANumberB = this.notANumber(e),
-      notANumberA = this.notANumber(e),
+      dateValidBetween = this.dateValid(e),
+      dateValidAnd = this.dateValid(e),
       stopForm = this.preventFormSubmission(e),
-      showErrorMsgYearEarlier = this.showErrorMsgYearEarlier(e);
+      showErrorMsgEarlierBetween = this.showErrorMsgEarlierThan(e);
 
-    /**
-     * Field Show =============================================================
-     *  */
-    // Please enter keyword or catalogue reference
-    errMsgIfEmptyFieldShow(valueShow, 'errorShow', fieldShow.errorMsg);
-
-    /**
-     * Field Between ==========================================================
-     * */
-
-    // Error Message: Plese enter 4 digits
-    errMsgLengthFieldBetween(
-      valueShow,
-      valueBetween,
-      'errorBetween',
-      fieldBetween.errorMsgLength
-    );
-
-    // Error Message: Please enter both start date and end date
-    enterBothDatesFieldBetween(
-      valueAnd,
-      errorAnd,
-      valueBetween,
-      'errorBetween',
-      fieldBetween.errorMsgDateRange
-    );
-
-    // Error Message: You have entered an invalid date format
-    notANumberB(valueBetween, 'errorBetween', fieldBetween.errorMsgEarlier);
-
-    // Error Message: Between date must be earlier than And date
-    showErrorMsgYearEarlier(
+    // Error Message: Between date must be earlier than and date
+    showErrorMsgEarlierBetween(
       valueBetween,
       valueAnd,
       'errorBetween',
       fieldBetween.errorMsgEarlier
     );
 
-    /**
-     * Field And ============================================================
-     * */
+    // Error Message: Please enter keyword or catalogue reference
+    errMsgIfEmptyFieldShow(valueShow, 'errorShow', fieldShow.errorMsg);
 
-    // Error Message: Plese enter 4 digits
-    errMsgLengthFieldAnd(
-      valueShow,
-      valueAnd,
-      'errorAnd',
-      fieldAnd.errorMsgLength
-    );
-
-    // Error Message: Please enter both start date and end date
-    enterBothDatesFieldAnd(
+    // Error Message: You have entered an invalid date format
+    dateValidBetween(
       valueBetween,
-      errorBetween,
-      valueAnd,
-      'errorAnd',
-      fieldAnd.errorMsgDateRange
+      'errorBetween',
+      fieldBetween.errorMsgInvalid
     );
 
     // Error Message: You have entered an invalid date format
-    notANumberA(valueAnd, 'errorAnd', fieldAnd.errorMsgInvalid);
+    dateValidAnd(valueAnd, 'errorAnd', fieldAnd.errorMsgInvalid);
 
-    /**
-     * On Form Update
-     */
+    //On Form Update
     stopForm(errorShow, errorBetween, errorAnd);
+
+    this.stateIsOnFire();
 
     // Set the value to the hidden element
     this.hiddenRef.current.value = this.state.Data.form.hiddenField.valueHidden;
@@ -422,6 +338,10 @@ class HomePageSearchDiscovery extends Component {
                 {fieldAcross.label.text}
               </Select>
             </div>
+            <div className={grid.group.moreOptions}>
+              <Link url={links.moreOptions.url}>{links.moreOptions.text}</Link>{' '}
+              or <Link url={links.browse.url}>{links.browse.text}</Link>
+            </div>
             <div className={grid.group.search}>
               <Input
                 type={hiddenField.type}
@@ -435,10 +355,6 @@ class HomePageSearchDiscovery extends Component {
                 value={inputSearch.value}>
                 Search
               </Button>
-            </div>
-            <div className={grid.group.moreOptions}>
-              <Link url={links.moreOptions.url}>{links.moreOptions.text}</Link>{' '}
-              or <Link url={links.browse.url}>{links.browse.text}</Link>
             </div>
           </div>
         </Form>
