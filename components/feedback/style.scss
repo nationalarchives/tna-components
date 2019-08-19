@@ -39,7 +39,16 @@ $tna_outline: #fce45c;
   }
 }
 
-#details-feedback-wrapper, #what-to-expect-form {
+#what-to-expect-form {
+  margin: 3em 0 0;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+#details-feedback-wrapper,
+#what-to-expect-form {
   h2 {
     font-family: $tna_font;
     font-size: 1em;
@@ -140,7 +149,8 @@ $tna_outline: #fce45c;
             margin-right: 0;
           }
 
-          [type='text'], textarea {
+          [type='text'],
+          textarea {
             margin-top: 0.2em;
 
             margin-bottom: 0.2em;
@@ -253,7 +263,8 @@ $tna_outline: #fce45c;
   }
 
   button,
-  input, textarea {
+  input,
+  textarea {
     &:focus {
       outline: 2px solid $tna_outline;
     }

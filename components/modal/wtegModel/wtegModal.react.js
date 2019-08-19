@@ -27,7 +27,7 @@ class WTEGModal extends Component {
   focusModal = () => {
     if (document.getElementById('tnaModalComponent')) {
       const modal = document.getElementById('tnaModalComponent');
-      const focusableElsString = 'img.trap, button.trap';
+      const focusableElsString = 'figure.trap, button.trap';
       const focusableEls = modal.querySelectorAll(focusableElsString);
 
       const firstItemTab = focusableEls[0];
@@ -118,7 +118,7 @@ class WTEGModal extends Component {
     } = this;
     const {closeWindow} = this.state.Data.gtm;
     const {showModal} = this.state;
-    const {style} = this.state.Data;
+    const {style, figureCaption} = this.state.Data;
     const {src, alt, className, imgDsc} = this.props;
 
     return (
@@ -144,6 +144,7 @@ class WTEGModal extends Component {
             className="modal fadeIn"
             onClick={handleModalClick}>
             <ModalHeader
+              ariaLabel={`close ${figureCaption.toLowerCase()}`}
               className="trap close"
               autoFocus="autofocus"
               onClick={() => {
@@ -158,7 +159,7 @@ class WTEGModal extends Component {
               }}
             />
             <ModalContent>
-              <ModalImage src={src} alt={alt} />
+              <ModalImage src={src} alt={alt} figureCaption={figureCaption} />
             </ModalContent>
             <ModalFooter />
           </ModalWrapper>

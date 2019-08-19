@@ -7,7 +7,6 @@ class WTEGFeedbackWidget extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<h2>Feedback</h2>
 				<WTEGFeedbackForm />
 			</React.Fragment>
 		);
