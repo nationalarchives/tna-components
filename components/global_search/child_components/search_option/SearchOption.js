@@ -3,11 +3,13 @@ import React, {Component} from 'react';
 class SearchOption extends Component {
 
     render_search_options(arr) {
+        const {group_name, desktop} = this.props;
+
         return arr.map((item, index) =>
             <div key={index}>
-                <input name={this.props.group_name} type="radio" id={item.id}
+                <input name={group_name} type="radio" id={item.id}
                        defaultChecked={(index === 0) ? true : false}
-                       className={(this.props.desktop ? 'sr-only' : null)}/>
+                       className={(desktop ? 'sr-only' : null)}/>
                 <label htmlFor={item.id}>{item.label}</label>
             </div>
         )
