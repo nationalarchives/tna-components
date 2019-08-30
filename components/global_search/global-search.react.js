@@ -18,7 +18,7 @@ class GlobalSearch extends Component {
 
         this.state = {
 
-            show_search_options: true,
+            show_search_options: false,
             show_mobile_search: false,
 
             active_search: {}, // This is assigned to the first option below
