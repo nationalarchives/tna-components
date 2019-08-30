@@ -7,12 +7,6 @@ class GlobalSearch extends Component {
     constructor(props) {
         super(props);
 
-        this.handle_search_selection = this.handle_search_selection.bind(this);
-        this.toggle_search_options = this.toggle_search_options.bind(this);
-        this.search_bar_focused = this.search_bar_focused.bind(this);
-        this.get_select_search_type = this.get_select_search_type.bind(this);
-        this.show_hide_mobile = this.show_hide_mobile.bind(this);
-
         this.show_search_options_ref = React.createRef();
         this.show_hide_mobile_ref = React.createRef();
 
@@ -52,7 +46,7 @@ class GlobalSearch extends Component {
 
     }
 
-    handle_search_selection(e) {
+    handle_search_selection = (e) => {
         if (e.target.type === 'radio') {
             let selection = this.state.search_options.options.find((i) => {
                 return (e.target.id === i.id);
@@ -61,16 +55,16 @@ class GlobalSearch extends Component {
         }
     }
 
-    toggle_search_options() {
+    toggle_search_options = () => {
         this.setState({show_search_options: !this.state.show_search_options})
     }
 
-    search_bar_focused() {
+    search_bar_focused = () => {
         this.show_search_options_ref.current.checked = false;
         this.setState({show_search_options: false});
     }
 
-    get_select_search_type() {
+    get_select_search_type = () => {
         return (
             <fieldset id="select-search-type" onChange={this.handle_search_selection}>
                 <legend className="sr-only">{this.state.search_options.select_type}</legend>
@@ -81,7 +75,7 @@ class GlobalSearch extends Component {
         )
     }
 
-    show_hide_mobile(){
+    show_hide_mobile = () =>{
         this.setState({show_mobile_search: !this.state.show_mobile_search});
     }
 
