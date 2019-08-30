@@ -88,7 +88,6 @@ class GlobalSearch extends Component {
     render() {
         return (
             <div>
-
                 {(!this.props.desktop) ?
                     <fieldset id="mobile-search-options">
                         <legend className="sr-only">Show search box</legend>
