@@ -29,12 +29,12 @@ class GlobalSearch extends Component {
                 select_type: 'Select a search type',
                 options: [
                     {
-                        label: 'Search the website',
+                        label: 'Search our website',
                         id: 'website_search',
                         url: 'http://www.nationalarchives.gov.uk/search/results'
                     },
                     {
-                        label: 'Search Discovery, our catalogue',
+                        label: 'Search our records',
                         id: 'discovery_search',
                         url: 'http://discovery.nationalarchives.gov.uk/results/r'
                     }
