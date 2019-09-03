@@ -33,7 +33,7 @@
         "id": "search-all-collections",
         "placeholder": "Enter keyword(s)"
       },
-      "errorMsg": "Please enter keyword or catalogue reference"
+      "errorMsg": "Please enter a keyword or catalogue reference"
     },
     "fieldBetween": {
       "label": {
@@ -48,10 +48,8 @@
         "type": "text",
         "class": "small"
       },
-      "errorMsgLength": "Please enter a valid year, e.g. 1921",
-      "errorMsgDateRange": "Please enter both start date and end date",
-      "errorMsgInvalid": "Please enter a valid year, e.g. 1923",
-      "errorMsgEarlier": "Between date must be earlier than And date"
+      "errorMsgInvalid": "Please use the valid date format i.e. DD/MM/YYYY",
+      "errorMsgEarlier": "The start date must be earlier than the end date"
     },
     "fieldAnd": {
       "label": {
@@ -65,8 +63,7 @@
         "type": "text",
         "class": "small"
       },
-      "errorMsgLength": "Please enter a valid year, e.g. 1921",
-      "errorMsgInvalid": "Please enter a valid year, e.g. 1923"
+      "errorMsgInvalid": "Please use the valid date format i.e. DD/MM/YYYY"
     },
     "fieldAcross": {
       "label": {
@@ -78,7 +75,7 @@
         "class": "medium",
         "name": "_hb",
         "options": [
-          { "name": "All archives", "value": "all", "id": 1 },
+          { "name": "All archives", "value": "", "id": 1 },
           { "name": "The National Archives only", "value": "tna", "id": 2 },
           { "name": "Other archives only", "value": "oth", "id": 3 }
         ]
@@ -98,11 +95,11 @@
   "links": {
     "moreOptions": {
       "url": "https://discovery.nationalarchives.gov.uk/advanced-search",
-      "text": "Advance search"
+      "text": "Advanced search"
     },
     "browse": {
       "url": "https://discovery.nationalarchives.gov.uk/browse",
-      "text": "Browse"
+      "text": "browse"
     }
   },
   "gtm": {
