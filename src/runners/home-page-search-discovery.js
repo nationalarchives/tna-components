@@ -12,17 +12,19 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
     regexDevDiscovery = /http:\/\/localhost:81/i;
   if (
     url.match(regexDev) ||
-    (url.match(regexDevDiscovery) || (url.match(regexDevLive) && wrapper))
+    (url.match(regexTest) ||
+      url.match(regexDevDiscovery) ||
+      (url.match(regexDevLive) && wrapper))
   ) {
-    if (!document.querySelector('.primary-search-box')) {
+    if (!document.querySelector('.homepage-search-ui')) {
       let section = document.createElement('section');
-      section.className = 'primary-search-box';
+      section.className = 'homepage-search-ui';
 
       wrapper.appendChild(section);
     }
     ReactDOM.render(
       <HomePageSearchDiscovery />,
-      document.querySelector('.primary-search-box')
+      document.querySelector('.homepage-search-ui')
     );
   }
 }
