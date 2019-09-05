@@ -29,7 +29,6 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
-    "acorn": "^6.1.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^1.0.1",
     "cypress": "^3.4.1",

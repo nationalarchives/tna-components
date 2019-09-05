@@ -5,6 +5,7 @@
  **/
 
 const express = require('express'),
+<<<<<<< HEAD
 	app = express(),
 	port = 3000,
 	path = require('path'),
@@ -39,8 +40,11 @@ app.use('/help-with-your-research/research-guides', feedbackRouter);
 app.use('/results', recommendedLinksDiscovery);
 // Details Feedback Widget
 app.use('/details/r', detailsFeedbackRoutes);
+<<<<<<< HEAD
 //WTEG Feedback Widget
 app.use('/what-to-expect-guide', wtegViewRoutes);
+=======
+>>>>>>> e56ae741db4a549b93d7a359a40b6200536fdd42
 // Home page search Discovery
 app.use('/home-page-search-discovery', homePageSearchDiscovery);
 
