@@ -107,8 +107,8 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         >
           Advanced search
         </a>
+         or
          
-        or 
         <a
           href="https://discovery.nationalarchives.gov.uk/browse"
         >
