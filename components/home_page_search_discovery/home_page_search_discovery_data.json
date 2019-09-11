@@ -1,0 +1,119 @@
+{
+	"mainHead": "Explore The National Archives and more than 2,500 other archives",
+	"classNameContainer": "search-form-container",
+	"id": "discovery-homepage-search-react-component",
+	"form": {
+		"formId": "discoveryHomePageSearch",
+		"method": "get",
+		"action": "/results/r",
+		"role": "search",
+		"grid": {
+			"container": "grid-container",
+			"group": {
+				"headline": "Headline",
+				"mainSearch": "MainSearch",
+				"inputBetween": "InputBetween",
+				"inputAnd": "InputAnd",
+				"inputAcross": "InputAcross",
+				"search": "Search",
+				"moreOptions": "MoreOptions"
+			}
+		},
+		"fieldShow": {
+			"label": {
+				"text": "Search for",
+				"class": "fixed-width",
+				"for": "search-all-collections"
+			},
+			"input": {
+				"name": "_q",
+				"type": "text",
+				"req": "required",
+				"ariaRequired": "true",
+				"id": "search-all-collections",
+				"placeholder": "Enter keyword(s)"
+			},
+			"errorMsg": "Please enter a keyword or catalogue reference"
+		},
+		"fieldBetween": {
+			"label": {
+				"text": "Between",
+				"class": "fixed-width",
+				"for": "start-date"
+			},
+			"input": {
+				"id": "start-date",
+				"name": "_sd",
+				"placeholder": "Start year",
+				"type": "text",
+				"class": "small"
+			},
+			"errorMsgInvalid": "Please use the valid date format i.e. DD/MM/YYYY",
+			"errorMsgEarlier": "The start date must be earlier than the end date"
+		},
+		"fieldAnd": {
+			"label": {
+				"text": "and",
+				"for": "start-date"
+			},
+			"input": {
+				"id": "end-date",
+				"name": "_ed",
+				"placeholder": "End year",
+				"type": "text",
+				"class": "small"
+			},
+			"errorMsgInvalid": "Please use the valid date format i.e. DD/MM/YYYY"
+		},
+		"fieldAcross": {
+			"label": {
+				"text": "Held by",
+				"for": "held-by"
+			},
+			"select": {
+				"id": "held-by",
+				"class": "medium",
+				"name": "_hb",
+				"options": [
+					{ "name": "All archives", "value": "", "id": 1 },
+					{ "name": "The National Archives only", "value": "tna", "id": 2 },
+					{ "name": "Other archives only", "value": "oth", "id": 3 }
+				]
+			}
+		},
+		"inputSearch": {
+			"type": "submit",
+			"title": "Search",
+			"value": "Search"
+		},
+		"hiddenField": {
+			"valueHidden": "y",
+			"name": "_dhs",
+			"type": "hidden"
+		}
+	},
+	"links": {
+		"moreOptions": {
+			"url": "https://discovery.nationalarchives.gov.uk/advanced-search",
+			"text": "Advanced search"
+		},
+		"browse": {
+			"url": "https://discovery.nationalarchives.gov.uk/browse",
+			"text": "browse"
+		}
+	},
+	"gtm": {
+		"success": {
+			"event": "Discovery search",
+			"eventAction": "Discovery homepage search",
+			"eventCategory": "Successful search",
+			"eventLabel": "Fields used :"
+		},
+		"fail": {
+			"event": "Discovery search",
+			"eventAction": "Discovery homepage search",
+			"eventCategory": "Search errors",
+			"eventLabel": ""
+		}
+	}
+}
