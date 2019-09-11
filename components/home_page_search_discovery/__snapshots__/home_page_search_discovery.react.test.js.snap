@@ -4,6 +4,9 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
 <div
   id="discovery-homepage-search-react-component"
 >
+  <h1>
+    Explore The National Archives and more than 2,500 other archives
+  </h1>
   <form
     action="/results/r"
     id="discoveryHomePageSearch"
@@ -17,11 +20,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
     >
       <div
         className="Headline"
-      >
-        <h1>
-          Explore The National Archives and more than 2,500 other archives
-        </h1>
-      </div>
+      />
       <div
         className="MainSearch"
       >
