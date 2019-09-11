@@ -266,6 +266,7 @@ class HomePageSearchDiscovery extends Component {
 			} = form;
 		return (
 			<Wrapper id={id}>
+				<h1>{mainHead}</h1>
 				<Form
 					id={formId}
 					name={formId}
@@ -275,7 +276,6 @@ class HomePageSearchDiscovery extends Component {
 				>
 					<div className={grid.container} role={role}>
 						<div className={grid.group.headline}>
-							<h1>{mainHead}</h1>
 							<ErrorMessage {...this.state} />
 						</div>
 						<div className={grid.group.mainSearch}>
