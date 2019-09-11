@@ -15,11 +15,13 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
 			url.match(regexDevDiscovery) ||
 			(url.match(regexDevLive) && wrapper))
 	) {
-		if (!document.getElementById('discoveryHomePageSearch')) {
-			let form = document.createElement('form');
-			form.setAttribute('id', 'discoveryHomePageSearch');
-			wrapper.appendChild(form);
+		if (!document.querySelector('.homepage-search-ui')) {
+			let section = document.createElement('section');
+			wrapper.appendChild(section);
+			section.setAttribute('class', 'homepage-search-ui');
+			wrapper.append(section);
 		}
+
 		ReactDOM.render(
 			<HomePageSearchDiscovery />,
 			document.querySelector('.homepage-search-ui')

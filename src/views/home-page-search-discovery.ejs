@@ -5,62 +5,62 @@
     </head>
     <body class="home">
         <div id="page_wrap">
-            <div class="search-banner"></div>
-
-            <section class="homepage-search-ui" role="search">
-                <h1>Explore The National Archives and more than 2,500 other
-                    archives</h1>
-                <form id="discoveryHomePageSearch" method="get"
-                    action="/results/r">
-                    <div class="grid-container" role="search">
-                        <div class="Headline">
+            <div class="search-banner">
+                <div id="someDiv"></div>
+                <section class="homepage-search-ui" role="search">
+                    <h1>Explore The National Archives and more than 2,500 other
+                        archives</h1>
+                    <form id="discoveryHomePageSearch" method="get"
+                        action="/results/r">
+                        <div class="grid-container" role="search">
+                            <div class="Headline">
+                                ​
+                            </div>
+                            <div class="MainSearch">
+                                <label for="search-all-collections">
+                                    Search for
+                                </label>
+                                <input aria-required="true"
+                                    id="search-all-collections" name="_q"
+                                    placeholder="Enter keyword(s)"
+                                    required="required" type="text" value="">
+                            </div>
+                            <div class="InputBetween">
+                                <label for="Between">Between</label>
+                                <input id="start-date" name="_sd"
+                                    placeholder="Start
+                                    year" size="10" style="margin-top:15px;"
+                                    type="text" value="">
+                            </div>
+                            <div class="InputAnd">
+                                <label for="and">and</label>
+                                <input id="end-date" name="_ed" placeholder="End
+                                    year" size="10" style="margin-top:15px;"
+                                    type="text" value="">
+                            </div>
+                            <div class="InputAcross">
+                                <label for="Held_by"
+                                    style="color:white;margin-top:15px;">Held by</label>
+                                <select name="_hb" style="margin-top:15px;">
+                                    <option selected="selected" value="">All
+                                        Records</option>
+                                    <option value="tna">The National Archives
+                                        only</option>
+                                    <option value="oth">Other archives only</option>
+                                </select>
+                            </div>
                             ​
+                            <div class="MoreOptions">
+                                <a href="/advanced-search">Advanced search</a>
+                                or <a href="/browse">browse</a>
+                            </div>
+                            <div class="Search">
+                                <button type="submit">Search</button>
+                            </div>
                         </div>
-                        <div class="MainSearch">
-                            <label for="search-all-collections">
-                                Search for
-                            </label>
-                            <input aria-required="true"
-                                id="search-all-collections" name="_q"
-                                placeholder="Enter keyword(s)"
-                                required="required" type="text" value="">
-                        </div>
-                        <div class="InputBetween">
-                            <label for="Between">Between</label>
-                            <input id="start-date" name="_sd" placeholder="Start
-                                year" size="10" style="margin-top:15px;"
-                                type="text" value="">
-                        </div>
-                        <div class="InputAnd">
-                            <label for="and">and</label>
-                            <input id="end-date" name="_ed" placeholder="End
-                                year" size="10" style="margin-top:15px;"
-                                type="text"
-                                value="">
-                        </div>
-                        <div class="InputAcross">
-                            <label for="Held_by"
-                                style="color:white;margin-top:15px;">Held by</label>
-                            <select name="_hb" style="margin-top:15px;">
-                                <option selected="selected" value="">All Records</option>
-                                <option value="tna">The National Archives only</option>
-                                <option value="oth">Other archives only</option>
-                            </select>
-                        </div>
-                        ​
-                        <div class="MoreOptions">
-                            <a href="/advanced-search">Advanced search</a> or <a
-                                href="/browse">browse</a>
-                        </div>
-                        <div class="Search">
-                            <button type="submit">Search</button>
-                        </div>
-
-                        ​
-                    </div>
-                </form>
-            </section>
-
+                    </form>
+                </section>
+            </div>
         </div>
         <script>
       (function(w, d, s, l, i) {
