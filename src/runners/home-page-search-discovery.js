@@ -22,9 +22,9 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
 			wrapper.append(section);
 		}
 
-		ReactDOM.render(
-			<HomePageSearchDiscovery />,
-			document.querySelector('.homepage-search-ui')
+        ReactDOM.render(
+            <HomePageSearchDiscovery />,
+            document.querySelector('.homepage-search-ui')
 		);
 	}
 }
