@@ -1,12 +1,42 @@
 <html>
     <head>
         <title>Discovery Home Page Search</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="initial-scale=1.0" />
     </head>
     <body class="home">
         <div id="page_wrap">
             <div class="search-banner">
-                <div id="someDiv"></div>
+                <div class="container">
+                    <div class="row" id="holds-breadcrumb">
+                        <div class="col starts-at-half clr">
+                            <nav id="breadcrumb">
+                                <ul>
+                                    <li><a
+                                            href="https://www.nationalarchives.gov.uk">Home</a></li>
+                                    <li>Discovery</li>
+                                </ul>
+                            </nav>
+                        </div>
+
+                        <div class="col starts-at-half clr">
+                            <nav id="page-controls">
+                                <ul>
+                                    <li><a target="_blank"
+                                            href="https://www.nationalarchives.gov.uk/help-with-your-research/discovery-help/"><span>Discovery
+                                            </span><span>help</span></a> </li>
+                                    <li><a target="_blank"
+                                            href="https://www.smartsurvey.co.uk/s/discovery-nationalarchives"><span>Send
+                                                us
+                                            </span><span>feedback</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+
                 <section class="homepage-search-ui" role="search">
                     <h1>Explore The National Archives and more than 2,500 other
                         archives</h1>
@@ -14,7 +44,7 @@
                         action="/results/r">
                         <div class="grid-container" role="search">
                             <div class="Headline">
-                                ​
+
                             </div>
                             <div class="MainSearch">
                                 <label for="search-all-collections">
@@ -28,15 +58,16 @@
                             <div class="InputBetween">
                                 <label for="Between">Between</label>
                                 <input id="start-date" name="_sd"
-                                    placeholder="Start
-                                    year" size="10" style="margin-top:15px;"
-                                    type="text" value="">
+                                    placeholder="yyyy" size="10"
+                                    style="margin-top:15px;" type="text"
+                                    value="">
                             </div>
                             <div class="InputAnd">
                                 <label for="and">and</label>
-                                <input id="end-date" name="_ed" placeholder="End
-                                    year" size="10" style="margin-top:15px;"
-                                    type="text" value="">
+                                <input id="end-date" name="_ed"
+                                    placeholder="yyyy" size="10"
+                                    style="margin-top:15px;" type="text"
+                                    value="">
                             </div>
                             <div class="InputAcross">
                                 <label for="Held_by"
@@ -49,7 +80,7 @@
                                     <option value="oth">Other archives only</option>
                                 </select>
                             </div>
-                            ​
+
                             <div class="MoreOptions">
                                 <a href="/advanced-search">Advanced search</a>
                                 or <a href="/browse">browse</a>
@@ -57,9 +88,12 @@
                             <div class="Search">
                                 <button type="submit">Search</button>
                             </div>
+
+
                         </div>
                     </form>
                 </section>
+
             </div>
         </div>
         <script>

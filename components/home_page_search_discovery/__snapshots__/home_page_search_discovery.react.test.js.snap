@@ -49,7 +49,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
           name="_sd"
           onChange={[Function]}
           onKeyUp={[Function]}
-          placeholder="Start year"
+          placeholder="yyyy"
           type="text"
         />
       </div>
@@ -65,7 +65,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
           name="_ed"
           onChange={[Function]}
           onKeyUp={[Function]}
-          placeholder="End year"
+          placeholder="yyyy"
           type="text"
         />
       </div>
