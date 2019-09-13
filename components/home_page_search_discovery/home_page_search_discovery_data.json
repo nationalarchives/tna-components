@@ -44,7 +44,7 @@
 			"input": {
 				"id": "start-date",
 				"name": "_sd",
-				"placeholder": "Start year",
+				"placeholder": "yyyy",
 				"type": "text",
 				"class": "small"
 			},
@@ -59,7 +59,7 @@
 			"input": {
 				"id": "end-date",
 				"name": "_ed",
-				"placeholder": "End year",
+				"placeholder": "yyyy",
 				"type": "text",
 				"class": "small"
 			},
