@@ -8,8 +8,10 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
 		regexDev = /http:\/\/localhost:3000\/home-page-search-discovery/i,
 		regexTest = /https:\/\/test.discovery.nationalarchives.gov.uk/i,
 		regexDevLive = /http:\/\/dev.discovery.nationalarchives.gov.uk/i,
-		regexDevDiscovery = /http:\/\/localhost:81/i;
+		regexDevDiscovery = /http:\/\/localhost:81/i,
+		regexLive = /https:\/\/discovery.nationalarchives.gov.uk/;
 	if (
+		url.match(regexLive) ||
 		url.match(regexDev) ||
 		(url.match(regexTest) ||
 			url.match(regexDevDiscovery) ||
@@ -22,9 +24,9 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
 			wrapper.append(section);
 		}
 
-        ReactDOM.render(
-            <HomePageSearchDiscovery />,
-            document.querySelector('.homepage-search-ui')
+		ReactDOM.render(
+			<HomePageSearchDiscovery />,
+			document.querySelector('.homepage-search-ui')
 		);
 	}
 }
