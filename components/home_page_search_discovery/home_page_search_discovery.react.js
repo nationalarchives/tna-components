@@ -298,7 +298,9 @@ class HomePageSearchDiscovery extends Component {
 								for={fieldBetween.label.for}
 								placeholder={fieldBetween.input.placeholder}
 								type={fieldBetween.input.type}
-								name={fieldBetween.input.name}
+								name={
+									valueBetween === '' ? fieldAnd.input.name : fieldBetween.input.name
+								}
 								id={fieldBetween.input.id}
 								inputClass={errorBetween !== '' ? `form-warning` : null}
 								value={valueBetween}
