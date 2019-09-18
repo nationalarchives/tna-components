@@ -9,26 +9,26 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
 		regexTest = /https:\/\/test.discovery.nationalarchives.gov.uk/i,
 		regexDevLive = /http:\/\/dev.discovery.nationalarchives.gov.uk/i,
 		regexDevDiscovery = /http:\/\/localhost:81/i,
-		regexLive = /https:\/\/discovery.nationalarchives.gov.uk/;
+		regexLive = /https:\/\/discovery.nationalarchives.gov.uk/i;
 	if (
 		url.match(regexLive) ||
 		url.match(regexDev) ||
-		(url.match(regexTest) ||
-			url.match(regexDevDiscovery) ||
-			(url.match(regexDevLive) && wrapper))
+		url.match(regexTest) ||
+		url.match(regexDevDiscovery) ||
+		url.match(regexDevLive)
 	) {
-		if (document.querySelector('.homepage-search-ui') === null) {
-			let section = document.createElement('section');
-			if (wrapper) {
+		if (wrapper) {
+			if (document.querySelector('.homepage-search-ui') === null) {
+				let section = document.createElement('section');
 				wrapper.appendChild(section);
 				section.setAttribute('class', 'homepage-search-ui');
 				wrapper.append(section);
 			}
-		}
 
-		ReactDOM.render(
-			<HomePageSearchDiscovery />,
-			document.querySelector('.homepage-search-ui')
-		);
+			ReactDOM.render(
+				<HomePageSearchDiscovery />,
+				document.querySelector('.homepage-search-ui')
+			);
+		}
 	}
 }
