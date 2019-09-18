@@ -17,11 +17,13 @@ import HomePageSearchDiscovery from '../../components/home_page_search_discovery
 			url.match(regexDevDiscovery) ||
 			(url.match(regexDevLive) && wrapper))
 	) {
-		if (!document.querySelector('.homepage-search-ui')) {
+		if (document.querySelector('.homepage-search-ui') === null) {
 			let section = document.createElement('section');
-			wrapper.appendChild(section);
-			section.setAttribute('class', 'homepage-search-ui');
-			wrapper.append(section);
+			if (wrapper) {
+				wrapper.appendChild(section);
+				section.setAttribute('class', 'homepage-search-ui');
+				wrapper.append(section);
+			}
 		}
 
 		ReactDOM.render(
