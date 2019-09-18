@@ -46,7 +46,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         <input
           className={null}
           id="start-date"
-          name="_sd"
+          name="_ed"
           onChange={[Function]}
           onKeyUp={[Function]}
           placeholder="yyyy"
@@ -62,7 +62,7 @@ exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
         <input
           className={null}
           id="end-date"
-          name="_ed"
+          name="_sd"
           onChange={[Function]}
           onKeyUp={[Function]}
           placeholder="yyyy"
