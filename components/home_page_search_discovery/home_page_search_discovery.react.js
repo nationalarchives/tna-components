@@ -298,7 +298,9 @@ class HomePageSearchDiscovery extends Component {
 								for={fieldBetween.label.for}
 								placeholder={fieldBetween.input.placeholder}
 								type={fieldBetween.input.type}
-								name={fieldBetween.input.name}
+								name={
+									valueBetween === '' ? fieldAnd.input.name : fieldBetween.input.name
+								}
 								id={fieldBetween.input.id}
 								inputClass={errorBetween !== '' ? `form-warning` : null}
 								value={valueBetween}
@@ -313,7 +315,9 @@ class HomePageSearchDiscovery extends Component {
 								for={fieldAnd.label.for}
 								placeholder={fieldAnd.input.placeholder}
 								type={fieldAnd.input.type}
-								name={fieldAnd.input.name}
+								name={
+									valueBetween === '' ? fieldBetween.input.name : fieldAnd.input.name
+								}
 								id={fieldAnd.input.id}
 								inputClass={errorAnd !== '' ? `form-warning` : null}
 								value={valueAnd}
