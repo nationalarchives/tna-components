@@ -24,7 +24,7 @@ class HomePageSearchDiscovery extends Component {
 		errorBetween: '',
 		errorAnd: '',
 		success: null,
-		regEx: /^((0[1-9]|[[1-2][0-9]|3[0-1])\/(0[1-9]|1[012])\/)?[12][0-9]{3}$/
+		regEx: /^(((0[1-9]|[[1-2]\d|3[0-1])\/)?(0[1-9]|1[012])\/)?[12]\d{3}$/
 	};
 
 	// Preserve the initial state in a new object
