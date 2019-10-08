@@ -17,6 +17,7 @@ const express = require('express'),
 	detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
 	wtegViewRoutes = require('./src/routes/wtegViewRoutes'),
 	homePageSearchDiscovery = require('./src/routes/homePageSearchDiscovery');
+	globalSearch = require('./src/routes/globalSearchRoutes')
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -43,6 +44,9 @@ app.use('/details/r', detailsFeedbackRoutes);
 app.use('/what-to-expect-guide', wtegViewRoutes);
 // Home page search Discovery
 app.use('/home-page-search-discovery', homePageSearchDiscovery);
+
+app.use('/global-search', globalSearch);
+
 
 // Set the port of the application and log the info
 app.listen(port, () =>
