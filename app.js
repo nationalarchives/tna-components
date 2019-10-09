@@ -17,7 +17,7 @@ const express = require('express'),
 	detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
 	wtegViewRoutes = require('./src/routes/wtegViewRoutes'),
 	homePageSearchDiscovery = require('./src/routes/homePageSearchDiscovery');
-	globalSearch = require('./src/routes/globalSearchRoutes')
+	globalSearch = require('./src/routes/globalSearchRoutes');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);

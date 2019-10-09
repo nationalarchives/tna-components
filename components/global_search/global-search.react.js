@@ -29,7 +29,7 @@ class GlobalSearch extends Component {
                 select_type: 'Select a search type',
                 options: [
                     {
-                        label: 'Search our website',
+                        label: 'Search our website HELLO WORLD',
                         id: 'website_search',
                         url: 'http://www.nationalarchives.gov.uk/search/results'
                     },
@@ -140,8 +140,8 @@ class GlobalSearch extends Component {
                         <input type="submit" className='search-submit focusable-outline'/>
                     </fieldset>
 
-                    {(state.show_search_options === true && !props.desktop) ?
-                        get_select_search_type() : null
+                    {(!props.desktop) ?
+                        get_select_search_type() : 'Hello'
                     }
                 </form>
             </div>
