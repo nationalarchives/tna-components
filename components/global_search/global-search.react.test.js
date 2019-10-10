@@ -23,33 +23,9 @@ it('renders a form with the correct className and action', () => {
     expect(rendered_component_child.type).toBe('form');
     expect(rendered_component_child.props.className).toBe('global-search-js');
     expect(rendered_component_child.props.role).toBe('search');
-    expect(rendered_component_child.props.action).toBe('http://www.nationalarchives.gov.uk/search/results');
+    expect(rendered_component_child.props.action).toBe('https://www.nationalarchives.gov.uk/search/results');
 });
 
-it(`contains a 'select-search-type' fieldset and legend with the correct text`, () => {
-    const fieldset = test_instance.findByProps({id: 'select-search-type'});
-    expect(fieldset.type).toBe('fieldset');
-
-    const legend = fieldset.findByType('legend');
-    expect(legend.type).toBe('legend');
-    expect(legend.children[0]).toBe(instance.state.search_options.select_type);
-});
-
-it('contains a radio button and label for website search', () => {
-    const website_search_radio = test_instance.findByProps({id: 'website_search'});
-    expect(website_search_radio.type).toBe('input');
-
-    const website_search_label = test_instance.findByProps({htmlFor: 'website_search'});
-    expect(website_search_label.type).toBe('label');
-});
-
-it('contains a radio button and label for discovery search', () => {
-    const discovery_search_radio = test_instance.findByProps({id: 'discovery_search'});
-    expect(discovery_search_radio.type).toBe('input');
-
-    const discovery_search_label = test_instance.findByProps({htmlFor: 'discovery_search'});
-    expect(discovery_search_label.type).toBe('label');
-});
 
 it('changes the form action to Discovery when that option is selected', () => {
 
@@ -61,6 +37,7 @@ it('changes the form action to Discovery when that option is selected', () => {
 it('updates the visibility of search options in response to change to the checkbox', () => {
 
     // Test that the component is updated in response to a change event
+    // Have posted a question on Stack Overflow:
     // Have posted a question on Stack Overflow:
     // https://stackoverflow.com/questions/53026675/
 });

@@ -99,7 +99,7 @@ describe('Check that all the HTML elements exist', () => {
     });
 
 
-    it('contains discovery search and label for discovery search', ()=>{
+    it('changes to discovery search', ()=>{
       cy.visit('http://localhost:3000/global-search');
 
       cy.get('form').each(($element, index) => {
