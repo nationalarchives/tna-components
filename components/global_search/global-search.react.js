@@ -31,12 +31,12 @@ class GlobalSearch extends Component {
                     {
                         label: 'Search our website',
                         id: 'website_search',
-                        url: 'http://www.nationalarchives.gov.uk/search/results'
+                        url: 'https://www.nationalarchives.gov.uk/search/results'
                     },
                     {
                         label: 'Search our records',
                         id: 'discovery_search',
-                        url: 'http://discovery.nationalarchives.gov.uk/results/r'
+                        url: 'https://discovery.nationalarchives.gov.uk/results/r'
                     }
                 ]
             }
