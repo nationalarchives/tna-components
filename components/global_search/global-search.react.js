@@ -141,7 +141,7 @@ class GlobalSearch extends Component {
                     </fieldset>
 
                     {(!props.desktop) ?
-                        get_select_search_type() : 'Hello'
+                        get_select_search_type() : null
                     }
                 </form>
             </div>
