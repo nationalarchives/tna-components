@@ -136,7 +136,7 @@ class GlobalSearch extends Component {
                         <legend className="sr-only">{state.search_query_legend}</legend>
                         <input
                                id={state.active_search.search_id}
-                               type="search" autoComplete="off" role="search" name="_q"
+                               type="search" autoComplete="off" name="_q"
                                aria-label={state.active_search.label}
                                placeholder={state.active_search.label}
                                className='focusable-outline'
