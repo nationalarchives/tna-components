@@ -112,7 +112,7 @@ class GlobalSearch extends Component {
                     </fieldset>
                      : null }
 
-                <form aria-labelledby="global_search_label" role="search" aria-hidden={(!props.desktop && !state.show_mobile_search)}
+                <form aria-label={state.component_label} role="search" aria-hidden={(!props.desktop && !state.show_mobile_search)}
                       action={state.active_search.url} className='global-search-js'>
 
                     {(props.desktop) ?
