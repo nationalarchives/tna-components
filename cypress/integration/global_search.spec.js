@@ -56,5 +56,29 @@ describe('Check that all the HTML elements exist', () => {
     })
   })
 
+  it('has a fieldset that contains the correct legend',  ()=> {
+    cy.visit('http://localhost:3000/global-search');
+
+    cy.get('form').each(($element, index) => {
+
+      if(index == 0){
+        cy.get('.show-search-options').click();
+      }
+      else {
+        cy.viewport('iphone-6+');
+        cy.get('.show-hide-mobile').click();
+      }
+
+      cy.get($element).find('#select-search-type')
+          .should('have.prop', 'tagName' )
+          .should('eq', 'FIELDSET');
+
+      cy.get($element).find('#select-search-type legend')
+          .contains('Select a search type' )
+
+
+    })
+  })
+
 
 });
