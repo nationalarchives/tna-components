@@ -28,8 +28,6 @@ describe('Checks that the element loads in the correct state', () => {
         cy.get($element).find('#select-search-type').should('exist');
       }
 
-
-
     })
 
 

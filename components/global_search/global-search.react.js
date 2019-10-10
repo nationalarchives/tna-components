@@ -29,7 +29,7 @@ class GlobalSearch extends Component {
                 select_type: 'Select a search type',
                 options: [
                     {
-                        label: 'Search our website HELLO WORLD',
+                        label: 'Search our website',
                         id: 'website_search',
                         url: 'http://www.nationalarchives.gov.uk/search/results'
                     },
