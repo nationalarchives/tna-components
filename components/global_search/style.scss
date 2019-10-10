@@ -38,6 +38,8 @@
     cursor: pointer;
     display: inline-block;
     background: #555 url(src/arrow_down.svg) no-repeat center;
+    background-size: 70%;
+
 
   }
 
@@ -45,6 +47,7 @@
     input[type=checkbox] {
 
       &:checked + label {
+        background-size: 70%;
         background-image: url(src/arrow_up.svg);
       }
 
@@ -113,6 +116,7 @@
       position: absolute;
       right: 0;
       top: -5rem;
+      background-size: 60%;
     }
 
     #select-search-type {
@@ -160,11 +164,14 @@
     color: transparent;
     cursor: pointer;
     background: $button-bg url(src/search_icon.svg) no-repeat center;
+    background-size: 60%;
     display: inline-block;
     vertical-align: top;
 
     &:hover, &:focus {
       background: $button-focus-hover-bg url(src/search_icon_dark.svg) no-repeat center;
+      background-size: 60%;
+
     }
 
   }
