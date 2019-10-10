@@ -2,7 +2,7 @@
 
   $outline-colour: #1d70b8;
   $button-bg: #26262a;
-  $button-focus-hover-bg: #fff;
+  $button-focus-hover-bg: #fce45c;
   $button-focus-hover-text: #000;
 
   display: block;
@@ -65,8 +65,7 @@
 
     #select-search-type {
       position: absolute;
-      width: 45%;
-      max-width: 225px;
+      width: 18.2rem;
       top: 4rem;
       background-color: #333;
     }
@@ -76,8 +75,7 @@
     }
 
    input[type="search"]{
-     width: 60%;
-     max-width: 225px;
+     width: 18rem;
    }
 
     input[type=radio] {
@@ -158,18 +156,19 @@
   }
 
   .search-submit {
-    margin-top: 14px;
     text-align: center;
-    color: #fff;
+    width: 4rem;
+    height: 4rem;
+    color: transparent;
     cursor: pointer;
-    background: $button-bg;
-    background-size: 60%;
+    background: $button-bg url(src/search_icon.svg) no-repeat center;
     display: inline-block;
     vertical-align: top;
+    background-size: 60%;
 
     &:hover, &:focus {
-      background: $button-focus-hover-bg;
-      color: $button-focus-hover-text;
+      background: $button-focus-hover-bg url(src/search_icon_dark.svg) no-repeat center;
+      background-size: 60%;
     }
 
   }
