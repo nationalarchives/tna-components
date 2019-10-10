@@ -17,7 +17,7 @@ describe('Checks that the element loads in the correct state', () => {
     cy.get('form').each(($element) => {
 
       cy.get($element).find('#search-query input')
-          .should('have.attr', 'placeholder', 'Search our website')
+          .should('have.attr', 'placeholder', 'Search our website');
     })
 
   });
@@ -53,8 +53,8 @@ describe('Check that all the HTML elements exist', () => {
       cy.get($element).should('have.attr', 'role', 'search');
       cy.get($element).should('have.attr', 'action', 'https://www.nationalarchives.gov.uk/search/results');
 
-    })
-  })
+    });
+  });
 
   it('has a fieldset that contains the correct legend',  ()=> {
     cy.visit('http://localhost:3000/global-search');
@@ -74,11 +74,29 @@ describe('Check that all the HTML elements exist', () => {
           .should('eq', 'FIELDSET');
 
       cy.get($element).find('#select-search-type legend')
-          .contains('Select a search type' )
+          .contains('Select a search type');
 
 
-    })
-  })
+    });
+  });
+
+  it('contains website search and label for website search', ()=>{
+    cy.visit('http://localhost:3000/global-search');
+
+      cy.get('form').each(($element, index) => {
+
+        cy.get($element).find('#website_search')
+            .should('exist')
+            .should('have.prop', 'tagName' )
+            .should('eq', 'INPUT');
+
+        cy.get($element).find('label[for="website_search"]')
+            .should('exist')
+            .contains('Search our website')
+
+      });
+
+    });
 
 
 });

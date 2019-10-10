@@ -132,11 +132,16 @@ class GlobalSearch extends Component {
 
                     <fieldset id="search-query">
                         <legend className="sr-only">{state.search_query_legend}</legend>
-                        <input type="search" autoComplete="off" role="search" name="_q"
+                        <input
+                               id={state.active_search.id}
+                               type="search" autoComplete="off" role="search" name="_q"
                                aria-label={state.active_search.label}
                                placeholder={state.active_search.label}
                                className='focusable-outline'
                                onFocus={search_bar_focused}/>
+                        <label htmlFor={state.active_search.id}>
+                            <span className="sr-only">{state.active_search.label}</span>
+                        </label>
                         <input type="submit" className='search-submit focusable-outline'/>
                     </fieldset>
 
