@@ -142,12 +142,11 @@ class GlobalSearch extends Component {
                         <label htmlFor={state.active_search.id}>
                             <span className="sr-only">{state.active_search.label}</span>
                         </label>
+                        {(!props.desktop) ?
+                            get_select_search_type() : null
+                        }
                         <input type="submit" className='search-submit focusable-outline' value='Search'/>
                     </fieldset>
-
-                    {(!props.desktop) ?
-                        get_select_search_type() : null
-                    }
                 </form>
             </div>
         );

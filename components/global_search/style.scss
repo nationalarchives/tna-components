@@ -38,7 +38,7 @@
     cursor: pointer;
     display: inline-block;
     background: #555 url(src/arrow_down.svg) no-repeat center;
-    background-size: 70%;
+    background-size: 60%;
 
 
   }
@@ -47,7 +47,7 @@
     input[type=checkbox] {
 
       &:checked + label {
-        background-size: 70%;
+        background-size: 60%;
         background-image: url(src/arrow_up.svg);
       }
 
@@ -102,9 +102,49 @@
 
     }
 
+    .search-submit {
+      text-align: center;
+      width: 4rem;
+      height: 4rem;
+      color: transparent;
+      cursor: pointer;
+      background: $button-bg url(src/search_icon.svg) no-repeat center;
+      display: inline-block;
+      vertical-align: top;
+      background-size: 60%;
+
+      &:hover, &:focus {
+        background: $button-focus-hover-bg url(src/search_icon_dark.svg) no-repeat center;
+        background-size: 60%;
+        color: #000;
+      }
+
+    }
+
   }
 
   @media screen and (max-width: 767px) {
+
+    form {
+      margin-top: 14px;
+    }
+
+    .search-submit {
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      background: $button-bg;
+      display: inline-block;
+      vertical-align: top;
+      background-size: 60%;
+      margin-top: 14px;
+      &:hover, &:focus {
+        background: $button-focus-hover-bg;
+        background-size: 60%;
+        color: #000;
+      }
+
+    }
 
     .show-hide-mobile {
       background: url(src/search_icon.svg) no-repeat center;
@@ -119,7 +159,7 @@
 
     #select-search-type {
       width: 100%;
-
+      margin-top: 7px !important;
       div {
         display: inline-block;
         padding-right: 2rem;
@@ -152,24 +192,6 @@
     text-indent: 1rem;
     display: inline-block;
     color: #000;
-
-  }
-
-  .search-submit {
-    text-align: center;
-    width: 4rem;
-    height: 4rem;
-    color: transparent;
-    cursor: pointer;
-    background: $button-bg url(src/search_icon.svg) no-repeat center;
-    display: inline-block;
-    vertical-align: top;
-    background-size: 60%;
-
-    &:hover, &:focus {
-      background: $button-focus-hover-bg url(src/search_icon_dark.svg) no-repeat center;
-      background-size: 60%;
-    }
 
   }
 
