@@ -2,7 +2,7 @@
 
   $outline-colour: #1d70b8;
   $button-bg: #26262a;
-  $button-focus-hover-bg: #fce45c;
+  $button-focus-hover-bg: #fff;
   $button-focus-hover-text: #000;
 
   display: block;
@@ -158,20 +158,18 @@
   }
 
   .search-submit {
+    margin-top: 14px;
     text-align: center;
-    width: 4rem;
-    height: 4rem;
-    color: transparent;
+    color: #fff;
     cursor: pointer;
-    background: $button-bg url(src/search_icon.svg) no-repeat center;
+    background: $button-bg;
     background-size: 60%;
     display: inline-block;
     vertical-align: top;
 
     &:hover, &:focus {
-      background: $button-focus-hover-bg url(src/search_icon_dark.svg) no-repeat center;
-      background-size: 60%;
-
+      background: $button-focus-hover-bg;
+      color: $button-focus-hover-text;
     }
 
   }
