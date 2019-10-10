@@ -85,12 +85,12 @@ describe('Check that all the HTML elements exist', () => {
 
       cy.get('form').each(($element, index) => {
 
-        cy.get($element).find('#website_search')
+        cy.get($element).find('#website_search_box')
             .should('exist')
             .should('have.prop', 'tagName' )
             .should('eq', 'INPUT');
 
-        cy.get($element).find('label[for="website_search"]')
+        cy.get($element).find('label[for="website_search_box"]')
             .should('exist')
             .contains('Search our website')
 
@@ -113,17 +113,17 @@ describe('Check that all the HTML elements exist', () => {
         }
 
         cy.get($element)
-            .find('label[for="discovery_search"]')
-            .click({multiple: true})
+            .find('#discovery_search')
+            .click({force: true});
 
-        cy.get($element).find('#website_search')
+        cy.get($element).find('#discovery_search_box')
             .should('exist')
             .should('have.prop', 'tagName' )
             .should('eq', 'INPUT');
 
-        cy.get($element).find('label[for="website_search"]')
+        cy.get($element).find('label[for="discovery_search_box"]')
             .should('exist')
-            .contains('Search our website')
+            .contains('Search our records')
 
       });
 

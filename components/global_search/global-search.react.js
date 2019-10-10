@@ -31,11 +31,13 @@ class GlobalSearch extends Component {
                     {
                         label: 'Search our website',
                         id: 'website_search',
+                        search_id: 'website_search_box',
                         url: 'https://www.nationalarchives.gov.uk/search/results'
                     },
                     {
                         label: 'Search our records',
                         id: 'discovery_search',
+                        search_id: 'discovery_search_box',
                         url: 'https://discovery.nationalarchives.gov.uk/results/r'
                     }
                 ]
@@ -133,13 +135,13 @@ class GlobalSearch extends Component {
                     <fieldset id="search-query">
                         <legend className="sr-only">{state.search_query_legend}</legend>
                         <input
-                               id={state.active_search.id}
+                               id={state.active_search.search_id}
                                type="search" autoComplete="off" role="search" name="_q"
                                aria-label={state.active_search.label}
                                placeholder={state.active_search.label}
                                className='focusable-outline'
                                onFocus={search_bar_focused}/>
-                        <label htmlFor={state.active_search.id}>
+                        <label htmlFor={state.active_search.search_id}>
                             <span className="sr-only">{state.active_search.label}</span>
                         </label>
                         {(!props.desktop) ?
