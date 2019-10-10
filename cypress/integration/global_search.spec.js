@@ -99,4 +99,34 @@ describe('Check that all the HTML elements exist', () => {
     });
 
 
+    it('contains discovery search and label for discovery search', ()=>{
+      cy.visit('http://localhost:3000/global-search');
+
+      cy.get('form').each(($element, index) => {
+
+        if(index == 0){
+          cy.get('.show-search-options').click();
+        }
+        else {
+          cy.viewport('iphone-6+');
+          cy.get('.show-hide-mobile').click();
+        }
+
+        cy.get($element)
+            .find('label[for="discovery_search"]')
+            .click({multiple: true})
+
+        cy.get($element).find('#website_search')
+            .should('exist')
+            .should('have.prop', 'tagName' )
+            .should('eq', 'INPUT');
+
+        cy.get($element).find('label[for="website_search"]')
+            .should('exist')
+            .contains('Search our website')
+
+      });
+
+  });
+
 });
