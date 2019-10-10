@@ -53,7 +53,7 @@ it(`contains a 'search-query' fieldset and legend with the correct text`, () => 
 
 it(`contains a labelled search element with the correct properties`, () => {
     const fieldset = test_instance.findByProps({id: 'search-query'});
-    const search_field = fieldset.findByProps({role: 'search'});
+    const search_field = fieldset.findByProps({id: 'website_search_box'});
     expect(search_field.props.type).toBe('search'); // This tests the 'type' attribute
     expect(search_field.type).toBe('input');
     expect(search_field.props['aria-label']).toBe(instance.state.active_search.label);
