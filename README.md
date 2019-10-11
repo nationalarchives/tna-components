@@ -123,7 +123,7 @@ In this way we are able to develop and maintain components centrally while allow
 *  !! Important: Rember to revert back to `"test": "jest"` before pushing anything to the repository or otherwise will cause a loop into Travis CI and fail the build
 
 **Cypress E2E testing**
-* `./node_modules/.bin/cypress open`
+* `./node_modules/.bin/cypress open` or `npx cypress open`
 
 ### Steps to create a new component
 
