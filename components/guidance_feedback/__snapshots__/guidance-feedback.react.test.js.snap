@@ -9,29 +9,31 @@ exports[`Hide the form and button elements on submit 1`] = `
   <h2>
     Feedback
   </h2>
-  <h3
-    id="aria"
-  >
-    Did you find the guidance you needed?
-  </h3>
-  <button
-    aria-describedby="aria"
-    className="btnGF--no show"
-    name="btnGF--no"
-    onClick={[Function]}
-    type="button"
-  >
-    No
-  </button>
-  <button
-    aria-describedby="aria"
-    className="btnGF--yes show"
-    name="btnGF--yes"
-    onClick={[Function]}
-    type="button"
-  >
-    Yes
-  </button>
+  <fieldset>
+    <legend
+      id="aria"
+    >
+      Did you find the guidance you needed?
+    </legend>
+    <button
+      aria-describedby="aria"
+      className="btnGF--no show"
+      name="btnGF--no"
+      onClick={[Function]}
+      type="button"
+    >
+      No
+    </button>
+    <button
+      aria-describedby="aria"
+      className="btnGF--yes show"
+      name="btnGF--yes"
+      onClick={[Function]}
+      type="button"
+    >
+      Yes
+    </button>
+  </fieldset>
   <fieldset
     className="hide"
   >
@@ -71,29 +73,31 @@ exports[`Hide the form and button elements on submit 2`] = `
   <h2>
     Feedback
   </h2>
-  <h3
-    id="aria"
-  >
-    Thank you for your feedback.
-  </h3>
-  <button
-    aria-describedby="aria"
-    className="btnGF--no hide"
-    name="btnGF--no"
-    onClick={[Function]}
-    type="button"
-  >
-    No
-  </button>
-  <button
-    aria-describedby="aria"
-    className="btnGF--yes hide"
-    name="btnGF--yes"
-    onClick={[Function]}
-    type="button"
-  >
-    Yes
-  </button>
+  <fieldset>
+    <legend
+      id="aria"
+    >
+      Thank you for your feedback.
+    </legend>
+    <button
+      aria-describedby="aria"
+      className="btnGF--no hide"
+      name="btnGF--no"
+      onClick={[Function]}
+      type="button"
+    >
+      No
+    </button>
+    <button
+      aria-describedby="aria"
+      className="btnGF--yes hide"
+      name="btnGF--yes"
+      onClick={[Function]}
+      type="button"
+    >
+      Yes
+    </button>
+  </fieldset>
   <fieldset
     className="hide"
   >
@@ -133,29 +137,31 @@ exports[`Revert the widget back to the initial state when click on CANCEL 1`] = 
   <h2>
     Feedback
   </h2>
-  <h3
-    id="aria"
-  >
-    Did you find the guidance you needed?
-  </h3>
-  <button
-    aria-describedby="aria"
-    className="btnGF--no show"
-    name="btnGF--no"
-    onClick={[Function]}
-    type="button"
-  >
-    No
-  </button>
-  <button
-    aria-describedby="aria"
-    className="btnGF--yes show"
-    name="btnGF--yes"
-    onClick={[Function]}
-    type="button"
-  >
-    Yes
-  </button>
+  <fieldset>
+    <legend
+      id="aria"
+    >
+      Did you find the guidance you needed?
+    </legend>
+    <button
+      aria-describedby="aria"
+      className="btnGF--no show"
+      name="btnGF--no"
+      onClick={[Function]}
+      type="button"
+    >
+      No
+    </button>
+    <button
+      aria-describedby="aria"
+      className="btnGF--yes show"
+      name="btnGF--yes"
+      onClick={[Function]}
+      type="button"
+    >
+      Yes
+    </button>
+  </fieldset>
   <fieldset
     className="hide"
   >
@@ -195,29 +201,31 @@ exports[`Revert the widget back to the initial state when click on CANCEL 2`] = 
   <h2>
     Feedback
   </h2>
-  <h3
-    id="aria"
-  >
-    Did you find the guidance you needed?
-  </h3>
-  <button
-    aria-describedby="aria"
-    className="btnGF--no show"
-    name="btnGF--no"
-    onClick={[Function]}
-    type="button"
-  >
-    No
-  </button>
-  <button
-    aria-describedby="aria"
-    className="btnGF--yes show"
-    name="btnGF--yes"
-    onClick={[Function]}
-    type="button"
-  >
-    Yes
-  </button>
+  <fieldset>
+    <legend
+      id="aria"
+    >
+      Did you find the guidance you needed?
+    </legend>
+    <button
+      aria-describedby="aria"
+      className="btnGF--no show"
+      name="btnGF--no"
+      onClick={[Function]}
+      type="button"
+    >
+      No
+    </button>
+    <button
+      aria-describedby="aria"
+      className="btnGF--yes show"
+      name="btnGF--yes"
+      onClick={[Function]}
+      type="button"
+    >
+      Yes
+    </button>
+  </fieldset>
   <fieldset
     className="hide"
   >
@@ -257,29 +265,31 @@ exports[`Show the relevant form elements when click on NO or YES button 1`] = `
   <h2>
     Feedback
   </h2>
-  <h3
-    id="aria"
-  >
-    Did you find the guidance you needed?
-  </h3>
-  <button
-    aria-describedby="aria"
-    className="btnGF--no show"
-    name="btnGF--no"
-    onClick={[Function]}
-    type="button"
-  >
-    No
-  </button>
-  <button
-    aria-describedby="aria"
-    className="btnGF--yes show"
-    name="btnGF--yes"
-    onClick={[Function]}
-    type="button"
-  >
-    Yes
-  </button>
+  <fieldset>
+    <legend
+      id="aria"
+    >
+      Did you find the guidance you needed?
+    </legend>
+    <button
+      aria-describedby="aria"
+      className="btnGF--no show"
+      name="btnGF--no"
+      onClick={[Function]}
+      type="button"
+    >
+      No
+    </button>
+    <button
+      aria-describedby="aria"
+      className="btnGF--yes show"
+      name="btnGF--yes"
+      onClick={[Function]}
+      type="button"
+    >
+      Yes
+    </button>
+  </fieldset>
   <fieldset
     className="hide"
   >
@@ -319,29 +329,31 @@ exports[`Show the relevant form elements when click on NO or YES button 2`] = `
   <h2>
     Feedback
   </h2>
-  <h3
-    id="aria"
-  >
-    Did you find the guidance you needed?
-  </h3>
-  <button
-    aria-describedby="aria"
-    className="btnGF--no hide"
-    name="btnGF--no"
-    onClick={[Function]}
-    type="button"
-  >
-    No
-  </button>
-  <button
-    aria-describedby="aria"
-    className="btnGF--yes hide"
-    name="btnGF--yes"
-    onClick={[Function]}
-    type="button"
-  >
-    Yes
-  </button>
+  <fieldset>
+    <legend
+      id="aria"
+    >
+      Did you find the guidance you needed?
+    </legend>
+    <button
+      aria-describedby="aria"
+      className="btnGF--no hide"
+      name="btnGF--no"
+      onClick={[Function]}
+      type="button"
+    >
+      No
+    </button>
+    <button
+      aria-describedby="aria"
+      className="btnGF--yes hide"
+      name="btnGF--yes"
+      onClick={[Function]}
+      type="button"
+    >
+      Yes
+    </button>
+  </fieldset>
   <fieldset
     className="show"
   >
@@ -381,29 +393,31 @@ exports[`Show the relevant form elements when click on NO or YES button 3`] = `
   <h2>
     Feedback
   </h2>
-  <h3
-    id="aria"
-  >
-    Did you find the guidance you needed?
-  </h3>
-  <button
-    aria-describedby="aria"
-    className="btnGF--no show"
-    name="btnGF--no"
-    onClick={[Function]}
-    type="button"
-  >
-    No
-  </button>
-  <button
-    aria-describedby="aria"
-    className="btnGF--yes show"
-    name="btnGF--yes"
-    onClick={[Function]}
-    type="button"
-  >
-    Yes
-  </button>
+  <fieldset>
+    <legend
+      id="aria"
+    >
+      Did you find the guidance you needed?
+    </legend>
+    <button
+      aria-describedby="aria"
+      className="btnGF--no show"
+      name="btnGF--no"
+      onClick={[Function]}
+      type="button"
+    >
+      No
+    </button>
+    <button
+      aria-describedby="aria"
+      className="btnGF--yes show"
+      name="btnGF--yes"
+      onClick={[Function]}
+      type="button"
+    >
+      Yes
+    </button>
+  </fieldset>
   <fieldset
     className="hide"
   >
