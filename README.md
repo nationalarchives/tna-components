@@ -146,4 +146,12 @@ Here are the individual steps:
 
 #### Core technologies
 
-This repository uses a number of technologies, including: [React](https://reactjs.org), [Jest](https://jestjs.io), [Babel](https://babeljs.io), [Webpack](https://webpack.js.org),[Travis CI](https://travis-ci.org/), [Express JS](https://expressjs.com/), and [Cypress.io](https://cypress.io)
+This repository uses a number of technologies, including: 
+* [React](https://reactjs.org), 
+* [Jest](https://jestjs.io), 
+* [Babel](https://babeljs.io), 
+* [Webpack](https://webpack.js.org),
+* [Travis CI](https://travis-ci.org/), 
+* [Express JS](https://expressjs.com/),
+* [Cypress.io](https://cypress.io)
+
