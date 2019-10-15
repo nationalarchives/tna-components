@@ -62,20 +62,19 @@
 
   @media screen and (min-width: 768px) {
     float: right;
+    width: 300px;
+    display: inline-block;
+    z-index: 1;
 
     #select-search-type {
       position: absolute;
-      width: 18.2rem;
+      width: 21rem;
       top: 4rem;
       background-color: #333;
     }
 
-    #search-query {
-      width: 80%;
-    }
-
    input[type="search"]{
-     width: 18rem;
+     width: 21rem;
    }
 
     input[type=radio] {
@@ -185,7 +184,6 @@
 
     -webkit-appearance: none; /* https://stackoverflow.com/questions/7134202/input-type-search-dont-accept-height */
     height: 4rem;
-    border: none;
     padding: 0;
     border-radius: 0;
     text-indent: 1rem;
@@ -237,4 +235,8 @@
 
 form[aria-hidden=true]{
   display: none;
+}
+
+#select-search-type label {
+  font-family: 'Open Sans', sans-serif;
 }
