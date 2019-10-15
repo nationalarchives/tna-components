@@ -217,6 +217,14 @@
     position: relative;
   }
 
+  form[aria-hidden=true]{
+    display: none;
+  }
+
+  #select-search-type label {
+    font-family: 'Open Sans', sans-serif;
+  }
+
 }
 
 #global-search-desktop-component {
@@ -231,12 +239,4 @@
   @media screen and (min-width: 767px) {
     display: none;
   }
-}
-
-form[aria-hidden=true]{
-  display: none;
-}
-
-#select-search-type label {
-  font-family: 'Open Sans', sans-serif;
 }
