@@ -14,7 +14,7 @@ it('renders without crashing', () => {
 });
 
 it('has the correct props', () => {
-    expect(instance.state.search_options.select_type).toBe('Select a search type');
+    expect(instance.state.search_options.select_type).toBe('Select to search website or records');
 });
 
 it('renders a form with the correct className and action', () => {

@@ -23,10 +23,10 @@ class GlobalSearch extends Component {
             },
 
             component_label: 'Search our website or catalogue',
-            search_query_legend: 'Enter search term',
+            search_query_legend: 'Enter search keyword or keywords',
             search_options: {
                 group_name: 'search_type',
-                select_type: 'Select a search type',
+                select_type: 'Select to search website or records',
                 options: [
                     {
                         label: 'Search our website',

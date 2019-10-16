@@ -74,7 +74,7 @@ describe('Check that all the HTML elements exist', () => {
           .should('eq', 'FIELDSET');
 
       cy.get($element).find('#select-search-type legend')
-          .contains('Select a search type');
+          .contains('Select to search website or records');
 
 
     });
