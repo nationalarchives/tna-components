@@ -37,8 +37,8 @@
     text-align: center;
     cursor: pointer;
     display: inline-block;
-    background: #555 url(src/arrow_down.svg) no-repeat center;
-    background-size: 60%;
+    background: #555 url(src/chevron_down.svg) no-repeat center;
+    background-size: 70%;
 
 
   }
@@ -47,8 +47,8 @@
     input[type=checkbox] {
 
       &:checked + label {
-        background-size: 60%;
-        background-image: url(src/arrow_up.svg);
+        background-size: 70%;
+        background-image: url(src/chevron_up.svg);
       }
 
       &:focus + label {
@@ -107,13 +107,13 @@
       height: 4rem;
       color: transparent;
       cursor: pointer;
-      background: $button-bg url(src/search_icon.svg) no-repeat center;
+      background: $button-bg url(src/search.svg) no-repeat center;
       display: inline-block;
       vertical-align: top;
       background-size: 60%;
 
       &:hover, &:focus {
-        background: #555 url(src/search_icon.svg) no-repeat center;
+        background: #555 url(src/search.svg) no-repeat center;
         background-size: 60%;
       }
 
@@ -145,7 +145,7 @@
     }
 
     .show-hide-mobile {
-      background: url(src/search_icon.svg) no-repeat center;
+      background: url(src/search.svg) no-repeat center;
       width: 4rem;
       height: 4rem;
       cursor: pointer;
