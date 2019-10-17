@@ -60,7 +60,7 @@ it(`contains a labelled search element with the correct properties`, () => {
 });
 
 it(`contains a label that allows the user to view options for changing search destination`, () => {
-    const fieldset = test_instance.findByProps({id: 'search-options'});
+    const fieldset = test_instance.findByProps({id: 'desktop-search-options'});
     expect(fieldset.type).toBe('fieldset');
 
     const legend = fieldset.findByType('legend');

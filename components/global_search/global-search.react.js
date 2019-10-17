@@ -116,7 +116,7 @@ class GlobalSearch extends Component {
                       action={state.active_search.url} className='global-search-js'>
 
                     {(props.desktop) ?
-                        <fieldset id="search-options">
+                        <fieldset id="desktop-search-options">
                             <legend className="sr-only">{state.search_selector.label}</legend>
                             <input type="checkbox" id={state.search_selector.id}
                                    aria-label={state.search_selector.label} className="sr-only"
