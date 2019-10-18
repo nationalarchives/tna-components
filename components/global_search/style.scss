@@ -8,6 +8,7 @@
   display: block;
   position: relative;
   font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 
   form {
     width: 100%;
@@ -27,12 +28,12 @@
     padding: 0px !important;
     margin: 0px !important;
     display: inline-block;
-    vertical-align: top; /* Remove? */
+    vertical-align: top;
   }
 
   .show-search-options {
-    width: 4rem;
-    height: 4rem;
+    width: 2.5em;
+    height: 2.5em;
     color: #fff;
     text-align: center;
     cursor: pointer;
@@ -67,19 +68,19 @@
 
     #select-search-type {
       position: absolute;
-      width: 21rem;
-      top: 4rem;
+      width: 13.1em;
+      top: 2.5em;
       background-color: #333;
     }
 
    input[type="search"]{
-     width: 21rem;
+     width: 13.1em;
    }
 
     input[type=radio] {
 
       + label {
-        padding: 0.5em 0.9em;
+        padding: 0.31em 0.56em;
         display: inline-block;
         box-sizing: border-box;
         width: 100%;
@@ -87,7 +88,7 @@
       }
 
       &:hover + label, &:checked + label {
-        padding: 0.5em 0.9em;
+        padding: 0.31em 0.56em;
         background: $button-focus-hover-bg;
         color: $button-focus-hover-text;
         cursor: pointer;
@@ -102,8 +103,8 @@
 
     .search-submit {
       text-align: center;
-      width: 4rem;
-      height: 4rem;
+      width: 2.5em;
+      height: 2.5em;
       color: transparent;
       cursor: pointer;
       background: $button-bg url(src/search.svg) no-repeat center;
@@ -145,12 +146,12 @@
 
     .show-hide-mobile {
       background: url(src/search.svg) no-repeat center;
-      width: 4rem;
-      height: 4rem;
+      width: 2.5em;
+      height: 2.5em;
       cursor: pointer;
       position: absolute;
       right: 0;
-      top: -4rem;
+      top: -2.5em;
       background-size: 60%;
     }
 
@@ -159,11 +160,11 @@
       margin-top: 7px !important;
       div {
         display: inline-block;
-        padding-right: 2rem;
+        padding-right: 1.25em;
       }
 
       input[type="radio"] {
-        margin: .75rem;
+        margin: .46em;
       }
 
     }
@@ -182,10 +183,10 @@
   input[type="search"] {
 
     -webkit-appearance: none; /* https://stackoverflow.com/questions/7134202/input-type-search-dont-accept-height */
-    height: 4rem;
+    height: 2.5em;
     padding: 0;
     border-radius: 0;
-    text-indent: 1rem;
+    text-indent: 0.625em;
     display: inline-block;
     color: #000;
 
