@@ -38,7 +38,7 @@
     background: #555 url(src/chevron_down.svg) no-repeat center;
     background-size: 70%;
     border: 1px solid white;
-
+    box-sizing: border-box;
   }
 
   #desktop-search-options {
