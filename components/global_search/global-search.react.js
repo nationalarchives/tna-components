@@ -4,9 +4,9 @@ import FormData from "./formData";
 import "./styles.scss";
 
 function GlobalSearch() {
-  const [formAction, setFormAction] = useState("Search our website");
+  const [formAction, setFormAction] = useState("https://www.nationalarchives.gov.uk/search/results/");
   const [check, setCheck] = useState(false);
-  const [placeholder, setPlaceholder] = useState("Website search");
+  const [placeholder, setPlaceholder] = useState("Search our website");
   const [formData, setFormData] = useState(FormData);
 
   const inputSearchRef = useRef();
@@ -20,8 +20,8 @@ function GlobalSearch() {
 
   return (
     <div className="App">
-      <form action={formAction}>
-        <label htmlFor="arrow">Arrow</label>
+      <form action={formAction} role="search">
+        <label htmlFor="arrow"><span className="sr-only">Arrow</span></label>
         <input
           type="checkbox"
           id="arrow"
@@ -29,33 +29,36 @@ function GlobalSearch() {
           onChange={checkBoxChecked}
           checked={check}
         />
+        {check && (
+            <React.Fragment>
+              {formData.map(data => {
+                return (
+                    <React.Fragment key={data.id}>
+                      <label htmlFor={data.id}>{data.label}</label>
+                      <input
+                          type="radio"
+                          name="search_options"
+                          id={data.id}
+                          onClick={() => {
+                            setPlaceholder(data.label);
+                            setFormAction(data.action);
+                          }}
+                      />
+                    </React.Fragment>
+                );
+              })}
+            </React.Fragment>
+        )}
         <input
           type="text"
           id="search"
           ref={inputSearchRef}
           placeholder={placeholder}
+          name="_q"
         />
-        {check && (
-          <React.Fragment>
-            {formData.map(data => {
-              return (
-                <React.Fragment key={data.id}>
-                  <label htmlFor={data.id}>{data.label}</label>
-                  <input
-                    type="radio"
-                    name="search_options"
-                    id={data.id}
-                    onClick={() => {
-                      setPlaceholder(data.label);
-                      setFormAction(data.action);
-                    }}
-                  />
-                </React.Fragment>
-              );
-            })}
-          </React.Fragment>
-        )}
-        <button>Search</button>
+        <input
+          type="submit"
+        />
       </form>
     </div>
   );

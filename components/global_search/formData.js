@@ -1,7 +1,7 @@
 const FormData = [
   {
     label: "Search our website",
-    action: "https://nationalarchives.gov.uk",
+    action: "https://nationalarchives.gov.uk/search/results/",
     id: "website_search"
   },
   {

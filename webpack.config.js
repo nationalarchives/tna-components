@@ -38,6 +38,17 @@ module.exports = {
 					'css-loader', // translates CSS into CommonJS
 					'sass-loader' // compiles Sass to CSS, using Node Sass by default
 				]
+			},
+			{
+				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+				issuer: {
+					test: /\.jsx?$/
+				},
+				use: ['babel-loader', '@svgr/webpack', 'url-loader']
+			},
+			{
+				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+				loader: 'url-loader'
 			}
 		]
 	}
