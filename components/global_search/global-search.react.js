@@ -6,6 +6,7 @@ import "./styles.scss";
 function GlobalSearch() {
   const [formAction, setFormAction] = useState("https://www.nationalarchives.gov.uk/search/results/");
   const [check, setCheck] = useState(false);
+  const [radio, setRadio] = useState(FormData[0].id);
   const [placeholder, setPlaceholder] = useState("Search our website");
   const [formData, setFormData] = useState(FormData);
 
@@ -42,7 +43,9 @@ function GlobalSearch() {
                           onClick={() => {
                             setPlaceholder(data.label);
                             setFormAction(data.action);
+                            setRadio(data.id);
                           }}
+                          checked={data.id == radio}
                       />
                     </React.Fragment>
                 );
