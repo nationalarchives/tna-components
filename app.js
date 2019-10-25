@@ -5,17 +5,19 @@
  **/
 
 const express = require('express'),
-  app = express(),
-  port = 3000,
-  path = require('path'),
-  chalk = require('chalk'),
-  morgan = require('morgan'),
-  debug = require('debug')('app'),
-  guidanceFeedbackRouter = require('./src/routes/guidanceFeedbackRoutes'),
-  homeRouter = require('./src/routes/homeRoutes'),
-  recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
-  detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
-  whatToExpectGuideRoutes = require('./src/routes/whatToExpectGuideRoutes');
+	app = express(),
+	port = 3000,
+	path = require('path'),
+	chalk = require('chalk'),
+	morgan = require('morgan'),
+	debug = require('debug')('app'),
+	feedbackRouter = require('./src/routes/feedbackRoutes'),
+	homeRouter = require('./src/routes/homeRoutes'),
+	recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
+	detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
+	wtegViewRoutes = require('./src/routes/wtegViewRoutes'),
+	homePageSearchDiscovery = require('./src/routes/homePageSearchDiscovery');
+	globalSearch = require('./src/routes/globalSearchRoutes');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -40,6 +42,8 @@ app.use('/results', recommendedLinksDiscovery);
 app.use('/details/r', detailsFeedbackRoutes);
 //WTEG Feedback Widget
 app.use('/what-to-expect-guide', whatToExpectGuideRoutes);
+
+app.use('/global-search', globalSearch);
 
 // Set the port of the application and log the info
 app.listen(port, () =>
