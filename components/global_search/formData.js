@@ -14,7 +14,8 @@ const FormData = {
   labels: {
     component: "Search our website or catalogue",
     search_selector: "Show search options",
-    search_query: "Select to search website or records"
+    search_query: "Enter search keyword or keywords",
+    select_type: "Select to search website or records"
   }
 };
 

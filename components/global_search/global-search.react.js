@@ -21,7 +21,8 @@ function GlobalSearch() {
 
   return (
     <div className="App">
-      <form action={formAction} role="search">
+      <form aria-label={FormData.labels.component} action={formAction} role="search">
+        <fieldset>
         <input
             type="checkbox"
             id="arrow"
@@ -30,9 +31,12 @@ function GlobalSearch() {
             checked={check}
             className="sr-only"
         />
-        <label htmlFor="arrow"><span className="sr-only">Arrow</span></label>
+          <label htmlFor="arrow"><span className="sr-only">{FormData.labels.search_selector}</span></label>
+        </fieldset>
         {check && (
             <React.Fragment>
+              <fieldset>
+              <legend className="sr-only">{FormData.labels.select_type}</legend>
               {formData.options.map(data => {
                 return (
                     <React.Fragment key={data.id}>
@@ -51,8 +55,12 @@ function GlobalSearch() {
                     </React.Fragment>
                 );
               })}
+              </fieldset>
             </React.Fragment>
+
         )}
+        <fieldset>
+        <legend>{FormData.labels.search_query}</legend>
         <input
           type="text"
           id="search"
@@ -60,9 +68,13 @@ function GlobalSearch() {
           placeholder={placeholder}
           name="_q"
         />
+          <label htmlFor="search">
+            <span className="sr-only">{placeholder}</span>
+          </label>
         <input
           type="submit"
         />
+        </fieldset>
       </form>
     </div>
   );
