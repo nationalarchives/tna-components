@@ -23,6 +23,7 @@ function GlobalSearch() {
         <div className="App">
             <form aria-label={FormData.labels.component} action={formAction} role="search">
                 <fieldset>
+                    <legend className="sr-only">{FormData.labels.search_selector}</legend>
                     <input
                         type="checkbox"
                         id="arrow"
@@ -60,7 +61,7 @@ function GlobalSearch() {
 
                 )}
                 <fieldset>
-                    <legend>{FormData.labels.search_query}</legend>
+                    <legend className="sr-only">{FormData.labels.search_query}</legend>
                     <input
                         type="text"
                         id="search"
