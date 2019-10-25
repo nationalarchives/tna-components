@@ -22,14 +22,15 @@ function GlobalSearch() {
   return (
     <div className="App">
       <form action={formAction} role="search">
-        <label htmlFor="arrow"><span className="sr-only">Arrow</span></label>
         <input
-          type="checkbox"
-          id="arrow"
-          name="arrow"
-          onChange={checkBoxChecked}
-          checked={check}
+            type="checkbox"
+            id="arrow"
+            name="arrow"
+            onChange={checkBoxChecked}
+            checked={check}
+            className="sr-only"
         />
+        <label htmlFor="arrow"><span className="sr-only">Arrow</span></label>
         {check && (
             <React.Fragment>
               {formData.map(data => {
