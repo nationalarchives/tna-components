@@ -36,34 +36,37 @@ function GlobalSearch() {
                 </fieldset>
                 {check && (
                     <React.Fragment>
-                        <fieldset>
-                            <legend className="sr-only">{FormData.labels.select_type}</legend>
-                            {formData.options.map(data => {
-                                return (
-                                    <React.Fragment key={data.id}>
-                                        <label htmlFor={data.id}>{data.label}</label>
-                                        <input
-                                            type="radio"
-                                            name="search_options"
-                                            id={data.id}
-                                            onClick={() => {
-                                                setPlaceholder(data.label);
-                                                setFormAction(data.action);
-                                                setRadio(data.id);
-                                            }}
-                                            checked={data.id == radio}
-                                        />
-                                    </React.Fragment>
-                                );
-                            })}
-                        </fieldset>
+                        <div id="select-search-type">
+                            <fieldset>
+                                <legend className="sr-only">{FormData.labels.select_type}</legend>
+                                {formData.options.map(data => {
+                                    return (
+                                        <React.Fragment key={data.id}>
+                                            <input
+                                                type="radio"
+                                                name="search_options"
+                                                id={data.id}
+                                                onClick={() => {
+                                                    setPlaceholder(data.label);
+                                                    setFormAction(data.action);
+                                                    setRadio(data.id);
+                                                }}
+                                                checked={data.id == radio}
+                                                className="sr-only"
+                                            />
+                                            <label htmlFor={data.id}>{data.label}</label>
+                                        </React.Fragment>
+                                    );
+                                })}
+                            </fieldset>
+                        </div>
                     </React.Fragment>
 
                 )}
                 <fieldset>
                     <legend className="sr-only">{FormData.labels.search_query}</legend>
                     <input
-                        type="text"
+                        type="search"
                         id="search"
                         ref={inputSearchRef}
                         placeholder={placeholder}
