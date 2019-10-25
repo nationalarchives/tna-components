@@ -1,14 +1,16 @@
-const FormData = [
-  {
-    label: "Search our website",
-    action: "https://nationalarchives.gov.uk/search/results/",
-    id: "website_search"
-  },
-  {
-    label: "Search our records",
-    action: "https://discovery.nationalarchives.gov.uk/results/r",
-    id: "discovery_search"
-  }
-];
+const FormData = {
+  options: [
+    {
+      label: "Search our website",
+      action: "https://nationalarchives.gov.uk/search/results/",
+      id: "website_search"
+    },
+    {
+      label: "Search our records",
+      action: "https://discovery.nationalarchives.gov.uk/results/r",
+      id: "discovery_search"
+    }
+  ],
+};
 
 export default FormData;

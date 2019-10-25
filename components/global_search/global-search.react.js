@@ -4,10 +4,10 @@ import FormData from "./formData";
 import "./styles.scss";
 
 function GlobalSearch() {
-  const [formAction, setFormAction] = useState("https://www.nationalarchives.gov.uk/search/results/");
+  const [formAction, setFormAction] = useState(FormData.options[0].action);
   const [check, setCheck] = useState(false);
-  const [radio, setRadio] = useState(FormData[0].id);
-  const [placeholder, setPlaceholder] = useState("Search our website");
+  const [radio, setRadio] = useState(FormData.options[0].id);
+  const [placeholder, setPlaceholder] = useState(FormData.options[0].label);
   const [formData, setFormData] = useState(FormData);
 
   const inputSearchRef = useRef();
@@ -33,7 +33,7 @@ function GlobalSearch() {
         <label htmlFor="arrow"><span className="sr-only">Arrow</span></label>
         {check && (
             <React.Fragment>
-              {formData.map(data => {
+              {formData.options.map(data => {
                 return (
                     <React.Fragment key={data.id}>
                       <label htmlFor={data.id}>{data.label}</label>
