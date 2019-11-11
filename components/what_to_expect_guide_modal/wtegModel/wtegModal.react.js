@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ModalHeader from '../child_component/modalHeader/modal_header.react';
 import ModalImage from '../child_component/modalImage/modal_image.react';
 import ModalFooter from '../child_component/modalFooter/modal_footer.react';
@@ -7,7 +7,7 @@ import ModalWrapper from '../child_component/modalWrapper/modal_wrapper.react';
 
 import Data from './wtegState.react';
 
-import '../../modal/modal.scss';
+import '../modal.scss';
 
 class WTEGModal extends Component {
   state = {
@@ -51,16 +51,16 @@ class WTEGModal extends Component {
   };
 
   toggleShowModal = () => {
-    const {showModal} = this.state;
-    this.setState({showModal: !showModal});
+    const { showModal } = this.state;
+    this.setState({ showModal: !showModal });
     if (this.thumbnailRef) {
       this.thumbnailRef.current.focus();
     }
   };
 
   handleModalClick = e => {
-    const {pushInDataLayer, toggleShowModal} = this;
-    const {clicksAway} = this.state.Data.gtm;
+    const { pushInDataLayer, toggleShowModal } = this;
+    const { clicksAway } = this.state.Data.gtm;
     if (e.target.getAttribute('class') === 'modal fadeIn') {
       toggleShowModal();
       pushInDataLayer(clicksAway);
@@ -79,8 +79,8 @@ class WTEGModal extends Component {
   };
 
   componentDidMount() {
-    const {toggleShowModal, focusModal, pushInDataLayer} = this;
-    const {escKey} = this.state.Data.gtm;
+    const { toggleShowModal, focusModal, pushInDataLayer } = this;
+    const { escKey } = this.state.Data.gtm;
     window.addEventListener(
       'keyup',
       e => {
@@ -116,10 +116,10 @@ class WTEGModal extends Component {
       pushInDataLayer,
       enterKeyPress
     } = this;
-    const {closeWindow} = this.state.Data.gtm;
-    const {showModal} = this.state;
-    const {style, figureCaption} = this.state.Data;
-    const {src, alt, className, imgDsc} = this.props;
+    const { closeWindow } = this.state.Data.gtm;
+    const { showModal } = this.state;
+    const { style, figureCaption } = this.state.Data;
+    const { src, alt, className, imgDsc } = this.props;
 
     return (
       <>

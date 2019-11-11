@@ -4,17 +4,18 @@ import GuidanceFeedback from '../../components/guidance_feedback/guidance-feedba
 
 // Guidance Feedback
 // Define the block scope
+console.log('Hello there!');
 {
-  const url = window.location.href;
-  const wrapper = document.querySelector(
-    '.research-guide .col.starts-at-full.ends-at-one-third.clr.box'
-  );
-  const wrapperIndepth = document.querySelector(
-    '.research-guide-indepth .col.starts-at-full.ends-at-one-third.clr.box'
-  );
-  const regex = /(help-with-your-research)\/(research-guides)/g;
+  const path = window.location.href,
+    wrapper = document.querySelector(
+      '.research-guide .col.starts-at-full.ends-at-one-third.clr.box'
+    ),
+    wrapperIndepth = document.querySelector(
+      '.research-guide-indepth .col.starts-at-full.ends-at-one-third.clr.box'
+    ),
+    regex = /(help-with-your-research)\/(research-guides)/g;
 
-  if ((url.match(regex) && wrapper) || wrapperIndepth) {
+  if ((path.match(regex) && wrapper) || wrapperIndepth) {
     if (!document.getElementById('guidance-feedback-react')) {
       let div = document.createElement('div');
       div.id = 'guidance-feedback-react';

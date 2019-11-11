@@ -11,14 +11,17 @@ cache:
     - ~/.cache
 
 install:
-  - npm install
+  - npm ci
+
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
 
 script:
   - npm test
   - npm run build
-  
-  #$(npm bin)/cypress run --record --key ecf76371-5b01-40ad-a4bf-3179175cefc8
-
+  - $(npm bin)/cypress run
 
 notifications:
   slack:
