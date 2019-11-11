@@ -16,7 +16,7 @@ install:
 script:
   - npm test
   - npm run build
-  - npx cypress run
+  - $(npm bin)/cypress run
 
 notifications:
   slack:
