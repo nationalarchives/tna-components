@@ -7,7 +7,7 @@ import ModalWrapper from '../child_component/modalWrapper/modal_wrapper.react';
 
 import Data from './wtegState.react';
 
-import '../../modal/modal.scss';
+import '../modal.scss';
 
 class WTEGModal extends Component {
   state = {
