@@ -5,3 +5,4 @@ import './runners/recommended-links-discovery-runner';
 import './runners/details-feedback';
 import './runners/what-to-expect-guide-feedback-runner';
 import './runners/what-to-expect-guide-modal-runner';
+import './runners/global-search-runner';
