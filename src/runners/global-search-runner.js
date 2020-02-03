@@ -8,3 +8,8 @@ ReactDOM.render(
 	<GlobalSearch/>,
 	document.getElementById('global-search-desktop-component'),
 );
+
+ReactDOM.render(
+	<GlobalSearch/>,
+	document.getElementById('global-search-mobile-component'),
+);
