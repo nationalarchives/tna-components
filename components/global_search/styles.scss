@@ -1,10 +1,9 @@
+$outline-colour: #1d70b8;
+$button-bg: #26262a;
+$button-focus-hover-bg: #fce45c;
+$button-focus-hover-text: #000;
 
 #global-search-desktop-component {
-
-  $outline-colour: #1d70b8;
-  $button-bg: #26262a;
-  $button-focus-hover-bg: #fce45c;
-  $button-focus-hover-text: #000;
 
   display: inline-block;
   position: relative;
@@ -144,8 +143,78 @@
 
 }
 
+#global-search-mobile-component {
+
+  padding-top: 14px;
+
+  input[type="search"] {
+
+    -webkit-appearance: none;
+    width: 86%;
+    height: 2.5em;
+    padding: 0;
+    border-radius: 0;
+    text-indent: 0.625em;
+    display: inline-block;
+    color: #000;
+    border: 0;
+    vertical-align: top;
+  }
+
+  input[type=radio] {
+    
+    + label {
+      padding: 0.31em 0.56em;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      display: inline;
+    }
+
+    &:hover + label, &:checked + label {
+      cursor: pointer;
+    }
+
+    &:focus + label {
+      background: #fff;
+      color: #000;
+      outline: $outline-colour solid 5px;
+      position: relative;
+    }
+
+  }
+
+
+  input[type="submit"] {
+    text-align: center;
+    width: 2.5em;
+    height: 2.5em;
+    color: transparent;
+    cursor: pointer;
+    background: $button-bg url("svgs/search.svg") no-repeat center;
+    display: inline-block;
+    vertical-align: top;
+    background-size: 60%;
+    border: 1px solid white;
+
+    &:hover, &:focus {
+      background-color: #555;
+      background-size: 60%;
+    }
+  }
+
+}
+
 #global-search-desktop-component {
   @media screen and (max-width: 767px) {
+    form {
+      display: none;
+    }
+  }
+}
+
+#global-search-mobile-component {
+  @media screen and (min-width: 767px) {
     form {
       display: none;
     }

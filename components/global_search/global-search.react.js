@@ -3,7 +3,7 @@ import useFocus from "./hooks/useFocus";
 import FormData from "./formData";
 import "./styles.scss";
 
-function GlobalSearch() {
+function GlobalSearch(props) {
     const [formAction, setFormAction] = useState(FormData.options[0].action);
     const [check, setCheck] = useState(false);
     const [radio, setRadio] = useState(FormData.options[0].id);
@@ -22,7 +22,8 @@ function GlobalSearch() {
     return (
         <div className="App">
             <form aria-label={formData.labels.component} action={formAction} role="search">
-                <fieldset>
+                
+                { props.desktop && (<fieldset>
                     <legend className="sr-only">{formData.labels.search_selector}</legend>
                     <input
                         type="checkbox"
@@ -33,8 +34,10 @@ function GlobalSearch() {
                         className="sr-only"
                     />
                     <label htmlFor="arrow"><span className="sr-only">{formData.labels.search_selector}</span></label>
-                </fieldset>
-                {check && (
+                </fieldset>)
+                }
+                
+                {(check || !props.desktop) && (
                     <React.Fragment>
                         <div id="select-search-type">
                             <fieldset>
@@ -52,7 +55,7 @@ function GlobalSearch() {
                                                     setRadio(data.id);
                                                 }}
                                                 checked={data.id == radio}
-                                                className="sr-only"
+                                                className={props.desktop && "sr-only"}
                                             />
                                             <label htmlFor={data.id}>{data.label}</label>
                                         </React.Fragment>
@@ -76,6 +79,7 @@ function GlobalSearch() {
                         <span className="sr-only">{placeholder}</span>
                     </label>
                     <input
+
                         type="submit"
                     />
                 </fieldset>

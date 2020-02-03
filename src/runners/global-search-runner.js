@@ -5,11 +5,11 @@ import GlobalSearch from '../../components/global_search/global-search.react';
 // import component
 
 ReactDOM.render(
-	<GlobalSearch/>,
+	<GlobalSearch desktop={true}/>,
 	document.getElementById('global-search-desktop-component'),
 );
 
 ReactDOM.render(
-	<GlobalSearch/>,
+	<GlobalSearch desktop={false}/>,
 	document.getElementById('global-search-mobile-component'),
 );
