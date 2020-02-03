@@ -20,7 +20,11 @@ function GlobalSearch(props) {
     }, [inputFocused]);
 
     return (
-        <div className="App">
+        <React.Fragment>
+            <div className="showHide">
+
+            </div>
+            <div className="App">
             <form aria-label={formData.labels.component} action={formAction} role="search">
                 
                 { props.desktop && (<fieldset>
@@ -85,6 +89,8 @@ function GlobalSearch(props) {
                 </fieldset>
             </form>
         </div>
+        </React.Fragment>
+        
     );
 }
 
