@@ -74,7 +74,7 @@ function GlobalSearch(props) {
                     <legend className="sr-only">{formData.labels.search_query}</legend>
                     <input
                         type="search"
-                        id="search"
+                        name="search"
                         ref={inputSearchRef}
                         placeholder={placeholder}
                         name="_q"
