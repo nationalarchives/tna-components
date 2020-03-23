@@ -23,7 +23,7 @@ function GlobalSearch(props) {
         <React.Fragment>
             {(!props.desktop) && (
                 <button id="showHide">
-                    Hello
+                    <span class="sr-only">Show or hide search</span>
                 </button>
             ) }
 
