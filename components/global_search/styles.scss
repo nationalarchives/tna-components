@@ -203,9 +203,9 @@ $button-focus-hover-text: #000;
     }
   }
 
-  #showHide {
+  #showHideMobileLabel {
     position: absolute;
-    top: 25px;
+    top: 20px;
     right: 20px;
     width: 40px;
     height: 40px;
@@ -213,11 +213,20 @@ $button-focus-hover-text: #000;
     color: #fff;
     border: 0;
     background-size: 60%;
+    cursor: pointer;
+  }
 
-    &:hover, &:focus {
-      background-color: #555;;
+  #showHideMobileCheckbox {
+
+    + div {
+      display: none;
     }
 
+    &:checked {
+      + div {
+        display: block;
+      }
+    }
   }
 
 }
@@ -232,7 +241,7 @@ $button-focus-hover-text: #000;
 
 #global-search-mobile-component {
   @media screen and (min-width: 767px) {
-    form, #showHide {
+    form, #showHideMobileLabel, #showHideMobileCheckbox {
       display: none;
     }
   }

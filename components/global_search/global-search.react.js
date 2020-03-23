@@ -22,11 +22,13 @@ function GlobalSearch(props) {
     return (
         <React.Fragment>
             {(!props.desktop) && (
-                <button id="showHide">
-                    <span class="sr-only">Show or hide search</span>
-                </button>
-            )}
-
+                <React.Fragment>
+                    <label id="showHideMobileLabel" htmlFor="showHideMobileCheckbox">
+                        <span className={"sr-only"}>Show or hide on mobile</span>
+                    </label>
+                    <input type="checkbox" id="showHideMobileCheckbox" class={"sr-only"}/>
+                </React.Fragment>
+                )}
             <div className="App">
                 <form aria-label={formData.labels.component} action={formAction} role="search">
 
