@@ -25,75 +25,76 @@ function GlobalSearch(props) {
                 <button id="showHide">
                     <span class="sr-only">Show or hide search</span>
                 </button>
-            ) }
+            )}
 
             <div className="App">
-            <form aria-label={formData.labels.component} action={formAction} role="search">
-                
-                { props.desktop && (<fieldset>
-                    <legend className="sr-only">{formData.labels.search_selector}</legend>
-                    <input
-                        type="checkbox"
-                        id="arrow"
-                        name="arrow"
-                        onChange={checkBoxChecked}
-                        checked={check}
-                        className="sr-only"
-                    />
-                    <label htmlFor="arrow"><span className="sr-only">{formData.labels.search_selector}</span></label>
-                </fieldset>)
-                }
-                
-                {(check || !props.desktop) && (
-                    <React.Fragment>
-                        <div id="select-search-type">
-                            <fieldset>
-                                <legend className="sr-only">{formData.labels.select_type}</legend>
-                                {formData.options.map(data => {
-                                    return (
-                                        <React.Fragment key={data.id}>
-                                            <input
-                                                type="radio"
-                                                name="search_options"
-                                                id={data.id}
-                                                onClick={() => {
-                                                    setPlaceholder(data.label);
-                                                    setFormAction(data.action);
-                                                    setRadio(data.id);
-                                                }}
-                                                checked={data.id == radio}
-                                                className={props.desktop && "sr-only"}
-                                            />
-                                            <label htmlFor={data.id}>{data.label}</label>
-                                        </React.Fragment>
-                                    );
-                                })}
-                            </fieldset>
-                        </div>
-                    </React.Fragment>
+                <form aria-label={formData.labels.component} action={formAction} role="search">
 
-                )}
-                <fieldset>
-                    <legend className="sr-only">{formData.labels.search_query}</legend>
-                    <input
-                        type="search"
-                        name="search"
-                        ref={inputSearchRef}
-                        placeholder={placeholder}
-                        name="_q"
-                    />
-                    <label htmlFor="search">
-                        <span className="sr-only">{placeholder}</span>
-                    </label>
-                    <input
+                    {props.desktop && (<fieldset>
+                        <legend className="sr-only">{formData.labels.search_selector}</legend>
+                        <input
+                            type="checkbox"
+                            id="arrow"
+                            name="arrow"
+                            onChange={checkBoxChecked}
+                            checked={check}
+                            className="sr-only"
+                        />
+                        <label htmlFor="arrow"><span
+                            className="sr-only">{formData.labels.search_selector}</span></label>
+                    </fieldset>)
+                    }
 
-                        type="submit"
-                    />
-                </fieldset>
-            </form>
-        </div>
+                    {(check || !props.desktop) && (
+                        <React.Fragment>
+                            <div id="select-search-type">
+                                <fieldset>
+                                    <legend className="sr-only">{formData.labels.select_type}</legend>
+                                    {formData.options.map(data => {
+                                        return (
+                                            <React.Fragment key={data.id}>
+                                                <input
+                                                    type="radio"
+                                                    name="search_options"
+                                                    id={data.id}
+                                                    onClick={() => {
+                                                        setPlaceholder(data.label);
+                                                        setFormAction(data.action);
+                                                        setRadio(data.id);
+                                                    }}
+                                                    checked={data.id == radio}
+                                                    className={props.desktop && "sr-only"}
+                                                />
+                                                <label htmlFor={data.id}>{data.label}</label>
+                                            </React.Fragment>
+                                        );
+                                    })}
+                                </fieldset>
+                            </div>
+                        </React.Fragment>
+
+                    )}
+                    <fieldset>
+                        <legend className="sr-only">{formData.labels.search_query}</legend>
+                        <input
+                            type="search"
+                            name="search"
+                            ref={inputSearchRef}
+                            placeholder={placeholder}
+                            name="_q"
+                        />
+                        <label htmlFor="search">
+                            <span className="sr-only">{placeholder}</span>
+                        </label>
+                        <input
+
+                            type="submit"
+                        />
+                    </fieldset>
+                </form>
+            </div>
         </React.Fragment>
-        
+
     );
 }
 
