@@ -147,6 +147,15 @@ $button-focus-hover-text: #000;
 
   padding-top: 14px;
 
+  fieldset {
+    background: none;
+    border: none;
+  }
+
+  label {
+    padding: 0;
+  }
+
   input[type="search"] {
 
     -webkit-appearance: none;
@@ -209,7 +218,9 @@ $button-focus-hover-text: #000;
     right: 20px;
     width: 40px;
     height: 40px;
-    background: $button-bg url("svgs/search.svg") no-repeat center;
+    background-image: url("svgs/search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     color: #fff;
     border: 0;
     background-size: 60%;
