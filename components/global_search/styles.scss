@@ -203,6 +203,12 @@ $button-focus-hover-text: #000;
     }
   }
 
+  #showHide {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+  }
+
 }
 
 #global-search-desktop-component {
@@ -215,7 +221,7 @@ $button-focus-hover-text: #000;
 
 #global-search-mobile-component {
   @media screen and (min-width: 767px) {
-    form, .showHide {
+    form, #showHide {
       display: none;
     }
   }

@@ -22,7 +22,7 @@ function GlobalSearch(props) {
     return (
         <React.Fragment>
             {(!props.desktop) && (
-                <button className="showHide">
+                <button id="showHide">
                     Hello
                 </button>
             ) }
