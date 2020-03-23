@@ -21,9 +21,12 @@ function GlobalSearch(props) {
 
     return (
         <React.Fragment>
-            <div className="showHide">
+            {(!props.desktop) && (
+                <button className="showHide">
+                    Hello
+                </button>
+            ) }
 
-            </div>
             <div className="App">
             <form aria-label={formData.labels.component} action={formAction} role="search">
                 

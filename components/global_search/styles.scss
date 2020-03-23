@@ -215,7 +215,7 @@ $button-focus-hover-text: #000;
 
 #global-search-mobile-component {
   @media screen and (min-width: 767px) {
-    form {
+    form, .showHide {
       display: none;
     }
   }
