@@ -10,6 +10,8 @@ function GlobalSearch(props) {
     const [placeholder, setPlaceholder] = useState(FormData.options[0].label);
     const [formData, setFormData] = useState(FormData);
 
+    const environment = props.desktop ? "desktop" : "mobile";
+
     const inputSearchRef = useRef();
     const inputFocused = useFocus(inputSearchRef);
 
@@ -49,25 +51,25 @@ function GlobalSearch(props) {
 
                     {(check || !props.desktop) && (
                         <React.Fragment>
-                            <div id="select-search-type">
+                            <div class="select-search-type">
                                 <fieldset>
                                     <legend className="sr-only">{formData.labels.select_type}</legend>
                                     {formData.options.map(data => {
                                         return (
-                                            <React.Fragment key={data.id}>
+                                            <React.Fragment key={data.id  + "-" + props.desktop}>
                                                 <input
                                                     type="radio"
                                                     name="search_options"
-                                                    id={data.id}
+                                                    id={data.id + "-" + environment}
                                                     onClick={() => {
                                                         setPlaceholder(data.label);
                                                         setFormAction(data.action);
                                                         setRadio(data.id);
                                                     }}
-                                                    checked={data.id == radio}
+                                                    checked={data.id  + "-" + environment == radio}
                                                     className={props.desktop && "sr-only"}
                                                 />
-                                                <label htmlFor={data.id}>{data.label}</label>
+                                                <label htmlFor={data.id  + "-" + environment}>{data.label}</label>
                                             </React.Fragment>
                                         );
                                     })}
