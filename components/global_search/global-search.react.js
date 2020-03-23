@@ -64,7 +64,7 @@ function GlobalSearch(props) {
                                                     onClick={() => {
                                                         setPlaceholder(data.label);
                                                         setFormAction(data.action);
-                                                        setRadio(data.id);
+                                                        setRadio(data.id + "-" + environment);
                                                     }}
                                                     checked={data.id  + "-" + environment == radio}
                                                     className={props.desktop && "sr-only"}
