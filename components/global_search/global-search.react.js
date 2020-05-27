@@ -90,7 +90,7 @@ function GlobalSearch(props) {
                         <label htmlFor="search">
                             <span className="sr-only">{placeholder}</span>
                         </label>
-                        {!props.desktop ? (<input type="submit" value="Search"/>)
+                        {!props.desktop ? (<input type="submit" value={formData.labels.mobile_search_text}/>)
                         : (<input type="submit" />)}
                         
                     </fieldset>
