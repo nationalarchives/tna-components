@@ -4,13 +4,14 @@ import FormData from "./formData";
 import "./styles.scss";
 
 function GlobalSearch(props) {
+    const environment = props.desktop ? "desktop" : "mobile";
+
     const [formAction, setFormAction] = useState(FormData.options[0].action);
     const [check, setCheck] = useState(false);
-    const [radio, setRadio] = useState(FormData.options[0].id);
+    const [radio, setRadio] = useState(FormData.options[0].id + "-" + environment);
     const [placeholder, setPlaceholder] = useState(FormData.options[0].label);
     const [formData, setFormData] = useState(FormData);
 
-    const environment = props.desktop ? "desktop" : "mobile";
 
     const inputSearchRef = useRef();
     const inputFocused = useFocus(inputSearchRef);
@@ -66,7 +67,8 @@ function GlobalSearch(props) {
                                                         setFormAction(data.action);
                                                         setRadio(data.id + "-" + environment);
                                                     }}
-                                                    checked={data.id  + "-" + environment == radio}
+                                                    checked={(data.id + "-" + environment) == radio}
+                        
                                                     className={props.desktop && "sr-only"}
                                                 />
                                                 <label htmlFor={data.id  + "-" + environment}>{data.label}</label>
