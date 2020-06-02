@@ -1,7 +1,7 @@
 const path = require('path');
 
-const discovery_version = `1.1.9`;
-const website_version = `1.0.2`;
+const discovery_version = `1.2.0`;
+const website_version = `1.1.0`;
 
 module.exports = {
 	entry: {
@@ -38,6 +38,20 @@ module.exports = {
 					'css-loader', // translates CSS into CommonJS
 					'sass-loader' // compiles Sass to CSS, using Node Sass by default
 				]
+			},
+			{
+				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+				issuer: {
+					test: /\.jsx?$/
+				},
+				use: ['babel-loader', '@svgr/webpack', 'url-loader'],
+			},
+			{
+				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+				loader: 'url-loader',
+				options: {
+					esModule: false,
+				}
 			}
 		]
 	}

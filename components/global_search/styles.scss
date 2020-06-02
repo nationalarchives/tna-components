@@ -1,0 +1,274 @@
+$outline-colour: #1d70b8;
+$button-bg: #26262a;
+$button-focus-hover-bg: #fce45c;
+$button-focus-hover-text: #000;
+
+#global-search-desktop-component {
+
+  display: inline-block;
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  float: right;
+
+  form {
+    width: 100%;
+  }
+
+  label {
+    padding: 0;
+    margin: 0;
+  }
+
+  fieldset {
+    border: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    display: inline-block;
+    vertical-align: top;
+    background-color: transparent;
+  }
+
+  label[for="arrow"] {
+    width: 2.5em;
+    height: 2.5em;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    background: #26262a url("svgs/chevron_down.svg") no-repeat center;
+    background-size: 70%;
+    border: 1px solid white;
+    box-sizing: border-box;
+
+  }
+
+  input[type="checkbox"] {
+    &:checked + label {
+      background-size: 70%;
+      background-image: url("svgs/chevron_up.svg");
+    }
+
+    &:focus + label {
+      outline: $outline-colour solid 5px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  input[type=radio] {
+
+    + label {
+      padding: 0.31em 0.56em;
+      display: inline-block;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+      width: 100%;
+      color: #fff;
+    }
+
+    &:hover + label, &:checked + label {
+      padding: 0.31em 0.56em;
+      background: $button-focus-hover-bg;
+      color: $button-focus-hover-text;
+      cursor: pointer;
+    }
+
+    &:focus + label {
+      outline: $outline-colour solid 5px;
+      position: relative;
+    }
+
+  }
+
+  input[type="search"] {
+
+    -webkit-appearance: none;
+    width: 13.1em;
+    height: 2.5em;
+    padding: 0;
+    border-radius: 0;
+    text-indent: 0.625em;
+    display: inline-block;
+    color: #000;
+    border: 0;
+    vertical-align: top;
+  }
+
+  input[type="submit"] {
+    text-align: center;
+    width: 2.5em;
+    height: 2.5em;
+    color: transparent;
+    cursor: pointer;
+    background: $button-bg url("svgs/search.svg") no-repeat center;
+    display: inline-block;
+    vertical-align: top;
+    background-size: 60%;
+    border: 1px solid white;
+
+    &:hover, &:focus {
+      background-color: #555;
+      background-size: 60%;
+    }
+  }
+
+  .select-search-type {
+    position: absolute;
+    width: 13.1em;
+    top: 2.5em;
+    left: 2.5em;
+    background-color: #333;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0
+  }
+
+  .sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto
+  }
+
+}
+
+#global-search-mobile-component {
+
+  padding-top: 14px;
+
+  fieldset {
+    background: none;
+    border: none;
+  }
+
+  label {
+    padding: 0;
+  }
+
+  input[type="search"] {
+
+    -webkit-appearance: none;
+    width: 86%;
+    height: 2.5em;
+    padding: 0;
+    border-radius: 0;
+    text-indent: 0.625em;
+    display: inline-block;
+    color: #000;
+    border: 0;
+    vertical-align: top;
+  }
+
+  input[type=radio] {
+    
+    + label {
+      padding: 0.31em 0.56em;
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+      color: #fff;
+      display: inline;
+    }
+
+    &:hover + label, &:checked + label {
+      cursor: pointer;
+    }
+
+    &:focus + label {
+      background: #fff;
+      color: #000;
+      outline: $outline-colour solid 5px;
+      position: relative;
+    }
+
+  }
+
+
+  input[type="submit"] {
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    display: block;
+    vertical-align: top;
+    background-size: 60%;
+    border: 1px solid white;
+    background-color: #fff;
+    color: #26262a;
+    &:hover, &:focus {
+      background-color: #26262a;
+      color: #fff;
+      background-size: 60%;
+    }
+  }
+
+  #showHideMobileLabel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-image: url("svgs/search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    border: 0;
+    background-size: 60%;
+    cursor: pointer;
+
+  }
+
+  #showHideMobileCheckbox {
+
+    + div {
+      display: none;
+    }
+
+    &:checked {
+      + div {
+        display: block;
+      }
+    }
+  }
+
+}
+
+#global-search-desktop-component {
+  @media screen and (max-width: 767px) {
+    form {
+      display: none;
+    }
+  }
+}
+
+#global-search-mobile-component {
+  @media screen and (min-width: 767px) {
+    form, #showHideMobileLabel, #showHideMobileCheckbox {
+      display: none;
+    }
+  }
+}
+
+#global-search-mobile-component.gs-tna .select-search-type,
+#global-search-mobile-component.gs-discovery .select-search-type {
+margin-bottom: 10px;
+}
+
+#global-search-mobile-component.gs-discovery fieldset {
+padding-bottom: 0;
+margin-bottom: 0;
+}
+
+#global-search-mobile-component.gs-tna #showHideMobileLabel,
+#global-search-mobile-component.gs-discovery #showHideMobileLabel  {
+  top: 0px;
+}
