@@ -36,7 +36,7 @@ function GlobalSearch(props) {
             {(!props.desktop) && (
                 <React.Fragment>
                     <label id="showHideMobileLabel" htmlFor="showHideMobileCheckbox">
-                        <span className={"sr-only"}>Show or hide on mobile</span>
+                        <span className={"sr-only"}>{formData.labels.mobile_search_show_hide}</span>
                     </label>
                     <input type="checkbox" id="showHideMobileCheckbox" className={"sr-only"}/>
                 </React.Fragment>
