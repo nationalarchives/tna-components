@@ -38,7 +38,7 @@ function GlobalSearch(props) {
                     <label id="showHideMobileLabel" htmlFor="showHideMobileCheckbox">
                         <span className={"sr-only"}>Show or hide on mobile</span>
                     </label>
-                    <input type="checkbox" id="showHideMobileCheckbox" class={"sr-only"}/>
+                    <input type="checkbox" id="showHideMobileCheckbox" className={"sr-only"}/>
                 </React.Fragment>
                 )}
             <div className="App">
@@ -61,7 +61,7 @@ function GlobalSearch(props) {
 
                     {(check || !props.desktop) && (
                         <React.Fragment>
-                            <div class="select-search-type">
+                            <div className="select-search-type">
                                 <fieldset>
                                     <legend className="sr-only">{formData.labels.select_type}</legend>
                                     {formData.options.map(data => {
@@ -93,12 +93,11 @@ function GlobalSearch(props) {
                         <legend className="sr-only">{formData.labels.search_query}</legend>
                         <input
                             type="search"
-                            name="search"
+                            name="_q"
                             ref={inputSearchRef}
                             placeholder={placeholder}
-                            name="_q"
                         />
-                        <label htmlFor="search">
+                        <label htmlFor="_q">
                             <span className="sr-only">{placeholder}</span>
                         </label>
                         {!props.desktop ? (<input type="submit" value={formData.labels.mobile_search_text}/>)
