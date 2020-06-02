@@ -41,7 +41,7 @@ function GlobalSearch(props) {
                     <input type="checkbox" id="showHideMobileCheckbox" className={"sr-only"}/>
                 </React.Fragment>
                 )}
-            <div className="App">
+            <div>
                 <form aria-label={formData.labels.component} action={formAction} role="search">
 
                     {props.desktop && (<fieldset>
