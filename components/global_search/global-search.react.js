@@ -16,6 +16,9 @@ function GlobalSearch(props) {
     // Provides us with a reference to the search input
     const inputSearchRef = useRef();
 
+    // Provides us with a reference to the mobile show/hide checkbox
+    const showHideCheckboxRef = useRef();
+
     // useFocus is a custom hook which manages 'focus' and 'blur'
     // on the given ref, which is the search input
     const inputFocused = useFocus(inputSearchRef);
@@ -31,14 +34,22 @@ function GlobalSearch(props) {
         inputFocused && setCheck(false);
     }, [inputFocused]);
 
+    const toggleShowHideMobileCheckbox = (event) => {
+        const enter = 13;
+        const spacebar = 32;
+        if(event.keyCode === spacebar || event.keyCode === enter) {
+            showHideCheckboxRef.current.click();
+        }
+    }
+
     return (
         <React.Fragment>
             {(!props.desktop) && (
                 <React.Fragment>
-                    <label id="showHideMobileLabel" htmlFor="showHideMobileCheckbox">
-                        <span className={"sr-only"}>{formData.labels.mobile_search_show_hide}</span>
+                    <label id="showHideMobileLabel" htmlFor="showHideMobileCheckbox" tabindex="0" onKeyDown={toggleShowHideMobileCheckbox}>
+                        <span className="sr-only">{formData.labels.mobile_search_show_hide}</span>
                     </label>
-                    <input type="checkbox" id="showHideMobileCheckbox" className={"sr-only"}/>
+                    <input type="checkbox" id="showHideMobileCheckbox" className="sr-only" ref={showHideCheckboxRef}/>
                 </React.Fragment>
                 )}
             <div>
