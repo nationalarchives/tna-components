@@ -10,7 +10,7 @@ $button-focus-hover-text: #000;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   float: right;
-
+  z-index: 9999;
   form {
     width: 100%;
   }
