@@ -1,0 +1,362 @@
+.homepage-search-ui {
+    #discovery-homepage-search-react-component {
+        h1 {
+            font-size: 1.3em;
+            margin-bottom: 1.5em;
+            color: #fff;
+
+            @media screen and (min-width: 1024px) {
+                text-align: center;
+            }
+        }
+
+        overflow: hidden;
+        background: rgba(0, 0, 0, 1);
+        width: 100%;
+        margin: 0 auto 40px;
+        box-sizing: border-box;
+        padding: 20px 40px;
+        max-width: 900px;
+
+        @media screen and (min-width: 1024px) {
+            background: rgba(0, 0, 0, 0.7);
+            width: 80%;
+            padding: 40px 70px;
+            border-radius: 15px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .grid-container {
+            display: block;
+        }
+
+        button {
+            color: #fff;
+            border-width: 0;
+            padding: 0.4em;
+            height: 30px;
+            background-color: #099;
+            font-size: 16px;
+            -webkit-appearance: button;
+            line-height: 19px;
+            cursor: pointer;
+            float: right;
+
+            &:hover {
+                color: #000;
+                text-decoration: underline;
+                background-color: #fce45c;
+            }
+
+            &:focus {
+                outline: 2px solid #fce45c;
+            }
+        }
+
+        .emphasis-block {
+            font-family: 'Open Sans', arial, sans-serif;
+            border-left: 4px solid #ebab2c;
+            display: block;
+            background: #fff8d0;
+            margin-bottom: 25px;
+            color: black;
+            margin: 1em 0;
+            padding: 1em 1em;
+            font-size: 1em;
+
+            ul {
+                padding: 0;
+                margin: 0;
+            }
+
+            span {
+                padding: 3px 0 3px 0;
+                display: block;
+            }
+
+            p {
+                font-weight: 500;
+                z-index: 2;
+                letter-spacing: -0.025em;
+                font-size: 1.3em;
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        .Headline {
+            font-family: 'Bitter', serif;
+            font-weight: 400;
+            color: white;
+
+            @media (max-width: 768px) {
+                font-size: 14px;
+            }
+        }
+
+        //'InputBetween InputAnd InputAcross InputAcross'
+        .MainSearch {
+            input {
+                height: 40px;
+                padding-right: 0.5em;
+                padding-left: 0.5em;
+                font-size: 16px;
+                font-family: 'Open Sans', sans-serif;
+                border: 2px solid #ccc;
+
+                &:focus {
+                    outline: 2px solid #fce45c;
+                }
+
+                @media (min-width: 300px) {
+                    width: 100%;
+                    display: block;
+                    margin: 0 0 1.5em 0;
+                }
+
+                @media (min-width: 488px) {
+                    display: inline-block;
+                    width: 88%;
+                }
+
+                @media (max-width: 640px) {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            label {
+                color: white;
+                font-size: 16px;
+                margin-bottom: 10px;
+                display: inline-block;
+                font-family: 'Open Sans', sans-serif;
+                padding: 0;
+
+                &:focus {
+                    outline: 2px solid #fce45c;
+                }
+
+                @media (min-width: 488px) {
+                    display: inline-block;
+                    width: 11.2%;
+                }
+
+                @media (max-width: 640px) {
+                    display: block;
+                }
+            }
+        }
+
+        .InputBetween {
+            display: inline-block;
+
+            input {
+                font-size: 16px;
+                padding: 0.5em;
+                height: auto;
+                display: inline-block;
+                border: 2px solid #ccc;
+
+                &:focus {
+                    outline: 2px solid #fce45c;
+                }
+
+                @media (min-width: 768px) {
+                    width: 52%;
+                }
+
+                @media (max-width: 767px) {
+                    width: 50%;
+                }
+
+                @media (max-width: 640px) {
+                    display: block;
+                    width: 56%;
+                }
+            }
+
+            label {
+                color: white;
+                font-size: 16px;
+                margin-bottom: 10px;
+                display: inline-block;
+                font-family: 'Open Sans', sans-serif;
+                padding: 0;
+
+                &:focus {
+                    outline: 2px solid #fce45c;
+                }
+
+                @media (min-width: 480px) {
+                    display: inline-block;
+                    width: 45%;
+                }
+
+                @media (max-width: 640px) {
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            @media (min-width: 300px) {
+                width: 49%;
+                display: inline-block;
+                margin-bottom: 1.5em;
+            }
+
+            @media (min-width: 480px) {
+                width: 25%;
+                display: inline-block;
+            }
+        }
+
+        .InputAnd {
+            @extend .InputBetween;
+
+            label {
+                text-align: center;
+                padding: 0;
+
+                @media (max-width: 640px) {
+                    text-align: left;
+                }
+            }
+
+            @media (min-width: 480px) {
+                width: 25%;
+                display: inline-block;
+                margin-bottom: 1.5em;
+            }
+
+            @media (min-width: 480px) {
+                width: 25%;
+                display: inline-block;
+                margin-bottom: 1.5em;
+            }
+        }
+
+        .InputAcross {
+            select {
+                height: 40px;
+                font-size: 16px;
+
+                &:focus {
+                    outline: 2px solid #fce45c;
+                }
+
+                @media (min-width: 300px) {
+                    width: 100%;
+                    display: block;
+                }
+
+                @media (min-width: 480px) {
+                    display: inline-block;
+                    width: 73%;
+                }
+
+                @media (max-width: 640px) {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 1.5em;
+                }
+            }
+
+            label {
+                color: white;
+                font-size: 16px;
+                margin-bottom: 10px;
+                display: inline-block;
+                text-align: center;
+                font-family: 'Open Sans', sans-serif;
+                padding: 0;
+
+                &:focus {
+                    outline: 2px solid #fce45c;
+                }
+
+                @media (min-width: 300px) {
+                    display: block;
+                }
+
+                @media (min-width: 480px) {
+                    display: inline-block;
+                    width: 25%;
+                }
+
+                @media (max-width: 640px) {
+                    text-align: left;
+                    display: block;
+                    width: 100%;
+                }
+            }
+
+            @media (min-width: 881px) {
+                width: 48.7%;
+                display: inline-block;
+            }
+
+            @media (min-width: 640px) and (max-width: 880px) {
+                width: 48.5%;
+                display: inline-block;
+            }
+
+            @media (min-width: 580px) and (max-width: 640px) {
+                width: 48%;
+                display: inline-block;
+            }
+
+            @media (min-width: 480px) and (max-width: 579px) {
+                width: 47%;
+                display: inline-block;
+            }
+        }
+
+        .Search {
+            @media (min-width: 300px) {
+                float: right;
+                width: 50%;
+                display: inline-block;
+                padding-right: 5px;
+            }
+        }
+
+        .MoreOptions {
+            font-family: 'Open Sans', sans-serif;
+            text-align: left;
+            color: white;
+            font-size: 0.8em;
+
+            a {
+                color: #fce45c;
+                display: inline-block;
+                text-decoration: none;
+
+                &:visited,
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                &:focus {
+                    outline: 2px solid #fce45c;
+                }
+            }
+
+            @media (min-width: 500px) {
+                width: 49%;
+            }
+
+            @media (min-width: 300px) {
+                width: 48%;
+                display: inline-block;
+            }
+        }
+
+        .form-warning {
+            border: 2px solid #ebab2c !important;
+        }
+    }
+}

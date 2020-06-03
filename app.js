@@ -1,7 +1,7 @@
 /**
  * ------------  THE NATIONAL ARCHIVES  -----------------
  * Express application for the React Components
- * Developer: Mihai Diaconita
+ * Developers: Mihai Diaconita, Punal Chotrani
  **/
 
 const express = require('express'),
@@ -11,11 +11,12 @@ const express = require('express'),
   chalk = require('chalk'),
   morgan = require('morgan'),
   debug = require('debug')('app'),
-  feedbackRouter = require('./src/routes/feedbackRoutes'),
+  guidanceFeedbackRouter = require('./src/routes/guidanceFeedbackRoutes'),
   homeRouter = require('./src/routes/homeRoutes'),
   recommendedLinksDiscovery = require('./src/routes/recommendedRoutes'),
   detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
-  wtegViewRoutes = require('./src/routes/wtegViewRoutes');
+  whatToExpectGuideRoutes = require('./src/routes/whatToExpectGuideRoutes');
+  globalSearchRoutes = require('./src/routes/globalSearchRoutes');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -33,13 +34,15 @@ app.set('view engine', 'ejs');
 // Routes
 app.use('/', homeRouter);
 // Guidance Feedback
-app.use('/help-with-your-research/research-guides', feedbackRouter);
+app.use('/help-with-your-research/research-guides', guidanceFeedbackRouter);
 // Recommended Links Discovery
 app.use('/results', recommendedLinksDiscovery);
 // Details Feedback Widget
 app.use('/details/r', detailsFeedbackRoutes);
 //WTEG Feedback Widget
-app.use('/what-to-expect-guide', wtegViewRoutes);
+app.use('/what-to-expect-guide', whatToExpectGuideRoutes);
+//Global Search
+app.use('/global-search', globalSearchRoutes);
 
 // Set the port of the application and log the info
 app.listen(port, () =>

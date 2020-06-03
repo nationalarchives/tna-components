@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePageSearchDiscovery component DOM snapshot test 1`] = `
+<div
+  id="discovery-homepage-search-react-component"
+>
+  <h1>
+    Explore The National Archives and more than 2,500 other archives
+  </h1>
+  <form
+    action="/results/r"
+    id="discoveryHomePageSearch"
+    method="get"
+    name="discoveryHomePageSearch"
+    onSubmit={[Function]}
+  >
+    <div
+      className="grid-container"
+      role="search"
+    >
+      <div
+        className="Headline"
+      />
+      <div
+        className="MainSearch"
+      >
+        <label>
+          Search for
+        </label>
+        <input
+          className={null}
+          id="search-all-collections"
+          name="_q"
+          onChange={[Function]}
+          onKeyUp={[Function]}
+          placeholder="Enter keyword(s)"
+          type="text"
+        />
+      </div>
+      <div
+        className="InputBetween"
+      >
+        <label>
+          Between
+        </label>
+        <input
+          className={null}
+          id="start-date"
+          name="_ed"
+          onChange={[Function]}
+          onKeyUp={[Function]}
+          placeholder="yyyy"
+          type="text"
+        />
+      </div>
+      <div
+        className="InputAnd"
+      >
+        <label>
+          and
+        </label>
+        <input
+          className={null}
+          id="end-date"
+          name="_sd"
+          onChange={[Function]}
+          onKeyUp={[Function]}
+          placeholder="yyyy"
+          type="text"
+        />
+      </div>
+      <div
+        className="InputAcross"
+      >
+        <label>
+          Held by
+        </label>
+        <select
+          id="held-by"
+          name="_hb"
+          onChange={[Function]}
+          value="all"
+        >
+          <option
+            value=""
+          >
+            All archives
+          </option>
+          <option
+            value="tna"
+          >
+            The National Archives only
+          </option>
+          <option
+            value="oth"
+          >
+            Other archives only
+          </option>
+        </select>
+      </div>
+      <div
+        className="MoreOptions"
+      >
+        <a
+          href="https://discovery.nationalarchives.gov.uk/advanced-search"
+        >
+          Advanced search
+        </a>
+         or
+         
+        <a
+          href="https://discovery.nationalarchives.gov.uk/browse"
+        >
+          browse
+        </a>
+      </div>
+      <div
+        className="Search"
+      >
+        <input
+          name="_dhs"
+          type="hidden"
+        />
+        <button
+          type="submit"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+`;

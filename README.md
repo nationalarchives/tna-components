@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://www.nationalarchives.gov.uk">
-    <img style="display:inline-block;" alt="The National Archives"  src="src/img/tna-sq-logo.jpg" width="90" />
+    <img style="display:inline-block;" alt="The National Archives"  src="https://user-images.githubusercontent.com/5245264/63532708-28b47680-c503-11e9-92fa-b2a87ce8ba56.png" width="90" />
   </a>
   <img style="display:inline-block" alt="React"
   src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1000px-React-icon.svg.png"
@@ -123,7 +123,7 @@ In this way we are able to develop and maintain components centrally while allow
 *  !! Important: Rember to revert back to `"test": "jest"` before pushing anything to the repository or otherwise will cause a loop into Travis CI and fail the build
 
 **Cypress E2E testing**
-* `./node_modules/.bin/cypress open`
+* `./node_modules/.bin/cypress open` or `npx cypress open`
 
 ### Steps to create a new component
 
@@ -146,4 +146,12 @@ Here are the individual steps:
 
 #### Core technologies
 
-This repository uses a number of technologies, including: [React](https://reactjs.org), [Jest](https://jestjs.io), [Babel](https://babeljs.io), [Webpack](https://webpack.js.org),[Travis CI](https://travis-ci.org/), [Express JS](https://expressjs.com/), and [Cypress.io](https://cypress.io)
+This repository uses a number of technologies, including: 
+* [React](https://reactjs.org)
+* [Jest](https://jestjs.io)
+* [Babel](https://babeljs.io) 
+* [Webpack](https://webpack.js.org)
+* [Travis CI](https://travis-ci.org/) 
+* [Express JS](https://expressjs.com/)
+* [Cypress.io](https://cypress.io)
+
