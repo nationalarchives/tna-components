@@ -38,6 +38,7 @@ function GlobalSearch(props) {
         const enter = 13;
         const spacebar = 32;
         if(event.keyCode === spacebar || event.keyCode === enter) {
+            event.preventDefault();
             showHideCheckboxRef.current.click();
         }
     }
