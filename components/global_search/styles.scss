@@ -145,8 +145,10 @@ $button-focus-hover-text: #000;
 
 #global-search-mobile-component {
 
-  padding-top: 14px;
-
+  @media screen and (max-width: 767px) {
+    padding-top: 14px;
+  }
+  
   fieldset {
     background: none;
     border: none;
