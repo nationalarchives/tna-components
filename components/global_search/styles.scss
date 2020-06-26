@@ -214,9 +214,8 @@ $button-focus-hover-text: #000;
   }
 
   #showHideMobileLabel {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    float: right;
+    margin-top: -50px;
     width: 40px;
     height: 40px;
     background-image: url("svgs/search.svg");
@@ -270,7 +269,7 @@ padding-bottom: 0;
 margin-bottom: 0;
 }
 
-#global-search-mobile-component.gs-tna #showHideMobileLabel,
-#global-search-mobile-component.gs-discovery #showHideMobileLabel  {
-  top: 0px;
+#global-search-mobile-component.gs-discovery #showHideMobileLabel,
+#global-search-mobile-component.gs-tna #showHideMobileLabel  {
+  margin-top: -60px;
 }
