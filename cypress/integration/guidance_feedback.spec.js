@@ -14,7 +14,7 @@ describe('Guidance feedback ', () => {
 			'have.text',
 			'Feedback'
 		);
-		cy.get('#guidance-feedback-react form#guidance_feedback h3#aria').should(
+		cy.get('#guidance-feedback-react form#guidance_feedback legend#aria').should(
 			'have.text',
 			'Did you find the guidance you needed?'
 		);
