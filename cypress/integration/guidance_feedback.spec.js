@@ -14,7 +14,7 @@ describe('Guidance feedback ', () => {
 			'have.text',
 			'Feedback'
 		);
-		cy.get('#guidance-feedback-react form#guidance_feedback h3#aria').should(
+		cy.get('#guidance-feedback-react form#guidance_feedback legend#aria').should(
 			'have.text',
 			'Did you find the guidance you needed?'
 		);
@@ -44,7 +44,7 @@ describe('Guidance feedback ', () => {
 			.should('be.visible')
 			.type('Cypress end-to-end testing', { delay: 100 });
 		cy.get('.btnGF--send').click();
-		cy.get('#guidance-feedback-react form#guidance_feedback h3#aria').should(
+		cy.get('#guidance-feedback-react form#guidance_feedback legend#aria').should(
 			'have.text',
 			'Thank you for your feedback.'
 		);
