@@ -252,7 +252,7 @@ $button-focus-hover-text: #000;
 }
 
 #global-search-mobile-component {
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     form, #showHideMobileLabel, #showHideMobileCheckbox {
       display: none;
     }
