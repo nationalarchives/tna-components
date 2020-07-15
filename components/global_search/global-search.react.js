@@ -106,15 +106,14 @@ function GlobalSearch(props) {
                         <input
                             type="search"
                             name="_q"
+                            id={'gs-search-box-' +  environment}
                             ref={inputSearchRef}
                             placeholder={placeholder}
                         />
-                        <label htmlFor="_q">
+                        <label htmlFor={'gs-search-box-' +  environment}>
                             <span className="sr-only">{placeholder}</span>
                         </label>
-                        {!props.desktop ? (<input type="submit" value={formData.labels.mobile_search_text}/>)
-                        : (<input type="submit" />)}
-
+                        <input type="submit" value={formData.labels.submit_search_text}/>
                     </fieldset>
                 </form>
             </div>

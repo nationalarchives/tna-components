@@ -1,5 +1,6 @@
 describe('Guidance feedback ', () => {
 	beforeEach(() => {
+		Cypress.config('pageLoadTimeout', 60000);
 		cy.visit(
 			Cypress.env('live') +
 				'/help-with-your-research/research-guides/political-history-16th-17th-centuries/'
