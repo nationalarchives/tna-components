@@ -2,11 +2,13 @@ const path = require('path');
 
 const discovery_version = `1.2.7`;
 const website_version = `1.1.7`;
+const book_a_reading_room_visit_version = `0.0.1`;
 
 module.exports = {
 	entry: {
 		[`discovery-${discovery_version}`]: './src/discovery.js',
-		[`website-${website_version}`]: './src/website.js'
+		[`website-${website_version}`]: './src/website.js',
+		[`book-a-reading-room-visit-${book_a_reading_room_visit_version}`]: './src/book-a-reading-room-visit.js'
 	},
 	mode: 'production',
 	output: {
