@@ -5,9 +5,9 @@ import "./style.scss";
 function EnterYourDetailsTimer(props) {
 
     // The initial state is the number of seconds in 20 minutes (1200)
-    const [seconds, setSeconds] = useState(120);
+    const [seconds, setSeconds] = useState(1200);
 
-    const classes = `prompt-grey full-width ${seconds < 10 ? 'timer-low' : ''}`;
+    const classes = `prompt-grey full-width warning-panel ${seconds < 10 ? 'timer-low' : ''}`;
 
     useEffect(() => {
         const interval = setInterval(() => {

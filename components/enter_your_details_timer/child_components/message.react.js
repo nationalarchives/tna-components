@@ -7,13 +7,14 @@ const Message = (props) => {
     if (props.seconds >= 60) {
         return (
             <>
-                <h2>Enter your details
-                    within <span>{ Math.floor(props.seconds / 60) } minute{ Math.floor(props.seconds / 60) > 1 ? 's' : ''}</span>
-                </h2>
-                <p>If you do not complete the form by this time we will cancel your seat and you will need to start
+                <h3>Enter your details
+                    within
+                </h3>
+                <span id="timer">{ Math.floor(props.seconds / 60) } minute{ Math.floor(props.seconds / 60) > 1 ? 's' : ''}</span>
+                <small>If you do not complete the form by this time we will cancel your seat and you will need to start
                     the process
                     again.
-                </p>
+                </small>
             </>
         )
     }
@@ -21,11 +22,12 @@ const Message = (props) => {
     if (props.seconds <= 59 && props.seconds > 0) {
         return (
             <>
-                <h2>Enter your details within <span>{props.seconds} second{props.seconds > 1 ? 's' : ''}</span></h2>
-                <p>If you do not complete the form by this time we will cancel your seat and you will need to start
+                <h3>Enter your details within</h3>
+                <span id="timer">{props.seconds} second{props.seconds > 1 ? 's' : ''}</span>
+                <small>If you do not complete the form by this time we will cancel your seat and you will need to start
                     the process
                     again.
-                </p>
+                </small>
             </>
         )
     }
@@ -33,9 +35,9 @@ const Message = (props) => {
     if (props.seconds === 0) {
         return (
             <>
-                <h2>Time limit exceeded</h2>
-                <p>The time limit to enter your details has been exceeded. Return to the availability page to
-                    select another date.</p>
+                <h3>Time limit exceeded</h3>
+                <small>The time limit to enter your details has been exceeded. Return to the availability page to
+                    select another date.</small>
             </>
         )
     }
