@@ -4,28 +4,29 @@ import "./style.scss";
 
 function EnterYourDetailsTimer(props) {
 
-    const [minutes, setMinutes] = useState(20);
+    // The initial state is the number of seconds in 20 minutes (1200)
+    const [seconds, setSeconds] = useState(120);
 
-    const classes = `prompt-grey full-width ${minutes < 10 ? 'timer-low' : ''}`;
+    const classes = `prompt-grey full-width ${seconds < 10 ? 'timer-low' : ''}`;
 
     useEffect(() => {
         const interval = setInterval(() => {
 
-            setMinutes(minutes => {
-                if (minutes > 0) {
-                    return minutes - 1
+            setSeconds(seconds => {
+                if (seconds > 0) {
+                    return seconds - 1
                 }
                 clearInterval(interval);
-                return minutes;
+                return seconds;
             });
-        }, 60000);
+        }, 1000);
         return () => clearInterval(interval);
     }, []);
 
     return (
         <>
             <div className={classes} aria-live="polite" id="enter-your-details-timer">
-                <Message minutes={minutes}/>
+                <Message seconds={seconds}/>
             </div>
         </>
     );
