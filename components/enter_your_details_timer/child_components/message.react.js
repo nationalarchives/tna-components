@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Message = (props) => {
-
-    const minutes = useState(Math.floor(props.seconds / 60));
 
     if (props.seconds >= 60) {
         return (
