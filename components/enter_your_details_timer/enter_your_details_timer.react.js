@@ -7,14 +7,12 @@ function EnterYourDetailsTimer(props) {
     // The initial state is the number of seconds in 20 minutes (1200)
     const [seconds, setSeconds] = useState(1200);
 
-    const classes = `prompt-grey full-width warning-panel ${seconds < 10 ? 'timer-low' : ''}`;
-
     useEffect(() => {
         const interval = setInterval(() => {
 
             setSeconds(seconds => {
                 if (seconds > 0) {
-                    return seconds - 1
+                    return seconds - 1;
                 }
                 clearInterval(interval);
                 return seconds;
@@ -25,7 +23,7 @@ function EnterYourDetailsTimer(props) {
 
     return (
         <>
-            <div className={classes} aria-live="polite" id="enter-your-details-timer">
+            <div aria-live="polite" id="enter-your-details-timer">
                 <Message seconds={seconds}/>
             </div>
         </>
