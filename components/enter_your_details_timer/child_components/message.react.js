@@ -33,9 +33,8 @@ const Message = (props) => {
     if (props.seconds === 0) {
         return (
             <>
-                <h3>Time limit exceeded</h3>
-                <small>The time limit to enter your details has been exceeded. Return to the availability page to
-                    select another date.</small>
+                <h3>The time limit to complete this page has expired</h3>
+                <small>Select another date.</small>
             </>
         )
     }
