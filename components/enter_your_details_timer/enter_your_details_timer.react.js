@@ -4,8 +4,7 @@ import "./style.scss";
 
 function EnterYourDetailsTimer(props) {
 
-    // The initial state is the number of seconds in 20 minutes (1200)
-    const [seconds, setSeconds] = useState(1200);
+    const [seconds, setSeconds] = useState(props.seconds_remaining);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -23,8 +22,8 @@ function EnterYourDetailsTimer(props) {
 
     return (
         <>
-            <div aria-live="polite" id="enter-your-details-timer">
-                <Message seconds={seconds}/>
+            <div role="timer" aria-live="polite" id="enter-your-details-timer">
+                <Message seconds_remaining={seconds}/>
             </div>
         </>
     );

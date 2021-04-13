@@ -1,40 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Message = (props) => {
 
-    if (props.seconds >= 60) {
+    const [minutes, setMinutes] = useState(Math.ceil(props.seconds_remaining / 60));
+
+    if (props.seconds_remaining >= 60) {
         return (
             <>
                 <h3>Enter your details
                     within
                 </h3>
-                <span id="timer">{ Math.floor(props.seconds / 60) } minute{ Math.floor(props.seconds / 60) > 1 ? 's' : ''}</span>
-                <small>If you do not complete the form by this time we will cancel your seat and you will need to start
+                <span id="timer">{ Math.ceil(props.seconds_remaining / 60) } minute{ Math.ceil(props.seconds_remaining / 60) > 1 ? 's' : ''}</span>
+                <p>If you do not complete the form by this time we will cancel your seat and you will need to start
                     the process
                     again.
-                </small>
+                </p>
             </>
         )
     }
 
-    if (props.seconds <= 59 && props.seconds > 0) {
+    if (props.seconds_remaining <= 59 && props.seconds_remaining > 0) {
         return (
             <>
                 <h3>Enter your details within</h3>
-                <span id="timer">{props.seconds} second{props.seconds > 1 ? 's' : ''}</span>
-                <small>If you do not complete the form by this time we will cancel your seat and you will need to start
+                <span id="timer">{props.seconds_remaining} second{props.seconds_remaining > 1 ? 's' : ''}</span>
+                <p>If you do not complete the form by this time we will cancel your seat and you will need to start
                     the process
                     again.
-                </small>
+                </p>
             </>
         )
     }
 
-    if (props.seconds === 0) {
+    if (props.seconds_remaining === 0) {
         return (
             <>
-                <h3>The time limit to complete this page has expired</h3>
-                <small>Select another date.</small>
+                <h3>Your booking has timed out</h3>
+                <p>Choose a date of visit again.</p>
             </>
         )
     }
