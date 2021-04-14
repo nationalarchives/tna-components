@@ -11,7 +11,7 @@ const Message = (props) => {
                     within
                 </h3>
                 <span id="timer">{ Math.ceil(props.seconds_remaining / 60) } minute{ Math.ceil(props.seconds_remaining / 60) > 1 ? 's' : ''}</span>
-                <p>If you do not complete the form by this time we will cancel your seat and you will need to start
+                <p>If you do not complete the form in this time we will cancel your seat and you will need to start
                     the process
                     again.
                 </p>
@@ -24,7 +24,7 @@ const Message = (props) => {
             <>
                 <h3>Enter your details within</h3>
                 <span id="timer">{props.seconds_remaining} second{props.seconds_remaining > 1 ? 's' : ''}</span>
-                <p>If you do not complete the form by this time we will cancel your seat and you will need to start
+                <p>If you do not complete the form in this time we will cancel your seat and you will need to start
                     the process
                     again.
                 </p>
