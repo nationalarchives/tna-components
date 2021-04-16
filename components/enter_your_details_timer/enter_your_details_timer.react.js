@@ -22,7 +22,7 @@ function EnterYourDetailsTimer(props) {
 
     return (
         <>
-            <div role="timer" aria-live="polite" id="enter-your-details-timer">
+            <div role="timer" aria-live="polite" id="enter-your-details-timer" aria-atomic="true">
                 <Message seconds_remaining={seconds}/>
             </div>
         </>
