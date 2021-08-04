@@ -17,6 +17,7 @@ const express = require('express'),
   detailsFeedbackRoutes = require('./src/routes/detailsFeedbackRoutes'),
   whatToExpectGuideRoutes = require('./src/routes/whatToExpectGuideRoutes');
   globalSearchRoutes = require('./src/routes/globalSearchRoutes');
+  enterYourDetailsTimer = require('./src/routes/enterYourDetailsTimer');
 
 // Set a templating engine for the app views
 app.engine('ejs', require('ejs').__express);
@@ -43,6 +44,8 @@ app.use('/details/r', detailsFeedbackRoutes);
 app.use('/what-to-expect-guide', whatToExpectGuideRoutes);
 //Global Search
 app.use('/global-search', globalSearchRoutes);
+// Enter your details timer
+app.use('/enter-your-details-timer', enterYourDetailsTimer);
 
 // Set the port of the application and log the info
 app.listen(port, () =>
