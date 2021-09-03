@@ -45,18 +45,13 @@ function GlobalSearch(props) {
     }
 
     const toggleMobileSearch = (event) => {
-        console.log("Hello world");
         mobileFormRef.current.classList.toggle("mobileHidden");
 
         let currentAriaExpandedValue = showHideMobileFormButtonRef.current.getAttribute("aria-expanded");
 
         let opposingAriaExpandedValue = currentAriaExpandedValue === "false";
 
-        console.log(currentAriaExpandedValue);
-        console.log(opposingAriaExpandedValue);
-
         showHideMobileFormButtonRef.current.setAttribute("aria-expanded", opposingAriaExpandedValue);
-
     }
 
     return (
