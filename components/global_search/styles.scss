@@ -119,6 +119,10 @@ $button-focus-hover-text: #000;
     top: 2.5em;
     left: 2.5em;
     background-color: #333;
+
+    fieldset {
+      display: block;
+    }
   }
 
   .sr-only {
@@ -147,6 +151,11 @@ $button-focus-hover-text: #000;
 
 #global-search-mobile-component {
 
+  .mobileHidden {
+    display: none;
+  }
+
+
   @media screen and (max-width: 767px) {
     padding-top: 14px;
   }
@@ -154,6 +163,11 @@ $button-focus-hover-text: #000;
   fieldset {
     background: none;
     border: none;
+
+    label {
+      margin-left: 0.3em;
+      margin-right: 0.4em;
+    }
   }
 
   label {
@@ -197,6 +211,13 @@ $button-focus-hover-text: #000;
 
   }
 
+  .select-search-type {
+    fieldset {
+      div {
+        margin-top: 0.3em;
+      }
+    }
+  }
 
   input[type="submit"] {
     text-align: center;
@@ -208,6 +229,7 @@ $button-focus-hover-text: #000;
     border: 1px solid white;
     background-color: #fff;
     color: #26262a;
+    font-family: "Open Sans", sans-serif;
     &:hover, &:focus {
       background-color: #26262a;
       color: #fff;
@@ -215,7 +237,7 @@ $button-focus-hover-text: #000;
     }
   }
 
-  #showHideMobileLabel {
+  #toggleMobileSearchButton {
     float: right;
     margin-top: -50px;
     width: 40px;
@@ -223,26 +245,18 @@ $button-focus-hover-text: #000;
     background-image: url("svgs/search.svg");
     background-repeat: no-repeat;
     background-position: center;
+    background-color: #26262a;
     color: #fff;
     border: 0;
     background-size: 60%;
     cursor: pointer;
 
-  }
-
-  #showHideMobileCheckbox {
-
-    + div {
-      display: none;
+    &[aria-expanded=true] {
+      background-color: #555;
+      color: #fff;
     }
 
-    &:checked {
-      + div {
-        display: block;
-      }
-    }
   }
-
 }
 
 #global-search-desktop-component {
@@ -255,7 +269,7 @@ $button-focus-hover-text: #000;
 
 #global-search-mobile-component {
   @media screen and (min-width: 768px) {
-    form, #showHideMobileLabel, #showHideMobileCheckbox {
+    form, #showHideMobileLabel, #showHideMobileCheckbox, #toggleMobileSearchButton {
       display: none;
     }
   }
