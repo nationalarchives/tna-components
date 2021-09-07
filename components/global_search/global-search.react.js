@@ -16,8 +16,9 @@ function GlobalSearch(props) {
     // Provides us with a reference to the search input
     const inputSearchRef = useRef();
 
-    // Provides us with a reference to the mobile show/hide checkbox
-    const showHideCheckboxRef = useRef();
+    // Provides us with references to show/hide the mobile search form
+    const mobileFormRef = useRef();
+    const showHideMobileFormButtonRef = useRef();
 
     // useFocus is a custom hook which manages 'focus' and 'blur'
     // on the given ref, which is the search input
@@ -43,18 +44,26 @@ function GlobalSearch(props) {
         }
     }
 
+    const toggleMobileSearch = (event) => {
+        mobileFormRef.current.classList.toggle("mobileHidden");
+
+        let currentAriaExpandedValue = showHideMobileFormButtonRef.current.getAttribute("aria-expanded");
+
+        let opposingAriaExpandedValue = currentAriaExpandedValue === "false";
+
+        showHideMobileFormButtonRef.current.setAttribute("aria-expanded", opposingAriaExpandedValue);
+    }
+
     return (
         <React.Fragment>
             {(!props.desktop) && (
                 <React.Fragment>
-                    <label id="showHideMobileLabel" htmlFor="showHideMobileCheckbox" tabindex="0" onKeyDown={toggleShowHideMobileCheckbox}>
-                        <span className="sr-only">{formData.labels.mobile_search_show_hide}</span>
-                    </label>
-                    <input type="checkbox" id="showHideMobileCheckbox" className="sr-only" ref={showHideCheckboxRef}/>
+                    <button onClick={toggleMobileSearch} id="toggleMobileSearchButton" aria-expanded={false} ref={showHideMobileFormButtonRef} aria-controls="globalSearchMobileForm">
+                        <span class='sr-only'>Show or hide search form</span>
+                    </button>
                 </React.Fragment>
                 )}
-            <div>
-                <form aria-label={formData.labels.component} action={formAction} role="search">
+                <form aria-label={formData.labels.component} action={formAction} role="search" className={!props.desktop ? "mobileHidden" : null} ref={!props.desktop ? mobileFormRef : null} id={!props.desktop ? "globalSearchMobileForm" : null}>
 
                     {props.desktop && (<fieldset>
                         <legend className="sr-only">{formData.labels.search_selector}</legend>
@@ -79,6 +88,7 @@ function GlobalSearch(props) {
                                     {formData.options.map(data => {
                                         return (
                                             <React.Fragment key={data.id  + "-" + props.desktop}>
+                                                <div>
                                                 <input
                                                     type="radio"
                                                     name="search_options"
@@ -93,6 +103,7 @@ function GlobalSearch(props) {
                                                     className={props.desktop && "sr-only"}
                                                 />
                                                 <label htmlFor={data.id  + "-" + environment}>{data.label}</label>
+                                                </div>
                                             </React.Fragment>
                                         );
                                     })}
@@ -116,7 +127,6 @@ function GlobalSearch(props) {
                         <input type="submit" value={formData.labels.submit_search_text}/>
                     </fieldset>
                 </form>
-            </div>
         </React.Fragment>
 
     );

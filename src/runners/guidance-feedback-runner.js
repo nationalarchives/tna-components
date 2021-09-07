@@ -4,7 +4,6 @@ import GuidanceFeedback from '../../components/guidance_feedback/guidance-feedba
 
 // Guidance Feedback
 // Define the block scope
-console.log('Hello there!');
 {
   const path = window.location.href,
     wrapper = document.querySelector(

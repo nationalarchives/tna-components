@@ -1,4 +1,5 @@
-$outline-colour: #1d70b8;
+$dark-outline: 5px solid #1d70b8;
+$light-outline: 5px solid #8EC0EC;
 $button-bg: #26262a;
 $button-focus-hover-bg: #fce45c;
 $button-focus-hover-text: #000;
@@ -50,7 +51,7 @@ $button-focus-hover-text: #000;
     }
 
     &:focus + label {
-      outline: $outline-colour solid 5px;
+      outline: $light-outline;
       position: relative;
       z-index: 1;
     }
@@ -75,7 +76,7 @@ $button-focus-hover-text: #000;
     }
 
     &:focus + label {
-      outline: $outline-colour solid 5px;
+      outline: $dark-outline;
       position: relative;
     }
 
@@ -93,6 +94,10 @@ $button-focus-hover-text: #000;
     color: #000;
     border: 0;
     vertical-align: top;
+
+    &:focus {
+      outline: $light-outline;
+    }
   }
 
   input[type="submit"] {
@@ -111,6 +116,10 @@ $button-focus-hover-text: #000;
       background-color: #555;
       background-size: 60%;
     }
+
+    &:focus {
+      outline: $light-outline;
+    }
   }
 
   .select-search-type {
@@ -119,6 +128,10 @@ $button-focus-hover-text: #000;
     top: 2.5em;
     left: 2.5em;
     background-color: #333;
+
+    fieldset {
+      display: block;
+    }
   }
 
   .sr-only {
@@ -147,6 +160,11 @@ $button-focus-hover-text: #000;
 
 #global-search-mobile-component {
 
+  .mobileHidden {
+    display: none;
+  }
+
+
   @media screen and (max-width: 767px) {
     padding-top: 14px;
   }
@@ -154,6 +172,11 @@ $button-focus-hover-text: #000;
   fieldset {
     background: none;
     border: none;
+
+    label {
+      margin-left: 0.3em;
+      margin-right: 0.4em;
+    }
   }
 
   label {
@@ -191,12 +214,19 @@ $button-focus-hover-text: #000;
     &:focus + label {
       background: #fff;
       color: #000;
-      outline: $outline-colour solid 5px;
+      outline: $light-outline;
       position: relative;
     }
 
   }
 
+  .select-search-type {
+    fieldset {
+      div {
+        margin-top: 0.3em;
+      }
+    }
+  }
 
   input[type="submit"] {
     text-align: center;
@@ -208,6 +238,7 @@ $button-focus-hover-text: #000;
     border: 1px solid white;
     background-color: #fff;
     color: #26262a;
+    font-family: "Open Sans", sans-serif;
     &:hover, &:focus {
       background-color: #26262a;
       color: #fff;
@@ -215,7 +246,11 @@ $button-focus-hover-text: #000;
     }
   }
 
-  #showHideMobileLabel {
+  input[type="radio"]:focus, input[type="search"]:focus, input[type="submit"]:focus {
+    outline: $light-outline;
+  }
+
+  #toggleMobileSearchButton {
     float: right;
     margin-top: -50px;
     width: 40px;
@@ -223,26 +258,22 @@ $button-focus-hover-text: #000;
     background-image: url("svgs/search.svg");
     background-repeat: no-repeat;
     background-position: center;
+    background-color: #26262a;
     color: #fff;
     border: 0;
     background-size: 60%;
     cursor: pointer;
 
-  }
-
-  #showHideMobileCheckbox {
-
-    + div {
-      display: none;
+    &[aria-expanded=true] {
+      background-color: #555;
+      color: #fff;
     }
 
-    &:checked {
-      + div {
-        display: block;
-      }
+    &:focus {
+      outline: $light-outline;
     }
-  }
 
+  }
 }
 
 #global-search-desktop-component {
@@ -255,7 +286,7 @@ $button-focus-hover-text: #000;
 
 #global-search-mobile-component {
   @media screen and (min-width: 768px) {
-    form, #showHideMobileLabel, #showHideMobileCheckbox {
+    form, #showHideMobileLabel, #showHideMobileCheckbox, #toggleMobileSearchButton {
       display: none;
     }
   }
