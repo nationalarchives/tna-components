@@ -63,7 +63,7 @@ function GlobalSearch(props) {
                     </button>
                 </React.Fragment>
                 )}
-                <form aria-label={formData.labels.component} action={formAction} role="search" className={!props.desktop ? "mobileHidden" : null} ref={!props.desktop ? mobileFormRef : null} id="globalSearchMobileForm">
+                <form aria-label={formData.labels.component} action={formAction} role="search" className={!props.desktop ? "mobileHidden" : null} ref={!props.desktop ? mobileFormRef : null} id={!props.desktop ? "globalSearchMobileForm" : null}>
 
                     {props.desktop && (<fieldset>
                         <legend className="sr-only">{formData.labels.search_selector}</legend>
