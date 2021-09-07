@@ -1,4 +1,5 @@
-$outline-colour: #1d70b8;
+$dark-outline: 5px solid #1d70b8;
+$light-outline: 5px solid #8EC0EC;
 $button-bg: #26262a;
 $button-focus-hover-bg: #fce45c;
 $button-focus-hover-text: #000;
@@ -50,7 +51,7 @@ $button-focus-hover-text: #000;
     }
 
     &:focus + label {
-      outline: $outline-colour solid 5px;
+      outline: $light-outline;
       position: relative;
       z-index: 1;
     }
@@ -75,7 +76,7 @@ $button-focus-hover-text: #000;
     }
 
     &:focus + label {
-      outline: $outline-colour solid 5px;
+      outline: $dark-outline;
       position: relative;
     }
 
@@ -93,6 +94,10 @@ $button-focus-hover-text: #000;
     color: #000;
     border: 0;
     vertical-align: top;
+
+    &:focus {
+      outline: $light-outline;
+    }
   }
 
   input[type="submit"] {
@@ -110,6 +115,10 @@ $button-focus-hover-text: #000;
     &:hover, &:focus {
       background-color: #555;
       background-size: 60%;
+    }
+
+    &:focus {
+      outline: $light-outline;
     }
   }
 
@@ -205,7 +214,7 @@ $button-focus-hover-text: #000;
     &:focus + label {
       background: #fff;
       color: #000;
-      outline: $outline-colour solid 5px;
+      outline: $light-outline;
       position: relative;
     }
 
@@ -237,6 +246,10 @@ $button-focus-hover-text: #000;
     }
   }
 
+  input[type="radio"]:focus, input[type="search"]:focus, input[type="submit"]:focus {
+    outline: $light-outline;
+  }
+
   #toggleMobileSearchButton {
     float: right;
     margin-top: -50px;
@@ -254,6 +267,10 @@ $button-focus-hover-text: #000;
     &[aria-expanded=true] {
       background-color: #555;
       color: #fff;
+    }
+
+    &:focus {
+      outline: $light-outline;
     }
 
   }
