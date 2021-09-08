@@ -16,7 +16,6 @@ homeRouter.route('/').get((req, res) => {
       wtegView: '/what-to-expect-guide',
       homePageSearchDiscovery: '/home-page-search-discovery',
       globalSearch: '/global-search',
-      enterYourDetailsTimer: '/enter-your-details-timer'
     }
   });
 });
