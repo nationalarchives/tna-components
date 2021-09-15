@@ -1,10 +1,10 @@
-$dark-outline: 5px solid #1d70b8;
-$light-outline: 5px solid #8EC0EC;
+$dark-outline: 5px solid #1d70b8 !important;
+$light-outline: 5px solid #8EC0EC !important;
 $button-bg: #26262a;
 $button-focus-hover-bg: #fce45c;
 $button-focus-hover-text: #000;
 
-#global-search-desktop-component {
+#global-search-desktop-component, #global-search-desktop-component-discovery {
 
   display: inline-block;
   position: relative;
@@ -158,7 +158,7 @@ $button-focus-hover-text: #000;
 
 }
 
-#global-search-mobile-component {
+#global-search-mobile-component, #global-search-mobile-component-discovery {
 
   .mobileHidden {
     display: none;
@@ -276,7 +276,16 @@ $button-focus-hover-text: #000;
   }
 }
 
-#global-search-desktop-component {
+#global-search-mobile-component-discovery {
+  @media screen and (max-width: 767px) {
+    padding-top: 7px;
+  }
+  @media screen and (max-width: 390px) {
+    padding-top: 14px;
+  }
+}
+
+#global-search-desktop-component, #global-search-desktop-component-discovery {
   @media screen and (max-width: 767px) {
     form {
       display: none;
@@ -284,7 +293,7 @@ $button-focus-hover-text: #000;
   }
 }
 
-#global-search-mobile-component {
+#global-search-mobile-component, #global-search-mobile-component-discovery {
   @media screen and (min-width: 768px) {
     form, #showHideMobileLabel, #showHideMobileCheckbox, #toggleMobileSearchButton {
       display: none;
@@ -293,16 +302,16 @@ $button-focus-hover-text: #000;
 }
 
 #global-search-mobile-component.gs-tna .select-search-type,
-#global-search-mobile-component.gs-discovery .select-search-type {
+#global-search-mobile-component-discovery .select-search-type {
 margin-bottom: 10px;
 }
 
-#global-search-mobile-component.gs-discovery fieldset {
+#global-search-mobile-component-discovery fieldset {
 padding-bottom: 0;
 margin-bottom: 0;
 }
 
-#global-search-mobile-component.gs-discovery #showHideMobileLabel,
+#global-search-mobile-component-discovery #showHideMobileLabel,
 #global-search-mobile-component.gs-tna #showHideMobileLabel  {
   margin-top: -60px;
 }

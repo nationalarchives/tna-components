@@ -5,12 +5,14 @@ import "./styles.scss";
 
 function GlobalSearch(props) {
     const environment = props.desktop ? "desktop" : "mobile";
+    const defaultFormDataIndex = props.defaultFormDataIndex || 0;
+
 
     // These destructuring assignments will result in a constant name and setter
-    const [formAction, setFormAction] = useState(FormData.options[0].action);
+    const [formAction, setFormAction] = useState(FormData.options[defaultFormDataIndex].action);
     const [check, setCheck] = useState(false);
-    const [radio, setRadio] = useState(FormData.options[0].id + "-" + environment);
-    const [placeholder, setPlaceholder] = useState(FormData.options[0].label);
+    const [radio, setRadio] = useState(FormData.options[defaultFormDataIndex].id + "-" + environment);
+    const [placeholder, setPlaceholder] = useState(FormData.options[defaultFormDataIndex].label);
     const [formData, setFormData] = useState(FormData);
 
     // Provides us with a reference to the search input
