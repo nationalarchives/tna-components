@@ -8,4 +8,8 @@ globalSearch.route('/').get((req, res) => {
     res.render('global-search', {});
 });
 
+globalSearch.route('/discovery').get((req, res) => {
+    res.render('global-search-discovery', {});
+});
+
 module.exports = globalSearch;
