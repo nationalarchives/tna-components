@@ -14,8 +14,6 @@ function renderIfExists(id, desktop, defaultFormDataIndex) {
 			document.getElementById(id)
 		)
 	}
-
-
 }
 
 
