@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/nationalarchives/tna-components.svg?branch=feature%2Fclean_for_new_approach)](https://travis-ci.org/nationalarchives/tna-components)
-
 <p align="center">
   <a href="https://www.nationalarchives.gov.uk">
     <img style="display:inline-block;" alt="The National Archives"  src="https://user-images.githubusercontent.com/5245264/63532708-28b47680-c503-11e9-92fa-b2a87ce8ba56.png" width="90" />
@@ -120,7 +118,6 @@ In this way we are able to develop and maintain components centrally while allow
 *  Optional: Watch all the tests => `"test": "jest"` to `"test": "jest --watchAll"` inside package.json
 *  Optional: Watch all and check code coverage => `"test": "jest"` to `"test": "jest --watchAll --coverage"` inside package.json
 *  Optional: Check code coverage => `"test": "jest"` to `"test": "jest --coverage"` inside package.json
-*  !! Important: Rember to revert back to `"test": "jest"` before pushing anything to the repository or otherwise will cause a loop into Travis CI and fail the build
 
 **Cypress E2E testing**
 * `./node_modules/.bin/cypress open` or `npx cypress open`
@@ -151,7 +148,6 @@ This repository uses a number of technologies, including:
 * [Jest](https://jestjs.io)
 * [Babel](https://babeljs.io) 
 * [Webpack](https://webpack.js.org)
-* [Travis CI](https://travis-ci.org/) 
 * [Express JS](https://expressjs.com/)
 * [Cypress.io](https://cypress.io)
 
