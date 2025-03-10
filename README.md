@@ -11,6 +11,8 @@
 
 # The National Archives React components
 
+> ⚠️ Replaced with [TNA Frontend](https://github.com/nationalarchives/tna-frontend)
+
 Jump to: 
 
 * [Getting started: development machine configuration](#development-machine-configuration)
